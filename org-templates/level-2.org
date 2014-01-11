@@ -1,0 +1,5 @@
+#+OPTIONS:   author:nil email:nil timestamp:t toc:t
+#+OPTIONS:   LaTeX:dvipng
+#+STYLE: <link rel="stylesheet" type="text/css" href="../../css/stylesheet.css" />
+#+LINK_UP: ../index.html
+#+LINK_HOME: ../../index.html

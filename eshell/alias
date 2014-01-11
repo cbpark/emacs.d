@@ -1,0 +1,9 @@
+alias root root -l
+alias e find-file $1
+alias d dired $1
+alias la ls -a $*
+alias ll ls -lh $*
+alias l ls -CF $*
+alias cl clear
+alias r hitory
+alias q exit

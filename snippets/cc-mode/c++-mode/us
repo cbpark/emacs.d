@@ -1,0 +1,4 @@
+# name: using std:: ... 
+# key: us
+# --
+using std::${cout};

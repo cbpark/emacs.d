@@ -1,0 +1,54 @@
+# Compiled source #
+###################
+*.elc
+
+# Packages #
+############
+*.7z
+*.bz2
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Logs and databases #
+######################
+*.log
+*.sql
+*.sqlite
+*.cache
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+desktop.ini
+._*
+.localized
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Directories #
+###############
+auto-save-list/
+backup/
+elpa/
+request/
+url/
+
+# Auxiliary and tempary files #
+###############################
+*.el~
+ac-comphist.dat
+bookmarks
+.emacs.desktop
+.places
+tramp
+projectile-bookmarks.eld
+eshell/history
+eshell/lastdir
