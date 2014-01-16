@@ -8,8 +8,8 @@
 (setq recentf-max-menu-items 10)
 
 (setq recentf-exclude
-      '("\\.ido.last$" "^autoloads.el$" "^archive-contents$" "^bookmarks$"
-        "\\.html$" "\\.cache$" "^.*/elpa/.*$" "^.*/Maildir/.*$"))
+      '("\\.ido.last$" "^autoloads.el$" "^archive-contents$" "^.*/bookmarks$"
+        "^.*/cookies$" "\\.html$" "\\.cache$" "^.*/elpa/.*$" "^.*/Maildir/.*$"))
 
 (defun recentf-ido-find-file ()
   "Find a recent file using Ido."
