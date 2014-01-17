@@ -2,7 +2,8 @@
 ;;; Commentary:
 ;;; Code:
 (unless (eq window-system nil)
-  (set-face-font 'default "Menlo-14:weight=normal:slant=normal")
+  (setq initial-frame-alist '((font . "Inconsolata-g-14")))
+  (setq default-frame-alist '((font . "Inconsolata-g-14")))
   (set-fontset-font "fontset-default" '(#x1100 . #xffdc)
                     '("NanumGothicCoding" . "iso10646-1"))
   (set-fontset-font "fontset-default" '(#xe0bc . #xf66e)
