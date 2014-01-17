@@ -2,8 +2,8 @@
 ;;; Commentary:
 ;;; Code:
 (unless (eq window-system nil)
-  (setq initial-frame-alist '((font . "Inconsolata-g-14")))
-  (setq default-frame-alist '((font . "Inconsolata-g-14")))
+  (setq initial-frame-alist '((font . "Source Code Pro 12")))
+  (setq default-frame-alist '((font . "Source Code Pro 12")))
   (set-fontset-font "fontset-default" '(#x1100 . #xffdc)
                     '("NanumGothicCoding" . "iso10646-1"))
   (set-fontset-font "fontset-default" '(#xe0bc . #xf66e)
