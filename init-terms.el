@@ -5,16 +5,27 @@
 ;; Eshell
 
 ;; Read the shell environment
-(add-hook-fn eshell-mode-hook
-             (let ((shellpath (shell-command-to-string
-                               "/bin/zsh -l -c 'printenv PATH'")))
-               (let ((pathlst (split-string shellpath ":")))
-                 (setq exec-path pathlst))
-               (setq eshell-path-env shellpath)
-               (setenv "PATH" shellpath)))
+(add-hook 'eshell-mode-hook
+          (let ((shellpath (shell-command-to-string
+                            "/bin/zsh -l -c 'printenv PATH'")))
+            (let ((pathlst (split-string shellpath ":")))
+              (setq exec-path pathlst))
+            (setq eshell-path-env shellpath)
+            (setenv "PATH" shellpath)))
 
 ;; Turn off hl-line in eshell
 (add-hook-fn eshell-mode-hook (setq global-hl-line-mode nil))
+
+;; Change comint keys
+(require 'comint)
+(define-key comint-mode-map (kbd "M-p")
+  'comint-previous-matching-input-from-input)
+(define-key comint-mode-map (kbd "M-n")
+  'comint-next-matching-input-from-input)
+(define-key comint-mode-map (kbd "C-M-p")
+  'comint-previous-input)
+(define-key comint-mode-map (kbd "C-M-n")
+  'comint-next-input)
 
 (defun eshell/clear ()
   "Clear the screen."

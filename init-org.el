@@ -1,5 +1,5 @@
 ;;; init-org.el --- Customizing org mode
-;;; Commentary
+;;; Commentary:
 ;;; Code:
 
 (require 'org)

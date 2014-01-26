@@ -2,7 +2,6 @@
 ;;; Commentary:
 ;;; Code:
 
-
 (when (memq window-system '(mac ns))
   (require-package 'exec-path-from-shell)
   (exec-path-from-shell-copy-env "PYTHONPATH")
