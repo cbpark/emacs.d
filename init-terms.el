@@ -5,13 +5,13 @@
 ;; Eshell
 
 ;; Read the shell environment
-(add-hook 'eshell-mode-hook
-          (let ((shellpath (shell-command-to-string
-                            "/bin/zsh -l -c 'printenv PATH'")))
-            (let ((pathlst (split-string shellpath ":")))
-              (setq exec-path pathlst))
-            (setq eshell-path-env shellpath)
-            (setenv "PATH" shellpath)))
+(add-hook-fn eshell-mode-hook
+             (let ((shellpath (shell-command-to-string
+                               "/bin/zsh -l -c 'printenv PATH'")))
+               (let ((pathlst (split-string shellpath ":")))
+                 (setq exec-path pathlst))
+               (setq eshell-path-env shellpath)
+               (setenv "PATH" shellpath)))
 
 ;; Turn off hl-line in eshell
 (add-hook-fn eshell-mode-hook (setq global-hl-line-mode nil))
