@@ -11,7 +11,8 @@
 (add-hook 'scheme-mode-hook
           (lambda ()
              ;; (linum-mode 1)
-             (enable-paredit-mode)))
+             (enable-paredit-mode)
+             (flycheck-mode)))
 
 ;; Chicken Scheme with SLIME
 ;; (add-to-list 'load-path "/opt/local/lib/chicken/6/")

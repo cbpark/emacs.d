@@ -7,7 +7,8 @@
 (add-hook 'python-mode-hook (lambda () (linum-mode 1)))
 
 ;; Flycheck
-(add-hook 'python-mode-hook 'flycheck-mode)
+(add-hook 'python-mode-hook (lambda ()
+                              (flycheck-mode)))
 
 ;; ipython.el
 (require-package 'ipython)

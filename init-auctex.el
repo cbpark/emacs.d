@@ -34,12 +34,14 @@
 (setq reftex-plug-into-AUCTeX t)
 (setq reftex-extra-bindings t)
 
-;; spell-checking
-(add-hook 'LaTeX-mode-hook 'flyspell-mode)
-;; flycheck
-(add-hook 'LaTex-mode-hook 'flycheck-mode)
-;; linum-mode
-;; (add-hook 'LaTeX-mode-hook  (lambda () (linum-mode 1)))
+(add-hook 'latex-mode-hook (lambda ()
+                             ;; spell-checking
+                             (flyspell-mode)
+                             ;; flycheck
+                             (flyspell-mode)
+                             ;; linum-mode
+                             (linum-mode 1)))
+
 ;; doc-view with auto-revert to review output
 (add-hook 'doc-view-mode-hook 'auto-revert-mode)
 

@@ -51,7 +51,7 @@
 (add-hook 'haskell-interactive-mode-hook (lambda ()
                                            (auto-complete-mode 1)))
 (add-hook-fn haskell-interactive-mode-hook (setq global-hl-line-mode nil))
-(setq haskell-program-name "/opt/local/bin/ghci")
+(setq haskell-program-name "ghci")
 
 ;; haskell-interactive-mode
 (eval-after-load "haskell-mode"
@@ -66,6 +66,8 @@
     (define-key haskell-mode-map (kbd "C-c C-d") nil)))
 
 ;; flycheck-haskell
+(add-hook 'haskell-mode-hook (lambda ()
+                               (flycheck-mode)))
 (require-package 'flycheck-haskell)
 (eval-after-load 'flycheck
   (add-hook 'flycheck-mode-hook #'flycheck-haskell-setup))

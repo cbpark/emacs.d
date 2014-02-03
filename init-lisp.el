@@ -30,7 +30,8 @@
 (add-hook 'emacs-lisp-mode-hook
           (lambda ()
             (linum-mode 1)
-            (enable-paredit-mode)))
+            (enable-paredit-mode)
+            (flycheck-mode)))
 
 (provide 'init-lisp)
 ;;; init-lisp.el ends here
