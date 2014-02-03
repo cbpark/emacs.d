@@ -6,10 +6,8 @@
 (add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
 (add-hook 'python-mode-hook (lambda () (linum-mode 1)))
 
-;; pyflakes
-(require-package 'flymake-python-pyflakes)
-(add-hook 'python-mode-hook 'flymake-python-pyflakes-load)
-(setq flymake-python-pyflakes-executable "pyflakes")
+;; Flycheck
+(add-hook 'python-mode-hook 'flycheck-mode)
 
 ;; ipython.el
 (require-package 'ipython)
