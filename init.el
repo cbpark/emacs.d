@@ -92,8 +92,6 @@
 
 (require 'init-python)
 
-(require 'init-ruby)
-
 (require 'init-cmake)
 
 (require 'init-sh)
