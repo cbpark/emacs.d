@@ -58,8 +58,6 @@
 
 (require 'init-smex)
 
-;; (require 'init-helm)
-
 (require 'init-flycheck)
 
 (require 'init-editing-util)
