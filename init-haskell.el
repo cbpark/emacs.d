@@ -65,9 +65,10 @@
     (define-key haskell-mode-map (kbd "C-c M-.") nil)
     (define-key haskell-mode-map (kbd "C-c C-d") nil)))
 
-;; flymake haskell
-(require-package 'flymake-haskell-multi)
-(add-hook 'haskell-mode-hook 'flymake-haskell-multi-load)
+;; flycheck-haskell
+(require-package 'flycheck-haskell)
+(eval-after-load 'flycheck
+  (add-hook 'flycheck-mode-hook #'flycheck-haskell-setup))
 
 (provide 'init-haskell)
 ;;; init-haskell.el ends here
