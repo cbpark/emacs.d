@@ -58,8 +58,6 @@
 
 (require 'init-smex)
 
-(require 'init-projectile)
-
 ;; (require 'init-helm)
 
 (require 'init-flycheck)
