@@ -1,4 +1,4 @@
-;;; init-c-mode.el --- C mode
+;;; init-cc-mode.el --- CC mode
 ;;; Commentary:
 ;;; Code:
 
@@ -32,5 +32,5 @@
       ("\\.h$"    . c++-mode )
       ("\\.java$" . java-mode)) auto-mode-alist))
 
-(provide 'init-c-mode)
-;;; init-c-mode.el ends here
+(provide 'init-cc-mode)
+;;; init-cc-mode.el ends here

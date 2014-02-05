@@ -74,7 +74,7 @@
 
 (require 'init-org)
 
-(require 'init-c-mode)
+(require 'init-cc-mode)
 
 (require 'init-lisp)
 
