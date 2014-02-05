@@ -11,9 +11,16 @@
      (setq c-default-style "k&r"
            c-basic-offset 4)
      (add-hook 'c-mode-hook 'c-turn-on-eldoc-mode)
-     ;; (add-hook 'c-mode-hook (lambda () (linum-mode 1)))
-     ;; (add-hook 'c++-mode-hook (lambda () (linum-mode 1)))
-     ))
+     (add-hook 'c-mode-hook (lambda ()
+                              (linum-mode 1)
+                              (auto-complete-mode 1)
+                              (yas-minor-mode)
+                              (flycheck-mode)))
+     (add-hook 'c++-mode-hook (lambda ()
+                                (linum-mode 1)
+                                (auto-complete-mode 1)
+                                (yas-minor-mode)
+                                (flycheck-mode)))))
 
 (setq auto-mode-alist
   (append
