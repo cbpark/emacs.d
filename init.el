@@ -56,6 +56,8 @@
 
 (require 'init-smex)
 
+(require 'init-projectile)
+
 (require 'init-flycheck)
 
 (require 'init-editing-util)
