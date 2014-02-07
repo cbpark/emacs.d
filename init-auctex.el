@@ -52,17 +52,18 @@
 (autoload 'cdlatex-mode "cdlatex" "CDLaTeX Mode" t)
 (autoload 'turn-on-cdlatex "cdlatex" "CDLaTeX Mode" nil)
 
+;; ac-ispell
+(add-hook 'latex-mode-hook 'ac-ispell-ac-setup)
+
 ;; ac-math
 (require-package 'ac-math)
-(when (require 'ac-math nil 'noerror)
-  (add-to-list 'ac-modes 'latex-mode)
-  (defun ac-latex-mode-setup ()
-    (setq ac-sources
-          (append '(ac-source-math-unicode
-                    ac-source-math-latex
-                    ac-source-latex-commands)
-                  ac-sources)))
-  (add-hook 'latex-mode-hook 'ac-latex-mode-setup))
+(add-to-list 'ac-modes 'latex-mode)
+(defun ac-latex-mode-setup ()
+  (setq ac-sources
+     (append '(ac-source-math-unicode ac-source-math-latex ac-source-latex-commands)
+               ac-sources)))
+(add-hook 'latex-mode-hook 'ac-latex-mode-setup)
+(ac-flyspell-workaround)
 
 (provide 'init-auctex)
 ;;; init-auctex.el ends here

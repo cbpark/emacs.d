@@ -39,7 +39,7 @@
         ("/malice.doomed_gmail.com/INBOX"             . ?m)))
 
 ;; allow for updating mail using 'U' in the main view:
-(setq mu4e-get-mail-command "/opt/local/bin/offlineimap")
+(setq mu4e-get-mail-command "offlineimap")
 
 ;; update every 15 minuites
 (setq mu4e-update-interval 900)
@@ -48,7 +48,7 @@
 (setq mu4e-headers-show-threads nil)
 
 ;; w3m
-;; (setq mu4e-html2text-command "/opt/local/bin/w3m -dump -cols 80 -T text/html")
+;; (setq mu4e-html2text-command "w3m -dump -cols 80 -T text/html")
 
 ;; enable inline images
 (setq mu4e-view-show-images t)
