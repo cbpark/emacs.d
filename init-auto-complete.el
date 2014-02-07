@@ -4,20 +4,22 @@
 
 (require-package 'auto-complete)
 (require 'auto-complete-config)
+
 (global-auto-complete-mode t)
-(setq ac-auto-start 3)
+(setq ac-auto-start 4)
 (setq ac-ignore-case t)
 (setq ac-use-menu-map t)
+(setq ac-quick-help-delay 0.5)
+(ac-set-trigger-key "TAB")
 (ac-config-default)
+
+;; Finish completion by TAB
+(define-key ac-completing-map "\t" 'ac-complete)
+(define-key ac-completing-map "\r" nil)
+
 (define-key ac-complete-mode-map (kbd "C-n") 'ac-next)
 (define-key ac-complete-mode-map (kbd "C-p") 'ac-previous)
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
-
-;; trigger auto-complete using TAB
-(defun set-auto-complete-as-completion-at-point-function ()
-  (setq completion-at-point-functions '(auto-complete)))
-(add-hook 'auto-complete-mode-hook
-          'set-auto-complete-as-completion-at-point-function)
 
 ;; ac-ispell
 (custom-set-variables
