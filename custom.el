@@ -50,7 +50,7 @@
  '(ibuffer-expert t)
  '(indent-tabs-mode nil)
  '(initial-scratch-message nil)
- '(ispell-program-name "/opt/local/bin/aspell")
+ '(ispell-program-name "aspell")
  '(lisp-body-indent 2)
  '(make-backup-files nil)
  '(mark-even-if-inactive t)
