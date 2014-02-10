@@ -1,4 +1,4 @@
-;;; init-editing-util.el ---
+;;; init-editing-util.el --- Utils for editing
 ;;; Commentary:
 ;;; Code:
 
@@ -34,10 +34,6 @@
 ;; RainbowDelimiters - mode for coloring parentheses
 (require-package 'rainbow-delimiters)
 (global-rainbow-delimiters-mode)
-
-;; Pretty lambda
-(require-package 'pretty-lambdada)
-(pretty-lambda-for-modes)
 
 (provide 'init-editing-util)
 ;;; init-editing-util.el ends here
