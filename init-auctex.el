@@ -48,10 +48,6 @@
 ;; yasnippet
 (add-hook-fn latex-mode-hook (yas-minor-mode))
 
-;; CDLaTeX
-(autoload 'cdlatex-mode "cdlatex" "CDLaTeX Mode" t)
-(autoload 'turn-on-cdlatex "cdlatex" "CDLaTeX Mode" nil)
-
 ;; ac-ispell
 (add-hook 'latex-mode-hook 'ac-ispell-ac-setup)
 
