@@ -90,7 +90,7 @@
 
 (require 'init-maxima)
 
-(require 'init-sage)
+(require 'init-gnuplot)
 
 (require 'init-haskell)
 
