@@ -38,6 +38,8 @@
 
 (require 'init-clipboard)
 
+(require 'init-window)
+
 (require 'init-linum)
 
 (require 'init-undo-tree)
