@@ -34,9 +34,6 @@
      (define-key haskell-mode-map (kbd "C-,") 'haskell-move-nested-left)
      (define-key haskell-mode-map (kbd "C-.") 'haskell-move-nested-right)))
 
-;; Stylish Haskell
-(setq haskell-stylish-on-save t)
-
 ;; Compilation
 (eval-after-load "haskell-mode"
     '(define-key haskell-mode-map (kbd "C-c C-c") 'haskell-compile))
@@ -71,6 +68,10 @@
 (require-package 'flycheck-haskell)
 (eval-after-load 'flycheck
   (add-hook 'flycheck-mode-hook #'flycheck-haskell-setup))
+
+;; Customizations
+(setq haskell-stylish-on-save t
+      haskell-tags-on-save t)
 
 (provide 'init-haskell)
 ;;; init-haskell.el ends here
