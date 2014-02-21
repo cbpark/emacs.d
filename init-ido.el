@@ -13,7 +13,8 @@
 (setq ido-everywhere t)
 (setq ido-ignore-buffers '("\\` " "^\\*.*buffer\\*$" "^\\*GNU Emacs\\*$"
                            "\\.log$" "^.*Help\\*$" "^\\*Warnings\\*$"
-                           "^\\*Flycheck.*$" "^.*messages\\*$" "^.*Log\\*$"))
+                           "^\\*Flycheck.*$" "^.*messages\\*$" "^.*Log\\*$"
+                           "\\.projectile$"))
 (setq ido-ignore-extensions t)
 (setq ido-ignore-files (quote (".DS_Store" ".localized" "Thumbs.db"
                                "desktop.ini" "*.aux")))
@@ -25,4 +26,4 @@
 (ido-vertical-mode 1)
 
 (provide 'init-ido)
-;; init-ido.el ends here
+;;; init-ido.el ends here
