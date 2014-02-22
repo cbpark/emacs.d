@@ -1,6 +1,7 @@
 ;;; init-dired.el --- Customizing Dired mode
 ;;; Commentary:
 ;;; Code:
+
 (require 'dired)
 
 ;; omit dot files
@@ -33,8 +34,11 @@
 
 ;; Make dired less verbose
 (when (require 'dired-details nil 'noerror)
-      (setq-default dired-details-hidden-string "--- ")
-      (dired-details-install))
+  (setq-default dired-details-hidden-string "--- ")
+  (dired-details-install))
+
+;; Reuse directory buffer
+(put 'dired-find-alternate-file 'disabled nil)
 
 (provide 'init-dired)
 ;;; init-dired.el ends here
