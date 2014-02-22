@@ -14,7 +14,8 @@
 (setq ido-ignore-buffers '("\\` " "^\\*.*buffer\\*$" "^\\*GNU Emacs\\*$"
                            "\\.log$" "^.*Help\\*$" "^\\*Warnings\\*$"
                            "^\\*Flycheck.*$" "^.*messages\\*$" "^.*Log\\*$"
-                           "\\.projectile$" "*compilation*" "*Completions*"))
+                           "\\.projectile$" "^.*compilation\\*$"
+                           "^\\*Completions\\*$" "^\\*magit-process\\*$"))
 (setq ido-ignore-extensions t)
 (setq ido-ignore-files (quote (".DS_Store" ".localized" "Thumbs.db"
                                "desktop.ini" "*.aux")))
