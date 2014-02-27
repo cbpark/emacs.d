@@ -63,11 +63,13 @@
     (define-key haskell-mode-map (kbd "C-c C-d") nil)))
 
 ;; flycheck-haskell
-(add-hook 'haskell-mode-hook (lambda ()
-                               (flycheck-mode)))
+(add-hook 'haskell-mode-hook 'flycheck-mode)
 (require-package 'flycheck-haskell)
 (eval-after-load 'flycheck
   (add-hook 'flycheck-mode-hook #'flycheck-haskell-setup))
+
+;; flyspell
+(add-hook 'haskell-mode-hook 'flyspell-prog-mode)
 
 ;; Customizations
 (setq haskell-stylish-on-save t

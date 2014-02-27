@@ -20,7 +20,8 @@
 (add-hook 'lisp-mode-hook
           (lambda ()
             (linum-mode 1)
-            (enable-paredit-mode)))
+            (enable-paredit-mode)
+            (flyspell-prog-mode)))
 
 (add-hook 'lisp-interaction-mode-hook
           (lambda ()
@@ -31,7 +32,8 @@
           (lambda ()
             (linum-mode 1)
             (enable-paredit-mode)
-            (flycheck-mode)))
+            (flycheck-mode)
+            (flyspell-prog-mode)))
 
 (provide 'init-lisp)
 ;;; init-lisp.el ends here
