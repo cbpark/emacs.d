@@ -41,9 +41,9 @@
 (autoload 'multi-term "multi-term" nil t)
 (autoload 'multi-term-next "multi-term" nil t)
 (setq multi-term-program shell-file-name)
-(global-set-key (kbd "C-c m") 'multi-term-next)
+(global-set-key (kbd "C-c t") 'multi-term-next)
 ;; create a new multi-term
-(global-set-key (kbd "C-c M") 'multi-term)
+(global-set-key (kbd "C-c T") 'multi-term)
 ;; term-line and term-char-mode
 (global-set-key (kbd "C-c C-j") 'term-line-mode)
 (global-set-key (kbd "C-c C-k") 'term-char-mode)
@@ -52,7 +52,7 @@
 
 ;; for zsh
 (setq multi-term-program "/bin/zsh")
-(add-hook 'term-mode-hook
+(add-hook 'term-load-hook
           (lambda ()
             (define-key term-raw-map (kbd "M-p")
               (lambda ()
@@ -65,10 +65,11 @@
                 (interactive)
                 (term-send-raw-string "\en")))))
 
-;; disable autopair
-(add-hook-fn term-mode-hook (autopair-mode -1))
-;; disable hl-line
-(add-hook-fn term-mode-hook (setq global-hl-line-mode nil))
+(add-hook 'term-load-hook (lambda ()
+                            ;; disable autopair
+                            (autopair-mode -1)
+                            ;; disable hl-line
+                            (setq global-hl-line-mode nil)))
 
 (provide 'init-terms)
 ;;; init-terms.el ends here
