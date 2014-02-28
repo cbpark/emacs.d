@@ -54,6 +54,8 @@
 
 (require 'init-tramp)
 
+(require 'init-ibuffer)
+
 (require 'init-ido)
 
 (require 'init-smex)
