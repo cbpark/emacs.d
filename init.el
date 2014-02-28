@@ -50,15 +50,17 @@
 
 (require 'init-direx)
 
-(require 'init-recentf)
+;; (require 'init-recentf)
 
 (require 'init-tramp)
 
 (require 'init-ibuffer)
 
-(require 'init-ido)
+;; (require 'init-ido)
 
-(require 'init-smex)
+;; (require 'init-smex)
+
+(require 'init-helm)
 
 (require 'init-projectile)
 
