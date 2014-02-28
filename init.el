@@ -50,7 +50,7 @@
 
 (require 'init-direx)
 
-;; (require 'init-recentf)
+(require 'init-recentf)
 
 (require 'init-tramp)
 

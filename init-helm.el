@@ -27,9 +27,6 @@
   '(progn
      (define-key projectile-mode-map (kbd "C-c h") 'helm-projectile)))
 
-;; helm-package
-(require-package 'helm-package)
-
 ;; helm-swoop
 (require-package 'helm-swoop)
 (global-set-key (kbd "M-i")     'helm-swoop)
@@ -48,6 +45,21 @@
      (define-key isearch-mode-map (kbd "M-i") 'helm-swoop-from-isearch)
      ;; From helm-swoop to helm-multi-swoop-all
      (define-key helm-swoop-map (kbd "M-i") 'helm-multi-swoop-all-from-helm-swoop)))
+
+;; ac-helm
+(require-package 'ac-helm)
+(eval-after-load 'auto-complete
+  '(define-key ac-complete-mode-map (kbd "C-:") 'ac-complete-with-helm))
+
+;; helm-flycheck
+(require-package 'helm-flycheck)
+(eval-after-load 'flycheck
+  '(define-key flycheck-mode-map (kbd "C-c ! h") 'helm-flycheck))
+
+;; helm-c-yasnippet
+(require-package 'helm-c-yasnippet)
+(setq helm-yas-space-match-any-greedy t)
+(global-set-key (kbd "C-c y") 'helm-yas-complete)
 
 ;; key bindings
 (global-set-key (kbd "M-x")     'helm-M-x)
