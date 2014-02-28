@@ -16,6 +16,9 @@
 ;; Turn off hl-line in eshell
 (add-hook-fn eshell-mode-hook (setq global-hl-line-mode nil))
 
+;; key binding
+(global-set-key (kbd "C-c e") 'eshell)
+
 ;; Change comint keys
 (require 'comint)
 (define-key comint-mode-map (kbd "M-p")
