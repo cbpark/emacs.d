@@ -27,10 +27,6 @@
     (highlight-parentheses-mode t)))
 (global-highlight-parentheses-mode t)
 
-;; Auto indent
-(require-package 'auto-indent-mode)
-(setq auto-indent-on-visit-file t)
-
 ;; RainbowDelimiters - mode for coloring parentheses
 (require-package 'rainbow-delimiters)
 (global-rainbow-delimiters-mode)
