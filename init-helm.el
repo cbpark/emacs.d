@@ -55,7 +55,7 @@
 
 ;; helm-ls-git
 (require-package 'helm-ls-git)
-;; (global-set-key (kbd "C-c g") 'helm-ls-git-ls)
+(global-set-key (kbd "C-c g")   'helm-ls-git-ls)
 (global-set-key (kbd "C-x C-d") 'helm-browse-project)
 
 (provide 'init-helm)
