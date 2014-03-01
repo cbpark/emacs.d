@@ -13,20 +13,6 @@
 ;; Buffer File Completion
 (setq enable-recursive-minibuffers t)
 
-;; helm pcomplete
-(add-hook 'eshell-mode-hook
-          #'(lambda ()
-              (define-key eshell-mode-map
-                [remap eshell-pcomplete]
-                'helm-esh-pcomplete)))
-
-;; helm eshell history
-(add-hook 'eshell-mode-hook
-           #'(lambda ()
-               (define-key eshell-mode-map
-                 (kbd "M-p")
-                 'helm-eshell-history)))
-
 ;; helm projectile
 (require-package 'helm-projectile)
 (eval-after-load "projectile"
