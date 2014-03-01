@@ -53,5 +53,10 @@
   '(progn
      (define-key projectile-mode-map (kbd "C-c h") 'helm-projectile)))
 
+;; helm-ls-git
+(require-package 'helm-ls-git)
+;; (global-set-key (kbd "C-c g") 'helm-ls-git-ls)
+(global-set-key (kbd "C-x C-d") 'helm-browse-project)
+
 (provide 'init-helm)
 ;;; init-helm.el ends here
