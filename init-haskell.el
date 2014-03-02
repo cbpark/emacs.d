@@ -69,7 +69,7 @@
   (add-hook 'flycheck-mode-hook #'flycheck-haskell-setup))
 
 ;; flyspell
-(add-hook 'haskell-mode-hook 'flyspell-prog-mode)
+;; (add-hook 'haskell-mode-hook 'flyspell-prog-mode)
 
 ;; Customizations
 (setq haskell-stylish-on-save t
