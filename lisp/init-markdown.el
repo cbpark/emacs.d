@@ -11,7 +11,7 @@
 (autoload 'markdown-mode "markdown-mode" "Markdown mode" t)
 (eval-after-load "markdown-mode"
   '(progn
-     (setq markdown-command "/opt/local/bin/multimarkdown")
+     (setq markdown-command "multimarkdown")
      (add-hook 'markdown-mode-hook 'turn-off-auto-fill)))
 
 (provide 'init-markdown)
