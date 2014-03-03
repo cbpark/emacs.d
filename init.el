@@ -63,7 +63,7 @@
 (require 'init-haskell)
 (require 'init-python)
 (require 'init-cmake)
-(require 'init-sh)
+(require 'init-sh-mode)
 (require 'init-markdown)
 (require 'init-mu4e)
 

@@ -6,5 +6,5 @@
                           (linum-mode 1)
                           (flycheck-mode)))
 
-(provide 'init-sh)
+(provide 'init-sh-mode)
 ;;; init-sh.el ends here
