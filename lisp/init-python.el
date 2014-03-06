@@ -4,21 +4,24 @@
 
 (require-package 'python-mode)
 (add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
-(add-hook 'python-mode-hook (lambda () (linum-mode 1)))
 
-;; Flycheck
-(add-hook 'python-mode-hook (lambda ()
-                              (flycheck-mode)))
+(add-hook 'python-mode-hook #'(lambda ()
+                                (electric-pair-mode)
+                                (linum-mode 1)
+                                (flycheck-mode)))
 
 ;; ipython.el
 (require-package 'ipython)
-(setq ipython-command "ipython")
-(setq py-python-command "ipython")
-(setq-default py-python-command-args '("--pylab"))
-(add-hook 'py-shell-hook
-          (lambda ()
-            (setq global-hl-line-mode nil)
-            (linum-mode -1)))
+(eval-after-load "python"
+  '(progn
+     (setq ipython-command "ipython")
+     (setq py-python-command "ipython")
+     (setq-default py-python-command-args '("--pylab"))))
+
+(add-hook 'py-shell-hook #'(lambda ()
+                             (setq global-hl-line-mode nil)
+                             (electric-pair-mode)
+                             (linum-mode -1)))
 
 ;; Jedi: Python auto-completion package
 (autoload 'jedi:setup "jedi" nil t)
