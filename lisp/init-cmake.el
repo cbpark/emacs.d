@@ -28,8 +28,7 @@
          (rename-buffer new-buffer-name t)))
      (add-hook 'cmake-mode-hook (function cmake-rename-buffer))
      ;; linum mode
-     ;; (add-hook 'cmake-mode-hook (lambda () (linum-mode 1)))
-     ))
+     (add-hook 'cmake-mode-hook #'(lambda () (linum-mode 1)))))
 
 (provide 'init-cmake)
 ;;; init-cmake.el ends here
