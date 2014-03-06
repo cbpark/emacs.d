@@ -20,7 +20,7 @@
 (require-package 'ghc)
 (autoload 'ghc-init "ghc" nil t)
 (dolist (mode '("haskell-mode" "haskell-cabal-mode"))
-  (eval-after-load mode '(ghi-init)))
+  (eval-after-load mode '(ghc-init)))
 
 ;; Haskell doc mode
 (dolist (hook '(haskell-mode-hook inferior-haskell-mode-hook))
