@@ -75,11 +75,13 @@
 
 (add-hook 'haskell-mode-hook #'(lambda ()
                                  (linum-mode 1)
+                                 (electric-pair-mode 1)
                                  (yas-minor-mode)))
 
 (dolist (hook '(inferior-haskell-mode-hook haskell-interactive-mode-hook))
   (add-hook hook #'(lambda ()
                      (auto-complete-mode 1)
+                     (electric-pair-mode 1)
                      (setq global-hl-line-mode nil))))
 
 (provide 'init-haskell)
