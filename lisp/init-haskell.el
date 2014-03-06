@@ -7,9 +7,9 @@
 (autoload 'haskell-mode "haskell-mode" "Haskell Mode" t)
 (setq auto-mode-alist
       (append
-       '(("\\.hs$"    . haskell-mode)
-         ("\\.hsc$"   . haskell-mode)
-         ("\\.cpphs$" . haskell-mode)) auto-mode-alist))
+       '(("\\.hs\\'"    . haskell-mode)
+         ("\\.hsc\\'"   . haskell-mode)
+         ("\\.cpphs\\'" . haskell-mode)) auto-mode-alist))
 
 (autoload 'haskell-cabal-mode "haskell-cabal-mode" "Haskell Cabal Mode" t)
 (add-to-list 'auto-mode-alist '("\\.cabal\\'" . haskell-cabal-mode))
@@ -34,9 +34,8 @@
 ;; Key bindings
 (eval-after-load "haskell-mode"
   '(progn
-     (define-key haskell-mode-map (kbd "C-,")     'haskell-move-nested-left)
-     (define-key haskell-mode-map (kbd "C-.")     'haskell-move-nested-right)
-     (define-key haskell-mode-map (kbd "C-c C-c") 'haskell-compile)
+     (define-key haskell-mode-map (kbd "C-c c")   'haskell-process-cabal)
+     (define-key haskell-mode-map (kbd "C-c C-c") 'haskell-process-cabal-build)
      (define-key haskell-mode-map (kbd "C-c C-l") 'haskell-process-load-file)
      (define-key haskell-mode-map (kbd "C-c C-b") 'haskell-interactive-switch)
      (define-key haskell-mode-map (kbd "C-c C-t") 'haskell-process-do-type)
@@ -46,7 +45,8 @@
 
 (eval-after-load "haskell-cabal-mode"
   '(progn
-     (define-key haskell-cabal-mode-map (kbd "C-c C-c") 'haskell-compile)
+     (define-key haskell-cabal-mode-map (kbd "C-c c")   'haskell-process-cabal)
+     (define-key haskell-cabal-mode-map (kbd "C-c C-c") 'haskell-process-cabal-build)
      (define-key haskell-cabal-mode-map (kbd "C-c C-l") 'haskell-process-load-file)
      (define-key haskell-cabal-mode-map (kbd "C-c C-b") 'haskell-interactive-switch)))
 
