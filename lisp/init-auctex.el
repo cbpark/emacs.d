@@ -50,13 +50,19 @@
 
 ;; ac-math
 (require-package 'ac-math)
-(add-to-list 'ac-modes 'latex-mode)
-(defun ac-latex-mode-setup ()
-  (setq ac-sources
-     (append '(ac-source-math-unicode ac-source-math-latex ac-source-latex-commands)
-               ac-sources)))
-(add-hook 'latex-mode-hook 'ac-latex-mode-setup)
-(ac-flyspell-workaround)
+
+(eval-after-load 'latex
+  '(progn
+     (defun ac-latex-mode-setup ()
+       (setq ac-sources
+             (append '(ac-source-math-unicode
+                       ac-source-math-latex
+                       ac-source-latex-commands) ac-sources)))
+     (add-hook 'LaTex-mode-hook 'ac-latex-mode-setup)
+     (ac-flyspell-workaround)))
+
+(eval-after-load "auto-complete"
+  '(add-to-list 'ac-modes 'LaTeX-mode))
 
 (provide 'init-auctex)
 ;;; init-auctex.el ends here

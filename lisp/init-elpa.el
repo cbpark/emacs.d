@@ -1,6 +1,7 @@
-;;; init-load-path.el --- Paths to load
+;;; init-elpa.el --- Use Emacs ELPA
 ;;; Commentary:
 ;;; Code:
+
 (when (>= emacs-major-version 24)
   (require 'package)
   (package-initialize)

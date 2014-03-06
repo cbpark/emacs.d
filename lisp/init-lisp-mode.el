@@ -21,6 +21,11 @@
 (require-package 'slime)
 (require 'slime-autoloads)
 
+(autoload 'find-library-name "find-func")
+(defun directory-of-library (library-name)
+  (file-name-as-directory (file-name-directory
+                           (find-library-name library-name))))
+
 (let ((slime-contrib-dir (concat (directory-of-library "slime") "/contrib")))
   (if (file-directory-p slime-contrib-dir)
       (add-to-list 'load-path slime-contrib-dir)
@@ -52,7 +57,7 @@
 ;; Auto-complete for SLIME
 (require-package 'ac-slime)
 (dolist (hook '(slime-mode-hook slime-repl-mode-hook))
-  (add-hook hook (set-up-slime-ac)))
+  (add-hook hook 'set-up-slime-ac))
 (eval-after-load "auto-complete"
   '(add-to-list 'ac-modes 'slime-repl-mode))
 
@@ -62,7 +67,7 @@
 
 (require-package 'hl-sexp)
 
-(after-load 'hl-sexp
+(eval-after-load 'hl-sexp
   (defadvice hl-sexp-mode (after unflicker (&optional turn-on) activate)
     (when turn-on
       (remove-hook 'pre-command-hook #'hl-sexp-unhighlight))))

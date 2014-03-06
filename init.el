@@ -22,7 +22,6 @@
 (add-to-list 'load-path (expand-file-name "site-lisp" user-emacs-directory))
 (add-to-list 'load-path (expand-file-name "site-lisp/custom-theme" user-emacs-directory))
 
-(require 'init-util)
 (require 'init-elpa)
 (require 'init-shell-env)
 (require 'epa-file)
