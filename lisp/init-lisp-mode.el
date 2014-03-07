@@ -8,7 +8,8 @@
 (autoload 'lisp-mode "lisp" "Major mode for Lisp." t)
 (setq auto-mode-alist
       (append
-       '(("\\.lisp$" . lisp-mode)) auto-mode-alist))
+       '(("\\.lisp\\'" . lisp-mode)
+         ("\\.asd\\'"  . lisp-mode)) auto-mode-alist))
 
 ;; Paredit
 (require-package 'paredit)
