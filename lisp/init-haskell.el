@@ -40,7 +40,7 @@
      (define-key haskell-mode-map (kbd "C-c C-b") 'haskell-interactive-switch)
      (define-key haskell-mode-map (kbd "C-c C-t") 'haskell-process-do-type)
      (define-key haskell-mode-map (kbd "C-c C-i") 'haskell-process-do-info)
-     (define-key haskell-mode-map (kbd "C-c C-s") 'haskell-mode-stylish-buffer)
+     (define-key haskell-mode-map (kbd "C-c C-g") 'haskell-hoogle)
      (define-key haskell-mode-map (kbd "C-c M-.") nil)
      (define-key haskell-mode-map (kbd "C-c C-d") nil)))
 
@@ -72,12 +72,21 @@
         (symbols (ghc-select-completion-symbol)))
     (all-completions pattern symbols)))
 
-;; Setup auto-complete for haskell-mode
 (eval-after-load "auto-complete"
   '(progn
      (add-to-list 'ac-modes 'haskell-mode)
      (ac-define-source ghc
        '((candidates . ac-haskell-candidates)))))
+
+;; Popup
+(require-package 'popup)
+(defun ghc-show-info-popup ()
+  "Put ghc-show-info in a popup."
+  (interactive)
+  (popup-tip (ghc-get-info (ghc-things-at-point)) :around t :scroll-bar t))
+
+(eval-after-load "haskell-mode"
+  '(define-key haskell-mode-map (kbd "C-c TAB") 'ghc-show-info-popup))
 
 ;; Customizations and hooks
 (eval-after-load "haskell-mode"
