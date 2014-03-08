@@ -63,6 +63,11 @@
 (eval-after-load "auto-complete"
   '(add-to-list 'ac-modes 'slime-repl-mode))
 
+(eval-after-load "slime"
+  '(progn
+     (setq ac-auto-show-menu nil)
+     (define-key slime-mode-map (kbd "C-c TAB") 'ac-show-menu)))
+
 (add-hook 'slime-repl-mode-hook #'(lambda ()
                                     (linum-mode -1)
                                     (setq global-hl-line-mode nil)))

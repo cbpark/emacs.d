@@ -3,7 +3,7 @@
 ;;; Code:
 
 (require 'ido)
-(ido-mode 'both)
+(ido-mode 'file)
 
 (setq ido-case-fold t)
 (setq ido-confirm-unique-completion t)
@@ -23,8 +23,7 @@
 (setq ido-use-filename-at-point nil)
 (setq ido-use-url-at-point nil)
 
-(require-package 'ido-vertical-mode)
-(ido-vertical-mode 1)
+(global-set-key (kbd "C-x C-f") 'ido-find-file)
 
 (provide 'init-ido)
 ;;; init-ido.el ends here
