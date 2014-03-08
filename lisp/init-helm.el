@@ -15,8 +15,16 @@
 (setq enable-recursive-minibuffers t)
 
 ;; Helm auto expansion
-(eval-after-load 'Helm
-  '(setq helm-ff-auto-update-initial-value t))
+(setq helm-ff-auto-update-initial-value t)
+
+;; Ignore files
+(setq helm-ff-skip-boring-files t)
+(setq helm-boring-file-regexp-list '("\\.elc$" "\\.o$"))
+
+(eval-after-load "helm-files"
+  '(progn
+     (define-key helm-find-files-map (kbd "C-h") 'helm-ff-backspace)
+     (define-key helm-find-files-map (kbd "C-i") 'helm-execute-persistent-action)))
 
 ;; key bindings
 (global-set-key (kbd "M-x")         'helm-M-x)
