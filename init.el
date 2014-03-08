@@ -33,12 +33,11 @@
 (require 'init-window)
 (require 'init-linum)
 (require 'init-undo-tree)
-(require 'init-ido)
+;; (require 'init-ido)
 ;; (require 'init-smex)
 (require 'init-helm)
 (require 'init-terms)
 (require 'init-dired)
-(require 'init-direx)
 (require 'init-recentf)
 (require 'init-tramp)
 (require 'init-ibuffer)
@@ -61,6 +60,7 @@
 (require 'init-sh-mode)
 (require 'init-markdown)
 (require 'init-mu4e)
+(require 'init-popwin)
 
 ;; Variables configured via the interactive customize interface
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))

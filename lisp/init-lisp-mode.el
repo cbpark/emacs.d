@@ -62,11 +62,8 @@
   (add-hook hook 'set-up-slime-ac))
 (eval-after-load "auto-complete"
   '(add-to-list 'ac-modes 'slime-repl-mode))
-
-(eval-after-load "slime"
-  '(progn
-     (setq ac-auto-show-menu nil)
-     (define-key slime-mode-map (kbd "C-c TAB") 'ac-show-menu)))
+(dolist (mode '(slime slime-repl))
+  (eval-after-load mode '(setq ac-auto-show-menu 0.5)))
 
 (add-hook 'slime-repl-mode-hook #'(lambda ()
                                     (linum-mode -1)
