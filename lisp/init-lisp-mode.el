@@ -24,6 +24,7 @@
 
 (autoload 'find-library-name "find-func")
 (defun directory-of-library (library-name)
+  "Directory of the libary for given LIBRARY-NAME."
   (file-name-as-directory (file-name-directory
                            (find-library-name library-name))))
 
@@ -53,7 +54,7 @@
      (define-key slime-repl-mode-map (kbd "C-j") 'paredit-newline)))
 
 (dolist (hook '(slime-mode-hook slime-repl-mode-hook))
-  (add-hook hook (enable-paredit-mode)))
+  (add-hook hook 'enable-paredit-mode))
 
 ;; Auto-complete for SLIME
 (require-package 'ac-slime)
