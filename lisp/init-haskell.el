@@ -41,7 +41,7 @@
      (define-key haskell-mode-map (kbd "C-c C-t") 'haskell-process-do-type)
      (define-key haskell-mode-map (kbd "C-c C-i") 'haskell-process-do-info)
      (define-key haskell-mode-map (kbd "C-c C-g") 'haskell-hoogle)
-     (define-key haskell-mode-map (kbd "C-c s")   'haskell-mode-stylish-buffer)
+     (define-key haskell-mode-map (kbd "C-c l")   'haskell-mode-stylish-buffer)
      (define-key haskell-mode-map (kbd "C-c M-.") nil)
      (define-key haskell-mode-map (kbd "C-c C-d") nil)))
 
