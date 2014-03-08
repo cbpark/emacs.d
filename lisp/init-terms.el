@@ -52,15 +52,16 @@
 (autoload 'multi-term "multi-term" nil t)
 (autoload 'multi-term-next "multi-term" nil t)
 
+(global-set-key (kbd "C-c t") 'multi-term-next)
+;; create a new multi-term
+(global-set-key (kbd "C-c T") 'multi-term)
+;; term-line and term-char-mode
+(global-set-key (kbd "C-c C-j") 'term-line-mode)
+(global-set-key (kbd "C-c C-k") 'term-char-mode)
+
 (eval-after-load "multi-term"
   '(progn
      (setq multi-term-program shell-file-name)
-     (global-set-key (kbd "C-c t") 'multi-term-next)
-     ;; create a new multi-term
-     (global-set-key (kbd "C-c T") 'multi-term)
-     ;; term-line and term-char-mode
-     (global-set-key (kbd "C-c C-j") 'term-line-mode)
-     (global-set-key (kbd "C-c C-k") 'term-char-mode)
      ;; Use Emacs terminfo, not system terminfo
      (setq system-uses-terminfo nil)
 
