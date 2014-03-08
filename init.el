@@ -60,7 +60,6 @@
 (require 'init-sh-mode)
 (require 'init-markdown)
 (require 'init-mu4e)
-(require 'init-popwin)
 
 ;; Variables configured via the interactive customize interface
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
