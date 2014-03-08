@@ -41,6 +41,7 @@
      (define-key haskell-mode-map (kbd "C-c C-t") 'haskell-process-do-type)
      (define-key haskell-mode-map (kbd "C-c C-i") 'haskell-process-do-info)
      (define-key haskell-mode-map (kbd "C-c C-g") 'haskell-hoogle)
+     (define-key haskell-mode-map (kbd "C-c s")   'haskell-mode-stylish-buffer)
      (define-key haskell-mode-map (kbd "C-c M-.") nil)
      (define-key haskell-mode-map (kbd "C-c C-d") nil)))
 
@@ -91,7 +92,7 @@
 ;; Customizations and hooks
 (eval-after-load "haskell-mode"
   '(setq haskell-program-name "ghci"
-         haskell-stylish-on-save t
+         haskell-stylish-on-save nil
          haskell-tags-on-save t))
 
 (eval-after-load "haskell-cabal-mode"
