@@ -34,7 +34,6 @@
 (require 'init-linum)
 (require 'init-undo-tree)
 ;; (require 'init-ido)
-;; (require 'init-smex)
 (require 'init-helm)
 (require 'init-terms)
 (require 'init-dired)

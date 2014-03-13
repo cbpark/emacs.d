@@ -8,20 +8,19 @@
 (require 'helm-utils)
 (helm-mode 1)
 
-;; Yanking text
-(setq helm-yank-symbol-first 't)
-
-;; Buffer File Completion
-(setq enable-recursive-minibuffers t)
-
-;; Ignore files
-(setq helm-ff-skip-boring-files t)
-(setq helm-boring-file-regexp-list '("\\.elc$" "\\.o$"))
+(eval-after-load 'helm
+  '(progn
+     ;; Yanking text
+     (setq helm-yank-symbol-first 't)
+     ;; Buffer File Completion
+     (setq enable-recursive-minibuffers t)
+     (setq helm-ff-skip-boring-files t)
+     ;; Ignore files
+     (setq helm-boring-file-regexp-list '("\\.elc$" "\\.o$" "\\.hi$" "\\.pyc$"))))
 
 (eval-after-load "helm-files"
   '(progn
      (define-key helm-find-files-map (kbd "C-z") nil)
-     (define-key helm-find-files-map (kbd "C-h") 'helm-ff-backspace)
      (define-key helm-find-files-map (kbd "C-i") 'helm-execute-persistent-action)))
 
 ;; key bindings
