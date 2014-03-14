@@ -19,7 +19,8 @@
      (setq helm-boring-file-regexp-list '("\\.elc$" "\\.o$" "\\.hi$" "\\.pyc$"))
      ;;
      (setq helm-reuse-last-window-split-state t)
-     (setq helm-always-two-windows t)))
+     (setq helm-always-two-windows t)
+     (setq helm-ff-file-name-history-use-recentf t)))
 
 (eval-after-load "helm-files"
   '(progn
