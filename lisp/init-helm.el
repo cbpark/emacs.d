@@ -14,9 +14,12 @@
      (setq helm-yank-symbol-first 't)
      ;; Buffer File Completion
      (setq enable-recursive-minibuffers t)
-     (setq helm-ff-skip-boring-files t)
      ;; Ignore files
-     (setq helm-boring-file-regexp-list '("\\.elc$" "\\.o$" "\\.hi$" "\\.pyc$"))))
+     (setq helm-ff-skip-boring-files t)
+     (setq helm-boring-file-regexp-list '("\\.elc$" "\\.o$" "\\.hi$" "\\.pyc$"))
+     ;;
+     (setq helm-reuse-last-window-split-state t)
+     (setq helm-always-two-windows t)))
 
 (eval-after-load "helm-files"
   '(progn
@@ -31,6 +34,9 @@
 (global-set-key (kbd "C-c i")       'helm-imenu)
 (global-set-key (kbd "C-x b")       'helm-buffers-list)
 (global-set-key (kbd "M-y")         'helm-show-kill-ring)
+(global-set-key (kbd "M-g s")       'helm-do-grep)
+(global-set-key (kbd "M-g o")       'helm-occur)
+(global-set-key (kbd "C-c <SPC>")   'helm-all-mark-rings)
 
 ;; helm-swoop
 (require-package 'helm-swoop)
