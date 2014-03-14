@@ -5,7 +5,7 @@
 (require 'recentf)
 (setq recentf-auto-cleanup 'never)
 (recentf-mode 1)
-(setq recentf-max-menu-items 20)
+(setq recentf-max-menu-items 50)
 
 (setq recentf-exclude
       '("\\.ido.last$" "^autoloads.el$" "^archive-contents$" "^.*\/bookmarks$"
