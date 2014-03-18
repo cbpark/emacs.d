@@ -31,6 +31,19 @@
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
 ;; (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
 
+(defun haskell-insert-doc ()
+  "Insert the documentation syntax."
+  (interactive)
+  (insert "-- | "))
+
+(defun haskell-insert-undefined ()
+  "Insert undefined."
+  (interactive)
+  (if (and (boundp 'structured-haskell-mode)
+           structured-haskell-mode)
+      (shm-insert-string "undefined")
+    (insert "undefined")))
+
 ;; Key bindings
 (eval-after-load "haskell-mode"
   '(progn
@@ -42,6 +55,8 @@
      (define-key haskell-mode-map (kbd "C-c C-i") 'haskell-process-do-info)
      (define-key haskell-mode-map (kbd "C-c C-g") 'haskell-hoogle)
      (define-key haskell-mode-map (kbd "C-c l")   'haskell-mode-stylish-buffer)
+     (define-key haskell-mode-map (kbd "C-c C-a") 'haskell-insert-doc)
+     (define-key haskell-mode-map (kbd "C-c C-u") 'haskell-insert-undefined)
      (define-key haskell-mode-map (kbd "C-c M-.") nil)
      (define-key haskell-mode-map (kbd "C-c C-d") nil)))
 
