@@ -31,18 +31,29 @@
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
 ;; (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
 
-(defun haskell-insert-doc ()
-  "Insert the documentation syntax."
+(defun haskell-insert-comment ()
+  "Insert comment the documentation."
   (interactive)
   (insert "-- | "))
+
+(defun haskell-insert-nested-comment ()
+  "Insert the nested for documentation."
+  (interactive)
+  (insert "{-|  -}")
+  (backward-char 3))
 
 (defun haskell-insert-undefined ()
   "Insert undefined."
   (interactive)
-  (if (and (boundp 'structured-haskell-mode)
-           structured-haskell-mode)
+  (if (featurep 'structured-haskell-mode)
       (shm-insert-string "undefined")
     (insert "undefined")))
+
+(defun haskell-insert-pragma ()
+  "Insert the pragmas."
+  (interactive)
+  (insert "{-# LANGUAGE  #-}")
+  (backward-char 4))
 
 ;; Key bindings
 (eval-after-load "haskell-mode"
@@ -55,7 +66,9 @@
      (define-key haskell-mode-map (kbd "C-c C-i") 'haskell-process-do-info)
      (define-key haskell-mode-map (kbd "C-c C-g") 'haskell-hoogle)
      (define-key haskell-mode-map (kbd "C-c l")   'haskell-mode-stylish-buffer)
-     (define-key haskell-mode-map (kbd "C-c C-a") 'haskell-insert-doc)
+     (define-key haskell-mode-map (kbd "C-c C-a") 'haskell-insert-comment)
+     (define-key haskell-mode-map (kbd "C-c C-d") 'haskell-insert-nested-comment)
+     (define-key haskell-mode-map (kbd "C-c C-p") 'haskell-insert-pragma)
      (define-key haskell-mode-map (kbd "C-c C-u") 'haskell-insert-undefined)
      (define-key haskell-mode-map (kbd "C-c M-.") nil)
      (define-key haskell-mode-map (kbd "C-c C-d") nil)))
@@ -115,8 +128,7 @@
 
 (add-hook 'haskell-mode-hook #'(lambda ()
                                  (linum-mode 1)
-                                 (electric-pair-mode 1)
-                                 (yas-minor-mode)))
+                                 (electric-pair-mode 1)))
 
 (dolist (hook '(inferior-haskell-mode-hook haskell-interactive-mode-hook))
   (add-hook hook #'(lambda ()
