@@ -42,18 +42,16 @@
   (insert "{-|  -}")
   (backward-char 3))
 
-(defun haskell-insert-undefined ()
-  "Insert undefined."
-  (interactive)
-  (if (featurep 'structured-haskell-mode)
-      (shm-insert-string "undefined")
-    (insert "undefined")))
-
 (defun haskell-insert-pragma ()
   "Insert the pragmas."
   (interactive)
   (insert "{-# LANGUAGE  #-}")
   (backward-char 4))
+
+(defun haskell-insert-undefined ()
+  "Insert undefined."
+  (interactive)
+  (insert "undefined"))
 
 ;; Key bindings
 (eval-after-load "haskell-mode"

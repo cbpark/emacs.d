@@ -32,6 +32,11 @@
 ;; help command (instead of C-h)
 (global-set-key (kbd "<f1>") 'help-command)
 
+;; ace-jump-mode
+(require-package 'ace-jump-mode)
+(when (fboundp 'ace-jump-mode)
+  (global-set-key (kbd "C-0") 'ace-jump-mode))
+
 ;; toggle fullscreen
 (defun toggle-fullscreen ()
   "Toggle full screen."
