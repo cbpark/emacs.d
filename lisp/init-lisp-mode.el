@@ -39,9 +39,9 @@
      (setq slime-net-coding-system 'utf-8-unix
            slime-protocol-version 'ignore)
      (setq slime-lisp-implementations
-           '((sbcl ("/opt/local/bin/sbcl" "--noinform")
+           '((sbcl ("sbcl" "--noinform")
                    :coding-system utf-8-unix)
-             (ccl ("/opt/local/bin/ccl64" "-K utf-8"))))
+             (ccl ("ccl64" "-K utf-8"))))
 
      (slime-setup
       '(slime-repl slime-asdf slime-fancy slime-banner))
