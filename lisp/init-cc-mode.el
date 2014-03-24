@@ -17,9 +17,7 @@
 
      (dolist (hook '(c-mode-hook c++-mode-hook))
        (add-hook hook #'(lambda ()
-                          (setq electric-pair-pairs '((?\{ . ?\})))
                           (electric-pair-mode 1)
-
                           (linum-mode 1)
                           (auto-complete-mode 1)
                           (c-turn-on-eldoc-mode)
