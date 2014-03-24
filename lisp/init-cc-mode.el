@@ -2,6 +2,10 @@
 ;;; Commentary:
 ;;; Code:
 
+;; c-eldoc
+(require-package 'c-eldoc)
+(defvar c-eldoc-cpp-command "cpp")
+
 (autoload 'c++-mode "cc-mode" "C++ mode" t)
 (autoload 'c-mode "cc-mode" "C mode" t)
 (autoload 'java-mode "cc-mode" "Java mode" t)
@@ -10,14 +14,15 @@
      (define-key c-mode-base-map (kbd "RET") 'newline-and-indent)
      (setq c-default-style "k&r"
            c-basic-offset 4)
-     (add-hook 'c-mode-hook 'c-turn-on-eldoc-mode)
 
      (dolist (hook '(c-mode-hook c++-mode-hook))
        (add-hook hook #'(lambda ()
+                          (setq electric-pair-pairs '((?\{ . ?\})))
                           (electric-pair-mode 1)
+
                           (linum-mode 1)
                           (auto-complete-mode 1)
-                          (yas-minor-mode)
+                          (c-turn-on-eldoc-mode)
                           (flycheck-mode))))))
 
 (setq auto-mode-alist
