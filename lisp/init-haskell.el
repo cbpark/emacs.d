@@ -73,11 +73,6 @@
      (define-key haskell-cabal-mode-map (kbd "C-c C-l") 'haskell-process-load-file)
      (define-key haskell-cabal-mode-map (kbd "C-c C-b") 'haskell-interactive-switch)))
 
-;; GHCi and Haskell interactive mode
-(require-package 'ghci-completion)
-(dolist (hook '(inferior-haskell-mode-hook haskell-interactive-mode-hook))
-  (add-hook hook #'(lambda () (turn-on-ghci-completion))))
-
 ;; flycheck-haskell
 (require-package 'flycheck-haskell)
 (eval-after-load 'flycheck
