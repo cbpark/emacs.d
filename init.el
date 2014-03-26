@@ -7,9 +7,12 @@
 
 ;; Turn off mouse interface in startup
 (unless window-system
-  (if (fboundp 'menu-bar-mode) (menu-bar-mode -1)))
-(if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
-(if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
+  (when (fboundp 'menu-bar-mode)
+    (menu-bar-mode -1)))
+(when (fboundp 'tool-bar-mode)
+  (tool-bar-mode -1))
+(when (fboundp 'scroll-bar-mode)
+  (scroll-bar-mode -1))
 (setq inhibit-splash-screen t
       inhibit-startup-message t)
 
@@ -20,42 +23,43 @@
 (add-to-list 'load-path (expand-file-name "site-lisp" user-emacs-directory))
 (add-to-list 'load-path (expand-file-name "site-lisp/custom-theme" user-emacs-directory))
 
-(require 'init-elpa)
-(require 'init-shell-env)
-(require 'epa-file)
-(require 'init-encoding)
-(require 'init-themes)
-(require 'init-fonts)
-(require 'init-key-binds)
-(require 'init-clipboard)
-(require 'init-window)
-(require 'init-linum)
-(require 'init-undo-tree)
-;; (require 'init-ido)
-(require 'init-helm)
-(require 'init-terms)
-(require 'init-dired)
-(require 'init-recentf)
-(require 'init-tramp)
-(require 'init-ibuffer)
-(require 'init-projectile)
-(require 'init-flycheck)
-(require 'init-editing-util)
-(require 'init-ediff)
-(require 'init-auto-complete)
-(require 'init-auctex)
-(require 'init-org)
-(require 'init-cc-mode)
-(require 'init-lisp-mode)
-(require 'init-clojure)
-(require 'init-maxima)
-(require 'init-gnuplot)
-(require 'init-haskell)
-(require 'init-python)
-(require 'init-cmake)
-(require 'init-sh-mode)
-(require 'init-markdown)
-(require 'init-mu4e)
+(dolist (init-files '(init-elpa
+                      init-shell-env
+                      epa-file
+                      init-encoding
+                      init-themes
+                      init-fonts
+                      init-key-binds
+                      init-clipboard
+                      init-window
+                      init-linum
+                      init-undo-tree
+                      ;; init-ido
+                      init-helm
+                      init-terms
+                      init-dired
+                      init-recentf
+                      init-tramp
+                      init-ibuffer
+                      init-projectile
+                      init-flycheck
+                      init-editing-util
+                      init-ediff
+                      init-auto-complete
+                      init-auctex
+                      init-org
+                      init-cc-mode
+                      init-lisp-mode
+                      init-clojure
+                      init-maxima
+                      init-gnuplot
+                      init-haskell
+                      init-python
+                      init-cmake
+                      init-sh-mode
+                      init-markdown
+                      init-mu4e))
+  (require init-files))
 
 ;; Variables configured via the interactive customize interface
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))

@@ -1,4 +1,4 @@
-;;; emacs-custom.el --- Emacs custom settings
+;;; custom.el --- Emacs custom settings
 ;;; Commentary:
 ;;; Code:
 
