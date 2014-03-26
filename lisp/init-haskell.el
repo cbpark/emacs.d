@@ -17,11 +17,6 @@
 ;; Ignore compiled Haskell files in filename completions
 (add-to-list 'completion-ignored-extensions ".hi")
 
-(require-package 'ghc)
-(autoload 'ghc-init "ghc" nil t)
-(dolist (mode '("haskell-mode" "haskell-cabal-mode"))
-  (eval-after-load mode '(ghc-init)))
-
 ;; Haskell doc mode
 (dolist (hook '(haskell-mode-hook inferior-haskell-mode-hook))
   (add-hook hook 'turn-on-haskell-doc-mode))
@@ -84,10 +79,10 @@
   (add-hook hook #'(lambda () (turn-on-ghci-completion))))
 
 ;; flycheck-haskell
-(add-hook 'haskell-mode-hook 'flycheck-mode)
 (require-package 'flycheck-haskell)
 (eval-after-load 'flycheck
   (add-hook 'flycheck-mode-hook #'flycheck-haskell-setup))
+(add-hook 'haskell-mode-hook 'flycheck-mode)
 
 ;; flyspell
 ;; (add-hook 'haskell-mode-hook 'flyspell-prog-mode)
