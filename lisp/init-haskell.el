@@ -27,12 +27,12 @@
 ;; (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
 
 (defun haskell-insert-comment ()
-  "Insert comment the documentation."
+  "Insert the comments for the documentation."
   (interactive)
   (insert "-- | "))
 
 (defun haskell-insert-nested-comment ()
-  "Insert the nested for documentation."
+  "Insert the nested comments for documentation."
   (interactive)
   (insert "{-|  -}")
   (backward-char 3))

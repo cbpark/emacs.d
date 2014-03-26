@@ -9,19 +9,6 @@
 (autoload 'c++-mode "cc-mode" "C++ mode" t)
 (autoload 'c-mode "cc-mode" "C mode" t)
 (autoload 'java-mode "cc-mode" "Java mode" t)
-(eval-after-load "cc-mode"
-  '(progn
-     (define-key c-mode-base-map (kbd "RET") 'newline-and-indent)
-     (setq c-default-style "k&r"
-           c-basic-offset 4)
-
-     (dolist (hook '(c-mode-hook c++-mode-hook))
-       (add-hook hook #'(lambda ()
-                          (electric-pair-mode 1)
-                          (linum-mode 1)
-                          (auto-complete-mode 1)
-                          (c-turn-on-eldoc-mode)
-                          (flycheck-mode))))))
 
 (setq auto-mode-alist
   (append
@@ -32,6 +19,29 @@
       ("\\.c$"    . c-mode   )
       ("\\.h$"    . c++-mode )
       ("\\.java$" . java-mode)) auto-mode-alist))
+
+(defun cc-insert-comment ()
+  "Insert the comments for documentation."
+  (interactive)
+  (insert "/*  */")
+  (backward-char 3))
+
+(eval-after-load "cc-mode"
+  '(progn
+     (define-key c-mode-base-map (kbd "RET")     'c-context-line-break)
+     (define-key c-mode-base-map (kbd "C-c C-a") 'cc-insert-comment)
+     (define-key c-mode-base-map (kbd "C-C C-l") 'compile)
+
+     (setq c-default-style "k&r"
+           c-basic-offset 4)
+
+     (add-hook 'c-mode-common-hook #'(lambda ()
+                                       (electric-pair-mode 1)
+                                       (c-toggle-hungry-state 1)
+                                       (linum-mode 1)
+                                       (auto-complete-mode 1)
+                                       (c-turn-on-eldoc-mode)
+                                       (flycheck-mode)))))
 
 (provide 'init-cc-mode)
 ;;; init-cc-mode.el ends here
