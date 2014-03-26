@@ -4,13 +4,15 @@
 
 (require 'org)
 
-(setq org-export-html-validation-link nil)
-(setq org-src-fontify-natively t)
-(add-hook 'org-mode-hook (lambda ()
-                           (auto-complete-mode 1)
-                           (ac-ispell-ac-setup)
-                           (yas-minor-mode)))
-(ac-flyspell-workaround)
+(eval-after-load 'org
+  '(progn
+     (setq org-export-html-validation-link nil)
+     (setq org-src-fontify-natively t)
+     (add-hook 'org-mode-hook (lambda ()
+                                (auto-complete-mode 1)
+                                (ac-ispell-ac-setup)))
+     (ac-flyspell-workaround)))
+
 
 ;; Org Publishing
 (require 'org-publish)

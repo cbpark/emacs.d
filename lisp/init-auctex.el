@@ -37,7 +37,6 @@
                                     (flyspell-mode)
                                     (linum-mode 1)
                                     (turn-on-reftex)
-                                    (yas-minor-mode)
                                     (ac-ispell-ac-setup)))))
 
 (eval-after-load 'reftex

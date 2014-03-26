@@ -43,7 +43,6 @@
 (require 'init-editing-util)
 (require 'init-ediff)
 (require 'init-auto-complete)
-(require 'init-yasnippet)
 (require 'init-auctex)
 (require 'init-org)
 (require 'init-cc-mode)
