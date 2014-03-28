@@ -4,13 +4,17 @@
 
 (require-package 'projectile)
 
-;; Indexing method
-(setq projectile-indexing-method 'native)
+(eval-after-load 'projectile
+  '(progn
+     ;; Indexing method
+     (setq projectile-indexing-method 'native)
 
-;; Switching projects
-;; (setq projectile-switch-project-action 'projectile-dired)
-(setq projectile-switch-project-action 'projectile-find-dir)
-(setq projectile-find-dir-includes-top-level t)
+     ;; Switching projects
+     ;; (setq projectile-switch-project-action 'projectile-dired)
+     (setq projectile-switch-project-action 'projectile-find-dir)
+     (setq projectile-find-dir-includes-top-level t)
+
+     (setq projectile-tags-command "/usr/bin/ctags -e -R %s")))
 
 (projectile-global-mode)
 

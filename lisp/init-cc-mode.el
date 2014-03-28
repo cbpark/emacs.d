@@ -26,10 +26,16 @@
   (insert "/*  */")
   (backward-char 3))
 
+(defun cc-insert-include ()
+  "Insert the include."
+  (interactive)
+  (insert "#include "))
+
 (eval-after-load "cc-mode"
   '(progn
      (define-key c-mode-base-map (kbd "RET")     'c-context-line-break)
      (define-key c-mode-base-map (kbd "C-c C-a") 'cc-insert-comment)
+     (define-key c-mode-base-map (kbd "C-c C-i") 'cc-insert-include)
      (define-key c-mode-base-map (kbd "C-C C-l") 'compile)
 
      (setq c-default-style "k&r"
