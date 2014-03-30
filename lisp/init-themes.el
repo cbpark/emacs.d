@@ -4,7 +4,7 @@
 
 ;; tomorrow theme
 (when (require 'color-theme-tomorrow nil 'noerror)
-  (load-theme 'tomorrow-night t))
+  (load-theme 'tomorrow-night-eighties t))
 
 ;; hl-line foreground color
 (set-face-foreground 'highlight nil)

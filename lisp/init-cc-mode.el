@@ -31,11 +31,17 @@
   (interactive)
   (insert "#include "))
 
+(defun cc-insert-define ()
+  "Insert the define."
+  (interactive)
+  (insert "#define "))
+
 (eval-after-load "cc-mode"
   '(progn
      (define-key c-mode-base-map (kbd "RET")     'c-context-line-break)
      (define-key c-mode-base-map (kbd "C-c C-a") 'cc-insert-comment)
      (define-key c-mode-base-map (kbd "C-c C-i") 'cc-insert-include)
+     (define-key c-mode-base-map (kbd "C-c C-d") 'cc-insert-define)
      (define-key c-mode-base-map (kbd "C-C C-l") 'compile)
 
      (setq c-default-style "k&r"
