@@ -8,19 +8,19 @@
   '(progn
      (setq org-export-html-validation-link nil)
      (setq org-src-fontify-natively t)
-     (add-hook 'org-mode-hook (lambda ()
-                                (auto-complete-mode 1)
-                                (ac-ispell-ac-setup)))
+     (add-hook 'org-mode-hook #'(lambda ()
+                                  (auto-complete-mode 1)
+                                  (ac-ispell-ac-setup)))
      (ac-flyspell-workaround)))
-
 
 ;; Org Publishing
 (require 'org-publish)
+(require-package 'htmlize)
 (setq org-publish-project-alist
       '(("org-notes"
-         :base-directory "~/Documents/org/"
+         :base-directory "~/Documents/org/notes"
          :base-extension "org"
-         :publishing-directory "~/Dropbox/org/"
+         :publishing-directory "~/Dropbox/org/notes"
          :recursive t
          :publishing-function org-publish-org-to-html
          :headline-levels 4
@@ -29,9 +29,9 @@
          :sitemap-filename "sitemap.org"
          :sitemap-title "Sitemap")
         ("org-static"
-         :base-directory "~/Documents/org/"
+         :base-directory "~/Documents/org/notes"
          :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf"
-         :publishing-directory "~/Dropbox/org/"
+         :publishing-directory "~/Dropbox/org/notes"
          :recursive t
          :publishing-function org-publish-attachment)
         ("org" :components ("org-notes" "org-static"))))
@@ -42,10 +42,12 @@
   (setq org-export-latex-classes nil))
 (add-to-list 'org-export-latex-classes
              '("article"
-               "\\documentclass[11pt,article]{article}
+               "\\documentclass[11pt,a4paper]{article}
 \\setlength{\\parindent}{1cm}
 \\setlength{\\parskip}{5pt plus 2pt minus 1pt}
 \\renewcommand{\\baselinestretch}{1.15}
+\\interfootnotelinepenalty=10000
+\\raggedbottom
 \\usepackage{amsfonts}
 \\usepackage{amsmath,bm}
 \\usepackage{amssymb}
@@ -64,8 +66,6 @@
                ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
                ("\\paragraph{%s}" . "\\paragraph*{%s}")
                ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
-
-(require-package 'htmlize)
 
 (provide 'init-org)
 ;;; init-org.el ends here

@@ -3,8 +3,12 @@
 ;;; Code:
 
 ;; tomorrow theme
-(when (require 'color-theme-tomorrow nil 'noerror)
-  (load-theme 'tomorrow-night-eighties t))
+;; (when (require 'color-theme-tomorrow nil 'noerror)
+;;   (load-theme 'tomorrow-night-eighties t))
+
+;; zenburn theme
+(require-package 'zenburn-theme)
+(load-theme 'zenburn t)
 
 ;; hl-line foreground color
 (set-face-foreground 'highlight nil)
