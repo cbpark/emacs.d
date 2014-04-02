@@ -3,14 +3,22 @@
 ;;; Code:
 
 (require 'org)
+(add-to-list 'auto-mode-alist '("\\.txt\\'" . org-mode))
+
+(global-set-key (kbd "C-c l") 'org-store-link)
+(global-set-key (kbd "C-c a") 'org-agenda)
+(global-set-key (kbd "C-c b") 'org-iswitchb)
 
 (eval-after-load 'org
   '(progn
+     (setq org-agenda-files (list "~/Documents/org/diary"))
      (setq org-export-html-validation-link nil)
      (setq org-src-fontify-natively t)
      (add-hook 'org-mode-hook #'(lambda ()
+                                  (linum-mode 1)
                                   (auto-complete-mode 1)
-                                  (ac-ispell-ac-setup)))
+                                  (ac-ispell-ac-setup)
+                                  (electric-pair-mode 1)))
      (ac-flyspell-workaround)))
 
 ;; Org Publishing
@@ -66,6 +74,15 @@
                ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
                ("\\paragraph{%s}" . "\\paragraph*{%s}")
                ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+
+;; Org journal
+(require-package 'org-journal)
+(global-set-key (kbd "C-c j") 'org-journal-new-entry)
+(eval-after-load 'org-journal
+  '(progn
+     (setq org-journal-dir "~/Documents/org/diary/")
+     (setq org-journal-date-format "%Y-%m-%d (%A)")
+     (setq org-journal-file-format "%Y%m%d.org")))
 
 (provide 'init-org)
 ;;; init-org.el ends here
