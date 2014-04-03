@@ -81,6 +81,7 @@
                      (flycheck-mode))))
 
 (add-hook 'lisp-interaction-mode-hook #'(lambda () (linum-mode -1)))
+(add-hook 'emacs-lisp-mode-hook #'(lambda () (eldoc-mode t)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Scheme mode
