@@ -6,7 +6,6 @@
 (add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
 
 (add-hook 'python-mode-hook #'(lambda ()
-                                (electric-pair-mode)
                                 (linum-mode 1)
                                 (flycheck-mode)))
 
@@ -20,7 +19,6 @@
 
 (add-hook 'py-shell-hook #'(lambda ()
                              (setq global-hl-line-mode nil)
-                             (electric-pair-mode)
                              (linum-mode -1)))
 
 ;; Jedi: Python auto-completion package

@@ -18,8 +18,7 @@
      (add-hook 'org-mode-hook #'(lambda ()
                                   (linum-mode 1)
                                   (auto-complete-mode 1)
-                                  (ac-ispell-ac-setup)
-                                  (electric-pair-mode 1)))
+                                  (ac-ispell-ac-setup)))
      (ac-flyspell-workaround)))
 
 ;; Org Publishing

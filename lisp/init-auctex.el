@@ -33,7 +33,6 @@
 
      (add-hook 'LaTeX-mode-hook #'(lambda ()
                                     (setq electric-pair-pairs '((?\$ . ?\$)))
-                                    (electric-pair-mode 1)
                                     (flyspell-mode)
                                     (linum-mode 1)
                                     (turn-on-reftex)

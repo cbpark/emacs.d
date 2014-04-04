@@ -48,7 +48,6 @@
            c-basic-offset 4)
 
      (add-hook 'c-mode-common-hook #'(lambda ()
-                                       (electric-pair-mode 1)
                                        (c-toggle-hungry-state 1)
                                        (linum-mode 1)
                                        (auto-complete-mode 1)
