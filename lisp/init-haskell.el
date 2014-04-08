@@ -82,28 +82,14 @@
 ;; flyspell
 ;; (add-hook 'haskell-mode-hook 'flyspell-prog-mode)
 
-;; Auto-complete
-(defun ac-haskell-candidates ()
-  "Auto-complete source using ghc-doc."
-  (let ((pattern (buffer-substring (ghc-completion-start-point) (point)))
-        (symbols (ghc-select-completion-symbol)))
-    (all-completions pattern symbols)))
-
+;; auto-complete
 (eval-after-load "auto-complete"
-  '(progn
-     (add-to-list 'ac-modes 'haskell-mode)
-     (ac-define-source ghc
-       '((candidates . ac-haskell-candidates)))))
+  '(add-to-list 'ac-modes 'haskell-mode))
 
-;; Popup
-(require-package 'popup)
-(defun ghc-show-info-popup ()
-  "Put ghc-show-info in a popup."
-  (interactive)
-  (popup-tip (ghc-get-info (ghc-things-at-point)) :around t :scroll-bar t))
-
-(eval-after-load "haskell-mode"
-  '(define-key haskell-mode-map (kbd "C-c TAB") 'ghc-show-info-popup))
+(dolist (hook '(inferior-haskell-mode-hook haskell-interactive-mode-hook))
+  (add-hook hook #'(lambda ()
+                     (auto-complete-mode 1)
+                     (setq global-hl-line-mode nil))))
 
 ;; Customizations and hooks
 (eval-after-load "haskell-mode"
@@ -115,11 +101,6 @@
   '(setq haskell-program-name "ghci"))
 
 (add-hook 'haskell-mode-hook #'(lambda () (linum-mode 1)))
-
-(dolist (hook '(inferior-haskell-mode-hook haskell-interactive-mode-hook))
-  (add-hook hook #'(lambda ()
-                     (auto-complete-mode 1)
-                     (setq global-hl-line-mode nil))))
 
 (provide 'init-haskell)
 ;;; init-haskell.el ends here
