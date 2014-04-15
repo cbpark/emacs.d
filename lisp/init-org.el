@@ -22,7 +22,6 @@
      (ac-flyspell-workaround)))
 
 ;; Org Publishing
-(require 'org-publish)
 (require-package 'htmlize)
 (setq org-publish-project-alist
       '(("org-notes"
@@ -45,7 +44,6 @@
         ("org" :components ("org-notes" "org-static"))))
 
 ;; LaTeX export
-(require 'org-latex)
 (unless (boundp 'org-export-latex-classes)
   (setq org-export-latex-classes nil))
 (add-to-list 'org-export-latex-classes
