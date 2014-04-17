@@ -66,6 +66,7 @@
  '(show-paren-style (quote expression))
  '(size-indication-mode t)
  '(split-width-threshold nil)
+ '(sql-product (quote sqlite))
  '(tab-width 4)
  '(tags-case-fold-search t)
  '(text-mode-hook (quote (turn-on-flyspell turn-on-auto-fill text-mode-hook-identify)))

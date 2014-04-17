@@ -23,6 +23,10 @@
 
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
 
+;; add hook to some major modes
+(dolist (hook '(makefile-mode-hook sql-mode-hook))
+  (add-hook hook #'(lambda () (auto-complete-mode 1))))
+
 ;; ac-ispell
 (custom-set-variables
   '(ac-ispell-requires 4))
@@ -32,9 +36,8 @@
   '(progn
       (ac-ispell-setup)))
 
-(add-hook 'git-commit-mode-hook 'ac-ispell-ac-setup)
-(add-hook 'text-mode-hook 'ac-ispell-ac-setup)
-(add-hook 'message-mode-hook 'ac-ispell-ac-setup)
+(dolist (hook '(git-commit-mode-hook text-mode-hook message-mode-hook))
+  (add-hook hook 'ac-ispell-ac-setup))
 
 (provide 'init-auto-complete)
 ;;; init-auto-complete.el ends here
