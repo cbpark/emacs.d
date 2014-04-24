@@ -17,7 +17,8 @@
       ("\\.cpp$"  . c++-mode )
       ("\\.cxx$"  . c++-mode )
       ("\\.c$"    . c-mode   )
-      ("\\.h$"    . c++-mode )
+      ("\\.h$"    . c-mode   )
+      ("\\.hh$"   . c++-mode )
       ("\\.java$" . java-mode)) auto-mode-alist))
 
 (defun cc-insert-comment ()
@@ -27,14 +28,19 @@
   (backward-char 3))
 
 (defun cc-insert-include ()
-  "Insert the include."
+  "Insert the #include."
   (interactive)
   (insert "#include "))
 
 (defun cc-insert-define ()
-  "Insert the define."
+  "Insert the #define."
   (interactive)
   (insert "#define "))
+
+(defun cc-lookup-man ()
+  "Look up man page."
+  (interactive)
+  (manual-entry (current-word)))
 
 (eval-after-load "cc-mode"
   '(progn
@@ -42,6 +48,7 @@
      (define-key c-mode-base-map (kbd "C-c C-a") 'cc-insert-comment)
      (define-key c-mode-base-map (kbd "C-c C-i") 'cc-insert-include)
      (define-key c-mode-base-map (kbd "C-c C-d") 'cc-insert-define)
+     (define-key c-mode-base-map (kbd "C-h d")   'cc-lookup-man)
      (define-key c-mode-base-map (kbd "C-C C-l") 'compile)
 
      (setq c-default-style "k&r"
