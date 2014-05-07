@@ -16,7 +16,8 @@
      (setq enable-recursive-minibuffers t)
      ;; Ignore files
      (setq helm-ff-skip-boring-files t)
-     (setq helm-boring-file-regexp-list '("\\.elc$" "\\.o$" "\\.hi$" "\\.pyc$"))
+     (setq helm-boring-file-regexp-list '("\\.elc$" "\\.o$" "\\.hi$" "\\.pyc$"
+                                          "\\.localized$" "\\.DS_Store$"))
      ;;
      (setq helm-reuse-last-window-split-state t)
      (setq helm-always-two-windows t)
