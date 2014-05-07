@@ -56,7 +56,7 @@
  '(make-backup-files nil)
  '(mark-even-if-inactive t)
  '(mouse-avoidance-mode (quote animate) nil (avoid))
- '(next-line-add-newlines t)
+ '(next-line-add-newlines nil)
  '(ns-alternate-modifier (quote meta))
  '(ns-antialias-text t)
  '(ns-command-modifier (quote super))
