@@ -20,7 +20,9 @@
 (eval-after-load 'imaxima
   '(progn
      (setq imaxima-maxima-program "maxima")
-     (setq imaxima-fnt-size "Large")))
+     (setq imaxima-use-maxima-mode-flag t)
+     (setq imaxima-pt-size 9)
+     (setq imaxima-fnt-size "large")))
 
 (provide 'init-maxima)
 ;;; init-maxima.el ends here
