@@ -14,7 +14,7 @@
 (set-face-foreground 'highlight nil)
 
 ;; set fringe width
-(set-fringe-mode '(0 . 0))
+;; (set-fringe-mode '(0 . 0))
 
 ;; transparenent frame
 (when window-system
