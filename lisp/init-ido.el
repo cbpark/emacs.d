@@ -25,5 +25,8 @@
 
 ;; (global-set-key (kbd "C-x C-f") 'ido-find-file)
 
+;; icomplete
+(icomplete-mode t)
+
 (provide 'init-ido)
 ;;; init-ido.el ends here
