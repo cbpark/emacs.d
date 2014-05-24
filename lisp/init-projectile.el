@@ -8,6 +8,7 @@
   '(progn
      ;; Indexing method
      (setq projectile-indexing-method 'native)
+     (setq projectile-enable-caching t)
 
      ;; Switching projects
      ;; (setq projectile-switch-project-action 'projectile-dired)
