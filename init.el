@@ -34,7 +34,7 @@
                       init-window
                       init-linum
                       init-undo-tree
-                      ;; init-ido
+                      init-ido
                       init-helm
                       init-terms
                       init-dired

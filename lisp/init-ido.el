@@ -23,7 +23,7 @@
 (setq ido-use-filename-at-point nil)
 (setq ido-use-url-at-point nil)
 
-(global-set-key (kbd "C-x C-f") 'ido-find-file)
+;; (global-set-key (kbd "C-x C-f") 'ido-find-file)
 
 (provide 'init-ido)
 ;;; init-ido.el ends here
