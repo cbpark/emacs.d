@@ -18,7 +18,7 @@
 (add-hook 'eshell-mode-hook #'(lambda () (setq global-hl-line-mode nil)))
 
 ;; key binding
-;; (global-set-key (kbd "C-c e") 'eshell)
+(global-set-key (kbd "C-c e") 'eshell)
 
 ;; Change comint keys
 (require 'comint)
