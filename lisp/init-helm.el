@@ -66,9 +66,19 @@
 
 ;; helm projectile
 (require-package 'helm-projectile)
+
 (eval-after-load "projectile"
   '(progn
      (define-key projectile-mode-map (kbd "C-c h") 'helm-projectile)))
+
+(defun find-file-project ()
+  "Find file using helm-projectile when inside a project."
+  (interactive)
+  (if (projectile-project-p)
+      (helm-projectile)
+    (ido-find-file)))
+
+(global-set-key (kbd "C-x C-f") 'find-file-project)
 
 ;; helm-ls-git
 (require-package 'helm-ls-git)
