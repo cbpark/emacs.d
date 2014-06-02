@@ -21,7 +21,8 @@
      ;;
      (setq helm-reuse-last-window-split-state t)
      (setq helm-always-two-windows t)
-     (setq helm-ff-file-name-history-use-recentf t)))
+     (setq helm-ff-file-name-history-use-recentf t)
+     (add-to-list 'helm-completing-read-handlers-alist '(find-file . ido))))
 
 (eval-after-load "helm-files"
   '(progn
