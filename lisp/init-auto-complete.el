@@ -6,7 +6,7 @@
 (require 'auto-complete-config)
 (ac-config-default)
 (global-auto-complete-mode t)
-(setq ac-auto-start 4)
+(setq ac-auto-start t)
 (setq ac-ignore-case t)
 (setq ac-use-menu-map t)
 (setq ac-delay 0.2)
