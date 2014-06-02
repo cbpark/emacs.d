@@ -2,28 +2,17 @@
 ;;; Commentary:
 ;;; Code:
 
-(require-package 'python-mode)
+(require 'python)
 (add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
 
 (add-hook 'python-mode-hook #'(lambda ()
                                 (linum-mode 1)
                                 (flycheck-mode)))
 
-;; ipython.el
-(require-package 'ipython)
 (eval-after-load "python"
   '(progn
-     (setq ipython-command "ipython")
-     (setq py-python-command "ipython")
-     (setq-default py-python-command-args '("--pylab"))))
-
-(add-hook 'py-shell-hook #'(lambda ()
-                             (setq global-hl-line-mode nil)
-                             (linum-mode -1)))
-
-;; Jedi: Python auto-completion package
-(autoload 'jedi:setup "jedi" nil t)
-(add-hook 'python-mode-hook 'jedi:ac-setup)
+     (setq python-shell-interpreter "ipython")
+     (setq python-shell-interpreter-args "--pylab")))
 
 (provide 'init-python)
 ;;; init-python.el ends here
