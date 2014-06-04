@@ -3,12 +3,11 @@
 ;;; Code:
 
 (require 'tramp)
-(setq tramp-debug-buffer t)
 (setq tramp-verbose 10)
-(setq tramp-default-method "ssh")
+(setq tramp-default-method "sshx")
 
-;; open file as root
 (defun th-rename-tramp-buffer ()
+  "Open file as root."
   (when (file-remote-p (buffer-file-name))
     (rename-buffer
      (format "%s:%s"
@@ -28,7 +27,7 @@
     ad-do-it))
 
 (defun th-find-file-sudo (file)
-  "Opens FILE with root privileges."
+  "Open FILE with root privileges."
   (interactive "F")
   (set-buffer (find-file (concat "/sudo::" file))))
 
