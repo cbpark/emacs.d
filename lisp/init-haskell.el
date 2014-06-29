@@ -93,12 +93,12 @@
 
 ;; Customizations and hooks
 (eval-after-load "haskell-mode"
-  '(setq haskell-program-name "ghci"
+  '(setq haskell-program-name "cabal repl"
          haskell-stylish-on-save nil
          haskell-tags-on-save t))
 
 (eval-after-load "haskell-cabal-mode"
-  '(setq haskell-program-name "ghci"))
+  '(setq haskell-program-name "cabal repl"))
 
 (add-hook 'haskell-mode-hook #'(lambda () (linum-mode 1)))
 
