@@ -40,7 +40,7 @@
   ;; helm eshell history
   (add-hook 'eshell-mode-hook
             #'(lambda () (define-key eshell-mode-map
-                           (kbd "M-p") 'helm-eshell-history))))
+                           (kbd "M-l") 'helm-eshell-history))))
 
 ;; Add color to a shell
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)

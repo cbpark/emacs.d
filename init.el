@@ -37,7 +37,7 @@
                       init-ido
                       init-helm
                       init-terms
-                      init-dired
+                      ;; init-dired
                       init-recentf
                       init-tramp
                       init-ibuffer
