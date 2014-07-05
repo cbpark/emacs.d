@@ -5,12 +5,12 @@
 (require 'recentf)
 (setq recentf-auto-cleanup 'never)
 (recentf-mode 1)
-(setq recentf-max-menu-items 50)
+(setq recentf-max-menu-items 100)
 
 (setq recentf-exclude
       '("\\.ido.last$" "^autoloads.el$" "^archive-contents$" "^.*\/bookmarks$"
         "^.*\/cookies$" "\\.html$" "\\.cache$" "^.*\/elpa\/.*$"
-        "^.*\/Maildir\/.*$" "^.*\/\.git\/.*$"))
+        "^.*\/Maildir\/.*$" "^.*\/\.git\/.*$" "\\.ps$" "\\.pdf$"))
 
 ;; (defun recentf-ido-find-file ()
 ;;   "Find a recent file using Ido."
