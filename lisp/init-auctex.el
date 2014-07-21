@@ -32,7 +32,6 @@
      (setq LaTeX-default-environment "align")
 
      (add-hook 'LaTeX-mode-hook #'(lambda ()
-                                    (setq electric-pair-pairs '((?\$ . ?\$)))
                                     (flyspell-mode)
                                     (linum-mode 1)
                                     (turn-on-reftex)
