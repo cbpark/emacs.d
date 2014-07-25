@@ -29,8 +29,12 @@
 (defun haskell-insert-import ()
   "Insert import."
   (interactive)
-  (insert "import")
-  (forward-char 2))
+  (insert "import "))
+
+(defun haskell-insert-import-qual ()
+  "Insert qualified import."
+  (interactive)
+  (insert "import qualified "))
 
 (defun haskell-insert-comment ()
   "Insert the comments for the documentation."
@@ -73,6 +77,7 @@
      (define-key haskell-mode-map (kbd "C-c C-g") 'haskell-hoogle)
      (define-key haskell-mode-map (kbd "C-c l")   'haskell-mode-stylish-buffer)
      (define-key haskell-mode-map (kbd "C-c i")   'haskell-insert-import)
+     (define-key haskell-mode-map (kbd "C-c q")   'haskell-insert-import-qual)
      (define-key haskell-mode-map (kbd "C-c C-a") 'haskell-insert-comment)
      (define-key haskell-mode-map (kbd "C-c C-d") 'haskell-insert-nested-comment)
      (define-key haskell-mode-map (kbd "C-c C-p") 'haskell-insert-pragma)
