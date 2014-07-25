@@ -26,6 +26,12 @@
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
 ;; (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
 
+(defun haskell-insert-import ()
+  "Insert import."
+  (interactive)
+  (insert "import")
+  (forward-char 2))
+
 (defun haskell-insert-comment ()
   "Insert the comments for the documentation."
   (interactive)
@@ -43,6 +49,13 @@
   (insert "{-# LANGUAGE  #-}")
   (backward-char 4))
 
+(defun haskell-main-function ()
+  "Insert main function."
+  (interactive)
+  (insert "main :: IO ()")
+  (newline)
+  (insert "main = do"))
+
 (defun haskell-insert-undefined ()
   "Insert undefined."
   (interactive)
@@ -59,9 +72,11 @@
      (define-key haskell-mode-map (kbd "C-c C-i") 'haskell-process-do-info)
      (define-key haskell-mode-map (kbd "C-c C-g") 'haskell-hoogle)
      (define-key haskell-mode-map (kbd "C-c l")   'haskell-mode-stylish-buffer)
+     (define-key haskell-mode-map (kbd "C-c i")   'haskell-insert-import)
      (define-key haskell-mode-map (kbd "C-c C-a") 'haskell-insert-comment)
      (define-key haskell-mode-map (kbd "C-c C-d") 'haskell-insert-nested-comment)
      (define-key haskell-mode-map (kbd "C-c C-p") 'haskell-insert-pragma)
+     (define-key haskell-mode-map (kbd "C-c C-m") 'haskell-main-function)
      (define-key haskell-mode-map (kbd "C-c C-u") 'haskell-insert-undefined)
      (define-key haskell-mode-map (kbd "C-c M-.") nil)
      (define-key haskell-mode-map (kbd "C-c C-d") nil)))
@@ -80,7 +95,7 @@
 (add-hook 'haskell-mode-hook 'flycheck-mode)
 
 ;; flyspell
-;; (add-hook 'haskell-mode-hook 'flyspell-prog-mode)
+(add-hook 'haskell-mode-hook 'flyspell-prog-mode)
 
 ;; auto-complete
 (eval-after-load "auto-complete"
@@ -100,7 +115,9 @@
 (eval-after-load "haskell-cabal-mode"
   '(setq haskell-program-name "cabal repl"))
 
-(add-hook 'haskell-mode-hook #'(lambda () (linum-mode 1)))
+;; linum
+(dolist (hook '(haskell-mode-hook haskell-cabal-mode-hook))
+  (add-hook hook #'(lambda () (linum-mode 1))))
 
 (provide 'init-haskell)
 ;;; init-haskell.el ends here
