@@ -3,6 +3,8 @@
 ;;; Code:
 
 (require-package 'helm)
+(setq helm-command-prefix-key "C-c h")
+
 (require 'helm-config)
 (require 'helm-eshell)
 (require 'helm-utils)
@@ -36,6 +38,9 @@
 
      ;; (add-to-list 'helm-completing-read-handlers-alist '(find-file . ido))
 
+     ;; Save curren position when jumping
+     (add-hook 'helm-goto-line-before-hook 'helm-save-current-pos-to-mark-ring)
+
      (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action)
      (define-key helm-map (kbd "C-i") 'helm-execute-persistent-action)
      (define-key helm-map (kbd "C-z") 'helm-select-action)
@@ -57,7 +62,7 @@
 (global-set-key (kbd "C-c h g")   'helm-do-grep)
 (global-set-key (kbd "C-c h o")   'helm-occur)
 (global-set-key (kbd "C-c h r")   'helm-resume)
-(global-set-key (kbd "C-c <SPC>") 'helm-all-mark-rings)
+(global-set-key (kbd "C-c SPC")   'helm-all-mark-rings)
 
 ;; helm-swoop
 (require-package 'helm-swoop)
