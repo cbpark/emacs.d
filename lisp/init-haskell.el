@@ -17,14 +17,82 @@
 ;; Ignore compiled Haskell files in filename completions
 (add-to-list 'completion-ignored-extensions ".hi")
 
-;; Haskell doc mode
-(dolist (hook '(haskell-mode-hook inferior-haskell-mode-hook))
-  (add-hook hook 'turn-on-haskell-doc-mode))
-
 ;; Indentation
 ;; (add-hook 'haskell-mode-hook 'turn-on-haskell-simple-indent)
 ;; (add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
+(eval-after-load "haskell-mode"
+  '(progn
+     (define-key haskell-mode-map (kbd "C-,") 'haskell-move-nested-left)
+     (define-key haskell-mode-map (kbd "C-.") 'haskell-move-nested-right)))
+
+;; Module templates
+(add-hook 'haskell-mode-hook 'haskell-auto-insert-module-template)
+
+;; stylish-haskell
+(eval-after-load "haskell-mode"
+  '(progn
+     (setq haskell-stylish-on-save nil)
+     (define-key haskell-mode-map (kbd "C-c l")   'haskell-mode-stylish-buffer)))
+
+;; Haksell interactive mode
+(add-hook 'haskell-mode-hook 'interactive-haskell-mode)
+
+(eval-after-load "haskell-mode"
+  '(progn
+     (setq haskell-process-suggest-remove-import-lines t
+           haskell-process-auto-import-loaded-modules t
+           haskell-process-log t)
+
+     (define-key haskell-mode-map (kbd "C-c C-l") 'haskell-process-load-or-reload)
+     (define-key haskell-mode-map (kbd "C-`")     'haskell-interactive-bring)
+     (define-key haskell-mode-map (kbd "C-c C-t") 'haskell-process-do-type)
+     (define-key haskell-mode-map (kbd "C-c C-i") 'haskell-process-do-info)
+     (define-key haskell-mode-map (kbd "C-c C-c") 'haskell-process-cabal-build)
+     (define-key haskell-mode-map (kbd "C-c C-k") 'haskell-interactive-mode-clear)
+     (define-key haskell-mode-map (kbd "C-c c")   'haskell-process-cabal)
+     (define-key haskell-mode-map (kbd "C-c C-b") 'haskell-interactive-switch)
+     (define-key haskell-mode-map (kbd "SPC")     'haskell-mode-contextual-space)))
+
+(eval-after-load "haskell-cabal-mode"
+  '(progn
+     (define-key haskell-cabal-mode-map (kbd "C-`")     'haskell-interactive-bring)
+     (define-key haskell-cabal-mode-map (kbd "C-c C-k") 'haskell-interactive-mode-clear)
+     (define-key haskell-cabal-mode-map (kbd "C-c C-c") 'haskell-process-cabal-build)
+     (define-key haskell-cabal-mode-map (kbd "C-c c")   'haskell-process-cabal)
+     (define-key haskell-cabal-mode-map (kbd "C-c C-b") 'haskell-interactive-switch)))
+
+;; GHCi process type
+(custom-set-variables
+  '(haskell-process-type 'cabal-repl))
+
+;; Tags
+(eval-after-load "haskell-mode"
+  '(progn
+     (setq haskell-tags-on-save t)
+     (define-key haskell-mode-map (kbd "M-.") 'haskell-mode-jump-to-def-or-tag)))
+
+;; Haskell doc mode
+(dolist (hook '(haskell-mode-hook inferior-haskell-mode-hook))
+  (add-hook hook 'turn-on-haskell-doc-mode))
+
+;; flycheck-haskell
+(require-package 'flycheck-haskell)
+(eval-after-load 'flycheck
+  (add-hook 'flycheck-mode-hook #'flycheck-haskell-setup))
+(add-hook 'haskell-mode-hook 'flycheck-mode)
+
+;; flyspell
+(add-hook 'haskell-mode-hook 'flyspell-prog-mode)
+
+;; auto-complete
+(eval-after-load "auto-complete"
+  '(add-to-list 'ac-modes 'haskell-mode))
+
+(dolist (hook '(inferior-haskell-mode-hook haskell-interactive-mode-hook))
+  (add-hook hook #'(lambda ()
+                     (auto-complete-mode 1)
+                     (setq global-hl-line-mode nil))))
 
 (defun haskell-insert-import ()
   "Insert import."
@@ -68,57 +136,13 @@
 ;; Key bindings
 (eval-after-load "haskell-mode"
   '(progn
-     (define-key haskell-mode-map (kbd "C-c c")   'haskell-process-cabal)
-     (define-key haskell-mode-map (kbd "C-c C-c") 'haskell-process-cabal-build)
-     (define-key haskell-mode-map (kbd "C-c C-l") 'haskell-process-load-file)
-     (define-key haskell-mode-map (kbd "C-c C-b") 'haskell-interactive-switch)
-     (define-key haskell-mode-map (kbd "C-c C-t") 'haskell-process-do-type)
-     (define-key haskell-mode-map (kbd "C-c C-i") 'haskell-process-do-info)
-     (define-key haskell-mode-map (kbd "C-c C-g") 'haskell-hoogle)
-     (define-key haskell-mode-map (kbd "C-c l")   'haskell-mode-stylish-buffer)
      (define-key haskell-mode-map (kbd "C-c i")   'haskell-insert-import)
      (define-key haskell-mode-map (kbd "C-c q")   'haskell-insert-import-qual)
      (define-key haskell-mode-map (kbd "C-c C-a") 'haskell-insert-comment)
      (define-key haskell-mode-map (kbd "C-c C-d") 'haskell-insert-nested-comment)
      (define-key haskell-mode-map (kbd "C-c C-p") 'haskell-insert-pragma)
      (define-key haskell-mode-map (kbd "C-c C-m") 'haskell-main-function)
-     (define-key haskell-mode-map (kbd "C-c C-u") 'haskell-insert-undefined)
-     (define-key haskell-mode-map (kbd "C-c M-.") nil)
-     (define-key haskell-mode-map (kbd "C-c C-d") nil)))
-
-(eval-after-load "haskell-cabal-mode"
-  '(progn
-     (define-key haskell-cabal-mode-map (kbd "C-c c")   'haskell-process-cabal)
-     (define-key haskell-cabal-mode-map (kbd "C-c C-c") 'haskell-process-cabal-build)
-     (define-key haskell-cabal-mode-map (kbd "C-c C-l") 'haskell-process-load-file)
-     (define-key haskell-cabal-mode-map (kbd "C-c C-b") 'haskell-interactive-switch)))
-
-;; flycheck-haskell
-(require-package 'flycheck-haskell)
-(eval-after-load 'flycheck
-  (add-hook 'flycheck-mode-hook #'flycheck-haskell-setup))
-(add-hook 'haskell-mode-hook 'flycheck-mode)
-
-;; flyspell
-(add-hook 'haskell-mode-hook 'flyspell-prog-mode)
-
-;; auto-complete
-(eval-after-load "auto-complete"
-  '(add-to-list 'ac-modes 'haskell-mode))
-
-(dolist (hook '(inferior-haskell-mode-hook haskell-interactive-mode-hook))
-  (add-hook hook #'(lambda ()
-                     (auto-complete-mode 1)
-                     (setq global-hl-line-mode nil))))
-
-;; Customizations and hooks
-(eval-after-load "haskell-mode"
-  '(setq haskell-program-name "cabal repl"
-         haskell-stylish-on-save nil
-         haskell-tags-on-save t))
-
-(eval-after-load "haskell-cabal-mode"
-  '(setq haskell-program-name "cabal repl"))
+     (define-key haskell-mode-map (kbd "C-c C-u") 'haskell-insert-undefined)))
 
 ;; linum
 (dolist (hook '(haskell-mode-hook haskell-cabal-mode-hook))

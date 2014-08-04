@@ -8,7 +8,6 @@
 (global-auto-complete-mode t)
 (setq ac-auto-start 3)
 (setq ac-ignore-case t)
-(setq ac-use-menu-map t)
 (setq ac-delay 0.2)
 (setq ac-use-quick-help nil)
 ;; (setq ac-quick-help-delay 0.3)
@@ -16,10 +15,15 @@
 (setq ac-use-fuzzy t)
 (setq tab-always-indent 'complete)
 
-(define-key ac-completing-map    (kbd "RET") 'ac-complete)
-(define-key ac-complete-mode-map (kbd "C-n") 'ac-next)
-(define-key ac-complete-mode-map (kbd "C-p") 'ac-previous)
-(define-key ac-completing-map    "\t"        'ac-expand-common)
+;; Finish completion by TAB
+(define-key ac-completing-map "\t" 'ac-complete)
+(define-key ac-completing-map "\r" nil)
+
+;; Select candidates
+(setq ac-use-menu-map t)
+;; Default settings
+(define-key ac-menu-map "\C-n" 'ac-next)
+(define-key ac-menu-map "\C-p" 'ac-previous)
 
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
 
