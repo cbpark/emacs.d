@@ -27,22 +27,26 @@
      (define-key haskell-mode-map (kbd "C-.") 'haskell-move-nested-right)))
 
 ;; Module templates
-(add-hook 'haskell-mode-hook 'haskell-auto-insert-module-template)
+;; (add-hook 'haskell-mode-hook 'haskell-auto-insert-module-template)
 
 ;; stylish-haskell
 (eval-after-load "haskell-mode"
   '(progn
      (setq haskell-stylish-on-save nil)
-     (define-key haskell-mode-map (kbd "C-c l")   'haskell-mode-stylish-buffer)))
+     (define-key haskell-mode-map (kbd "C-c l") 'haskell-mode-stylish-buffer)))
 
 ;; Haksell interactive mode
 (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
 
 (eval-after-load "haskell-mode"
   '(progn
-     (setq haskell-process-suggest-remove-import-lines t
-           haskell-process-auto-import-loaded-modules t
-           haskell-process-log t)
+     (setq haskell-align-imports-pad-after-name t
+           haskell-process-auto-import-loaded-modules nil
+           haskell-process-log t
+           haskell-process-suggest-add-package t
+           haskell-process-suggest-remove-import-lines nil
+           haskell-process-type 'cabal-repl
+           haskell-process-use-presentation-mode t)
 
      (define-key haskell-mode-map (kbd "C-c C-l") 'haskell-process-load-or-reload)
      (define-key haskell-mode-map (kbd "C-`")     'haskell-interactive-bring)
@@ -51,20 +55,20 @@
      (define-key haskell-mode-map (kbd "C-c C-c") 'haskell-process-cabal-build)
      (define-key haskell-mode-map (kbd "C-c C-k") 'haskell-interactive-mode-clear)
      (define-key haskell-mode-map (kbd "C-c c")   'haskell-process-cabal)
+     (define-key haskell-mode-map (kbd "SPC")     'haskell-mode-contextual-space)
      (define-key haskell-mode-map (kbd "C-c C-b") 'haskell-interactive-switch)
-     (define-key haskell-mode-map (kbd "SPC")     'haskell-mode-contextual-space)))
+     (define-key haskell-mode-map (kbd "C-c o")   'haskell-session-change-target)))
 
 (eval-after-load "haskell-cabal-mode"
   '(progn
+     (setq haskell-cabal-list-comma-position 'after)
+
      (define-key haskell-cabal-mode-map (kbd "C-`")     'haskell-interactive-bring)
      (define-key haskell-cabal-mode-map (kbd "C-c C-k") 'haskell-interactive-mode-clear)
      (define-key haskell-cabal-mode-map (kbd "C-c C-c") 'haskell-process-cabal-build)
      (define-key haskell-cabal-mode-map (kbd "C-c c")   'haskell-process-cabal)
-     (define-key haskell-cabal-mode-map (kbd "C-c C-b") 'haskell-interactive-switch)))
-
-;; GHCi process type
-(custom-set-variables
-  '(haskell-process-type 'cabal-repl))
+     (define-key haskell-cabal-mode-map (kbd "C-c C-b") 'haskell-interactive-switch)
+     (define-key haskell-cabal-mode-map (kbd "C-c o")   'haskell-session-change-target)))
 
 ;; Tags
 (eval-after-load "haskell-mode"
