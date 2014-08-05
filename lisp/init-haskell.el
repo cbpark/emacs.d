@@ -46,7 +46,8 @@
            haskell-process-suggest-add-package t
            haskell-process-suggest-remove-import-lines nil
            haskell-process-type 'cabal-repl
-           haskell-process-use-presentation-mode t)
+           haskell-process-use-presentation-mode t
+           haskell-cabal-list-comma-position 'after)
 
      (define-key haskell-mode-map (kbd "C-c C-l") 'haskell-process-load-or-reload)
      (define-key haskell-mode-map (kbd "C-`")     'haskell-interactive-bring)
@@ -61,8 +62,6 @@
 
 (eval-after-load "haskell-cabal-mode"
   '(progn
-     (setq haskell-cabal-list-comma-position 'after)
-
      (define-key haskell-cabal-mode-map (kbd "C-`")     'haskell-interactive-bring)
      (define-key haskell-cabal-mode-map (kbd "C-c C-k") 'haskell-interactive-mode-clear)
      (define-key haskell-cabal-mode-map (kbd "C-c C-c") 'haskell-process-cabal-build)
