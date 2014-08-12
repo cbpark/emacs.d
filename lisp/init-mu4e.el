@@ -83,7 +83,7 @@
         ;; personal info
         (setq user-mail-address "chanbeom.park@cern.ch"
               user-full-name "Chan Beom Park"
-              message-signature
+              mu4e-compose-signature
               (concat
                "==============================\n"
                "Chan Beom PARK\n"
