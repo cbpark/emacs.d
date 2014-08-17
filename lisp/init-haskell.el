@@ -56,7 +56,7 @@
      (define-key haskell-mode-map (kbd "C-c C-c") 'haskell-process-cabal-build)
      (define-key haskell-mode-map (kbd "C-c C-k") 'haskell-interactive-mode-clear)
      (define-key haskell-mode-map (kbd "C-c c")   'haskell-process-cabal)
-     (define-key haskell-mode-map (kbd "SPC")     'haskell-mode-contextual-space)
+     ;; (define-key haskell-mode-map (kbd "SPC")     'haskell-mode-contextual-space)
      (define-key haskell-mode-map (kbd "C-c C-b") 'haskell-interactive-switch)
      (define-key haskell-mode-map (kbd "C-c o")   'haskell-session-change-target)))
 

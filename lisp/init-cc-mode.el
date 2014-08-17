@@ -17,7 +17,7 @@
       ("\\.cpp$"  . c++-mode )
       ("\\.cxx$"  . c++-mode )
       ("\\.c$"    . c-mode   )
-      ("\\.h$"    . c-mode   )
+      ("\\.h$"    . c++-mode )
       ("\\.hh$"   . c++-mode )
       ("\\.java$" . java-mode)) auto-mode-alist))
 
@@ -46,8 +46,8 @@
   '(progn
      (define-key c-mode-base-map (kbd "RET")     'c-context-line-break)
      (define-key c-mode-base-map (kbd "C-c C-a") 'cc-insert-comment)
-     (define-key c-mode-base-map (kbd "C-c C-i") 'cc-insert-include)
-     (define-key c-mode-base-map (kbd "C-c C-d") 'cc-insert-define)
+     (define-key c-mode-base-map (kbd "C-c i")   'cc-insert-include)
+     (define-key c-mode-base-map (kbd "C-c d")   'cc-insert-define)
      (define-key c-mode-base-map (kbd "C-h d")   'cc-lookup-man)
      (define-key c-mode-base-map (kbd "C-C C-l") 'compile)
 
