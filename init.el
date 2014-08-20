@@ -41,6 +41,7 @@
                       init-recentf
                       init-tramp
                       init-ibuffer
+                      init-tags
                       init-projectile
                       init-flycheck
                       init-editing-util

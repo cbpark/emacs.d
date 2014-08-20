@@ -59,8 +59,8 @@
                                        (linum-mode 1)
                                        (auto-complete-mode 1)
                                        (c-turn-on-eldoc-mode)
-                                       (flycheck-mode)))))
-
+                                       (flycheck-mode)
+                                       (ggtags-mode 1)))))
 
 ;; flycheck
 (require-package 'flycheck-google-cpplint)
