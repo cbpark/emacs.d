@@ -61,5 +61,14 @@
                                        (c-turn-on-eldoc-mode)
                                        (flycheck-mode)))))
 
+
+;; flycheck
+(require-package 'flycheck-google-cpplint)
+(eval-after-load 'flycheck
+  '(progn
+     (require 'flycheck-google-cpplint)
+     (flycheck-add-next-checker 'c/c++-clang
+                                '(warnings-only . c/c++-googlelint))))
+
 (provide 'init-cc-mode)
 ;;; init-cc-mode.el ends here
