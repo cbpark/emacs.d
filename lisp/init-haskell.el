@@ -88,13 +88,8 @@
 ;; flyspell
 (add-hook 'haskell-mode-hook 'flyspell-prog-mode)
 
-;; auto-complete
-(eval-after-load "auto-complete"
-  '(add-to-list 'ac-modes 'haskell-mode))
-
 (dolist (hook '(inferior-haskell-mode-hook haskell-interactive-mode-hook))
   (add-hook hook #'(lambda ()
-                     (auto-complete-mode 1)
                      (setq global-hl-line-mode nil))))
 
 (defun haskell-insert-import ()

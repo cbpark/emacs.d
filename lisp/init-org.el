@@ -16,10 +16,7 @@
      (setq org-export-with-toc nil)
      (setq org-src-fontify-natively t)
      (add-hook 'org-mode-hook #'(lambda ()
-                                  (linum-mode 1)
-                                  (auto-complete-mode 1)
-                                  (ac-ispell-ac-setup)))
-     (ac-flyspell-workaround)))
+                                  (linum-mode 1)))))
 
 ;; Org Publishing
 (require-package 'htmlize)

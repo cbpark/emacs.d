@@ -45,9 +45,6 @@
 ;; doc-view with auto-revert to review output
 (add-hook 'doc-view-mode-hook 'auto-revert-mode)
 
-;; ac-math
-(require-package 'ac-math)
-
 (eval-after-load 'latex
   '(progn
      (defun ac-latex-mode-setup ()
@@ -57,9 +54,6 @@
                        ac-source-latex-commands) ac-sources)))
      (add-hook 'LaTex-mode-hook 'ac-latex-mode-setup)
      (ac-flyspell-workaround)))
-
-(eval-after-load "auto-complete"
-  '(add-to-list 'ac-modes 'LaTeX-mode))
 
 (provide 'init-auctex)
 ;;; init-auctex.el ends here

@@ -56,19 +56,11 @@
 (dolist (hook '(slime-mode-hook slime-repl-mode-hook))
   (add-hook hook 'enable-paredit-mode))
 
-;; Auto-complete for SLIME
-(require-package 'ac-slime)
-(dolist (hook '(slime-mode-hook slime-repl-mode-hook))
-  (add-hook hook 'set-up-slime-ac))
-(eval-after-load "auto-complete"
-  '(add-to-list 'ac-modes 'slime-repl-mode))
-
 (add-hook 'slime-repl-mode-hook #'(lambda ()
                                     (linum-mode -1)
                                     (setq global-hl-line-mode nil)))
 
 (require-package 'hl-sexp)
-
 (eval-after-load 'hl-sexp
   (defadvice hl-sexp-mode (after unflicker (&optional turn-on) activate)
     (when turn-on
@@ -103,13 +95,6 @@
   '(progn
      (setq geiser-active-implementations '(racket))
      (setq geiser-repl-query-on-kill-p nil)))
-
-;; ac-geiser
-(require-package 'ac-geiser)
-(dolist (hook '(geiser-mode-hook geiser-repl-mode-hook))
-  (add-hook hook (ac-geiser-setup)))
-(eval-after-load "auto-complete"
-  '(add-to-list 'ac-modes 'geiser-repl-mode))
 
 (provide 'init-lisp-mode)
 ;;; init-lisp-mode.el ends here

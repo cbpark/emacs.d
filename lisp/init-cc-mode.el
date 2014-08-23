@@ -57,7 +57,6 @@
      (add-hook 'c-mode-common-hook #'(lambda ()
                                        (c-toggle-hungry-state 1)
                                        (linum-mode 1)
-                                       (auto-complete-mode 1)
                                        (c-turn-on-eldoc-mode)
                                        (flycheck-mode)
                                        (ggtags-mode 1)))))
@@ -69,6 +68,11 @@
      (require 'flycheck-google-cpplint)
      (flycheck-add-next-checker 'c/c++-clang
                                 '(warnings-only . c/c++-googlelint))))
+
+;; company
+(require-package 'company-c-headers)
+(eval-after-load "company"
+  '(add-to-list 'company-backends 'company-c-headers))
 
 (provide 'init-cc-mode)
 ;;; init-cc-mode.el ends here

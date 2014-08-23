@@ -37,16 +37,16 @@
                       init-ido
                       init-helm
                       init-terms
-                      ;; init-dired
+                      init-dired
                       init-recentf
                       init-tramp
                       init-ibuffer
                       init-tags
                       init-projectile
                       init-flycheck
+                      init-company
                       init-editing-util
                       init-ediff
-                      init-auto-complete
                       init-auctex
                       init-org
                       init-cc-mode
