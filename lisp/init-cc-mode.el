@@ -64,10 +64,10 @@
 ;; flycheck
 (require-package 'flycheck-google-cpplint)
 (eval-after-load 'flycheck
-  '(progn
-     (require 'flycheck-google-cpplint)
-     (flycheck-add-next-checker 'c/c++-clang
-                                '(warnings-only . c/c++-googlelint))))
+ '(progn
+    (require 'flycheck-google-cpplint)
+    (flycheck-add-next-checker 'c/c++-clang
+                               '(warning . c/c++-googlelint))))
 
 ;; company
 (require-package 'company-c-headers)
