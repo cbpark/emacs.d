@@ -83,11 +83,6 @@
      ;; From helm-swoop to helm-multi-swoop-all
      (define-key helm-swoop-map (kbd "M-i") 'helm-multi-swoop-all-from-helm-swoop)))
 
-;; helm-flycheck
-(require-package 'helm-flycheck)
-(eval-after-load 'flycheck
-  '(define-key flycheck-mode-map (kbd "C-c ! h") 'helm-flycheck))
-
 ;; helm projectile
 (require-package 'helm-projectile)
 
