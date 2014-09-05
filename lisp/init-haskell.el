@@ -47,7 +47,7 @@
            haskell-process-suggest-remove-import-lines nil
            haskell-process-type 'cabal-repl
            haskell-process-use-presentation-mode t
-           haskell-cabal-list-comma-position 'after)
+           haskell-cabal-list-comma-position 'before)
 
      (define-key haskell-mode-map (kbd "C-c C-l") 'haskell-process-load-or-reload)
      (define-key haskell-mode-map (kbd "C-`")     'haskell-interactive-bring)

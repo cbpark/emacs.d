@@ -11,15 +11,15 @@
 (autoload 'java-mode "cc-mode" "Java mode" t)
 
 (setq auto-mode-alist
-  (append
-    '(("\\.C$"    . c++-mode )
-      ("\\.cc$"   . c++-mode )
-      ("\\.cpp$"  . c++-mode )
-      ("\\.cxx$"  . c++-mode )
-      ("\\.c$"    . c-mode   )
-      ("\\.h$"    . c++-mode )
-      ("\\.hh$"   . c++-mode )
-      ("\\.java$" . java-mode)) auto-mode-alist))
+      (append
+       '(("\\.C$"    . c++-mode )
+         ("\\.cc$"   . c++-mode )
+         ("\\.cpp$"  . c++-mode )
+         ("\\.cxx$"  . c++-mode )
+         ("\\.c$"    . c-mode   )
+         ("\\.h$"    . c++-mode )
+         ("\\.hh$"   . c++-mode )
+         ("\\.java$" . java-mode)) auto-mode-alist))
 
 (defun cc-insert-comment ()
   "Insert the comments for documentation."
@@ -64,10 +64,10 @@
 ;; flycheck
 (require-package 'flycheck-google-cpplint)
 (eval-after-load 'flycheck
- '(progn
-    (require 'flycheck-google-cpplint)
-    (flycheck-add-next-checker 'c/c++-clang
-                               '(warning . c/c++-googlelint))))
+  '(progn
+     (require 'flycheck-google-cpplint)
+     (flycheck-add-next-checker 'c/c++-clang
+                                '(warning . c/c++-googlelint))))
 
 ;; company
 (require-package 'company-c-headers)
