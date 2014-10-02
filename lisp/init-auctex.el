@@ -35,7 +35,8 @@
                                     (flyspell-mode)
                                     (linum-mode 1)
                                     (turn-on-reftex)
-                                    (ac-ispell-ac-setup)))))
+                                    (ac-ispell-ac-setup)
+                                    (rainbow-delimiters-mode-enable)))))
 
 (eval-after-load 'reftex
   '(progn

@@ -146,5 +146,11 @@
 (dolist (hook '(haskell-mode-hook haskell-cabal-mode-hook))
   (add-hook hook #'(lambda () (linum-mode 1))))
 
+;; rainbow-delimeter
+(dolist (hook '(haskell-mode-hook
+                inferior-haskell-mode-hook
+                haskell-interactive-mode-hook))
+  (add-hook hook #'(lambda () (rainbow-delimiters-mode))))
+
 (provide 'init-haskell)
 ;;; init-haskell.el ends here

@@ -27,9 +27,5 @@
     (highlight-parentheses-mode t)))
 (global-highlight-parentheses-mode t)
 
-;; RainbowDelimiters - mode for coloring parentheses
-(require-package 'rainbow-delimiters)
-(global-rainbow-delimiters-mode)
-
 (provide 'init-editing-util)
 ;;; init-editing-util.el ends here

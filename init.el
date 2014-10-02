@@ -24,7 +24,7 @@
 (add-to-list 'load-path (expand-file-name "site-lisp/custom-theme" user-emacs-directory))
 
 (dolist (init-files '(init-elpa
-                      init-shell-env
+                      init-packages
                       epa-file
                       init-encoding
                       init-themes

@@ -59,7 +59,8 @@
                                        (linum-mode 1)
                                        (c-turn-on-eldoc-mode)
                                        (flycheck-mode)
-                                       (ggtags-mode 1)))))
+                                       (ggtags-mode 1)
+                                       (rainbow-delimiters-mode-enable)))))
 
 ;; flycheck
 (require-package 'flycheck-google-cpplint)
