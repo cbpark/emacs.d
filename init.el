@@ -59,7 +59,8 @@
                       init-cmake
                       init-sh-mode
                       init-markdown
-                      init-mu4e))
+                      init-mu4e
+                      init-nix))
   (require init-files))
 
 ;; Variables configured via the interactive customize interface
