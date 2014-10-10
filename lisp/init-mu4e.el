@@ -64,23 +64,13 @@
          (add-hook 'dired-mode-hook 'turn-on-gnus-dired-mode)
 
          ;; personal info
-         (setq user-mail-address "chanbeom.park@cern.ch"
+         (setq user-mail-address "cbpark@gmail.com"
                user-full-name "Chan Beom Park"
-               mu4e-compose-signature
-               (concat
-                "==============================\n"
-                "Chan Beom PARK\n"
-                "58/1-014, PH-TH, CERN\n"
-                "CH-1211 Geneva 23, Switzerland\n"
-                "Email: chanbeom.park@cern.ch\n"
-                "Tel: +41 22 76 78826\n"
-                "=============================="))
+               mu4e-compose-signature-auto-include nil)
 
          ;; MSMTP setting for multi-smtp sending
          (setq message-send-mail-function 'message-send-mail-with-sendmail)
-         (setq sendmail-program "/opt/local/bin/msmtp")
-         (setq message-sendmail-extra-arguments
-               '("--passwordeval" "'/opt/local/bin/gpg -d ~/.auth/mail.gpg'"))
+         (setq sendmail-program "msmtp")
 
          (defun cg-feed-msmtp ()
            (if (message-mail-p)
@@ -94,15 +84,15 @@
                           ((string-match "cbpark@gmail.com"
                                          from)"cbpark@gmail.com")
                           ((string-match "lunacy@kaist.ac.kr"
-                                         from) "chanbeom.park@cern.ch")
+                                         from) "cbpark@gmail.com")
                           ((string-match "lunacy@muon.kaist.ac.kr"
-                                         from) "chanbeom.park@cern.ch")
+                                         from) "cbpark@gmail.com")
                           ((string-match "cbpark@muon.kaist.ac.kr"
-                                         from) "chanbeom.park@cern.ch")
+                                         from) "cbpark@gmail.com")
                           ((string-match "chanbeom.park@csic.es"
-                                         from)"chanbeom.park@cern.ch")
+                                         from)"cbpark@gmail.com")
                           ((string-match "chanbeom.park@cern.ch"
-                                         from)"chanbeom.park@cern.ch"))))
+                                         from)"cbpark@gmail.com"))))
                    (setq message-sendmail-extra-arguments (list "-a" account))))))
 
          (setq message-sendmail-envelope-from 'header)
@@ -110,7 +100,6 @@
 
          ;; don't keep message buffers around
          (setq message-kill-buffer-on-exit t)))))
-
 
 (provide 'init-mu4e)
 ;;; init-mu4e.el ends here
