@@ -49,6 +49,7 @@ bookmarks
 .emacs.desktop
 .places
 tramp
+recentf
 projectile-bookmarks.eld
 eshell/history
 eshell/lastdir
