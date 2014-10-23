@@ -2,7 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 
-(add-to-list 'load-path "/usr/local/share/maxima/5.32.1/emacs")
+(add-to-list 'load-path "/usr/local/share/maxima/5.34.0/emacs")
 
 (autoload 'maxima-mode "maxima" "Maxima mode" t)
 (autoload 'maxima "maxima" "Maxima interaction" t)
