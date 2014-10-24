@@ -20,11 +20,16 @@
              (output-pdf "PDF Viewer")
              (output-html "HTML Viewer")))
 
-     (when (string-equal system-type "darwin")
-       (setq TeX-view-program-list
-             '(("DVI Viewer" "/usr/bin/open -a TeXShop %o")
-               ("PDF Viewer" "/usr/bin/open -a Preview %o")
-               ("HTML Viewer" "/usr/bin/open -a Safari %o"))))))
+     (cond ((string-equal system-type "darwin")
+            (setq TeX-view-program-list
+                  '(("DVI Viewer"  "/usr/bin/open -a TeXShop %o")
+                    ("PDF Viewer"  "/usr/bin/open -a Preview %o")
+                    ("HTML Viewer" "/usr/bin/open -a Safari %o"))))
+           ((string-equal system-type "gnu/linux")
+            (setq TeX-view-program-list
+                  '(("DVI Viewer"  "xdg-open %o")
+                    ("PDF Viewer"  "xdg-open %o")
+                    ("HTML Viewer" "xdg-open %o")))))))
 
 (eval-after-load 'latex
   '(progn
