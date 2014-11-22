@@ -33,6 +33,7 @@
 
 (eval-after-load 'latex
   '(progn
+     (setq latex-run-command "pdflatex")
      (setq LaTeX-default-style "article")
      (setq LaTeX-default-environment "align")
 
