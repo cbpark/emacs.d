@@ -90,12 +90,5 @@
                                 (enable-paredit-mode)
                                 (flycheck-mode)))
 
-;; Geiser
-(require-package 'geiser)
-(eval-after-load "geiser"
-  '(progn
-     (setq geiser-active-implementations '(racket))
-     (setq geiser-repl-query-on-kill-p nil)))
-
 (provide 'init-lisp-mode)
 ;;; init-lisp-mode.el ends here
