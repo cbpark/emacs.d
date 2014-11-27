@@ -45,10 +45,6 @@
 ;; Add color to a shell
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 
-;; shell-switcher
-(require-package 'shell-switcher)
-(setq shell-switcher-mode t)
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Multi-term
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
