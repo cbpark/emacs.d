@@ -17,9 +17,6 @@
 ;; Turn off hl-line in eshell
 (add-hook 'eshell-mode-hook #'(lambda () (setq global-hl-line-mode nil)))
 
-;; key binding
-(global-set-key (kbd "C-c e") 'eshell)
-
 ;; Change comint keys
 (require 'comint)
 (define-key comint-mode-map (kbd "M-p")
@@ -44,6 +41,30 @@
 
 ;; Add color to a shell
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
+
+(defun my-eshell-open ()
+  "Opens up a shell in the directory associated with the current buffer."
+  (interactive)
+  (let* ((parent (if (buffer-file-name)
+                     (file-name-directory (buffer-file-name))
+                   default-directory))
+         (height (/ (window-total-height) 2))
+         (name   (car (last (split-string parent "/" t)))))
+    (split-window-vertically (- height))
+    (other-window 1)
+    (eshell "new")
+    (rename-buffer (concat "*eshell: " name "*"))
+
+    (insert (concat "ls"))
+    (eshell-send-input)))
+
+(global-set-key (kbd "C-c e") 'my-eshell-open)
+
+(defun eshell/x ()
+  "Close the window when exiting eshell."
+  (insert "exit")
+  (eshell-send-input)
+  (delete-window))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Multi-term
