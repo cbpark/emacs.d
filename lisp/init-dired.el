@@ -32,13 +32,20 @@
   (define-key dired-mode-map (kbd "s-O")
     'dired-open-current-directory-in-finder))
 
-;; Make dired less verbose
-(when (require 'dired-details nil 'noerror)
-  (setq-default dired-details-hidden-string "--- ")
-  (dired-details-install))
-
 ;; Reuse directory buffer
 (put 'dired-find-alternate-file 'disabled nil)
+
+(defun my-create-non-existent-directory ()
+  "Create parent directories when creating a new file."
+  (let ((parent-directory (file-name-directory buffer-file-name)))
+    (when (and (not (file-exists-p parent-directory))
+               (y-or-n-p
+                (format "Directory `%s' does not exist.  Create it? "
+                        parent-directory)))
+      (make-directory parent-directory t))))
+
+(add-to-list 'find-file-not-found-functions
+             #'my-create-non-existent-directory)
 
 (provide 'init-dired)
 ;;; init-dired.el ends here
