@@ -42,6 +42,30 @@
   (interactive)
   (manual-entry (current-word)))
 
+(defun flycheck-c-setup ()
+  "Set clang language standard."
+  (setq flycheck-clang-language-standard "c++11"
+        flycheck-clang-standard-library "libc++"))
+
+(defun company-clang-args ()
+  "Set company-clang-arguments."
+  (setq company-clang-arguments '("-std=c++11"
+                                  "-stdlib=libc++")))
+
+;; flycheck
+(require-package 'flycheck-google-cpplint)
+(eval-after-load 'flycheck
+  '(progn
+     (require 'flycheck-google-cpplint)
+     (flycheck-add-next-checker 'c/c++-clang
+                                '(warning . c/c++-googlelint))))
+
+;; company
+(require-package 'company-c-headers)
+(eval-after-load "company"
+  '(progn
+     (add-to-list 'company-backends 'company-c-headers)))
+
 (eval-after-load "cc-mode"
   '(progn
      (define-key c-mode-base-map (kbd "RET")     'c-context-line-break)
@@ -59,21 +83,11 @@
                                        (linum-mode 1)
                                        (c-turn-on-eldoc-mode)
                                        (flycheck-mode)
+                                       (flycheck-c-setup)
+                                       (company-mode 1)
+                                       (company-clang-args)
                                        (ggtags-mode 1)
                                        (rainbow-delimiters-mode-enable)))))
-
-;; flycheck
-(require-package 'flycheck-google-cpplint)
-(eval-after-load 'flycheck
-  '(progn
-     (require 'flycheck-google-cpplint)
-     (flycheck-add-next-checker 'c/c++-clang
-                                '(warning . c/c++-googlelint))))
-
-;; company
-(require-package 'company-c-headers)
-(eval-after-load "company"
-  '(add-to-list 'company-backends 'company-c-headers))
 
 (provide 'init-cc-mode)
 ;;; init-cc-mode.el ends here
