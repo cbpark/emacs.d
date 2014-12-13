@@ -42,6 +42,17 @@
   (interactive)
   (manual-entry (current-word)))
 
+(defun cc-insert-std ()
+  "Insert std::."
+  (interactive)
+  (insert "std::"))
+
+(defun cc-insert-cout ()
+  "Insert std::cout <<."
+  (interactive)
+  (cc-insert-std)
+  (insert "cout << "))
+
 (defun flycheck-c-setup ()
   "Set clang language standard."
   (setq flycheck-clang-language-standard "c++11"
@@ -73,6 +84,8 @@
      (define-key c-mode-base-map (kbd "C-c i")   'cc-insert-include)
      (define-key c-mode-base-map (kbd "C-c d")   'cc-insert-define)
      (define-key c-mode-base-map (kbd "C-h d")   'cc-lookup-man)
+     (define-key c-mode-base-map (kbd "C-c s")   'cc-insert-std)
+     (define-key c-mode-base-map (kbd "C-c c")   'cc-insert-cout)
      (define-key c-mode-base-map (kbd "C-C C-l") 'compile)
 
      (setq c-default-style "k&r"
