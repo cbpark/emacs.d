@@ -27,5 +27,10 @@
     (highlight-parentheses-mode t)))
 (global-highlight-parentheses-mode t)
 
+;;if indent-tabs-mode is off, untabify before saving
+(add-hook 'write-file-hooks
+          (lambda () (if (not indent-tabs-mode)
+                         (untabify (point-min) (point-max))) nil))
+
 (provide 'init-editing-util)
 ;;; init-editing-util.el ends here
