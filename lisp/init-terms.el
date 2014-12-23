@@ -60,12 +60,6 @@
 
 (global-set-key (kbd "C-c e") 'my-eshell-open)
 
-(defun eshell/x ()
-  "Close the window when exiting eshell."
-  (insert "exit")
-  (eshell-send-input)
-  (delete-window))
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Multi-term
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
