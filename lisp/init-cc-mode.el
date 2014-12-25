@@ -92,6 +92,7 @@
            c-basic-offset 4)
 
      (add-hook 'c-mode-common-hook #'(lambda ()
+                                       (c-set-offset 'innamespace 0)
                                        (c-toggle-hungry-state 1)
                                        (linum-mode 1)
                                        (c-turn-on-eldoc-mode)
