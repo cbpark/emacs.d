@@ -42,7 +42,7 @@
 ;; Add color to a shell
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
 
-(global-set-key (kbd "C-c e") 'my-eshell-open)
+(global-set-key (kbd "C-c e") 'eshell)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Multi-term

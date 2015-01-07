@@ -3,14 +3,17 @@
 ;;; Code:
 
 (require-package 'helm)
-(setq helm-command-prefix-key "C-c h")
-
 (require 'helm-config)
 (require 'helm-eshell)
 (require 'helm-utils)
 (require 'helm-files)
 (require 'helm-grep)
+
+(global-set-key (kbd "C-c h") 'helm-command-prefix)
+(global-unset-key (kbd "C-x c"))
+
 (helm-mode 1)
+(helm-autoresize-mode t)
 
 (eval-after-load 'helm
   '(progn
@@ -24,17 +27,16 @@
                                           "\\.localized$" "\\.DS_Store$" "\\.git$"
                                           "\\.hg$" "\\.svn$"))
      ;;
-     (setq helm-scroll-amount 4
+     (setq helm-scroll-amount 8
            helm-quick-update t
-           helm-idl-delay 0.01
            helm-input-idle-delay 0.01
            helm-split-window-default-side 'other
            helm-split-window-in-side-p t
            helm-candidate-number-limit 200
-           helm-M-x-require-pattern 0
            helm-ff-file-name-history-use-recentf t
            helm-move-to-line-cycle-in-source t
-           helm-buffers-fuzzy-matching t)
+           helm-buffers-fuzzy-matching t
+           helm-recentf-fuzzy-match t)
 
      ;; (add-to-list 'helm-completing-read-handlers-alist '(find-file . ido))
 
