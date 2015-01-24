@@ -90,6 +90,7 @@
 
 ;; company-cabal
 (when (featurep 'company)
+  (require-package 'company-cabal)
   (add-to-list 'company-backend 'company-cabal))
 
 (dolist (hook '(inferior-haskell-mode-hook haskell-interactive-mode-hook))
