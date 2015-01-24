@@ -88,6 +88,10 @@
 ;; flyspell
 (add-hook 'haskell-mode-hook 'flyspell-prog-mode)
 
+;; company-cabal
+(when (featurep 'company)
+  (add-to-list 'company-backend 'company-cabal))
+
 (dolist (hook '(inferior-haskell-mode-hook haskell-interactive-mode-hook))
   (add-hook hook #'(lambda ()
                      (setq global-hl-line-mode nil))))

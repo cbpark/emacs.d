@@ -53,7 +53,7 @@
   (cc-insert-std)
   (insert "cout << "))
 
-(defun flycheck-c-setup ()
+(defun flycheck-cpp-setup ()
   "Set clang language standard."
   (setq flycheck-clang-language-standard "c++11"
         flycheck-clang-standard-library "libc++"))
@@ -92,16 +92,18 @@
            c-basic-offset 4)
 
      (add-hook 'c-mode-common-hook #'(lambda ()
-                                       (c-set-offset 'innamespace 0)
                                        (c-toggle-hungry-state 1)
                                        (linum-mode 1)
                                        (c-turn-on-eldoc-mode)
                                        (flycheck-mode)
-                                       (flycheck-c-setup)
                                        (company-mode 1)
-                                       (company-clang-args)
                                        (ggtags-mode 1)
-                                       (rainbow-delimiters-mode-enable)))))
+                                       (rainbow-delimiters-mode-enable)))
+
+     (add-hook 'c++-mode-hook #'(lambda ()
+                                  (c-set-offset 'innamespace 0)
+                                  (flycheck-cpp-setup)
+                                  (company-clang-args)))))
 
 (provide 'init-cc-mode)
 ;;; init-cc-mode.el ends here
