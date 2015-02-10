@@ -136,6 +136,16 @@
   (interactive)
   (insert "undefined"))
 
+(defun haskell-insert-arrow ()
+  "Insert ->."
+  (interactive)
+  (insert " -> "))
+
+(defun haskell-insert-colons ()
+  "Insert ::."
+  (interactive)
+  (insert " :: "))
+
 ;; Key bindings
 (eval-after-load "haskell-mode"
   '(progn
@@ -145,7 +155,9 @@
      (define-key haskell-mode-map (kbd "C-c C-d") 'haskell-insert-nested-comment)
      (define-key haskell-mode-map (kbd "C-c C-p") 'haskell-insert-pragma)
      (define-key haskell-mode-map (kbd "C-c C-m") 'haskell-main-function)
-     (define-key haskell-mode-map (kbd "C-c C-u") 'haskell-insert-undefined)))
+     (define-key haskell-mode-map (kbd "C-c C-u") 'haskell-insert-undefined)
+     (define-key haskell-mode-map (kbd "C-c n")   'haskell-insert-arrow)
+     (define-key haskell-mode-map (kbd "C-c C-n") 'haskell-insert-colons)))
 
 ;; linum
 (dolist (hook '(haskell-mode-hook haskell-cabal-mode-hook))
