@@ -3,8 +3,11 @@
 ;;; Code:
 
 ;; zenburn theme
-(require-package 'zenburn-theme)
-(load-theme 'zenburn t)
+;; (require-package 'zenburn-theme)
+;; (load-theme 'zenburn t)
+;; monokai theme
+(require-package 'monokai-theme)
+(load-theme 'monokai t)
 
 ;; hl-line foreground color
 (set-face-foreground 'highlight nil)

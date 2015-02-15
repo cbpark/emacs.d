@@ -8,7 +8,8 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(ac-ispell-requires 4)
- '(ansi-color-faces-vector [default bold shadow italic underline bold bold-italic bold])
+ '(ansi-color-faces-vector
+   [default bold shadow italic underline bold bold-italic bold])
  '(auto-indent-next-pair-timer-geo-mean (quote ((default 0.0005 0))))
  '(auto-revert-verbose nil)
  '(auto-save-default nil)
@@ -44,8 +45,8 @@
  '(global-auto-revert-non-file-buffers t)
  '(global-font-lock-mode t)
  '(global-highlight-parentheses-mode t)
- '(global-hl-line-mode t)
- '(global-hl-line-sticky-flag t)
+ '(global-hl-line-mode nil)
+ '(global-hl-line-sticky-flag nil)
  '(gnus-directory "~/Documents/Gnus/")
  '(hourglass-delay 2)
  '(ibuffer-expert t)
@@ -69,7 +70,9 @@
  '(sql-product (quote sqlite))
  '(tab-width 4)
  '(tags-case-fold-search t)
- '(text-mode-hook (quote (turn-on-flyspell turn-on-auto-fill text-mode-hook-identify)))
+ '(text-mode-hook
+   (quote
+    (turn-on-flyspell turn-on-auto-fill text-mode-hook-identify)))
  '(uniquify-buffer-name-style (quote forward) nil (uniquify))
  '(vc-make-backup-files nil)
  '(version-control nil)
