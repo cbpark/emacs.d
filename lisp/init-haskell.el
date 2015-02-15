@@ -5,11 +5,10 @@
 (require-package 'haskell-mode)
 
 (autoload 'haskell-mode "haskell-mode" "Haskell Mode" t)
-(setq auto-mode-alist
-      (append
-       '(("\\.hs\\'"    . haskell-mode)
-         ("\\.hsc\\'"   . haskell-mode)
-         ("\\.cpphs\\'" . haskell-mode)) auto-mode-alist))
+(setq auto-mode-alist (append
+                       '(("\\.hs\\'"    . haskell-mode)
+                         ("\\.hsc\\'"   . haskell-mode)
+                         ("\\.cpphs\\'" . haskell-mode)) auto-mode-alist))
 
 (autoload 'haskell-cabal-mode "haskell-cabal-mode" "Haskell Cabal Mode" t)
 (add-to-list 'auto-mode-alist '("\\.cabal\\'" . haskell-cabal-mode))
@@ -89,13 +88,11 @@
 (add-hook 'haskell-mode-hook 'flyspell-prog-mode)
 
 ;; company-cabal
-(when (featurep 'company)
-  (require-package 'company-cabal)
-  (add-to-list 'company-backend 'company-cabal))
+(require-package 'company-cabal)
+(add-to-list 'company-backends 'company-cabal)
 
 (dolist (hook '(inferior-haskell-mode-hook haskell-interactive-mode-hook))
-  (add-hook hook #'(lambda ()
-                     (setq global-hl-line-mode nil))))
+  (add-hook hook #'(lambda () (setq global-hl-line-mode nil))))
 
 (defun haskell-insert-import ()
   "Insert import."
@@ -124,13 +121,6 @@
   (insert "{-# LANGUAGE  #-}")
   (backward-char 4))
 
-(defun haskell-main-function ()
-  "Insert main function."
-  (interactive)
-  (insert "main :: IO ()")
-  (newline)
-  (insert "main = do"))
-
 (defun haskell-insert-undefined ()
   "Insert undefined."
   (interactive)
@@ -140,6 +130,11 @@
   "Insert ->."
   (interactive)
   (insert " -> "))
+
+(defun haskell-insert-bigarrow ()
+  "Insert =>."
+  (interactive)
+  (insert " => "))
 
 (defun haskell-insert-colons ()
   "Insert ::."
@@ -154,9 +149,9 @@
      (define-key haskell-mode-map (kbd "C-c C-a") 'haskell-insert-comment)
      (define-key haskell-mode-map (kbd "C-c C-d") 'haskell-insert-nested-comment)
      (define-key haskell-mode-map (kbd "C-c C-p") 'haskell-insert-pragma)
-     (define-key haskell-mode-map (kbd "C-c C-m") 'haskell-main-function)
      (define-key haskell-mode-map (kbd "C-c C-u") 'haskell-insert-undefined)
      (define-key haskell-mode-map (kbd "C-c n")   'haskell-insert-arrow)
+     (define-key haskell-mode-map (kbd "C-c m")   'haskell-insert-bigarrow)
      (define-key haskell-mode-map (kbd "C-c C-n") 'haskell-insert-colons)))
 
 ;; linum
