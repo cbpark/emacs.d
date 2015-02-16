@@ -71,7 +71,8 @@
                      (linum-mode 1)
                      (enable-paredit-mode)
                      (flycheck-mode)
-                     (rainbow-delimiters-mode-enable))))
+                     (rainbow-delimiters-mode-enable)
+                     (flyspell-prog-mode))))
 
 (add-hook 'lisp-interaction-mode-hook #'(lambda () (linum-mode -1)))
 (add-hook 'emacs-lisp-mode-hook #'(lambda () (eldoc-mode t)))
@@ -82,13 +83,18 @@
 (autoload 'scheme-mode "scheme" "Major mode for Scheme." t)
 (setq auto-mode-alist
       (append
-       '(("\\.rkt$" . scheme-mode)
-         ("\\.scm$" . scheme-mode)) auto-mode-alist))
+       '(("\\.scm$" . scheme-mode)
+         ("\\.rkt$" . scheme-mode)) auto-mode-alist))
+
+(dolist (hook '(scheme-mode-hook inferior-scheme-mode-hook))
+  (add-hook hook #'(lambda ()
+                     (enable-paredit-mode)
+                     (rainbow-delimiters-mode-enable))))
 
 (add-hook 'scheme-mode-hook #'(lambda ()
                                 (linum-mode 1)
-                                (enable-paredit-mode)
-                                (flycheck-mode)))
+                                (flycheck-mode)
+                                (flyspell-prog-mode)))
 
 (provide 'init-lisp-mode)
 ;;; init-lisp-mode.el ends here

@@ -64,7 +64,7 @@
  '(read-file-name-completion-ignore-case t)
  '(scroll-bar-mode nil)
  '(show-paren-mode t)
- '(show-paren-style (quote expression))
+ '(show-paren-style (quote mixed))
  '(size-indication-mode t)
  '(split-width-threshold nil)
  '(sql-product (quote sqlite))
