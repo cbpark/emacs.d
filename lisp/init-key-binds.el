@@ -49,5 +49,8 @@
                                 (interactive)
                                 (join-line -1)))
 
+;; Unset C-z
+(global-unset-key (kbd "C-z"))
+
 (provide 'init-key-binds)
 ;;; init-key-binds.el ends here
