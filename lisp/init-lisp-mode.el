@@ -60,12 +60,6 @@
                                     (linum-mode -1)
                                     (setq global-hl-line-mode nil)))
 
-(require-package 'hl-sexp)
-(eval-after-load 'hl-sexp
-  (defadvice hl-sexp-mode (after unflicker (&optional turn-on) activate)
-    (when turn-on
-      (remove-hook 'pre-command-hook #'hl-sexp-unhighlight))))
-
 (dolist (hook '(lisp-mode-hook emacs-lisp-mode-hook))
   (add-hook hook #'(lambda ()
                      (linum-mode 1)

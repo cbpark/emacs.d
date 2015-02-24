@@ -41,6 +41,7 @@
  '(file-name-shadow-mode t)
  '(font-lock-support-mode (quote jit-lock-mode))
  '(fortran-comment-region "*")
+ '(fringe-mode 0 nil (fringe))
  '(global-auto-revert-mode t)
  '(global-auto-revert-non-file-buffers t)
  '(global-font-lock-mode t)

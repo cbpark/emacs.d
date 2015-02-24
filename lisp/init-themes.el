@@ -12,12 +12,5 @@
 (require-package 'base16-theme)
 (load-theme 'base16-default t)
 
-;; hl-line foreground color
-(set-face-foreground 'highlight nil)
-
-;; set fringe width
-(when window-system
-  (set-fringe-mode '(0 . 0)))
-
 (provide 'init-themes)
 ;;; init-themes.el ends here
