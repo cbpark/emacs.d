@@ -51,7 +51,6 @@
                       init-org
                       init-cc-mode
                       init-lisp-mode
-                      init-clojure
                       init-maxima
                       init-gnuplot
                       init-haskell

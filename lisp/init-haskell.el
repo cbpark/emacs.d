@@ -91,6 +91,9 @@
 (require-package 'company-cabal)
 (add-to-list 'company-backends 'company-cabal)
 
+;; yasnippet
+(add-hook 'haskell-mode-hook #'(lambda () (yas-minor-mode)))
+
 (dolist (hook '(inferior-haskell-mode-hook haskell-interactive-mode-hook))
   (add-hook hook #'(lambda () (setq global-hl-line-mode nil))))
 
@@ -136,11 +139,6 @@
   (interactive)
   (insert " => "))
 
-(defun haskell-insert-colons ()
-  "Insert ::."
-  (interactive)
-  (insert " :: "))
-
 ;; Key bindings
 (eval-after-load "haskell-mode"
   '(progn
@@ -151,8 +149,7 @@
      (define-key haskell-mode-map (kbd "C-c C-p") 'haskell-insert-pragma)
      (define-key haskell-mode-map (kbd "C-c C-u") 'haskell-insert-undefined)
      (define-key haskell-mode-map (kbd "C-c n")   'haskell-insert-arrow)
-     (define-key haskell-mode-map (kbd "C-c m")   'haskell-insert-bigarrow)
-     (define-key haskell-mode-map (kbd "C-c C-n") 'haskell-insert-colons)))
+     (define-key haskell-mode-map (kbd "C-c m")   'haskell-insert-bigarrow)))
 
 ;; linum
 (dolist (hook '(haskell-mode-hook haskell-cabal-mode-hook))

@@ -14,5 +14,8 @@
 ;; rainbow-delimiters - mode for coloring parentheses
 (require-package 'rainbow-delimiters)
 
+;; yasnippet
+(require-package 'yasnippet)
+
 (provide 'init-packages)
 ;;; init-packages.el ends here
