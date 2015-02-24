@@ -3,10 +3,9 @@
 ;;; Code:
 
 (require-package 'auctex)
-(require 'tex-site)
 
 (setq auto-mode-alist
-	  (append '(("\\.tex\\'" . latex-mode)) auto-mode-alist))
+      (append '(("\\.tex\\'" . latex-mode)) auto-mode-alist))
 
 (eval-after-load 'tex
   '(progn
@@ -50,10 +49,6 @@
 
 ;; doc-view with auto-revert to review output
 (add-hook 'doc-view-mode-hook 'auto-revert-mode)
-
-;; company-auctex
-(require-package 'company-auctex)
-(company-auctex-init)
 
 (provide 'init-auctex)
 ;;; init-auctex.el ends here

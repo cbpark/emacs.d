@@ -1,4 +1,4 @@
-;;; init-packages.el --- packages required to load.
+;;; init-misc-packages.el --- packages required to load.
 ;;; Commentary:
 ;;; Code:
 
@@ -17,5 +17,5 @@
 ;; yasnippet
 (require-package 'yasnippet)
 
-(provide 'init-packages)
-;;; init-packages.el ends here
+(provide 'init-misc-packages)
+;;; init-misc-packages.el ends here

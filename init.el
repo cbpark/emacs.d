@@ -19,12 +19,16 @@
 (unless (boundp 'user-emacs-directory)
   (defvar user-emacs-directory "~/.emacs.d/"))
 
+;; Variables configured via the interactive customize interface
+(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+(when (file-exists-p custom-file)
+  (load custom-file))
+
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 (add-to-list 'load-path (expand-file-name "site-lisp" user-emacs-directory))
 (add-to-list 'load-path (expand-file-name "site-lisp/custom-theme" user-emacs-directory))
 
 (dolist (init-files '(init-elpa
-                      init-packages
                       epa-file
                       init-encoding
                       init-themes
@@ -34,7 +38,6 @@
                       init-window
                       init-linum
                       init-undo-tree
-                      init-ido
                       init-helm
                       init-terms
                       init-dired
@@ -47,6 +50,7 @@
                       init-company
                       init-editing-util
                       init-ediff
+                      init-misc-packages
                       init-auctex
                       init-org
                       init-cc-mode
@@ -61,11 +65,6 @@
                       init-mu4e
                       init-nix))
   (require init-files))
-
-;; Variables configured via the interactive customize interface
-(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
-(when (file-exists-p custom-file)
-  (load custom-file))
 
 ;; Start editing server
 (unless (file-exists-p

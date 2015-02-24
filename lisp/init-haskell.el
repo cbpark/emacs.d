@@ -80,8 +80,7 @@
 
 ;; flycheck-haskell
 (require-package 'flycheck-haskell)
-(eval-after-load 'flycheck
-  (add-hook 'flycheck-mode-hook #'flycheck-haskell-setup))
+(add-hook 'flycheck-mode-hook #'flycheck-haskell-setup)
 (add-hook 'haskell-mode-hook 'flycheck-mode)
 
 ;; flyspell
@@ -89,10 +88,13 @@
 
 ;; company-cabal
 (require-package 'company-cabal)
-(add-to-list 'company-backends 'company-cabal)
+(eval-after-load "company"
+  '(progn
+     (add-to-list 'company-backends 'company-cabal)))
 
 ;; yasnippet
-(add-hook 'haskell-mode-hook #'(lambda () (yas-minor-mode)))
+(eval-after-load "haskell-mode"
+  '(add-hook 'haskell-mode-hook #'(lambda () (yas-minor-mode))))
 
 (dolist (hook '(inferior-haskell-mode-hook haskell-interactive-mode-hook))
   (add-hook hook #'(lambda () (setq global-hl-line-mode nil))))
