@@ -6,8 +6,11 @@
 ;; (require-package 'zenburn-theme)
 ;; (load-theme 'zenburn t)
 ;; monokai theme
-(require-package 'monokai-theme)
-(load-theme 'monokai t)
+;; (require-package 'monokai-theme)
+;; (load-theme 'monokai t)
+;; base16 theme
+(require-package 'base16-theme)
+(load-theme 'base16-default t)
 
 ;; hl-line foreground color
 (set-face-foreground 'highlight nil)

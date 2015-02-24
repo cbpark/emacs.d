@@ -9,14 +9,14 @@
 (put 'narrow-to-region 'disabled nil)
 
 ;; Expand region
-(when (require 'expand-region nil 'noerror)
-  (global-set-key (kbd "C-=") 'er/expand-region))
+(require-package 'expand-region)
+(global-set-key (kbd "C-=") 'er/expand-region)
 
 ;; Save point position between sessions
 (when (require 'saveplace nil 'noerror)
-      (setq-default save-place t)
-      (setq save-place-file (expand-file-name
-                             ".places" user-emacs-directory)))
+  (setq-default save-place t)
+  (setq save-place-file (expand-file-name
+                         ".places" user-emacs-directory)))
 
 ;; Highlight parentheses
 (require-package 'highlight-parentheses)
