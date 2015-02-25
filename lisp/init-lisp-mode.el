@@ -65,9 +65,9 @@
                      (linum-mode 1)
                      (enable-paredit-mode)
                      (flycheck-mode)
-                     (rainbow-delimiters-mode-enable)
-                     (flyspell-prog-mode))))
+                     (rainbow-delimiters-mode-enable))))
 
+(add-hook 'lisp-mode-hook #'(lambda () (flyspell-prog-mode)))
 (add-hook 'lisp-interaction-mode-hook #'(lambda () (linum-mode -1)))
 (add-hook 'emacs-lisp-mode-hook #'(lambda () (eldoc-mode t)))
 
