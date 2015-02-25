@@ -4,15 +4,15 @@
 
 (require 'ido)
 (ido-mode 1)
-;; (ido-everywhere 1)
+(ido-everywhere 1)
 
-;; (require-package 'flx-ido)
-;; (flx-ido-mode 1)
-;; (setq ido-enable-flex-matching t)
-;; (setq ido-use-faces nil)
+(require-package 'flx-ido)
+(flx-ido-mode 1)
+(setq ido-enable-flex-matching t)
+(setq ido-use-faces nil)
 
-;; (require-package 'ido-vertical-mode)
-;; (ido-vertical-mode 1)
+(require-package 'ido-vertical-mode)
+(ido-vertical-mode 1)
 
 (eval-after-load 'ido
   '(progn

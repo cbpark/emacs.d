@@ -53,3 +53,5 @@ recentf
 projectile-bookmarks.eld
 eshell/history
 eshell/lastdir
+ido.last
+smex-items

@@ -17,6 +17,7 @@
 (global-set-key (kbd "C-s")     'isearch-forward-regexp)
 (global-set-key (kbd "C-r")     'isearch-backward-regexp)
 (global-set-key (kbd "C-x a r") 'align-regexp)
+(global-set-key (kbd "C-c o")   'occur)
 
 ;; invoke M-x without the Alt key
 (global-set-key (kbd "C-x C-m") 'execute-extended-command)
