@@ -11,13 +11,6 @@
        '(("\\.lisp\\'" . lisp-mode)
          ("\\.asd\\'"  . lisp-mode)) auto-mode-alist))
 
-;; Paredit
-(require-package 'paredit)
-(eval-after-load "paredit"
-  '(progn
-     (define-key paredit-mode-map (kbd "C-c 0") 'paredit-forward-slurp-sexp)
-     (define-key paredit-mode-map (kbd "C-c 9") 'paredit-backward-slurp-sexp)))
-
 ;; SLIME
 (require-package 'slime)
 (require 'slime-autoloads)

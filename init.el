@@ -34,6 +34,7 @@
                       init-themes
                       init-fonts
                       init-key-binds
+                      init-editing-util
                       init-clipboard
                       init-window
                       init-linum
@@ -49,7 +50,6 @@
                       init-projectile
                       init-flycheck
                       init-company
-                      init-editing-util
                       init-ediff
                       init-misc-packages
                       init-auctex

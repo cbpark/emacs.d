@@ -12,6 +12,15 @@
 (require-package 'expand-region)
 (global-set-key (kbd "C-=") 'er/expand-region)
 
+;; Paredit
+(require-package 'paredit)
+(defun my-paredit-nonlisp ()
+  "Turn on paredit mode for non-lisps."
+  (interactive)
+  (set (make-local-variable 'paredit-space-for-delimiter-predicates)
+       '((lambda (endp delimiter) nil)))
+  (paredit-mode 1))
+
 ;; multiple-cursors
 (require-package 'multiple-cursors)
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
@@ -21,12 +30,10 @@
 ;; Save point position between sessions
 (when (require 'saveplace nil 'noerror)
   (setq-default save-place t)
-  (setq save-place-file (expand-file-name
-                         ".places" user-emacs-directory)))
+  (setq save-place-file (expand-file-name ".places" user-emacs-directory)))
 
 ;; Highlight parentheses
 (require-package 'highlight-parentheses)
-
 (define-globalized-minor-mode global-highlight-parentheses-mode
   highlight-parentheses-mode
   (lambda ()
