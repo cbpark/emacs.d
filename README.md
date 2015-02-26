@@ -1,4 +1,4 @@
-## How to use
+## How to install
 
 ```
 if [ -f ~/.emacs ]; then echo "-- .emacs found"; mv -v ~/.emacs ~/.emacs.old; fi
