@@ -55,3 +55,4 @@ eshell/history
 eshell/lastdir
 ido.last
 smex-items
+.mc-lists.el
