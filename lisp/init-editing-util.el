@@ -14,6 +14,11 @@
 
 ;; Paredit
 (require-package 'paredit)
+(eval-after-load "paredit"
+  '(progn
+     (define-key paredit-mode-map (kbd "C-c )") 'paredit-forward-slurp-sexp)
+     (define-key paredit-mode-map (kbd "C-c (") 'paredit-backward-slurp-sexp)))
+
 (defun my-paredit-nonlisp ()
   "Turn on paredit mode for non-lisps."
   (interactive)
