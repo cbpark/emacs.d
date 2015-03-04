@@ -38,6 +38,7 @@
            helm-candidate-number-limit 200
            helm-ff-file-name-history-use-recentf t
            helm-move-to-line-cycle-in-source t
+           helm-M-x-fuzzy-match t
            helm-buffers-fuzzy-matching t
            helm-recentf-fuzzy-match t)
 

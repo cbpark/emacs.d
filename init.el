@@ -39,8 +39,7 @@
                       init-window
                       init-linum
                       init-undo-tree
-                      init-ido
-                      init-smex
+                      init-helm
                       init-terms
                       init-dired
                       init-recentf
