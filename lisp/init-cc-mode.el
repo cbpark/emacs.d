@@ -93,12 +93,11 @@
 
      (add-hook 'c-mode-common-hook #'(lambda ()
                                        (c-toggle-hungry-state 1)
-                                       (linum-mode 1)
                                        (c-turn-on-eldoc-mode)
-                                       (flycheck-mode)
                                        (company-mode 1)
                                        (ggtags-mode 1)
-                                       (rainbow-delimiters-mode-enable)))
+                                       (rainbow-delimiters-mode-enable)
+                                       (my-paredit-nonlisp)))
 
      (add-hook 'c++-mode-hook #'(lambda ()
                                   (c-set-offset 'innamespace 0)

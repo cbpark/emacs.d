@@ -35,10 +35,11 @@
      (define-key haskell-mode-map (kbd "C-c l") 'haskell-mode-stylish-buffer)))
 
 ;; paredit
-(dolist (hook '(haskell-mode-hook
-                haskell-cabal-mode-hook
-                inferior-haskell-mode-hook))
-  (add-hook hook 'my-paredit-nonlisp))
+(eval-after-load "haskell-mode"
+  '(dolist (hook '(haskell-mode-hook
+                   haskell-cabal-mode-hook
+                   inferior-haskell-mode-hook))
+     (add-hook hook 'my-paredit-nonlisp)))
 
 ;; Haksell interactive mode
 (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
@@ -81,16 +82,20 @@
      (define-key haskell-mode-map (kbd "M-.") 'haskell-mode-jump-to-def-or-tag)))
 
 ;; Haskell doc mode
-(dolist (hook '(haskell-mode-hook inferior-haskell-mode-hook))
-  (add-hook hook 'turn-on-haskell-doc-mode))
+(eval-after-load "haskell-mode"
+  '(dolist (hook '(haskell-mode-hook inferior-haskell-mode-hook))
+     (add-hook hook 'turn-on-haskell-doc-mode)))
 
 ;; flycheck-haskell
 (require-package 'flycheck-haskell)
-(add-hook 'flycheck-mode-hook #'flycheck-haskell-setup)
-(add-hook 'haskell-mode-hook 'flycheck-mode)
+(eval-after-load "haskell-mode"
+  '(progn
+     (add-hook 'flycheck-mode-hook #'flycheck-haskell-setup)
+     (add-hook 'haskell-mode-hook 'flycheck-mode)))
 
 ;; flyspell
-(add-hook 'haskell-mode-hook 'flyspell-prog-mode)
+(eval-after-load "haskell-mode"
+  '(add-hook 'haskell-mode-hook 'flyspell-prog-mode))
 
 ;; company-cabal
 (require-package 'company-cabal)
@@ -102,8 +107,10 @@
 (eval-after-load "haskell-mode"
   '(add-hook 'haskell-mode-hook #'(lambda () (yas-minor-mode))))
 
-(dolist (hook '(inferior-haskell-mode-hook haskell-interactive-mode-hook))
-  (add-hook hook #'(lambda () (setq global-hl-line-mode nil))))
+(eval-after-load "haskell-mode"
+  '(when (fboundp 'global-hl-line-mode)
+     (dolist (hook '(inferior-haskell-mode-hook haskell-interactive-mode-hook))
+       (add-hook hook #'(lambda () (setq global-hl-line-mode nil))))))
 
 (defun haskell-insert-import ()
   "Insert import."
@@ -159,15 +166,13 @@
      (define-key haskell-mode-map (kbd "C-c n")   'haskell-insert-arrow)
      (define-key haskell-mode-map (kbd "C-c m")   'haskell-insert-bigarrow)))
 
-;; linum
-(dolist (hook '(haskell-mode-hook haskell-cabal-mode-hook))
-  (add-hook hook #'(lambda () (linum-mode 1))))
-
 ;; rainbow-delimeter
-(dolist (hook '(haskell-mode-hook
-                inferior-haskell-mode-hook
-                haskell-interactive-mode-hook))
-  (add-hook hook #'(lambda () (rainbow-delimiters-mode))))
+(eval-after-load "haskell-mode"
+  '(when (featurep 'rainbow-delimiters)
+     (dolist (hook '(haskell-mode-hook
+                     inferior-haskell-mode-hook
+                     haskell-interactive-mode-hook))
+       (add-hook hook #'(lambda () (rainbow-delimiters-mode))))))
 
 (provide 'init-haskell)
 ;;; init-haskell.el ends here

@@ -8,7 +8,7 @@
   '(progn
      (setq flycheck-highlighting-mode 'lines)))
 
-(add-hook 'after-init-hook 'global-flycheck-mode)
+(add-hook 'after-init-hook #'global-flycheck-mode)
 
 (provide 'init-flycheck)
 ;;; init-flycheck.el ends here

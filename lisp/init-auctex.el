@@ -38,7 +38,6 @@
 
      (add-hook 'LaTeX-mode-hook #'(lambda ()
                                     (flyspell-mode)
-                                    (linum-mode 1)
                                     (turn-on-reftex)
                                     (rainbow-delimiters-mode-enable)))))
 

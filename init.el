@@ -52,6 +52,7 @@
                       init-ediff
                       init-misc-packages
                       init-auctex
+                      init-html-js
                       init-org
                       init-cc-mode
                       init-lisp-mode
@@ -60,7 +61,6 @@
                       init-haskell
                       init-python
                       init-cmake
-                      init-sh-mode
                       init-markdown
                       init-mu4e
                       init-nix))

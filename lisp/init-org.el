@@ -14,9 +14,7 @@
      (setq org-agenda-files (list "~/Documents/org/diary"))
      (setq org-export-html-validation-link nil)
      (setq org-export-with-toc nil)
-     (setq org-src-fontify-natively t)
-     (add-hook 'org-mode-hook #'(lambda ()
-                                  (linum-mode 1)))))
+     (setq org-src-fontify-natively t)))
 
 ;; Org Publishing
 (require-package 'htmlize)

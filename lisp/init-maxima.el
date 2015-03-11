@@ -13,9 +13,6 @@
        '(("\\.ma[cx]\\'" . maxima-mode)
          ("\\.mc\\'"     . maxima-mode)) auto-mode-alist))
 
-(add-hook 'maxima-mode-hook #'(lambda ()
-                                (linum-mode 1)))
-
 ;; Imaxima
 (autoload 'imaxima "imaxima" "Image support for Maxima." t)
 (eval-after-load 'imaxima

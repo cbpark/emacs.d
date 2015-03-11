@@ -14,7 +14,5 @@
      (setq markdown-command "multimarkdown")
      (add-hook 'markdown-mode-hook 'turn-off-auto-fill)))
 
-(add-hook 'markdown-mode-hook #'(lambda () (linum-mode 1)))
-
 (provide 'init-markdown)
 ;;; init-markdown.el ends here

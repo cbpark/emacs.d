@@ -55,9 +55,8 @@
 
 (dolist (hook '(lisp-mode-hook emacs-lisp-mode-hook))
   (add-hook hook #'(lambda ()
-                     (linum-mode 1)
+                     (linum-mode -1)
                      (enable-paredit-mode)
-                     (flycheck-mode)
                      (rainbow-delimiters-mode-enable))))
 
 (add-hook 'lisp-mode-hook #'(lambda () (flyspell-prog-mode)))
@@ -73,15 +72,13 @@
        '(("\\.scm$" . scheme-mode)
          ("\\.rkt$" . scheme-mode)) auto-mode-alist))
 
-(dolist (hook '(scheme-mode-hook inferior-scheme-mode-hook))
-  (add-hook hook #'(lambda ()
-                     (enable-paredit-mode)
-                     (rainbow-delimiters-mode-enable))))
-
-(add-hook 'scheme-mode-hook #'(lambda ()
-                                (linum-mode 1)
-                                (flycheck-mode)
-                                (flyspell-prog-mode)))
+(eval-after-load "scheme"
+  '(progn
+     (dolist (hook '(scheme-mode-hook inferior-scheme-mode-hook))
+       (add-hook hook #'(lambda ()
+                          (enable-paredit-mode)
+                          (rainbow-delimiters-mode-enable))))
+     (add-hook 'scheme-mode-hook #'(lambda () (flyspell-prog-mode)))))
 
 (provide 'init-lisp-mode)
 ;;; init-lisp-mode.el ends here

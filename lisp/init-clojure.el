@@ -7,10 +7,7 @@
 (autoload 'clojure-mode "clojure" "Major mode for Clojure." t)
 (setq auto-mode-alist (append '(("\\.clj\\'" . lisp-mode)) auto-mode-alist))
 
-(add-hook 'clojure-mode-hook
-          (lambda ()
-            (linum-mode 1)
-            (enable-paredit-mode)))
+(add-hook 'clojure-mode-hook (lambda () (enable-paredit-mode)))
 
 (provide 'init-clojure)
 ;;; init-clojure.el ends here
