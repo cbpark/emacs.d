@@ -44,6 +44,8 @@ url/
 # Auxiliary and tempary files #
 ###############################
 *~
+.#*
+.*.swp
 ac-comphist.dat
 bookmarks
 .emacs.desktop
