@@ -22,5 +22,10 @@
      (setq imaxima-pt-size 9)
      (setq imaxima-fnt-size "large")))
 
+(dolist (hook '(maxima-mode-hook inferior-maxima-mode-hook))
+  (add-hook hook #'(lambda ()
+                     (rainbow-delimiters-mode-enable)
+                     (my-paredit-nonlisp))))
+
 (provide 'init-maxima)
 ;;; init-maxima.el ends here
