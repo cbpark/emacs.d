@@ -97,7 +97,8 @@
                                        (company-mode 1)
                                        (ggtags-mode 1)
                                        (rainbow-delimiters-mode-enable)
-                                       (my-paredit-nonlisp)))
+                                       (my-paredit-nonlisp)
+                                       (yas-minor-mode)))
 
      (add-hook 'c++-mode-hook #'(lambda ()
                                   (c-set-offset 'innamespace 0)
