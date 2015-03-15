@@ -9,6 +9,8 @@
 (global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c b") 'org-iswitchb)
 
+(setq org-directory "~/Documents/org")
+
 (eval-after-load 'org
   '(progn
      (setq org-agenda-files (list "~/Documents/org/diary"))
@@ -52,16 +54,25 @@
 \\usepackage{amsfonts}
 \\usepackage{amsmath,bm}
 \\usepackage{amssymb}
+\\usepackage{appendix}
 \\usepackage{bbm}
 \\usepackage{cancel}
 \\usepackage[small]{caption}
+\\usepackage{cite}
+\\usepackage{color}
 \\usepackage{enumerate}
 \\usepackage[multiple]{footmisc}
 \\usepackage{fullpage}
 \\usepackage{mathtools}
 \\usepackage{slashed}
-\\usepackage[T1]{fontenc}
-\\usepackage{mathptmx}"
+\\pdfminorversion=5
+\\definecolor{darkblue}{rgb}{0,0,0.9}
+\\usepackage{hyperref}
+\\hypersetup{linktocpage,colorlinks,citecolor=darkblue,
+filecolor=darkblue,linkcolor=darkblue,urlcolor=darkblue}
+\\usepackage[sc]{mathpazo}
+\\inespread{1.05}
+\\usepackage[T1]{fontenc}"
                ("\\section{%s}" . "\\section*{%s}")
                ("\\subsection{%s}" . "\\subsection*{%s}")
                ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
