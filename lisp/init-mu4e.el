@@ -33,8 +33,15 @@
        ;; off threading
        (setq mu4e-headers-show-threads nil)
 
-       ;; w3m
-       ;; (setq mu4e-html2text-command "w3m -dump -cols 80 -T text/html")
+       ;; eww
+       (defun my-render-html-message ()
+         "Use eww for rendering html."
+         (let ((dom (libxml-parse-html-region (point-min) (point-max))))
+           (erase-buffer)
+           (shr-insert-document dom)
+           (goto-char (point-min))))
+
+       (setq mu4e-html2text-command 'my-render-html-message)
 
        ;; enable inline images
        (setq mu4e-view-show-images t)
