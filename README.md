@@ -1,9 +1,7 @@
 ## How to install
 
 ```
-if [ -f ~/.emacs ]; then echo "-- .emacs found"; mv -v ~/.emacs ~/.emacs.old; fi
-if [ -d ~/.emacs.d ]; then echo "-- .emacs.d found"; mv -v ~/.emacs.d ~/.emacs.d.old; fi
-git clone git@github.com:cbpark/emacs.d.git ~/.emacs.d
-cd ~/.emacs.d/lisp && emacs -Q -batch -eval '(batch-byte-recompile-directory 0)'
-emacs -nw --debug-init
+curl -L https://raw.githubusercontent.com/cbpark/emacs.d/master/install.sh | $SHELL
 ```
+
+The required emacs packages will be automatically installed when running Emacs after the installation.
