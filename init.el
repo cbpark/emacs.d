@@ -35,6 +35,7 @@
                       init-fonts
                       init-key-binds
                       init-editing-util
+                      init-anzu
                       init-clipboard
                       init-window
                       init-linum
