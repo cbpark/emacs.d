@@ -62,7 +62,6 @@
  '(scroll-bar-mode nil)
  '(show-paren-mode t)
  '(show-paren-style (quote mixed))
- '(size-indication-mode t)
  '(split-width-threshold nil)
  '(sql-product (quote sqlite))
  '(tab-width 4)
