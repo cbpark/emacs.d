@@ -34,13 +34,6 @@
      (setq haskell-stylish-on-save nil)
      (define-key haskell-mode-map (kbd "C-c l") 'haskell-mode-stylish-buffer)))
 
-;; paredit
-(eval-after-load "haskell-mode"
-  '(dolist (hook '(haskell-mode-hook
-                   haskell-cabal-mode-hook
-                   inferior-haskell-mode-hook))
-     (add-hook hook 'my-paredit-nonlisp)))
-
 ;; Haksell interactive mode
 (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
 

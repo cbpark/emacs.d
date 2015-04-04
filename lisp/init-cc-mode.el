@@ -95,9 +95,9 @@
                                        (c-toggle-hungry-state 1)
                                        (c-turn-on-eldoc-mode)
                                        (company-mode 1)
+                                       (flyspell-prog-mode)
                                        (ggtags-mode 1)
                                        (rainbow-delimiters-mode-enable)
-                                       (my-paredit-nonlisp)
                                        (yas-minor-mode)))
 
      (add-hook 'c++-mode-hook #'(lambda ()
