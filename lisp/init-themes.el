@@ -12,13 +12,5 @@
 (require-package 'base16-theme)
 (load-theme 'base16-default t)
 
-;; smart-mode-line
-(require-package 'smart-mode-line)
-(setq sml/no-confirm-load-theme t
-      sml/theme 'respectful
-      sml/shorten-directory t
-      sml/shorten-modes t)
-(sml/setup)
-
 (provide 'init-themes)
 ;;; init-themes.el ends here
