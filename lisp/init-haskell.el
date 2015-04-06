@@ -90,11 +90,13 @@
 (eval-after-load "haskell-mode"
   '(add-hook 'haskell-mode-hook 'flyspell-prog-mode))
 
-;; company-cabal
+;; company
 (require-package 'company-cabal)
+(require-package 'company-ghci)
 (eval-after-load "company"
   '(progn
-     (add-to-list 'company-backends 'company-cabal)))
+     (dolist (backend '(company-cabal company-ghci))
+       (add-to-list 'company-backends backend))))
 
 ;; yasnippet
 (eval-after-load "haskell-mode"
@@ -158,14 +160,6 @@
      (define-key haskell-mode-map (kbd "C-c C-u") 'haskell-insert-undefined)
      (define-key haskell-mode-map (kbd "C-c n")   'haskell-insert-arrow)
      (define-key haskell-mode-map (kbd "C-c m")   'haskell-insert-bigarrow)))
-
-;; rainbow-delimeter
-(eval-after-load "haskell-mode"
-  '(when (featurep 'rainbow-delimiters)
-     (dolist (hook '(haskell-mode-hook
-                     inferior-haskell-mode-hook
-                     haskell-interactive-mode-hook))
-       (add-hook hook #'(lambda () (rainbow-delimiters-mode))))))
 
 (provide 'init-haskell)
 ;;; init-haskell.el ends here

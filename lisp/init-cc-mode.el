@@ -97,7 +97,6 @@
                                        (company-mode 1)
                                        (flyspell-prog-mode)
                                        (ggtags-mode 1)
-                                       (rainbow-delimiters-mode-enable)
                                        (yas-minor-mode)))
 
      (add-hook 'c++-mode-hook #'(lambda ()

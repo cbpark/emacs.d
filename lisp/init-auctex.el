@@ -38,8 +38,7 @@
 
      (add-hook 'LaTeX-mode-hook #'(lambda ()
                                     (flyspell-mode)
-                                    (turn-on-reftex)
-                                    (rainbow-delimiters-mode-enable)))))
+                                    (turn-on-reftex)))))
 
 (eval-after-load 'reftex
   '(progn

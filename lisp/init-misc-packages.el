@@ -13,6 +13,7 @@
 
 ;; rainbow-delimiters - mode for coloring parentheses
 (require-package 'rainbow-delimiters)
+(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 
 (provide 'init-misc-packages)
 ;;; init-misc-packages.el ends here

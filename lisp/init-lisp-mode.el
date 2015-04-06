@@ -56,8 +56,7 @@
 (dolist (hook '(lisp-mode-hook emacs-lisp-mode-hook))
   (add-hook hook #'(lambda ()
                      (linum-mode -1)
-                     (enable-paredit-mode)
-                     (rainbow-delimiters-mode-enable))))
+                     (enable-paredit-mode))))
 
 (add-hook 'lisp-mode-hook #'(lambda () (flyspell-prog-mode)))
 (add-hook 'lisp-interaction-mode-hook #'(lambda () (linum-mode -1)))
@@ -76,8 +75,7 @@
   '(progn
      (dolist (hook '(scheme-mode-hook inferior-scheme-mode-hook))
        (add-hook hook #'(lambda ()
-                          (enable-paredit-mode)
-                          (rainbow-delimiters-mode-enable))))
+                          (enable-paredit-mode))))
      (add-hook 'scheme-mode-hook #'(lambda () (flyspell-prog-mode)))))
 
 (provide 'init-lisp-mode)
