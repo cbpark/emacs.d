@@ -107,44 +107,59 @@
      (dolist (hook '(inferior-haskell-mode-hook haskell-interactive-mode-hook))
        (add-hook hook #'(lambda () (setq global-hl-line-mode nil))))))
 
-(defun haskell-insert-import ()
+(defun my-haskell-insert-import ()
   "Insert import."
   (interactive)
   (insert "import "))
 
-(defun haskell-insert-import-qual ()
+(defun my-haskell-insert-import-qual ()
   "Insert qualified import."
   (interactive)
   (insert "import qualified "))
 
-(defun haskell-insert-comment ()
+(defun my-haskell-insert-comment ()
   "Insert the comments for the documentation."
   (interactive)
   (insert "-- | "))
 
-(defun haskell-insert-nested-comment ()
+(defun my-haskell-insert-nested-comment ()
   "Insert the nested comments for documentation."
   (interactive)
   (insert "{-|  -}")
   (backward-char 3))
 
-(defun haskell-insert-pragma ()
+(defun my-haskell-insert-pragma ()
   "Insert the pragmas."
   (interactive)
   (insert "{-# LANGUAGE  #-}")
   (backward-char 4))
 
-(defun haskell-insert-undefined ()
+(defun my-haskell-main-function ()
+  "Insert main function."
+  (interactive)
+  (insert "module Main where")
+  (newline) (newline)
+  (insert "main :: IO ()")
+  (newline)
+  (insert "main = "))
+
+(defun my-haskell-module-decl ()
+  "Insert module declaration."
+  (interactive)
+  (insert "module  where")
+  (backward-char 6))
+
+(defun my-haskell-insert-undefined ()
   "Insert undefined."
   (interactive)
   (insert "undefined"))
 
-(defun haskell-insert-arrow ()
+(defun my-haskell-insert-arrow ()
   "Insert ->."
   (interactive)
   (insert " -> "))
 
-(defun haskell-insert-bigarrow ()
+(defun my-haskell-insert-bigarrow ()
   "Insert =>."
   (interactive)
   (insert " => "))
@@ -152,14 +167,16 @@
 ;; Key bindings
 (eval-after-load "haskell-mode"
   '(progn
-     (define-key haskell-mode-map (kbd "C-c i")   'haskell-insert-import)
-     (define-key haskell-mode-map (kbd "C-c q")   'haskell-insert-import-qual)
-     (define-key haskell-mode-map (kbd "C-c C-a") 'haskell-insert-comment)
-     (define-key haskell-mode-map (kbd "C-c C-d") 'haskell-insert-nested-comment)
-     (define-key haskell-mode-map (kbd "C-c C-p") 'haskell-insert-pragma)
-     (define-key haskell-mode-map (kbd "C-c C-u") 'haskell-insert-undefined)
-     (define-key haskell-mode-map (kbd "C-c n")   'haskell-insert-arrow)
-     (define-key haskell-mode-map (kbd "C-c m")   'haskell-insert-bigarrow)))
+     (define-key haskell-mode-map (kbd "C-c i")   'my-haskell-insert-import)
+     (define-key haskell-mode-map (kbd "C-c q")   'my-haskell-insert-import-qual)
+     (define-key haskell-mode-map (kbd "C-c C-a") 'my-haskell-insert-comment)
+     (define-key haskell-mode-map (kbd "C-c C-d") 'my-haskell-insert-nested-comment)
+     (define-key haskell-mode-map (kbd "C-c C-p") 'my-haskell-insert-pragma)
+     (define-key haskell-mode-map (kbd "C-c C-m") 'my-haskell-main-function)
+     (define-key haskell-mode-map (kbd "C-c m")   'my-haskell-module-decl)
+     (define-key haskell-mode-map (kbd "C-c u")   'my-haskell-insert-undefined)
+     (define-key haskell-mode-map (kbd "C-c n")   'my-haskell-insert-arrow)
+     (define-key haskell-mode-map (kbd "C-c C-n") 'my-haskell-insert-bigarrow)))
 
 (provide 'init-haskell)
 ;;; init-haskell.el ends here
