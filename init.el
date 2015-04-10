@@ -51,7 +51,6 @@
                       init-flycheck
                       init-company
                       init-ediff
-                      init-yasnippet
                       init-misc-packages
                       init-auctex
                       init-html-js

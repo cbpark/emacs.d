@@ -98,10 +98,6 @@
      (dolist (backend '(company-cabal company-ghci))
        (add-to-list 'company-backends backend))))
 
-;; yasnippet
-(eval-after-load "haskell-mode"
-  '(add-hook 'haskell-mode-hook #'(lambda () (yas-minor-mode))))
-
 (eval-after-load "haskell-mode"
   '(when (fboundp 'global-hl-line-mode)
      (dolist (hook '(inferior-haskell-mode-hook haskell-interactive-mode-hook))

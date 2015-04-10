@@ -96,8 +96,7 @@
                                        (c-turn-on-eldoc-mode)
                                        (company-mode 1)
                                        (flyspell-prog-mode)
-                                       (ggtags-mode 1)
-                                       (yas-minor-mode)))
+                                       (ggtags-mode 1)))
 
      (add-hook 'c++-mode-hook #'(lambda ()
                                   (c-set-offset 'innamespace 0)
