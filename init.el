@@ -44,7 +44,6 @@
                       init-terms
                       init-dired
                       init-recentf
-                      init-tramp
                       init-tags
                       init-projectile
                       init-flycheck
