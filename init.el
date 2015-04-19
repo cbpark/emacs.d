@@ -58,7 +58,6 @@
                       init-maxima
                       init-gnuplot
                       init-haskell
-                      init-python
                       init-cmake
                       init-markdown
                       init-mu4e
