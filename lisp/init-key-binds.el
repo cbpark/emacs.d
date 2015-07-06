@@ -53,5 +53,8 @@
 ;; Unset C-z
 (global-unset-key (kbd "C-z"))
 
+;; Enable upcase-region
+(put 'upcase-region 'disabled nil)
+
 (provide 'init-key-binds)
 ;;; init-key-binds.el ends here
