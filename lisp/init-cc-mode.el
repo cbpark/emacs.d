@@ -63,19 +63,25 @@
   (setq company-clang-arguments '("-std=c++11"
                                   "-stdlib=libc++")))
 
-;; flycheck
-(require-package 'flycheck-google-cpplint)
-(eval-after-load 'flycheck
-  '(progn
-     (require 'flycheck-google-cpplint)
-     (flycheck-add-next-checker 'c/c++-clang
-                                '(warning . c/c++-googlelint))))
-
 ;; company
 (require-package 'company-c-headers)
 (eval-after-load "company"
   '(progn
      (add-to-list 'company-backends 'company-c-headers)))
+
+;; irony-mode
+(require-package 'irony)
+
+;; flycheck-irony
+(require-package 'flycheck-irony)
+(eval-after-load 'flycheck
+  '(add-hook 'flycheck-mode-hook #'flycheck-irony-setup))
+
+;; company-irony
+(require-package 'company-irony)
+(eval-after-load 'company
+  '(add-to-list 'company-backends 'company-irony))
+(add-hook 'irony-mode-hook 'company-irony-setup-begin-commands)
 
 (eval-after-load "cc-mode"
   '(progn
