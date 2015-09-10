@@ -105,5 +105,10 @@
 (global-set-key (kbd "C-c g")   'helm-ls-git-ls)
 (global-set-key (kbd "C-x C-d") 'helm-browse-project)
 
+;; swiper
+(require-package 'swiper-helm)
+(global-set-key (kbd "C-s") 'swiper-helm)
+(global-set-key (kbd "C-r") 'swiper-helm)
+
 (provide 'init-helm)
 ;;; init-helm.el ends here
