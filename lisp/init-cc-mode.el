@@ -55,13 +55,16 @@
 
 (defun flycheck-cpp-setup ()
   "Set clang language standard."
-  (setq flycheck-clang-language-standard "c++11"
-        flycheck-clang-standard-library "libc++"))
+  (setq flycheck-clang-language-standard "c++11")
+  (when (string-equal system-type "darwin")
+    (setq flycheck-clang-standard-library "libc++")))
 
 (defun company-clang-args ()
   "Set company-clang-arguments."
-  (setq company-clang-arguments '("-std=c++11"
-                                  "-stdlib=libc++")))
+  (setq company-clang-arguments '("-std=c++11"))
+  (when (string-equal system-type "darwin")
+    (setq company-clang-arguments (append company-clang-arguments
+                                          '("-stdlib=libc++")))))
 
 ;; company
 (require-package 'company-c-headers)
@@ -83,6 +86,14 @@
   '(add-to-list 'company-backends 'company-irony))
 (add-hook 'irony-mode-hook 'company-irony-setup-begin-commands)
 
+;; clang-format
+(when (executable-find "clang-format")
+  (require 'clang-format)
+  (eval-after-load "cc-mode"
+    '(progn
+       (define-key c-mode-base-map (kbd "C-M-\\") 'clang-format-region)
+       (define-key c-mode-base-map (kbd "C-c l")  'clang-format-buffer))))
+
 (eval-after-load "cc-mode"
   '(progn
      (define-key c-mode-base-map (kbd "RET")     'c-context-line-break)
@@ -92,7 +103,7 @@
      (define-key c-mode-base-map (kbd "C-h d")   'cc-lookup-man)
      (define-key c-mode-base-map (kbd "C-c s")   'cc-insert-std)
      (define-key c-mode-base-map (kbd "C-c c")   'cc-insert-cout)
-     (define-key c-mode-base-map (kbd "C-C C-l") 'compile)
+     (define-key c-mode-base-map (kbd "C-c C-l") 'compile)
 
      (setq c-default-style "k&r"
            c-basic-offset 4)
