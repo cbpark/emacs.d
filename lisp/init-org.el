@@ -81,7 +81,7 @@ filecolor=darkblue,linkcolor=darkblue,urlcolor=darkblue}
 
 ;; Org journal
 (require-package 'org-journal)
-(global-set-key (kbd "C-c j") 'org-journal-new-entry)
+(global-set-key (kbd "C-c C-j") 'org-journal-new-entry)
 (eval-after-load 'org-journal
   '(progn
      (setq org-journal-dir "~/Documents/org/diary/")
