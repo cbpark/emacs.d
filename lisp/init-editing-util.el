@@ -37,14 +37,6 @@
   (setq-default save-place t)
   (setq save-place-file (expand-file-name ".places" user-emacs-directory)))
 
-;; Highlight parentheses
-(require-package 'highlight-parentheses)
-(define-globalized-minor-mode global-highlight-parentheses-mode
-  highlight-parentheses-mode
-  (lambda ()
-    (highlight-parentheses-mode t)))
-(global-highlight-parentheses-mode t)
-
 ;; If indent-tabs-mode is off, untabify before saving
 (add-hook 'write-file-hooks
           (lambda () (if (not indent-tabs-mode)
