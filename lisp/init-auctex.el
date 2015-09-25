@@ -49,7 +49,8 @@
 (add-hook 'doc-view-mode-hook 'auto-revert-mode)
 
 ;; latex-preview-pane
-(require-package 'latex-preview-pane)
+(unless (eq window-system nil)
+  (require-package 'latex-preview-pane))
 
 (provide 'init-auctex)
 ;;; init-auctex.el ends here
