@@ -68,6 +68,7 @@
 
 ;; company
 (require-package 'company-c-headers)
+(setq company-c-headers-path-system '("/usr/include" "/usr/local/include"))
 (when (string-equal system-type "darwin")
   (add-to-list 'company-c-headers-path-system
                (car (file-expand-wildcards "/usr/include/c++/4.*"))))
