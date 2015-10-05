@@ -44,9 +44,11 @@
            haskell-process-log t
            haskell-process-suggest-add-package t
            haskell-process-suggest-remove-import-lines nil
-           haskell-process-type 'cabal-repl
            haskell-process-use-presentation-mode t
            haskell-cabal-list-comma-position 'before)
+     (if (executable-find "stack")
+         (setq haskell-process-type 'stack-ghci)
+       (setq haskell-process-type 'cabal-repl))
 
      (define-key haskell-mode-map (kbd "C-c C-l") 'haskell-process-load-or-reload)
      (define-key haskell-mode-map (kbd "C-`")     'haskell-interactive-bring)
@@ -55,7 +57,6 @@
      (define-key haskell-mode-map (kbd "C-c C-c") 'haskell-process-cabal-build)
      (define-key haskell-mode-map (kbd "C-c C-k") 'haskell-interactive-mode-clear)
      (define-key haskell-mode-map (kbd "C-c c")   'haskell-process-cabal)
-     ;; (define-key haskell-mode-map (kbd "SPC")     'haskell-mode-contextual-space)
      (define-key haskell-mode-map (kbd "C-c C-b") 'haskell-interactive-switch)
      (define-key haskell-mode-map (kbd "C-c C-o")   'haskell-session-change-target)))
 
