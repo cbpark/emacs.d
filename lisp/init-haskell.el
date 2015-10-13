@@ -17,9 +17,10 @@
 (add-to-list 'completion-ignored-extensions ".hi")
 
 ;; Indentation
+(setq haskell-indent-offset 2)
 ;; (add-hook 'haskell-mode-hook 'turn-on-haskell-simple-indent)
-;; (add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
-(add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
+(add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
+;; (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
 (eval-after-load "haskell-mode"
   '(progn
      (define-key haskell-mode-map (kbd "C-,") 'haskell-move-nested-left)
