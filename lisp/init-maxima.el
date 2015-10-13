@@ -24,7 +24,6 @@
 
 (dolist (hook '(maxima-mode-hook inferior-maxima-mode-hook))
   (add-hook hook #'(lambda ()
-                     (rainbow-delimiters-mode-enable)
                      (my-paredit-nonlisp))))
 
 (provide 'init-maxima)
