@@ -78,7 +78,7 @@
 
 ;; clang-format
 (when (executable-find "clang-format")
-  (require-package 'clang-format)
+  (require 'clang-format)
   (eval-after-load "cc-mode"
     '(progn
        (define-key c-mode-base-map (kbd "C-M-\\") 'clang-format-region)
