@@ -33,7 +33,6 @@
                       epa-file
                       init-encoding
                       init-themes
-                      init-fonts
                       init-key-binds
                       init-editing-util
                       init-anzu
