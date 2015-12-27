@@ -6,8 +6,8 @@
 ;;; Code:
 
 ;; Turn off mouse interface in startup
-(when (and window-system (fboundp 'menu-bar-mode))
-  (if (string-equal system-name "darwin")
+(when (fboundp 'menu-bar-mode)
+  (if (and (string-equal system-name "darwin") window-system)
       (menu-bar-mode 1)
     (menu-bar-mode -1)))
 (when (fboundp 'tool-bar-mode)
