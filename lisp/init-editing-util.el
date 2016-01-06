@@ -52,5 +52,7 @@
 
 (add-hook 'after-save-hook 'byte-compile-current-buffer)
 
+(setq default-input-method "korean-hangul")
+
 (provide 'init-editing-util)
 ;;; init-editing-util.el ends here
