@@ -19,8 +19,8 @@
   '(progn
      (setq imaxima-maxima-program "maxima")
      (setq imaxima-use-maxima-mode-flag t)
-     (setq imaxima-pt-size 9)
-     (setq imaxima-fnt-size "large")))
+     (setq imaxima-pt-size 12)
+     (setq imaxima-fnt-size "LARGE")))
 
 (dolist (hook '(maxima-mode-hook inferior-maxima-mode-hook))
   (add-hook hook #'(lambda ()
