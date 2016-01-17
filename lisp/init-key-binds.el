@@ -20,8 +20,9 @@
 (global-set-key (kbd "C-c o")   'occur)
 
 ;; invoke M-x without the Alt key
-(global-set-key (kbd "C-x C-m") 'execute-extended-command)
-(global-set-key (kbd "C-c C-m") 'execute-extended-command)
+(if (featurep 'helm)
+    (global-set-key (kbd "C-x C-m") 'helm-M-x)
+  (global-set-key (kbd "C-x C-m") 'execute-extended-command))
 
 ;; Scrolling without moving the point
 (global-set-key (kbd "M-p")  #'(lambda () (interactive) (scroll-up   4)))
@@ -46,9 +47,7 @@
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
 ;; join the following line
-(global-set-key (kbd "M-j") #'(lambda ()
-                                (interactive)
-                                (join-line -1)))
+(global-set-key (kbd "M-j") #'(lambda () (interactive) (join-line -1)))
 
 ;; Unset C-z
 (global-unset-key (kbd "C-z"))

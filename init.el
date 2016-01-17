@@ -33,6 +33,7 @@
                       epa-file
                       init-encoding
                       init-themes
+                      init-helm
                       init-key-binds
                       init-editing-util
                       init-anzu
@@ -40,7 +41,6 @@
                       init-window
                       init-linum
                       init-undo-tree
-                      init-helm
                       init-terms
                       init-dired
                       init-recentf
