@@ -11,5 +11,8 @@
 ;; magit
 (require-package 'magit)
 
+(when (string-equal system-type "gnu/linux")
+  (require-package 'systemd))
+
 (provide 'init-misc-packages)
 ;;; init-misc-packages.el ends here
