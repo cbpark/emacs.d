@@ -120,7 +120,10 @@
        (setq message-kill-buffer-on-exit t)
 
        ;; message buffers left lying around are cleaned up if exited.
-       (setq mu4e-hide-index-messages t))))
+       (setq mu4e-hide-index-messages t)
+
+       (add-to-list 'mu4e-view-actions
+                    '("ViewInBrowser" . mu4e-action-view-in-browser) t))))
 
 (provide 'init-mu4e)
 ;;; init-mu4e.el ends here
