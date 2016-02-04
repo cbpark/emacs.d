@@ -17,12 +17,16 @@
 (add-to-list 'completion-ignored-extensions ".hi")
 
 ;; Indentation
-(setq haskell-indent-offset 2)
-
-(eval-after-load "haskell-mode"
-  '(progn
-     (define-key haskell-mode-map (kbd "C-,") 'haskell-move-nested-left)
-     (define-key haskell-mode-map (kbd "C-.") 'haskell-move-nested-right)))
+(defun my-haskell-style ()
+  "Set haskell indentation offsets."
+  (interactive)
+  (setq haskell-indentation-layout-offset 4
+        haskell-indentation-starter-offset 4
+        haskell-indentation-left-offset 4
+        haskell-indentation-ifte-offset 4
+        haskell-indentation-where-pre-offset 2
+        haskell-indentation-where-post-offset 2))
+(add-hook 'haskell-mode-hook 'my-haskell-style)
 
 ;; Module templates
 ;; (add-hook 'haskell-mode-hook 'haskell-auto-insert-module-template)
