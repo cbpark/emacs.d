@@ -18,6 +18,7 @@
 (global-set-key (kbd "C-r")     'isearch-backward-regexp)
 (global-set-key (kbd "C-x a r") 'align-regexp)
 (global-set-key (kbd "C-c o")   'occur)
+(global-set-key (kbd "M-o")     'other-window)
 
 ;; invoke M-x without the Alt key
 (if (featurep 'helm)
@@ -38,9 +39,9 @@
 (defun toggle-fullscreen ()
   "Toggle full screen."
   (interactive)
-  (set-frame-parameter
-   nil 'fullscreen
-   (when (not (frame-parameter nil 'fullscreen)) 'fullboth)))
+  (set-frame-parameter nil 'fullscreen
+                       (when (not (frame-parameter nil 'fullscreen))
+                         'fullboth)))
 (global-set-key (kbd "M-RET") 'toggle-fullscreen)
 
 ;; ibuffer
