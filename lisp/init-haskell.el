@@ -28,6 +28,9 @@
         haskell-indentation-where-post-offset 2))
 (add-hook 'haskell-mode-hook 'my-haskell-style)
 
+;; Subword movement and editing
+(add-hook 'haskell-mode-hook #'(lambda () (subword-mode 1)))
+
 ;; Module templates
 ;; (add-hook 'haskell-mode-hook 'haskell-auto-insert-module-template)
 

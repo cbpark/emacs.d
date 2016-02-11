@@ -101,6 +101,7 @@
      (add-hook 'c-mode-common-hook #'(lambda ()
                                        (c-toggle-hungry-state 1)
                                        (c-turn-on-eldoc-mode)
+                                       (subword-mode 1)
                                        (company-mode 1)
                                        (flyspell-prog-mode)
                                        (ggtags-mode 1)))
