@@ -25,6 +25,7 @@
              '(("/cbpark_gmail.com/INBOX"                    . ?i)
                ("/cbpark_gmail.com/[Google Mail].Sent Mail"  . ?s)
                ("/cbpark_gmail.com/[Google Mail].Trash"      . ?t)
+               ("/cbpark_gmail.com/archlinux.org"            . ?l)
                ("/cbpark_gmail.com/arxiv.org"                . ?a)
                ("/cbpark_gmail.com/github.com"               . ?g)
                ("/cbpark_gmail.com/Haskell-cafe"             . ?h)
