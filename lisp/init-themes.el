@@ -10,7 +10,7 @@
 (load-theme 'base16-default-dark t)
 
 ;; Transparent background.
-(when window-system
+(when (and (string-equal system-type "gnu/linux") window-system)
   (set-frame-parameter (selected-frame) 'alpha '(95 95))
   (add-to-list 'default-frame-alist '(alpha 95 95)))
 

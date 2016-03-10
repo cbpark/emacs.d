@@ -102,6 +102,7 @@
                                        (c-toggle-hungry-state 1)
                                        (c-turn-on-eldoc-mode)
                                        (subword-mode 1)
+                                       (linum-on)
                                        (company-mode 1)
                                        (flyspell-prog-mode)
                                        (ggtags-mode 1)))
