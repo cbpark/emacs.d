@@ -46,13 +46,5 @@
 
 (add-to-list 'find-file-not-found-functions #'my-create-non-existent-directory)
 
-(defun find-file-sudo ()
-  "Find file as root if necessary."
-  (unless (and buffer-file-name
-               (file-writable-p buffer-file-name))
-    (find-alternate-file (concat "/sudo:root@localhost:" buffer-file-name))))
-
-(add-hook 'find-file-hook #'find-file-sudo)
-
 (provide 'init-dired)
 ;;; init-dired.el ends here
