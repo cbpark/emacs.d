@@ -52,7 +52,7 @@
            haskell-process-suggest-remove-import-lines nil
            haskell-process-use-presentation-mode t
            haskell-cabal-list-comma-position 'before)
-     (if (executable-find "stack")
+     (if (and (executable-find "stack") (file-exists-p "~/.stack"))
          (setq haskell-process-type 'stack-ghci)
        (setq haskell-process-type 'cabal-repl))
 
