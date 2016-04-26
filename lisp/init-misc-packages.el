@@ -14,5 +14,11 @@
 (when (string-equal system-type "gnu/linux")
   (require-package 'systemd))
 
+;; pkgbuild-mode for ArchLinux
+(require-package 'pkgbuild-mode)
+(autoload 'pkgbuild-mode "pkgbuild-mode.el" "PKGBUILD mode." t)
+(setq auto-mode-alist (append '(("/PKGBUILD$" . pkgbuild-mode))
+                              auto-mode-alist))
+
 (provide 'init-misc-packages)
 ;;; init-misc-packages.el ends here
