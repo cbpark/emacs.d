@@ -52,7 +52,6 @@
                       init-misc-packages
                       init-auctex
                       init-html-js
-                      init-org
                       init-cc-mode
                       init-lisp-mode
                       init-maxima
