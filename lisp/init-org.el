@@ -52,7 +52,7 @@
 \\interfootnotelinepenalty=10000
 \\raggedbottom
 \\usepackage{amsfonts}
-\\usepackage{amsmath,bm}
+\\usepackage{amsmath}
 \\usepackage{amssymb}
 \\usepackage{appendix}
 \\usepackage{bbm}
@@ -78,15 +78,6 @@ filecolor=darkblue,linkcolor=darkblue,urlcolor=darkblue}
                ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
                ("\\paragraph{%s}" . "\\paragraph*{%s}")
                ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
-
-;; Org journal
-(require-package 'org-journal)
-(global-set-key (kbd "C-c C-j") 'org-journal-new-entry)
-(eval-after-load 'org-journal
-  '(progn
-     (setq org-journal-dir "~/Documents/org/diary/")
-     (setq org-journal-date-format "%Y-%m-%d (%A)")
-     (setq org-journal-file-format "%Y%m%d.org")))
 
 (provide 'init-org)
 ;;; init-org.el ends here
