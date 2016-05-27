@@ -7,33 +7,34 @@
 ;; omit dot files
 (require 'dired-x)
 (setq-default dired-omit-files-p t)
-(setq dired-omit-files
-      (concat dired-omit-files "\\|^\\..+$"))
-
+(setq dired-omit-files (concat dired-omit-files "\\|^\\..+$"))
 (setq dired-listing-switches "-alh")
-
-;; Open files in external applications
-(when (string-equal system-type "darwin")
-  ;; Open files by default programs
-  (define-key dired-mode-map "o" 'dired-open-mac)
-  (defun dired-open-mac ()
-    (interactive)
-    (let ((file-name (dired-get-file-for-visit)))
-      (if (file-exists-p file-name)
-          (shell-command (concat "/usr/bin/open '" file-name "'" nil )))))
-
-  ;; Open current directory in default file manager
-  (defun dired-open-current-directory-in-finder ()
-    "Open the current directory in Finder"
-    (interactive)
-    (save-window-excursion
-      (dired-do-async-shell-command
-       "/usr/bin/open .")))
-  (define-key dired-mode-map (kbd "s-O")
-    'dired-open-current-directory-in-finder))
-
 ;; Reuse directory buffer
 (put 'dired-find-alternate-file 'disabled nil)
+
+(defun open-in-external-app (&optional file)
+  "Open the current FILE or dired marked files in external application."
+  (interactive)
+  (let* ((file-list
+          (cond
+           ((string-equal major-mode "dired-mode") (dired-get-marked-files))
+           ((not file) (list (buffer-file-name)))
+           (file (list file))))
+         (confirm (or (<= (length file-list) 5)
+                      (y-or-n-p "Open more than 5 files? "))))
+    (when confirm
+      (cond
+       ((string-equal system-type "darwin")
+        (mapc
+         (lambda (file-path)
+           (shell-command (format "open \"%s\"" file-path))) file-list))
+       ((string-equal system-type "gnu/linux")
+        (mapc
+         (lambda (file-path)
+           (let ((process-connection-type nil))
+             (start-process "" nil "xdg-open" file-path))) file-list))))))
+
+(define-key dired-mode-map "o" 'open-in-external-app)
 
 (defun my-create-non-existent-directory ()
   "Create parent directories when creating a new file."
