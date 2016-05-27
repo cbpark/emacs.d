@@ -11,6 +11,10 @@
 (setq dired-listing-switches "-alh")
 ;; Reuse directory buffer
 (put 'dired-find-alternate-file 'disabled nil)
+;; Make dired use the same buffer
+(define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file)
+(define-key dired-mode-map (kbd "^")
+  #'(lambda () (interactive) (find-alternate-file "..")))
 
 (defun open-in-external-app (&optional file)
   "Open the current FILE or dired marked files in external application."
