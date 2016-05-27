@@ -9,12 +9,33 @@
 (setq-default dired-omit-files-p t)
 (setq dired-omit-files (concat dired-omit-files "\\|^\\..+$"))
 (setq dired-listing-switches "-alh")
-;; Reuse directory buffer
+;; reuse directory buffer
 (put 'dired-find-alternate-file 'disabled nil)
-;; Make dired use the same buffer
+;; make dired use the same buffer
 (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file)
 (define-key dired-mode-map (kbd "^")
   #'(lambda () (interactive) (find-alternate-file "..")))
+
+(require 'ls-lisp)
+(setq ls-lisp-use-insert-directory-program nil)
+(defun my-toggle-ls-lisp-verbosity ()
+  "Toggle Ls LISP verbosity."
+  (interactive)
+  (if (memq 'uid ls-lisp-verbosity)
+      (progn
+        (setq ls-lisp-verbosity (delq 'uid ls-lisp-verbosity))
+        (setq ls-lisp-verbosity (delq 'gid ls-lisp-verbosity))
+        (revert-buffer)
+        (message "uid & gid hidden"))
+    (progn
+      (add-to-list 'ls-lisp-verbosity 'uid)
+      (add-to-list 'ls-lisp-verbosity 'gid)
+      (revert-buffer)
+      (message "uid & gid visible"))))
+(add-hook 'dired-mode-hook
+          #'(lambda ()
+              (define-key dired-mode-map (kbd "C-p")
+                'my-toggle-ls-lisp-verbosity)))
 
 (defun open-in-external-app (&optional file)
   "Open the current FILE or dired marked files in external application."
