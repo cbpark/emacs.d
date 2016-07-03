@@ -20,5 +20,11 @@
 (setq auto-mode-alist (append '(("/PKGBUILD$" . pkgbuild-mode))
                               auto-mode-alist))
 
+;; unison mode
+(require-package 'unison-mode)
+(autoload 'unison-mode "unison-mode" "my unison mode" t)
+(setq auto-mode-alist (append '(("\\.prf$" . unison-mode)) auto-mode-alist))
+(defvar unison-command "unison -ui text")
+
 (provide 'init-misc-packages)
 ;;; init-misc-packages.el ends here
