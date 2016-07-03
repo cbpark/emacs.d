@@ -11,8 +11,8 @@
 
 ;; Transparent background.
 (when (and (string-equal system-type "gnu/linux") window-system)
-  (set-frame-parameter (selected-frame) 'alpha '(90 90))
-  (add-to-list 'default-frame-alist '(alpha 90 90)))
+  (set-frame-parameter (selected-frame) 'alpha '(93 93))
+  (add-to-list 'default-frame-alist '(alpha 93 93)))
 
 (defun on-frame-open (&optional frame)
   "If the FRAME created in the terminal don't load background color."
