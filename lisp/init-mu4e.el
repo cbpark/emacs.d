@@ -39,15 +39,16 @@
        ;; off threading
        (setq mu4e-headers-show-threads nil)
 
-       ;; use eww
-       (defun my-render-html-message ()
-         "Use eww for rendering html."
-         (let ((dom (libxml-parse-html-region (point-min) (point-max))))
-           (erase-buffer)
-           (shr-insert-document dom)
-           (goto-char (point-min))))
 
-       (setq mu4e-html2text-command 'my-render-html-message)
+       ;; Html2text
+       (require 'mu4e-contrib)
+       (setq mu4e-html2text-command 'mu4e-shr2text)
+       (add-hook 'mu4e-view-mode-hook
+                 #'(lambda()
+                     ;; try to emulate some of the eww key-bindings
+                     (local-set-key (kbd "<tab>") 'shr-next-link)
+                     (local-set-key (kbd "<backtab>") 'shr-previous-link)))
+       (setq shr-color-visible-luminance-min 80)
 
        ;; enable inline images
        (setq mu4e-view-show-images t
