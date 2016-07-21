@@ -55,13 +55,13 @@
 
 (defun flycheck-cpp-setup ()
   "Set clang language standard."
-  (setq flycheck-clang-language-standard "c++11")
+  (setq flycheck-clang-language-standard "c++14")
   (when (string-equal system-type "darwin")
     (setq flycheck-clang-standard-library "libc++")))
 
 (defun company-clang-args ()
   "Set company-clang-arguments."
-  (setq company-clang-arguments '("-std=c++11"))
+  (setq company-clang-arguments '("-std=c++14"))
   (when (string-equal system-type "darwin")
     (setq company-clang-arguments (append company-clang-arguments
                                           '("-stdlib=libc++")))))
