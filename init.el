@@ -49,7 +49,6 @@
                       init-flycheck
                       init-company
                       init-ediff
-                      init-misc-packages
                       init-auctex
                       init-html-js
                       init-cc-mode
@@ -59,9 +58,9 @@
                       init-haskell
                       init-python
                       init-cmake
-                      init-markdown
                       init-mu4e
-                      init-nix))
+                      init-nix
+                      init-misc-packages))
   (require init-files))
 
 ;; Start editing server
