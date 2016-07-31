@@ -57,7 +57,10 @@
   "Set clang language standard."
   (setq flycheck-clang-language-standard "c++14")
   (when (string-equal system-type "darwin")
-    (setq flycheck-clang-standard-library "libc++")))
+    (setq flycheck-clang-standard-library "libc++")
+    (setq flycheck-clang-include-path
+          (list
+           (car (file-expand-wildcards "/opt/local/libexec/*/include/root"))))))
 
 (defun company-clang-args ()
   "Set company-clang-arguments."
