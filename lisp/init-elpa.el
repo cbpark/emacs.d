@@ -19,5 +19,11 @@ re-downloaded in order to locate PACKAGE."
         (package-refresh-contents)
         (require-package package min-version t)))))
 
+;; exec-path-from-shell
+(when (memq window-system '(mac ns))
+  (require-package 'exec-path-from-shell)
+  (exec-path-from-shell-copy-env "PYTHONPATH")
+  (exec-path-from-shell-initialize))
+
 (provide 'init-elpa)
 ;;; init-elpa.el ends here
