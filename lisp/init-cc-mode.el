@@ -56,11 +56,11 @@
 (defun flycheck-cpp-setup ()
   "Set clang language standard."
   (setq flycheck-clang-language-standard "c++14")
+  (setq flycheck-clang-include-path
+        (list
+         (substring (shell-command-to-string "root-config --incdir") 0 -1)))
   (when (string-equal system-type "darwin")
-    (setq flycheck-clang-standard-library "libc++")
-    (setq flycheck-clang-include-path
-          (list
-           (car (file-expand-wildcards "/opt/local/libexec/*/include/root"))))))
+    (setq flycheck-clang-standard-library "libc++")))
 
 (defun company-clang-args ()
   "Set company-clang-arguments."
