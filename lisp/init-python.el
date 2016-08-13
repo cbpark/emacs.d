@@ -17,7 +17,7 @@
     (add-to-list 'company-backends 'company-jedi))
   (add-hook 'python-mode-hook 'my/python-mode-hook))
 
-(add-hook 'python-mode-hook #'(lambda () (linum-on)))
+;; (add-hook 'python-mode-hook #'(lambda () (linum-on)))
 
 (provide 'init-python)
 ;;; init-python.el ends here

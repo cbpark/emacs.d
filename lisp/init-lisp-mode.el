@@ -55,7 +55,6 @@
 
 (dolist (hook '(lisp-mode-hook emacs-lisp-mode-hook))
   (add-hook hook #'(lambda ()
-                     (linum-on)
                      (enable-paredit-mode))))
 
 (add-hook 'lisp-mode-hook #'(lambda () (flyspell-prog-mode)))

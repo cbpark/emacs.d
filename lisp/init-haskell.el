@@ -76,8 +76,8 @@
      (define-key haskell-cabal-mode-map (kbd "C-c o")   'haskell-session-change-target)))
 
 ;; linum
-(dolist (hook '(haskell-mode-hook haskell-cabal-mode-hook))
-  (add-hook hook #'(lambda () (linum-on))))
+;; (dolist (hook '(haskell-mode-hook haskell-cabal-mode-hook))
+;;   (add-hook hook #'(lambda () (linum-on))))
 
 ;; Tags
 (eval-after-load "haskell-mode"
