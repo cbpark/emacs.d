@@ -58,10 +58,6 @@
 (global-semantic-idle-scheduler-mode 1)
 (semantic-mode 1)
 
-;; electric-pair
-(electric-pair-mode 1)
-(setq electric-pair-inhibit-predicate 'electric-pair-conservative-inhibit)
-
 (setq default-input-method "korean-hangul")
 
 (provide 'init-editing-util)

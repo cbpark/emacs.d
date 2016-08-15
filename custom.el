@@ -27,6 +27,8 @@
  '(display-buffer-reuse-frames t)
  '(display-hourglass t)
  '(doc-view-continuous t)
+ '(electric-pair-inhibit-predicate (quote electric-pair-conservative-inhibit))
+ '(electric-pair-mode t)
  '(eshell-cmpl-autolist t)
  '(eshell-cmpl-compare-entry-function (quote string-lessp))
  '(eshell-cmpl-ignore-case t)
