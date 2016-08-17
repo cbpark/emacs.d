@@ -112,9 +112,7 @@
      (add-hook 'c++-mode-hook #'(lambda ()
                                   (c-set-offset 'innamespace 0)
                                   (flycheck-cpp-setup)
-                                  (company-clang-args)
-                                  (add-to-list (make-local-variable 'electric-pair-pairs)
-                                               (cons ?< ?>))))))
+                                  (company-clang-args)))))
 
 (provide 'init-cc-mode)
 ;;; init-cc-mode.el ends here
