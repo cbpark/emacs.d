@@ -28,8 +28,8 @@
      (setq linum-format 'my-linum-format)))
 
 ;; add hook to some major modes
-(dolist (hook '(makefile-mode-hook fortran-mode-hook sql-mode-hook))
-  (add-hook hook #'(lambda () (linum-mode 1))))
+;; (dolist (hook '(makefile-mode-hook fortran-mode-hook sql-mode-hook))
+;;   (add-hook hook #'(lambda () (linum-mode 1))))
 
 (provide 'init-linum)
 ;;; init-linum.el ends here
