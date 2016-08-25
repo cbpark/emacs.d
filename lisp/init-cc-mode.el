@@ -32,11 +32,6 @@
   (interactive)
   (insert "#include "))
 
-(defun cc-insert-define ()
-  "Insert the #define."
-  (interactive)
-  (insert "#define "))
-
 (defun cc-lookup-man ()
   "Look up man page."
   (interactive)
@@ -92,7 +87,6 @@
      (define-key c-mode-base-map (kbd "RET")     'c-context-line-break)
      (define-key c-mode-base-map (kbd "C-c C-a") 'cc-insert-comment)
      (define-key c-mode-base-map (kbd "C-c i")   'cc-insert-include)
-     (define-key c-mode-base-map (kbd "C-c d")   'cc-insert-define)
      (define-key c-mode-base-map (kbd "C-h d")   'cc-lookup-man)
      (define-key c-mode-base-map (kbd "C-c s")   'cc-insert-std)
      (define-key c-mode-base-map (kbd "C-c c")   'cc-insert-cout)
