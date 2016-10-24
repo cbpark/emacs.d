@@ -8,8 +8,9 @@
 
 (setq recentf-exclude
       '("\\.ido.last$" "^autoloads.el$" "^archive-contents$" "^.*\/bookmarks$"
-        "^.*\/cookies$" "\\.html$" "\\.cache$" "^.*\/elpa\/.*$"
-        "^.*\/Maildir\/.*$" "^.*\/\.git\/.*$" "\\.ps$" "\\.pdf$"))
+        "^.*\/cookies$" "\\.html$" "\\.cache$" "^.*\/elpa\/.*$"  "\\.jpg$"
+        "\\.png$" "^.*\/Maildir\/.*$" "^.*\/\.git\/.*$" "\\.ps$" "\\.pdf$"
+        "TAGS"))
 
 (recentf-mode 1)
 
