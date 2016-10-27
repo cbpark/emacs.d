@@ -97,9 +97,6 @@
      (define-key helm-multi-swoop-map (kbd "C-r") 'helm-previous-line)
      (define-key helm-multi-swoop-map (kbd "C-s") 'helm-next-line)))
 
-;; helm projectile
-(require-package 'helm-projectile)
-
 ;; helm-ls-git
 (require-package 'helm-ls-git)
 (global-set-key (kbd "C-c g")   'helm-ls-git-ls)
