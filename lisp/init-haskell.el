@@ -46,17 +46,20 @@
 (eval-after-load "haskell-mode"
   '(progn
      (setq haskell-align-imports-pad-after-name t
-           haskell-process-auto-import-loaded-modules nil
+           haskell-process-auto-import-loaded-modules t
            haskell-process-log t
            haskell-process-suggest-add-package t
-           haskell-process-suggest-remove-import-lines nil
+           haskell-process-suggest-remove-import-lines t
            haskell-process-use-presentation-mode t
            haskell-cabal-list-comma-position 'before)
-     (if (and (executable-find "stack") (file-exists-p "~/.stack"))
-         (setq haskell-process-type 'stack-ghci)
-       (setq haskell-process-type 'cabal-repl))
+     (cond ((and (executable-find "stack") (file-exists-p "~/.stack")
+                 (file-exists-p ".stack-work"))
+            (setq haskell-process-type 'stack-ghci))
+           ((file-exists-p ".cabal-sandbox")
+            (setq haskell-process-type 'cabal-repl))
+           (t (setq haskell-process-type 'ghci)))
 
-     (define-key haskell-mode-map (kbd "C-c C-l") 'haskell-process-load-file)
+     (define-key haskell-mode-map (kbd "C-c C-l") 'haskell-process-load-or-reload)
      (define-key haskell-mode-map (kbd "C-`")     'haskell-interactive-bring)
      (define-key haskell-mode-map (kbd "C-c C-t") 'haskell-process-do-type)
      (define-key haskell-mode-map (kbd "C-c C-i") 'haskell-process-do-info)
