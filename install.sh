@@ -1,4 +1,4 @@
-#! /bin/sh
+#! /usr/bin/env bash
 
 function backup {
     if [ -e $HOME/$1 ]; then
@@ -13,8 +13,12 @@ if [ "$(pgrep "^[eE]macs")" ]; then
 else
     backup ".emacs"
     backup ".emacs.d"
+    backup ".aspell.en.prepl"
+    backup ".aspell.en.pws"
     git clone git@github.com:cbpark/emacs.d.git $HOME/.emacs.d
+    ln -s $HOME/.emacs.d/aspell/aspell.en.prepl $HOME/.aspell.en.prepl
+    ln -s $HOME/.emacs.d/aspell/aspell.en.pws  $HOME/.aspell.en.pws
     pushd
-    cd $HOME/.emacs.d/lisp 
+    cd $HOME/.emacs.d/lisp
     emacs -Q -batch -eval '(batch-byte-recompile-directory 0)'
 fi
