@@ -3,7 +3,6 @@
 ;;; Code:
 
 (require 'package)
-(package-initialize)
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
                          ("melpa" . "https://melpa.milkbox.net/packages/")))
 

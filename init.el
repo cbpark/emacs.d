@@ -5,6 +5,9 @@
 
 ;;; Code:
 
+;; Package.el.
+(package-initialize)
+
 ;; Turn off mouse interface in startup
 (when (fboundp 'menu-bar-mode)
   (if (and (string-equal system-type "darwin") window-system)
