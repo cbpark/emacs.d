@@ -57,6 +57,9 @@
  '(ns-alternate-modifier (quote meta))
  '(ns-antialias-text t)
  '(ns-command-modifier (quote super))
+ '(package-selected-packages
+   (quote
+    (latex-preview-pane hlint-refactor yaml-mode unison-mode pkgbuild-mode systemd magit nix-mode cmake-mode company-jedi company-ghci company-cabal flycheck-haskell haskell-mode gnuplot slime company-c-headers c-eldoc auctex company flycheck helm-projectile projectile ggtags multi-term undo-tree hlinum anzu multiple-cursors paredit expand-region swiper-helm helm-ls-git helm-swoop helm base16-theme)))
  '(read-file-name-completion-ignore-case t)
  '(scroll-bar-mode nil)
  '(show-paren-mode t)
