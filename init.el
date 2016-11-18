@@ -59,6 +59,8 @@
 (require-package 'htmlize)
 (require 'init-mu4e)
 
+;; (require 'init-slime)
+
 (dolist (init-files '(init-auctex
                       init-cc-mode
                       init-cmake
