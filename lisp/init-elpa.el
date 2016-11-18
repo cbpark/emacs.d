@@ -26,9 +26,6 @@ re-downloaded in order to locate PACKAGE."
   (exec-path-from-shell-copy-env "PYTHONPATH")
   (exec-path-from-shell-initialize))
 
-(setq package-enable-at-startup nil)
-(package-initialize)
-
 (require-package 'cl-lib)
 (require 'cl-lib)
 

@@ -5,14 +5,10 @@
 
 ;;; Code:
 
-;; Temporarily reduce garbage collection during startup
-
-;; Added by Package.el.  This must come before configurations of
-;; installed packages.  Don't delete this line.  If you don't want it,
-;; just comment it out by adding a semicolon to the start of the line.
-;; You may delete these explanatory comments.
+(setq package-enable-at-startup nil)
 (package-initialize)
 
+;; Temporarily reduce garbage collection during startup
 (defconst *initial-gc-cons-threshold* gc-cons-threshold
   "Initial value of `gc-cons-threshold' at start-up time.")
 (setq gc-cons-threshold (* 128 1024 1024))
@@ -35,7 +31,6 @@
 (add-to-list 'load-path (expand-file-name "site-lisp" user-emacs-directory))
 
 (require 'init-elpa)
-(require 'epa-file)
 (require 'init-encoding)
 (require 'init-window)
 (require 'init-themes)
@@ -43,9 +38,8 @@
 (require 'init-helm)
 (defconst *helm-on* (featurep 'helm))
 
-(require 'init-projectile)
 (require-package 'ggtags)
-
+(require 'init-projectile)
 (require 'init-flycheck)
 (require 'init-company)
 (require 'init-anzu)
@@ -62,6 +56,7 @@
 (require 'init-terms)
 (require 'init-dired)
 
+(require-package 'htmlize)
 (require 'init-mu4e)
 
 (dolist (init-files '(init-auctex
