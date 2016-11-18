@@ -5,16 +5,14 @@
 (require 'recentf)
 (setq recentf-max-saved-items 200
       recentf-max-menu-items 20)
-
 (setq recentf-exclude
       '("\\.ido.last$" "^autoloads.el$" "^archive-contents$" "^.*\/bookmarks$"
         "^.*\/cookies$" "\\.html$" "\\.cache$" "^.*\/elpa\/.*$"  "\\.jpg$"
         "\\.png$" "^.*\/Maildir\/.*$" "^.*\/\.git\/.*$" "\\.ps$" "\\.pdf$"
-        "TAGS"))
-
+        "TAGS" "/tmp/" "/ssh:"))
 (recentf-mode 1)
 
-(when (and (featurep 'ido) (not (featurep 'helm)))
+(when (and (featurep 'ido) (not *helm-on*))
   (defun recentf-ido-find-file ()
     "Find a recent file using Ido."
     (interactive)

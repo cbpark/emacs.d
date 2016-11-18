@@ -2,9 +2,6 @@
 ;;; Commentary:
 ;;; Code:
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; Lisp mode
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (autoload 'lisp-mode "lisp" "Major mode for Lisp." t)
 (setq auto-mode-alist
       (append
@@ -27,14 +24,13 @@
     (require-package 'slime-fuzzy)
     (require-package 'slime-repl)))
 
-(eval-after-load "slime"
+(eval-after-load 'slime
   '(progn
      (setq slime-net-coding-system 'utf-8-unix
            slime-protocol-version 'ignore)
-     (setq slime-lisp-implementations
-           '((sbcl ("sbcl" "--noinform")
-                   :coding-system utf-8-unix)
-             (ccl ("ccl64" "-K utf-8"))))
+     (setq slime-lisp-implementations '((sbcl ("sbcl" "--noinform")
+					      :coding-system utf-8-unix)
+					(ccl ("ccl64" "-K utf-8"))))
 
      (slime-setup
       '(slime-repl slime-asdf slime-fancy slime-banner))
@@ -49,17 +45,17 @@
 (dolist (hook '(slime-mode-hook slime-repl-mode-hook))
   (add-hook hook 'enable-paredit-mode))
 
-(add-hook 'slime-repl-mode-hook #'(lambda ()
-                                    (linum-mode -1)
-                                    (setq global-hl-line-mode nil)))
+(add-hook 'slime-repl-mode-hook (lambda ()
+				  (linum-mode -1)
+				  (setq global-hl-line-mode nil)))
 
 (dolist (hook '(lisp-mode-hook emacs-lisp-mode-hook))
-  (add-hook hook #'(lambda ()
-                     (enable-paredit-mode))))
+  (add-hook hook (lambda ()
+		   (enable-paredit-mode))))
 
-(add-hook 'lisp-mode-hook #'(lambda () (flyspell-prog-mode)))
-(add-hook 'lisp-interaction-mode-hook #'(lambda () (linum-mode -1)))
-(add-hook 'emacs-lisp-mode-hook #'(lambda () (eldoc-mode t)))
+(add-hook 'lisp-mode-hook (lambda () (flyspell-prog-mode)))
+(add-hook 'lisp-interaction-mode-hook (lambda () (linum-mode -1)))
+(add-hook 'emacs-lisp-mode-hook (lambda () (eldoc-mode t)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Scheme mode
@@ -73,9 +69,9 @@
 (eval-after-load "scheme"
   '(progn
      (dolist (hook '(scheme-mode-hook inferior-scheme-mode-hook))
-       (add-hook hook #'(lambda ()
-                          (enable-paredit-mode))))
-     (add-hook 'scheme-mode-hook #'(lambda () (flyspell-prog-mode)))))
+       (add-hook hook (lambda ()
+			(enable-paredit-mode))))
+     (add-hook 'scheme-mode-hook (lambda () (flyspell-prog-mode)))))
 
 (provide 'init-lisp-mode)
 ;;; init-lisp-mode.el ends here

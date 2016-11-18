@@ -3,7 +3,6 @@
 ;;; Code:
 
 (require-package 'auctex)
-
 (setq auto-mode-alist
       (append '(("\\.tex\\'" . latex-mode)) auto-mode-alist))
 
@@ -19,11 +18,10 @@
              (output-pdf "PDF Viewer")
              (output-html "HTML Viewer")))
 
-     (cond ((string-equal system-type "darwin")
-            (setq TeX-view-program-list
-                  '(("DVI Viewer"  "/usr/bin/open -a TeXShop %o")
-                    ("PDF Viewer"  "/usr/bin/open -a Preview %o")
-                    ("HTML Viewer" "/usr/bin/open -a Safari %o"))))
+     (cond (*is-darwin* (setq TeX-view-program-list
+                              '(("DVI Viewer"  "/usr/bin/open -a TeXShop %o")
+                                ("PDF Viewer"  "/usr/bin/open -a Preview %o")
+                                ("HTML Viewer" "/usr/bin/open -a Safari %o"))))
            ((string-equal system-type "gnu/linux")
             (setq TeX-view-program-list
                   '(("DVI Viewer"  "xdg-open %o")
@@ -35,10 +33,9 @@
      (setq latex-run-command "pdflatex")
      (setq LaTeX-default-style "article")
      (setq LaTeX-default-environment "align")
-
-     (add-hook 'LaTeX-mode-hook #'(lambda ()
-                                    (flyspell-mode)
-                                    (turn-on-reftex)))))
+     (add-hook 'LaTeX-mode-hook (lambda ()
+				  (flyspell-mode)
+				  (turn-on-reftex)))))
 
 (eval-after-load 'reftex
   '(progn
@@ -49,7 +46,7 @@
 (add-hook 'doc-view-mode-hook 'auto-revert-mode)
 
 ;; latex-preview-pane
-(unless (eq window-system nil)
+(when *is-gui*
   (require-package 'latex-preview-pane))
 
 (provide 'init-auctex)

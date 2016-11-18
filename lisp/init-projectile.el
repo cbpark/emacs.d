@@ -16,10 +16,11 @@
 (projectile-mode)
 
 ;; helm projectile
-(require-package 'helm-projectile)
-(setq projectile-completion-system 'helm)
-(setq projectile-switch-project-action 'helm-projectile)
-(helm-projectile-on)
+(when *helm-on*
+  (require-package 'helm-projectile)
+  (setq projectile-completion-system 'helm)
+  (setq projectile-switch-project-action 'helm-projectile)
+  (helm-projectile-on))
 
 (provide 'init-projectile)
 ;;; init-projectile.el ends here

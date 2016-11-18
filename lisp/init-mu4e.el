@@ -16,10 +16,10 @@
 
        ;; don't save message to Sent Messages, Gmail/IMAP takes care of this.
        (setq mu4e-sent-messages-behavior
-             #'(lambda ()
-                 (if (string= (message-sendmail-envelope-from) "cbpark@gmail.com")
-                     'delete
-                   'sent)))
+             (lambda ()
+	       (if (string= (message-sendmail-envelope-from) "cbpark@gmail.com")
+		   'delete
+		 'sent)))
 
        (setq mu4e-maildir-shortcuts
              '(("/cbpark_gmail.com/INBOX"                    . ?i)
@@ -44,10 +44,10 @@
        (require 'mu4e-contrib)
        (setq mu4e-html2text-command 'mu4e-shr2text)
        (add-hook 'mu4e-view-mode-hook
-                 #'(lambda()
-                     ;; try to emulate some of the eww key-bindings
-                     (local-set-key (kbd "<tab>") 'shr-next-link)
-                     (local-set-key (kbd "<backtab>") 'shr-previous-link)))
+                 (lambda()
+		   ;; try to emulate some of the eww key-bindings
+		   (local-set-key (kbd "<tab>") 'shr-next-link)
+		   (local-set-key (kbd "<backtab>") 'shr-previous-link)))
        (setq shr-color-visible-luminance-min 80)
 
        ;; enable inline images

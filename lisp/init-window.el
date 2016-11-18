@@ -2,6 +2,14 @@
 ;;; Commentary:
 ;;; Code:
 
+;; Turn off mouse interface in startup
+(when (fboundp 'menu-bar-mode)
+  (if (and *is-darwin* *is-gui*)
+      (menu-bar-mode 1)
+    (menu-bar-mode -1)))
+(setq inhibit-splash-screen   t
+      inhibit-startup-message t)
+
 (when (fboundp 'winner-mode)
   (winner-mode 1)
   (global-set-key (kbd "C-x 0") 'winner-undo)
@@ -19,11 +27,10 @@
                                          (car next-win-edges))
                                      (<= (cadr this-win-edges)
                                          (cadr next-win-edges)))))
-             (splitter
-              (if (= (car this-win-edges)
-                     (car (window-edges (next-window))))
-                  'split-window-horizontally
-                'split-window-vertically)))
+             (splitter (if (= (car this-win-edges)
+                              (car (window-edges (next-window))))
+                           'split-window-horizontally
+                         'split-window-vertically)))
         (delete-other-windows)
         (let ((first-win (selected-window)))
           (funcall splitter)

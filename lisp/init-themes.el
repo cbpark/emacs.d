@@ -2,15 +2,11 @@
 ;;; Commentary:
 ;;; Code:
 
-;; zenburn theme
-;; (require-package 'zenburn-theme)
-;; (load-theme 'zenburn t)
-;; base16 theme
 (require-package 'base16-theme)
-(load-theme 'base16-default-dark t)
+(load-theme 'base16-default-dark)
 
 ;; Transparent background.
-;; (when (and (string-equal system-type "gnu/linux") window-system)
+;; (when (and *is-linux* window-system)
 ;;   (set-frame-parameter (selected-frame) 'alpha '(93 93))
 ;;   (add-to-list 'default-frame-alist '(alpha 93 93)))
 
@@ -22,8 +18,8 @@
 (add-hook 'window-setup-hook 'on-frame-open)
 
 ;; Font
-(when window-system
-  (if (string-equal system-type "darwin")
+(when *is-gui*
+  (if *is-darwin*
       (progn
         (setq initial-frame-alist '((font . "Source Code Pro 12")))
         (setq default-frame-alist '((font . "Source Code Pro 12"))))

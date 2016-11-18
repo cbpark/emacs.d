@@ -1,11 +1,11 @@
-;;; init-key-binds.el -- Key bindings and shortening of commands
+;;; init-keybinds.el -- Key bindings and shortening of commands
 ;;; Commentary:
 ;;; Code:
 
 ;; Treat 'y' or <CR> as yes, 'n' as no.
 (fset 'yes-or-no-p 'y-or-n-p)
 (define-key query-replace-map (kbd "<return>") 'act)
-(define-key query-replace-map (kbd "C-m") 'act)
+(define-key query-replace-map (kbd "C-m")      'act)
 
 ;; Shortening of commands
 (defalias 'qrr 'query-replace-regexp)
@@ -21,13 +21,13 @@
 (global-set-key (kbd "M-o")     'other-window)
 
 ;; invoke M-x without the Alt key
-(if (featurep 'helm)
+(if *helm-on*
     (global-set-key (kbd "C-x C-m") 'helm-M-x)
   (global-set-key (kbd "C-x C-m") 'execute-extended-command))
 
 ;; Scrolling without moving the point
-(global-set-key (kbd "M-p")  #'(lambda () (interactive) (scroll-up   4)))
-(global-set-key (kbd "M-n")  #'(lambda () (interactive) (scroll-down 4)))
+(global-set-key (kbd "M-p")  (lambda () (interactive) (scroll-up   4)))
+(global-set-key (kbd "M-n")  (lambda () (interactive) (scroll-down 4)))
 
 ;; backward delete
 (global-set-key (kbd "C-h") 'delete-backward-char)
@@ -48,7 +48,7 @@
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
 ;; join the following line
-(global-set-key (kbd "M-j") #'(lambda () (interactive) (join-line -1)))
+(global-set-key (kbd "M-j") (lambda () (interactive) (join-line -1)))
 
 ;; Unset C-z
 (global-unset-key (kbd "C-z"))
@@ -56,5 +56,5 @@
 ;; Enable upcase-region
 (put 'upcase-region 'disabled nil)
 
-(provide 'init-key-binds)
-;;; init-key-binds.el ends here
+(provide 'init-keybinds)
+;;; init-keybinds.el ends here

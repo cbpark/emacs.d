@@ -14,7 +14,7 @@
 ;; make dired use the same buffer
 (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file)
 (define-key dired-mode-map (kbd "^")
-  #'(lambda () (interactive) (find-alternate-file "..")))
+  (lambda () (interactive) (find-alternate-file "..")))
 
 ;; to remove uid and gid
 (require 'ls-lisp)
@@ -33,11 +33,11 @@
                       (y-or-n-p "Open more than 5 files? "))))
     (when confirm
       (cond
-       ((string-equal system-type "darwin")
+       (*is-darwin*
         (mapc
          (lambda (file-path)
            (shell-command (format "open \"%s\"" file-path))) file-list))
-       ((string-equal system-type "gnu/linux")
+       (*is-linux*
         (mapc
          (lambda (file-path)
            (let ((process-connection-type nil))
@@ -50,7 +50,7 @@
   (let ((parent-directory (file-name-directory buffer-file-name)))
     (when (and (not (file-exists-p parent-directory))
                (y-or-n-p
-                (format "Directory `%s' does not exist.  Create it? "
+                (format "Directory `%s' does not exist. Create it? "
                         parent-directory)))
       (make-directory parent-directory t))))
 

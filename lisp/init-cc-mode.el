@@ -11,15 +11,14 @@
 (autoload 'java-mode "cc-mode" "Java mode" t)
 
 (setq auto-mode-alist
-      (append
-       '(("\\.C$"    . c++-mode )
-         ("\\.cc$"   . c++-mode )
-         ("\\.cpp$"  . c++-mode )
-         ("\\.cxx$"  . c++-mode )
-         ("\\.c$"    . c-mode   )
-         ("\\.h$"    . c++-mode )
-         ("\\.hh$"   . c++-mode )
-         ("\\.java$" . java-mode)) auto-mode-alist))
+      (append '(("\\.C$"    . c++-mode )
+		("\\.cc$"   . c++-mode )
+		("\\.cpp$"  . c++-mode )
+		("\\.cxx$"  . c++-mode )
+		("\\.c$"    . c-mode   )
+		("\\.h$"    . c++-mode )
+		("\\.hh$"   . c++-mode )
+		("\\.java$" . java-mode)) auto-mode-alist))
 
 (defun cc-insert-comment ()
   "Insert the comments for documentation."
@@ -54,35 +53,35 @@
   (setq flycheck-clang-include-path
         (list
          (substring (shell-command-to-string "root-config --incdir") 0 -1)))
-  (when (string-equal system-type "darwin")
+  (when *is-darwin*
     (setq flycheck-clang-standard-library "libc++")))
 
 (defun company-clang-args ()
   "Set company-clang-arguments."
   (setq company-clang-arguments '("-std=c++14"))
-  (when (string-equal system-type "darwin")
+  (when *is-darwin*
     (setq company-clang-arguments (append company-clang-arguments
                                           '("-stdlib=libc++")))))
 
 ;; company
 (require-package 'company-c-headers)
 (setq company-c-headers-path-system '("/usr/include" "/usr/local/include"))
-(when (string-equal system-type "darwin")
+(when *is-darwin*
   (add-to-list 'company-c-headers-path-system
                (car (file-expand-wildcards "/usr/include/c++/4.*"))))
-(eval-after-load "company"
+(eval-after-load 'company
   '(progn
      (add-to-list 'company-backends 'company-c-headers)))
 
 ;; clang-format
 (when (executable-find "clang-format")
   (require 'clang-format)
-  (eval-after-load "cc-mode"
+  (eval-after-load 'cc-mode
     '(progn
        (define-key c-mode-base-map (kbd "C-M-\\") 'clang-format-region)
        (define-key c-mode-base-map (kbd "C-c l")  'clang-format-buffer))))
 
-(eval-after-load "cc-mode"
+(eval-after-load 'cc-mode
   '(progn
      (define-key c-mode-base-map (kbd "RET")     'c-context-line-break)
      (define-key c-mode-base-map (kbd "C-c C-a") 'cc-insert-comment)
@@ -95,18 +94,18 @@
      (setq c-default-style "k&r"
            c-basic-offset 4)
 
-     (add-hook 'c-mode-common-hook #'(lambda ()
-                                       (c-toggle-hungry-state 1)
-                                       (c-turn-on-eldoc-mode)
-                                       (subword-mode 1)
-                                       (company-mode 1)
-                                       (flyspell-prog-mode)
-                                       (ggtags-mode 1)))
+     (add-hook 'c-mode-common-hook (lambda ()
+				     (c-toggle-hungry-state 1)
+				     (c-turn-on-eldoc-mode)
+				     (subword-mode 1)
+				     (company-mode 1)
+				     (flyspell-prog-mode)
+				     (ggtags-mode 1)))
 
-     (add-hook 'c++-mode-hook #'(lambda ()
-                                  (c-set-offset 'innamespace 0)
-                                  (flycheck-cpp-setup)
-                                  (company-clang-args)))))
+     (add-hook 'c++-mode-hook (lambda ()
+				(c-set-offset 'innamespace 0)
+				(flycheck-cpp-setup)
+				(company-clang-args)))))
 
 (provide 'init-cc-mode)
 ;;; init-cc-mode.el ends here

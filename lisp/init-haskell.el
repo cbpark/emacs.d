@@ -3,13 +3,11 @@
 ;;; Code:
 
 (require-package 'haskell-mode)
-
 (autoload 'haskell-mode "haskell-mode" "Haskell Mode" t)
-(setq auto-mode-alist (append
-                       '(("\\.hs\\'"    . haskell-mode)
-                         ("\\.hsc\\'"   . haskell-mode)
-                         ("\\.cpphs\\'" . haskell-mode)) auto-mode-alist))
-
+(setq auto-mode-alist
+      (append '(("\\.hs\\'"    . haskell-mode)
+		("\\.hsc\\'"   . haskell-mode)
+		("\\.cpphs\\'" . haskell-mode)) auto-mode-alist))
 (autoload 'haskell-cabal-mode "haskell-cabal-mode" "Haskell Cabal Mode" t)
 (add-to-list 'auto-mode-alist '("\\.cabal\\'" . haskell-cabal-mode))
 
@@ -35,7 +33,7 @@
 ;; (add-hook 'haskell-mode-hook 'haskell-auto-insert-module-template)
 
 ;; stylish-haskell
-(eval-after-load "haskell-mode"
+(eval-after-load 'haskell-mode
   '(progn
      (setq haskell-stylish-on-save nil)
      (define-key haskell-mode-map (kbd "C-c l") 'haskell-mode-stylish-buffer)))
@@ -43,7 +41,7 @@
 ;; Haksell interactive mode
 (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
 
-(eval-after-load "haskell-mode"
+(eval-after-load 'haskell-mode
   '(progn
      (setq haskell-align-imports-pad-after-name t
            haskell-process-auto-import-loaded-modules t
@@ -83,31 +81,31 @@
 ;;   (add-hook hook #'(lambda () (linum-on))))
 
 ;; Tags
-(eval-after-load "haskell-mode"
+(eval-after-load 'haskell-mode
   '(progn
      (setq haskell-tags-on-save t)
      (define-key haskell-mode-map (kbd "M-.") 'haskell-mode-jump-to-def-or-tag)))
 
 ;; Haskell doc mode
-(eval-after-load "haskell-mode"
+(eval-after-load 'haskell-mode
   '(dolist (hook '(haskell-mode-hook inferior-haskell-mode-hook))
      (add-hook hook 'turn-on-haskell-doc-mode)))
 
 ;; flycheck-haskell
 (require-package 'flycheck-haskell)
-(eval-after-load "haskell-mode"
+(eval-after-load 'haskell-mode
   '(progn
      (add-hook 'flycheck-mode-hook #'flycheck-haskell-setup)
      (add-hook 'haskell-mode-hook 'flycheck-mode)))
 
 ;; flyspell
-(eval-after-load "haskell-mode"
+(eval-after-load 'haskell-mode
   '(add-hook 'haskell-mode-hook 'flyspell-prog-mode))
 
 ;; company
 (require-package 'company-cabal)
 (require-package 'company-ghci)
-(eval-after-load "company"
+(eval-after-load 'company
   '(progn
      (dolist (backend '(company-cabal company-ghci))
        (add-to-list 'company-backends backend))))
@@ -116,14 +114,14 @@
 (when (executable-find "refactor")
   (require-package 'hlint-refactor)
   (add-hook 'haskell-mode-hook 'hlint-refactor-mode)
-  (eval-after-load "haskell-mode"
+  (eval-after-load 'haskell-mode
     '(progn
        (define-key haskell-mode-map (kbd "C-c , b")
          'hlint-refactor-refactor-buffer)
        (define-key haskell-mode-map (kbd "C-c , r")
          'hlint-refactor-refactor-at-point))))
 
-(eval-after-load "haskell-mode"
+(eval-after-load 'haskell-mode
   '(when (fboundp 'global-hl-line-mode)
      (dolist (hook '(inferior-haskell-mode-hook haskell-interactive-mode-hook))
        (add-hook hook #'(lambda () (setq global-hl-line-mode nil))))))
@@ -186,7 +184,7 @@
   (insert " => "))
 
 ;; Key bindings
-(eval-after-load "haskell-mode"
+(eval-after-load 'haskell-mode
   '(progn
      (define-key haskell-mode-map (kbd "C-c i")   'my-haskell-insert-import)
      (define-key haskell-mode-map (kbd "C-c q")   'my-haskell-insert-import-qual)

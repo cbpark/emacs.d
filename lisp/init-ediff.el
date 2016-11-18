@@ -2,7 +2,8 @@
 ;;; Commentary:
 ;;; Code:
 
-(eval-after-load "ediff-mode"
+(require 'ediff)
+(eval-after-load 'ediff
   '(progn
      (add-hook 'ediff-quit-hook 'delete-frame)
      (setq ediff-window-setup-function 'ediff-setup-windows-plain)

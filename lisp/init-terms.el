@@ -6,7 +6,7 @@
 ;; Eshell
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Turn off hl-line in eshell
-(add-hook 'eshell-mode-hook #'(lambda () (setq global-hl-line-mode nil)))
+(add-hook 'eshell-mode-hook (lambda () (setq global-hl-line-mode nil)))
 
 ;; Change comint keys
 (require 'comint)
@@ -18,17 +18,6 @@
   'comint-previous-input)
 (define-key comint-mode-map (kbd "C-M-n")
   'comint-next-input)
-
-;; Helm eshell
-(when (featurep 'helm)
-  ;; helm pcomplete
-  (add-hook 'eshell-mode-hook
-            #'(lambda () (define-key eshell-mode-map
-                           [remap eshell-pcomplete] 'helm-esh-pcomplete)))
-  ;; helm eshell history
-  (add-hook 'eshell-mode-hook
-            #'(lambda () (define-key eshell-mode-map
-                           (kbd "M-l") 'helm-eshell-history))))
 
 ;; Add color to a shell
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
@@ -70,7 +59,7 @@
                      (interactive)
                      (term-send-raw-string "\en")))))))
 
-(add-hook 'term-load-hook #'(lambda () (setq global-hl-line-mode nil)))
+(add-hook 'term-load-hook (lambda () (setq global-hl-line-mode nil)))
 
 (provide 'init-terms)
 ;;; init-terms.el ends here

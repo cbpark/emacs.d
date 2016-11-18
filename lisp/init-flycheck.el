@@ -3,7 +3,6 @@
 ;;; Code:
 
 (require-package 'flycheck)
-
 (eval-after-load 'flycheck
   '(progn
      (setq flycheck-highlighting-mode 'lines)))

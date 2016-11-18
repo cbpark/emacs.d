@@ -2,10 +2,10 @@
 ;;; Commentary:
 ;;; Code:
 
-(global-linum-mode -1)
-
-(require-package 'hlinum)
-(hlinum-activate)
+;; hlinum
+(when (and (boundp 'linum-mode) linum-mode)
+  (require-package 'hlinum)
+  (hlinum-activate))
 
 ;; separating line numbers from text
 (eval-after-load 'linum

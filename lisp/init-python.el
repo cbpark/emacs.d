@@ -4,7 +4,6 @@
 
 (require 'python)
 (add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
-
 (eval-after-load "python"
   (when (executable-find "ipython")
     (setq python-shell-interpreter "ipython"

@@ -1,4 +1,4 @@
-;;; init-editing-util.el --- Utils for editing
+;;; init-editor.el --- Utils for editing
 ;;; Commentary:
 ;;; Code:
 
@@ -14,7 +14,7 @@
 
 ;; Paredit
 (require-package 'paredit)
-(eval-after-load "paredit"
+(eval-after-load 'paredit
   '(progn
      (define-key paredit-mode-map (kbd "C-c )") 'paredit-forward-slurp-sexp)
      (define-key paredit-mode-map (kbd "C-c (") 'paredit-backward-slurp-sexp)))
@@ -23,7 +23,7 @@
   "Turn on paredit mode for non-lisps."
   (interactive)
   (set (make-local-variable 'paredit-space-for-delimiter-predicates)
-       '((lambda (endp delimiter) nil)))
+       ((lambda (endp delimiter) nil)))
   (paredit-mode 1))
 
 ;; multiple-cursors
@@ -39,8 +39,8 @@
 
 ;; If indent-tabs-mode is off, untabify before saving
 (add-hook 'write-file-hooks
-          #'(lambda () (if (not indent-tabs-mode)
-                           (untabify (point-min) (point-max))) nil))
+          (lambda () (if (not indent-tabs-mode)
+                         (untabify (point-min) (point-max))) nil))
 
 ;; Recompile elisp when saving
 (defun byte-compile-current-buffer ()
@@ -60,5 +60,5 @@
 
 (setq default-input-method "korean-hangul")
 
-(provide 'init-editing-util)
-;;; init-editing-util.el ends here
+(provide 'init-editor)
+;;; init-editor.el ends here

@@ -3,13 +3,12 @@
 ;;; Code:
 
 (require-package 'cmake-mode)
-
 (setq auto-mode-alist
-      (append
-       '(("CMakeLists\\.txt\\'" . cmake-mode))
-       '(("\\.cmake\\'" . cmake-mode)) auto-mode-alist))
+      (append '(("CMakeLists\\.txt\\'" . cmake-mode))
+	      '(("\\.cmake\\'"         . cmake-mode)) auto-mode-alist))
 (autoload 'cmake-mode "cmake-mode" "CMake mode" t)
-(eval-after-load "cmake-mode"
+
+(eval-after-load 'cmake-mode
   '(progn
      (defun cmake-rename-buffer ()
        "Renames a CMakeLists.txt buffer to cmake-<directory name>."

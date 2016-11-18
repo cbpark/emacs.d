@@ -1,11 +1,11 @@
-;;; init-misc-packages.el --- packages required to load.
+;;; init-misc.el --- Misc
 ;;; Commentary:
 ;;; Code:
 
 ;; magit
 (require-package 'magit)
 
-(when (string-equal system-type "gnu/linux")
+(when *is-linux*
   (require-package 'systemd))
 
 ;; pkgbuild-mode for ArchLinux
@@ -39,5 +39,5 @@
      (setq markdown-command "multimarkdown")
      (add-hook 'markdown-mode-hook 'turn-off-auto-fill)))
 
-(provide 'init-misc-packages)
-;;; init-misc-packages.el ends here
+(provide 'init-misc)
+;;; init-misc.el ends here

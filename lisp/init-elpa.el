@@ -21,10 +21,16 @@ re-downloaded in order to locate PACKAGE."
         (require-package package min-version t)))))
 
 ;; exec-path-from-shell
-(when (memq window-system '(mac ns))
+(when *is-darwin*
   (require-package 'exec-path-from-shell)
   (exec-path-from-shell-copy-env "PYTHONPATH")
   (exec-path-from-shell-initialize))
+
+(setq package-enable-at-startup nil)
+(package-initialize)
+
+(require-package 'cl-lib)
+(require 'cl-lib)
 
 (provide 'init-elpa)
 ;;; init-elpa.el ends here

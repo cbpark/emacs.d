@@ -9,9 +9,8 @@
 (autoload 'maxima "maxima" "Maxima interaction" t)
 
 (setq auto-mode-alist
-      (append
-       '(("\\.ma[cx]\\'" . maxima-mode)
-         ("\\.mc\\'"     . maxima-mode)) auto-mode-alist))
+      (append '(("\\.ma[cx]\\'" . maxima-mode)
+		("\\.mc\\'"     . maxima-mode)) auto-mode-alist))
 
 (defun open-imaxima ()
   "Open `imaxima' after splitting the window."
@@ -26,7 +25,7 @@
   (interactive)
   (let ((this-buffer (window-buffer (selected-window)))
         (other-buffer (prog2
-                          (other-window +1)
+			  (other-window +1)
                           (window-buffer (selected-window))
                         (other-window -1))))
     (switch-to-buffer other-buffer)
@@ -43,7 +42,7 @@
      (define-key maxima-mode-map (kbd "C-c C-k") 'maxima-stop)
 
      (when (featurep 'paredit)
-       (add-hook 'maxima-mode-hook #'(lambda () (my-paredit-nonlisp))))))
+       (add-hook 'maxima-mode-hook (lambda () (my-paredit-nonlisp))))))
 
 ;; Imaxima
 (autoload 'imaxima "imaxima" "Image support for Maxima." t)
@@ -52,7 +51,7 @@
      (setq imaxima-maxima-program "maxima")
      (setq imaxima-use-maxima-mode-flag t)
      (setq imaxima-pt-size 12)
-     (if (eq system-type 'darwin)
+     (if *is-darwin*
          (setq imaxima-fnt-size "large")
        (setq imaxima-fnt-size "LARGE"))))
 
