@@ -19,13 +19,6 @@
      (define-key paredit-mode-map (kbd "C-c )") 'paredit-forward-slurp-sexp)
      (define-key paredit-mode-map (kbd "C-c (") 'paredit-backward-slurp-sexp)))
 
-(defun my-paredit-nonlisp ()
-  "Turn on paredit mode for non-lisps."
-  (interactive)
-  (set (make-local-variable 'paredit-space-for-delimiter-predicates)
-       ((lambda (endp delimiter) nil)))
-  (paredit-mode 1))
-
 ;; multiple-cursors
 (require-package 'multiple-cursors)
 (global-set-key (kbd "C->") 'mc/mark-next-like-this)
@@ -49,7 +42,6 @@
   (when (and (eq major-mode 'emacs-lisp-mode)
              (file-exists-p (byte-compile-dest-file buffer-file-name)))
     (byte-compile-file buffer-file-name)))
-
 (add-hook 'after-save-hook 'byte-compile-current-buffer)
 
 ;; Semantic mode
