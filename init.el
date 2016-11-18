@@ -30,7 +30,6 @@
 
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 (add-to-list 'load-path (expand-file-name "site-lisp" user-emacs-directory))
-(add-to-list 'load-path (expand-file-name "site-lisp/custom-theme" user-emacs-directory))
 
 (dolist (init-files '(init-elpa
                       epa-file
