@@ -3,9 +3,8 @@
 ;;; Code:
 
 ;; hlinum
-(when (and (boundp 'linum-mode) linum-mode)
-  (require-package 'hlinum)
-  (hlinum-activate))
+(require-package 'hlinum)
+(hlinum-activate)
 
 ;; separating line numbers from text
 (eval-after-load 'linum
