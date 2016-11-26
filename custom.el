@@ -11,7 +11,8 @@
  '(blink-cursor-mode nil)
  '(column-number-mode t)
  '(compilation-ask-about-save nil)
- '(confirm-nonexistent-file-or-buffer nil)
+ '(confirm-kill-emacs (quote y-or-n-p))
+ '(confirm-nonexistent-file-or-buffer t)
  '(current-language-environment "UTF-8")
  '(custom-safe-themes
    (quote
@@ -38,11 +39,13 @@
  '(kill-whole-line t)
  '(make-backup-files nil)
  '(mouse-avoidance-mode (quote animate) nil (avoid))
+ '(mouse-yank-at-point t)
  '(next-line-add-newlines nil)
  '(package-selected-packages
    (quote
     (hlinum htmlize csv-nav csv-mode yaml-mode unison-mode pkgbuild-mode systemd magit company-jedi nix-mode slime hlint-refactor company-ghci company-cabal flycheck-haskell haskell-mode gnuplot cmake-mode company-c-headers c-eldoc latex-preview-pane auctex multi-term multiple-cursors paredit expand-region undo-tree anzu company flycheck ggtags helm-projectile projectile swiper-helm helm-ls-git helm-swoop helm base16-theme)))
  '(read-file-name-completion-ignore-case t)
+ '(ring-bell-function (quote ignore))
  '(scroll-bar-mode nil)
  '(show-paren-mode t)
  '(show-paren-style (quote mixed))

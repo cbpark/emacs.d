@@ -6,6 +6,9 @@
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
                          ("melpa" . "https://melpa.milkbox.net/packages/")))
 
+(when (not package-archive-contents)
+  (package-refresh-contents))
+
 (defun require-package (package &optional min-version no-refresh)
   "Install given PACKAGE, optionally requiring MIN-VERSION.
 If NO-REFRESH is non-nil, the available package lists will not be

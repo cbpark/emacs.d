@@ -6,19 +6,18 @@
 (require-package 'c-eldoc)
 (defvar c-eldoc-cpp-command "cpp")
 
-(autoload 'c++-mode "cc-mode" "C++ mode" t)
-(autoload 'c-mode "cc-mode" "C mode" t)
+(autoload 'c++-mode "cc-mode"  "C++ mode" t)
+(autoload 'c-mode   "cc-mode"  "C mode" t)
 (autoload 'java-mode "cc-mode" "Java mode" t)
 
-(setq auto-mode-alist
-      (append '(("\\.C$"    . c++-mode )
-		("\\.cc$"   . c++-mode )
-		("\\.cpp$"  . c++-mode )
-		("\\.cxx$"  . c++-mode )
-		("\\.c$"    . c-mode   )
-		("\\.h$"    . c++-mode )
-		("\\.hh$"   . c++-mode )
-		("\\.java$" . java-mode)) auto-mode-alist))
+(setq auto-mode-alist (append '(("\\.C$"    . c++-mode )
+                                ("\\.cc$"   . c++-mode )
+                                ("\\.cpp$"  . c++-mode )
+                                ("\\.cxx$"  . c++-mode )
+                                ("\\.c$"    . c-mode   )
+                                ("\\.h$"    . c++-mode )
+                                ("\\.hh$"   . c++-mode )
+                                ("\\.java$" . java-mode)) auto-mode-alist))
 
 (defun cc-insert-comment ()
   "Insert the comments for documentation."
@@ -95,17 +94,17 @@
            c-basic-offset 4)
 
      (add-hook 'c-mode-common-hook (lambda ()
-				     (c-toggle-hungry-state 1)
-				     (c-turn-on-eldoc-mode)
-				     (subword-mode 1)
-				     (company-mode 1)
-				     (flyspell-prog-mode)
-				     (ggtags-mode 1)))
+                                     (c-toggle-hungry-state 1)
+                                     (c-turn-on-eldoc-mode)
+                                     (subword-mode 1)
+                                     (company-mode 1)
+                                     (flyspell-prog-mode)
+                                     (ggtags-mode 1)))
 
      (add-hook 'c++-mode-hook (lambda ()
-				(c-set-offset 'innamespace 0)
-				(flycheck-cpp-setup)
-				(company-clang-args)))))
+                                (c-set-offset 'innamespace 0)
+                                (flycheck-cpp-setup)
+                                (company-clang-args)))))
 
 (provide 'init-cc-mode)
 ;;; init-cc-mode.el ends here

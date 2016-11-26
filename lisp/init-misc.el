@@ -4,6 +4,13 @@
 
 ;; magit
 (require-package 'magit)
+(global-set-key (kbd "C-x g s") 'magit-status)
+(global-set-key (kbd "C-x g x") 'magit-checkout)
+(global-set-key (kbd "C-x g c") 'magit-commit)
+(global-set-key (kbd "C-x g p") 'magit-push)
+(global-set-key (kbd "C-x g u") 'magit-pull)
+(global-set-key (kbd "C-x g e") 'magit-ediff-resolve)
+(global-set-key (kbd "C-x g r") 'magit-rebase-interactive)
 
 (when *is-linux*
   (require-package 'systemd))
@@ -11,8 +18,7 @@
 ;; pkgbuild-mode for ArchLinux
 (require-package 'pkgbuild-mode)
 (autoload 'pkgbuild-mode "pkgbuild-mode.el" "PKGBUILD mode." t)
-(setq auto-mode-alist (append '(("/PKGBUILD$" . pkgbuild-mode))
-                              auto-mode-alist))
+(setq auto-mode-alist (append '(("/PKGBUILD$" . pkgbuild-mode)) auto-mode-alist))
 
 ;; unison mode
 (require-package 'unison-mode)
@@ -23,16 +29,13 @@
 ;; yaml mode
 (require-package 'yaml-mode)
 (autoload 'yaml-mode "yaml-mode" "YAML mode" t)
-(setq auto-mode-alist
-      (append
-       '(("\\.yaml$" . yaml-mode)
-         ("\\.yml$"  . yaml-mode)) auto-mode-alist))
+(setq auto-mode-alist (append '(("\\.yaml$" . yaml-mode)
+                                ("\\.yml$"  . yaml-mode)) auto-mode-alist))
 
 ;; markown mode
 (setq auto-mode-alist
-      (append
-       '(("\\.markdown$" . markdown-mode)
-         ("\\.md$"       . markdown-mode)) auto-mode-alist))
+      (append '(("\\.markdown$" . markdown-mode)
+                ("\\.md$"       . markdown-mode)) auto-mode-alist))
 (autoload 'markdown-mode "markdown-mode" "Markdown mode" t)
 (eval-after-load "markdown-mode"
   '(progn
