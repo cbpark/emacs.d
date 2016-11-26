@@ -28,14 +28,22 @@
                     ("PDF Viewer"  "xdg-open %o")
                     ("HTML Viewer" "xdg-open %o")))))))
 
+(require-package 'company-math)
+(defun company-math-setup ()
+  "Add company-math backends."
+  (setq-local company-backends
+              (append '((company-math-symbols-latex company-latex-commands))
+                      company-backends)))
+
 (eval-after-load 'latex
   '(progn
      (setq latex-run-command "pdflatex")
      (setq LaTeX-default-style "article")
      (setq LaTeX-default-environment "align")
      (add-hook 'LaTeX-mode-hook (lambda ()
-				  (flyspell-mode)
-				  (turn-on-reftex)))))
+                                  (company-math-setup)
+                                  (flyspell-mode)
+                                  (turn-on-reftex)))))
 
 (eval-after-load 'reftex
   '(progn
