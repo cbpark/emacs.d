@@ -47,6 +47,7 @@
 (require 'init-recentf)
 (require 'init-editor)
 (require 'init-ediff)
+(require 'init-magit)
 (when *is-darwin*
   (require 'init-clipboard))
 
