@@ -13,10 +13,13 @@
   (setq auto-mode-alist (append '(("/PKGBUILD$" . pkgbuild-mode)) auto-mode-alist)))
 
 ;; unison mode
-(require-package 'unison-mode)
-(autoload 'unison-mode "unison-mode" "my unison mode" t)
-(setq auto-mode-alist (append '(("\\.prf$" . unison-mode)) auto-mode-alist))
-(defvar unison-command "unison -ui text")
+(when (executable-find "unison")
+  (require-package 'unison-mode)
+  (autoload 'unison-mode "unison-mode" "my unison mode" t)
+  (setq auto-mode-alist (append '(("\\.prf$" . unison-mode)) auto-mode-alist))
+  (eval-after-load 'unison-mode
+    '(progn
+       (defvar unison-command "unison -ui text"))))
 
 ;; yaml mode
 (require-package 'yaml-mode)
