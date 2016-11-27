@@ -48,8 +48,6 @@
 (require 'init-editor)
 (require 'init-ediff)
 (require 'init-magit)
-(when *is-darwin*
-  (require 'init-clipboard))
 
 (global-linum-mode -1)
 (require 'init-linum)
