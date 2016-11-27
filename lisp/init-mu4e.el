@@ -17,9 +17,9 @@
        ;; don't save message to Sent Messages, Gmail/IMAP takes care of this.
        (setq mu4e-sent-messages-behavior
              (lambda ()
-	       (if (string= (message-sendmail-envelope-from) "cbpark@gmail.com")
-		   'delete
-		 'sent)))
+               (if (string= (message-sendmail-envelope-from) "cbpark@gmail.com")
+                   'delete
+                 'sent)))
 
        (setq mu4e-maildir-shortcuts
              '(("/cbpark_gmail.com/INBOX"                    . ?i)
@@ -39,15 +39,14 @@
        ;; off threading
        (setq mu4e-headers-show-threads nil)
 
-
        ;; Html2text
        (require 'mu4e-contrib)
        (setq mu4e-html2text-command 'mu4e-shr2text)
        (add-hook 'mu4e-view-mode-hook
                  (lambda()
-		   ;; try to emulate some of the eww key-bindings
-		   (local-set-key (kbd "<tab>") 'shr-next-link)
-		   (local-set-key (kbd "<backtab>") 'shr-previous-link)))
+                   ;; try to emulate some of the eww key-bindings
+                   (local-set-key (kbd "<tab>") 'shr-next-link)
+                   (local-set-key (kbd "<backtab>") 'shr-previous-link)))
        (setq shr-color-visible-luminance-min 80)
 
        ;; enable inline images
@@ -91,11 +90,10 @@
          (let ((msg mu4e-compose-parent-message))
            (if msg
                (setq user-mail-address
-                     (cond
-                      ((mu4e-message-contact-field-matches
-                        msg :to "cbpark@kias.re.kr")
-                       "cbpark@kias.re.kr")
-                      (t "cbpark@gmail.com"))))))
+                     (cond ((mu4e-message-contact-field-matches
+                             msg :to "cbpark@kias.re.kr")
+                            "cbpark@kias.re.kr")
+                           (t "cbpark@gmail.com"))))))
        (add-hook 'mu4e-compose-pre-hook 'my-set-from-address)
 
        ;; MSMTP setting for multi-smtp sending

@@ -69,9 +69,11 @@
                       init-html-js
                       init-lisp-mode
                       init-maxima
-                      init-nix
                       init-python))
   (require init-files))
+
+(when (executable-find "nix-env")
+  (require 'init-nix))
 
 (require 'init-misc)
 (require 'init-keybinds)

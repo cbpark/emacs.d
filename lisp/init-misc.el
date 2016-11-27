@@ -2,13 +2,15 @@
 ;;; Commentary:
 ;;; Code:
 
+;; systemd-mode
 (when *is-linux*
   (require-package 'systemd))
 
 ;; pkgbuild-mode for ArchLinux
-(require-package 'pkgbuild-mode)
-(autoload 'pkgbuild-mode "pkgbuild-mode.el" "PKGBUILD mode." t)
-(setq auto-mode-alist (append '(("/PKGBUILD$" . pkgbuild-mode)) auto-mode-alist))
+(when *is-linux*
+  (require-package 'pkgbuild-mode)
+  (autoload 'pkgbuild-mode "pkgbuild-mode.el" "PKGBUILD mode." t)
+  (setq auto-mode-alist (append '(("/PKGBUILD$" . pkgbuild-mode)) auto-mode-alist)))
 
 ;; unison mode
 (require-package 'unison-mode)
@@ -27,7 +29,7 @@
       (append '(("\\.markdown$" . markdown-mode)
                 ("\\.md$"       . markdown-mode)) auto-mode-alist))
 (autoload 'markdown-mode "markdown-mode" "Markdown mode" t)
-(eval-after-load "markdown-mode"
+(eval-after-load 'markdown-mode
   '(progn
      (setq markdown-command "multimarkdown")
      (add-hook 'markdown-mode-hook 'turn-off-auto-fill)))
