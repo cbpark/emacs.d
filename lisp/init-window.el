@@ -7,8 +7,6 @@
   (if (and *is-darwin* *is-gui*)
       (menu-bar-mode 1)
     (menu-bar-mode -1)))
-(setq inhibit-splash-screen   t
-      inhibit-startup-message t)
 
 (when (fboundp 'winner-mode)
   (winner-mode 1)

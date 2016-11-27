@@ -34,6 +34,7 @@
  '(hourglass-delay 2)
  '(ibuffer-expert t)
  '(indent-tabs-mode nil)
+ '(inhibit-startup-screen t)
  '(initial-scratch-message nil)
  '(ispell-program-name "aspell")
  '(kill-whole-line t)
