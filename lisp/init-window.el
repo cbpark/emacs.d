@@ -1,4 +1,4 @@
-;;; init-window.el --- Move between windows easily
+;;; init-window.el --- Customization for Emacs windows
 ;;; Commentary:
 ;;; Code:
 
@@ -8,12 +8,21 @@
       (menu-bar-mode 1)
     (menu-bar-mode -1)))
 
+;; Disable scroll-bar and fringe: necessary for emacsclient
+(add-hook 'after-make-frame-functions
+          (lambda (frame)
+            (progn
+              (modify-frame-parameters frame
+                                       '((vertical-scroll-bars . nil)
+                                         (horizontal-scroll-bars . nil)))
+              (set-fringe-mode 0))))
+
 (when (fboundp 'winner-mode)
   (winner-mode 1)
   (global-set-key (kbd "C-x 0") 'winner-undo)
   (global-set-key (kbd "C-x 9") 'winner-redo))
 
-(defun toggle-window-split ()
+(defun my-toggle-window-split ()
   "Toggle window split."
   (interactive)
   (if (= (count-windows) 2)
@@ -38,7 +47,7 @@
           (select-window first-win)
           (if this-win-2nd (other-window 1))))))
 
-(global-set-key (kbd "C-x 5") 'toggle-window-split)
+(global-set-key (kbd "C-x 5") 'my-toggle-window-split)
 
 (provide 'init-window)
 ;;; init-window.el ends here
