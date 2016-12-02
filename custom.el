@@ -8,6 +8,8 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(auto-save-default nil)
+ '(auto-save-interval 20)
+ '(backup-by-copying t)
  '(blink-cursor-mode nil)
  '(column-number-mode t)
  '(compilation-ask-about-save nil)
@@ -18,6 +20,7 @@
    (quote
     ("16dd114a84d0aeccc5ad6fd64752a11ea2e841e3853234f19dc02a7b91f5d661" default)))
  '(delete-old-versions t)
+ '(delete-selection-mode t)
  '(dired-dwim-target t)
  '(display-buffer-reuse-frames t)
  '(doc-view-continuous t)
@@ -37,9 +40,12 @@
  '(inhibit-startup-screen t)
  '(initial-scratch-message nil)
  '(ispell-program-name "aspell")
+ '(kept-new-versions 10)
+ '(kept-old-versions 0)
  '(kill-whole-line t)
  '(make-backup-files nil)
  '(mouse-avoidance-mode (quote animate) nil (avoid))
+ '(mouse-drag-copy-region t)
  '(mouse-yank-at-point t)
  '(next-line-add-newlines nil)
  '(package-selected-packages
@@ -47,6 +53,7 @@
     (company-math hlinum htmlize csv-nav csv-mode yaml-mode unison-mode pkgbuild-mode systemd magit company-jedi slime hlint-refactor company-ghci company-cabal flycheck-haskell haskell-mode gnuplot cmake-mode company-c-headers c-eldoc latex-preview-pane auctex multi-term multiple-cursors paredit expand-region undo-tree anzu company flycheck ggtags helm-projectile projectile swiper-helm helm-ls-git helm-swoop helm base16-theme)))
  '(read-file-name-completion-ignore-case t)
  '(ring-bell-function (quote ignore))
+ '(save-interprogram-paste-before-kill t)
  '(scroll-bar-mode nil)
  '(show-paren-mode t)
  '(show-paren-style (quote mixed))
@@ -57,7 +64,8 @@
  '(tool-bar-mode nil)
  '(uniquify-buffer-name-style (quote reverse) nil (uniquify))
  '(uniquify-ignore-buffers-re "^\\*")
- '(uniquify-separator " • "))
+ '(uniquify-separator " • ")
+ '(vc-make-backup-files t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

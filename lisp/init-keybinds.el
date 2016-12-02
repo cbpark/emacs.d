@@ -19,6 +19,8 @@
 (global-set-key (kbd "C-x a r") 'align-regexp)
 (global-set-key (kbd "C-c o")   'occur)
 (global-set-key (kbd "M-o")     'other-window)
+(global-set-key (kbd "C-x k")   'kill-this-buffer)
+(global-set-key (kbd "C-x w")   'delete-frame)
 
 ;; invoke M-x without the Alt key
 (if *helm-on*
