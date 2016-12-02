@@ -21,6 +21,7 @@
 (global-set-key (kbd "M-o")     'other-window)
 (global-set-key (kbd "C-x k")   'kill-this-buffer)
 (global-set-key (kbd "C-x w")   'delete-frame)
+(global-set-key (kbd "M-SPC")   'cycle-spacing)
 
 ;; invoke M-x without the Alt key
 (if *helm-on*

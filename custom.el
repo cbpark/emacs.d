@@ -24,6 +24,7 @@
  '(dired-dwim-target t)
  '(display-buffer-reuse-frames t)
  '(doc-view-continuous t)
+ '(echo-keystrokes 0.1)
  '(electric-pair-inhibit-predicate (quote electric-pair-conservative-inhibit))
  '(electric-pair-mode t)
  '(eshell-cmpl-autolist t)
