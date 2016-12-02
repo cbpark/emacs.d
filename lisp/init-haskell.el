@@ -6,8 +6,8 @@
 (autoload 'haskell-mode "haskell-mode" "Haskell Mode" t)
 (setq auto-mode-alist
       (append '(("\\.hs\\'"    . haskell-mode)
-		("\\.hsc\\'"   . haskell-mode)
-		("\\.cpphs\\'" . haskell-mode)) auto-mode-alist))
+                ("\\.hsc\\'"   . haskell-mode)
+                ("\\.cpphs\\'" . haskell-mode)) auto-mode-alist))
 (autoload 'haskell-cabal-mode "haskell-cabal-mode" "Haskell Cabal Mode" t)
 (add-to-list 'auto-mode-alist '("\\.cabal\\'" . haskell-cabal-mode))
 
@@ -27,7 +27,7 @@
 (add-hook 'haskell-mode-hook 'my-haskell-style)
 
 ;; Subword movement and editing
-(add-hook 'haskell-mode-hook #'(lambda () (subword-mode 1)))
+(add-hook 'haskell-mode-hook (lambda () (subword-mode 1)))
 
 ;; Module templates
 ;; (add-hook 'haskell-mode-hook 'haskell-auto-insert-module-template)
@@ -67,7 +67,7 @@
      (define-key haskell-mode-map (kbd "C-c C-b") 'haskell-interactive-switch)
      (define-key haskell-mode-map (kbd "C-c C-o") 'haskell-session-change-target)))
 
-(eval-after-load "haskell-cabal-mode"
+(eval-after-load 'haskell-cabal-mode
   '(progn
      (define-key haskell-cabal-mode-map (kbd "C-`")     'haskell-interactive-bring)
      (define-key haskell-cabal-mode-map (kbd "C-c C-k") 'haskell-interactive-mode-clear)
@@ -78,7 +78,7 @@
 
 ;; linum
 ;; (dolist (hook '(haskell-mode-hook haskell-cabal-mode-hook))
-;;   (add-hook hook #'(lambda () (linum-on))))
+;;   (add-hook hook (lambda () (linum-on))))
 
 ;; Tags
 (eval-after-load 'haskell-mode
@@ -95,7 +95,7 @@
 (require-package 'flycheck-haskell)
 (eval-after-load 'haskell-mode
   '(progn
-     (add-hook 'flycheck-mode-hook #'flycheck-haskell-setup)
+     (add-hook 'flycheck-mode-hook 'flycheck-haskell-setup)
      (add-hook 'haskell-mode-hook 'flycheck-mode)))
 
 ;; flyspell
@@ -106,9 +106,8 @@
 (require-package 'company-cabal)
 (require-package 'company-ghci)
 (eval-after-load 'company
-  '(progn
-     (dolist (backend '(company-cabal company-ghci))
-       (add-to-list 'company-backends backend))))
+  '(dolist (backend '(company-cabal company-ghci))
+       (add-to-list 'company-backends backend)))
 
 ;; hlint-refactor
 (when (executable-find "refactor")
@@ -124,7 +123,7 @@
 (eval-after-load 'haskell-mode
   '(when (fboundp 'global-hl-line-mode)
      (dolist (hook '(inferior-haskell-mode-hook haskell-interactive-mode-hook))
-       (add-hook hook #'(lambda () (setq global-hl-line-mode nil))))))
+       (add-hook hook (lambda () (setq global-hl-line-mode nil))))))
 
 (defun my-haskell-insert-import ()
   "Insert import."
