@@ -8,6 +8,17 @@
       (menu-bar-mode 1)
     (menu-bar-mode -1)))
 
+(add-hook 'after-make-frame-functions
+          (lambda (frame)
+            (with-selected-frame frame
+              (unless window-system
+                (set-frame-parameter nil 'menu-bar-lines 0)))))
+
+;; No border
+(let ((no-border '(internal-border-width . 0)))
+  (add-to-list 'default-frame-alist no-border)
+  (add-to-list 'initial-frame-alist no-border))
+
 ;; Disable scroll-bar and fringe: necessary for emacsclient
 (add-hook 'after-make-frame-functions
           (lambda (frame)

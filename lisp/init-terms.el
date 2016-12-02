@@ -60,6 +60,7 @@
                      (term-send-raw-string "\en")))))))
 
 (add-hook 'term-load-hook (lambda () (setq global-hl-line-mode nil)))
+(add-hook 'term-mode-hook (lambda () (setq line-spacing 0)))
 
 (provide 'init-terms)
 ;;; init-terms.el ends here
