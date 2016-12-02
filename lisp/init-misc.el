@@ -28,6 +28,7 @@
                                 ("\\.yml$"  . yaml-mode)) auto-mode-alist))
 
 ;; markown mode
+(require-package 'markdown-mode)
 (setq auto-mode-alist
       (append '(("\\.markdown$" . markdown-mode)
                 ("\\.md$"       . markdown-mode)) auto-mode-alist))
