@@ -20,7 +20,7 @@
 (eval-after-load 'helm
   '(progn
      ;; Yanking text
-     (setq helm-yank-symbol-first 't)
+     (setq helm-yank-symbol-first t)
      ;; Buffer File Completion
      (setq enable-recursive-minibuffers t)
      ;; Ignore files
@@ -95,11 +95,6 @@
      (define-key helm-swoop-map (kbd "C-s") 'helm-next-line)
      (define-key helm-multi-swoop-map (kbd "C-r") 'helm-previous-line)
      (define-key helm-multi-swoop-map (kbd "C-s") 'helm-next-line)))
-
-;; helm-ls-git
-(require-package 'helm-ls-git)
-(global-set-key (kbd "C-c g")   'helm-ls-git-ls)
-(global-set-key (kbd "C-x C-d") 'helm-browse-project)
 
 ;; swiper
 (require-package 'swiper-helm)
