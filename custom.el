@@ -51,7 +51,7 @@
  '(next-line-add-newlines nil)
  '(package-selected-packages
    (quote
-    (markdown-mode company-math hlinum htmlize csv-nav csv-mode yaml-mode unison-mode pkgbuild-mode systemd magit company-jedi slime hlint-refactor company-ghci company-cabal flycheck-haskell haskell-mode gnuplot cmake-mode company-c-headers c-eldoc latex-preview-pane auctex multi-term multiple-cursors paredit expand-region undo-tree anzu company flycheck ggtags helm-projectile projectile swiper-helm helm-ls-git helm-swoop helm base16-theme)))
+    (exec-path-from-shell markdown-mode company-math hlinum htmlize csv-nav csv-mode yaml-mode unison-mode pkgbuild-mode systemd magit company-jedi slime hlint-refactor company-ghci company-cabal flycheck-haskell haskell-mode gnuplot cmake-mode company-c-headers c-eldoc latex-preview-pane auctex multi-term multiple-cursors paredit expand-region undo-tree anzu company flycheck ggtags helm-projectile projectile swiper-helm helm-ls-git helm-swoop helm base16-theme)))
  '(read-file-name-completion-ignore-case t)
  '(ring-bell-function (quote ignore))
  '(save-interprogram-paste-before-kill t)
@@ -66,6 +66,8 @@
  '(uniquify-buffer-name-style (quote reverse) nil (uniquify))
  '(uniquify-ignore-buffers-re "^\\*")
  '(uniquify-separator " • ")
+ '(use-dialog-box nil)
+ '(use-file-dialog nil)
  '(vc-make-backup-files t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
