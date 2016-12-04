@@ -63,7 +63,6 @@
 (dolist (init-files '(init-auctex
                       init-cc-mode
                       init-cmake
-                      init-csv
                       init-gnuplot
                       init-haskell
                       init-html-js

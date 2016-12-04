@@ -3,9 +3,7 @@
 ;;; Code:
 
 (require 'package)
-(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-                         ("melpa" . "https://melpa.milkbox.net/packages/")))
-
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 (when (not package-archive-contents)
   (package-refresh-contents))
 

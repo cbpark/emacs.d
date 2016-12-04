@@ -2,22 +2,11 @@
 ;;; Commentary:
 ;;; Code:
 
-;; systemd-mode
-(when *is-linux*
-  (require-package 'systemd))
-
 ;; pkgbuild-mode for ArchLinux
 (when *is-linux*
   (require-package 'pkgbuild-mode)
   (autoload 'pkgbuild-mode "pkgbuild-mode.el" "ArchLinux PKGBUILD mode." t)
   (setq auto-mode-alist (append '(("/PKGBUILD$" . pkgbuild-mode)) auto-mode-alist)))
-
-;; unison mode
-(require-package 'unison-mode)
-(autoload 'unison-mode "unison-mode" "my unison mode" t)
-(setq auto-mode-alist (append '(("\\.prf$" . unison-mode)) auto-mode-alist))
-(eval-after-load 'unison-mode
-  '(defvar unison-command "unison -ui text"))
 
 ;; yaml mode
 (require-package 'yaml-mode)
