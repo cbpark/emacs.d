@@ -26,14 +26,14 @@
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 
 ;; Save point position between sessions
-(when (require 'saveplace nil 'noerror)
-  (setq-default save-place t)
-  (setq save-place-file (expand-file-name ".places" user-emacs-directory)))
+(require 'saveplace)
+(setq-default save-place t)
+(setq save-place-file (expand-file-name ".places" user-emacs-directory))
 
 ;; If indent-tabs-mode is off, untabify before saving
-(add-hook 'write-file-hooks
-          (lambda () (if (not indent-tabs-mode)
-                         (untabify (point-min) (point-max))) nil))
+(add-hook 'write-file-hooks (lambda () (when (not indent-tabs-mode)
+                                         (untabify (point-min) (point-max)))
+                              nil))
 
 ;; Recompile elisp when saving
 (defun byte-compile-current-buffer ()
@@ -48,7 +48,6 @@
 (require 'semantic)
 (global-semanticdb-minor-mode 1)
 (global-semantic-idle-scheduler-mode 1)
-(global-semantic-stickyfunc-mode 1)
 (semantic-mode 1)
 
 ;; Clipboard in darwin
