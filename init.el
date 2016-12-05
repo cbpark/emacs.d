@@ -68,6 +68,7 @@
                       init-html-js
                       init-lisp-mode
                       init-maxima
+                      init-org
                       init-python))
   (require init-files))
 
