@@ -58,6 +58,7 @@
  '(scroll-bar-mode nil)
  '(show-paren-mode t)
  '(show-paren-style (quote mixed))
+ '(tab-always-indent (quote complete))
  '(tags-case-fold-search t)
  '(text-mode-hook
    (quote
