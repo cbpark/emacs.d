@@ -50,10 +50,9 @@
            haskell-process-suggest-remove-import-lines t
            haskell-process-use-presentation-mode t
            haskell-cabal-list-comma-position 'before)
-     (cond ((and (executable-find "stack") (file-exists-p "~/.stack")
-                 (file-exists-p ".stack-work"))
+     (cond ((and (executable-find "stack") (file-exists-p "~/.stack"))
             (setq haskell-process-type 'stack-ghci))
-           ((file-exists-p ".cabal-sandbox")
+           ((and (executable-find "cabal") (file-exists-p "~/.cabal"))
             (setq haskell-process-type 'cabal-repl))
            (t (setq haskell-process-type 'ghci)))
 
