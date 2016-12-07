@@ -21,7 +21,6 @@
   (setq haskell-indentation-layout-offset 4
         haskell-indentation-starter-offset 4
         haskell-indentation-left-offset 4
-        haskell-indentation-ifte-offset 4
         haskell-indentation-where-pre-offset 2
         haskell-indentation-where-post-offset 2))
 (add-hook 'haskell-mode-hook 'my-haskell-style)
@@ -48,8 +47,7 @@
            haskell-process-log t
            haskell-process-suggest-add-package t
            haskell-process-suggest-remove-import-lines t
-           haskell-process-use-presentation-mode t
-           haskell-cabal-list-comma-position 'before)
+           haskell-process-use-presentation-mode t)
      (cond ((and (executable-find "stack") (file-exists-p "~/.stack"))
             (setq haskell-process-type 'stack-ghci))
            ((and (executable-find "cabal") (file-exists-p "~/.cabal"))
