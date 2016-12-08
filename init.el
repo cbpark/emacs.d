@@ -49,7 +49,7 @@
 (require 'init-ediff)
 (require 'init-magit)
 
-(setq global-linum-mode nil)
+(global-linum-mode -1)
 (require 'init-linum)
 
 (require 'init-terms)
