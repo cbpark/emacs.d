@@ -5,7 +5,9 @@
 ;; (require-package 'base16-theme)
 ;; (load-theme 'base16-default-dark)
 (require-package 'zenburn-theme)
+(defvar zenburn-override-colors-alist '(("zenburn-bg" . "#1f1f1f")))
 (load-theme 'zenburn)
+(set-face-attribute 'region nil :background "#666" :foreground "#ffffff")
 
 ;; Transparent background.
 ;; (when (and *is-linux* window-system)
