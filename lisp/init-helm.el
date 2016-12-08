@@ -43,6 +43,8 @@
 
      ;; (add-to-list 'helm-completing-read-handlers-alist '(find-file . ido))
 
+     (add-hook 'helm-after-update-hook (lambda () (linum-mode -1)))
+
      ;; Save curren position when jumping
      (add-hook 'helm-goto-line-before-hook 'helm-save-current-pos-to-mark-ring)
 
