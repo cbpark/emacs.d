@@ -17,9 +17,10 @@
 (define-key comint-mode-map (kbd "C-M-n")
   'comint-next-input)
 
-(dolist (mode '(eshell-mode-hook term-load-hook))
-  (add-hook mode (lambda () (setq global-hl-line-mode nil
-                                  line-spacing 0))))
+(dolist (mode '(eshell-mode-hook term-mode-hook))
+  (add-hook mode (lambda () (progn
+                              (setq line-spacing 0)
+                              (linum-mode -1)))))
 
 ;; Add color to a shell
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
