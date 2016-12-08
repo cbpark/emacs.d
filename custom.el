@@ -18,7 +18,7 @@
  '(current-language-environment "UTF-8")
  '(custom-safe-themes
    (quote
-    ("16dd114a84d0aeccc5ad6fd64752a11ea2e841e3853234f19dc02a7b91f5d661" default)))
+    ("4e753673a37c71b07e3026be75dc6af3efbac5ce335f3707b7d6a110ecb636a3" "16dd114a84d0aeccc5ad6fd64752a11ea2e841e3853234f19dc02a7b91f5d661" default)))
  '(delete-old-versions t)
  '(delete-selection-mode t)
  '(dired-dwim-target t)

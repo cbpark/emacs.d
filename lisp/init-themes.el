@@ -2,8 +2,10 @@
 ;;; Commentary:
 ;;; Code:
 
-(require-package 'base16-theme)
-(load-theme 'base16-default-dark)
+;; (require-package 'base16-theme)
+;; (load-theme 'base16-default-dark)
+(require-package 'zenburn-theme)
+(load-theme 'zenburn)
 
 ;; Transparent background.
 ;; (when (and *is-linux* window-system)
