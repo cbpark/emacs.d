@@ -1,7 +1,5 @@
 -.git
+-autosave
+-backup
 -elpa
--auto-save-list
--org-templates
--snippets
--tramp
--url
+-etc
