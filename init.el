@@ -34,6 +34,7 @@
 (require 'init-encoding)
 (require 'init-window)
 (require 'init-themes)
+(require 'init-linum)
 
 (require 'init-helm)
 (defconst *helm-on* (featurep 'helm))
@@ -48,10 +49,6 @@
 (require 'init-editor)
 (require 'init-ediff)
 (require 'init-magit)
-
-(global-linum-mode -1)
-(require 'init-linum)
-
 (require 'init-terms)
 (require 'init-dired)
 

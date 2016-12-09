@@ -26,9 +26,7 @@
      (add-hook 'linum-before-numbering-hook 'my-linum-get-format-string)
      (setq linum-format 'my-linum-format)))
 
-;; add hook to some major modes
-;; (dolist (hook '(makefile-mode-hook fortran-mode-hook sql-mode-hook))
-;;   (add-hook hook #'(lambda () (linum-mode 1))))
+(add-hook 'prog-mode-hook 'linum-mode)
 
 (provide 'init-linum)
 ;;; init-linum.el ends here

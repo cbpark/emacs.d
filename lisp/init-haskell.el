@@ -120,7 +120,7 @@
 (eval-after-load 'haskell-mode
   '(when (fboundp 'global-hl-line-mode)
      (dolist (hook '(inferior-haskell-mode-hook haskell-interactive-mode-hook))
-       (add-hook hook (lambda () (setq global-hl-line-mode nil))))))
+       (add-hook hook (lambda () (setq-local global-hl-line-mode nil))))))
 
 (defun my-haskell-insert-import ()
   "Insert import."

@@ -40,7 +40,7 @@
 
 (add-hook 'slime-repl-mode-hook (lambda ()
                                   (linum-mode -1)
-                                  (setq global-hl-line-mode nil)))
+                                  (setq-local global-hl-line-mode nil)))
 
 (provide 'init-slime)
 ;;; init-slime.el ends here
