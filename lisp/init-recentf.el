@@ -3,7 +3,8 @@
 ;;; Code:
 
 (require 'recentf)
-(setq recentf-max-saved-items 200
+(setq recentf-save-file "~/.emacs.d/etc/recentf"
+      recentf-max-saved-items 200
       recentf-max-menu-items 20)
 (setq recentf-exclude
       '("\\.ido.last$" "^autoloads.el$" "^archive-contents$" "^.*\/bookmarks$"

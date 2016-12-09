@@ -8,9 +8,13 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(auto-save-default nil)
+ '(auto-save-file-name-transforms (quote ((".*" "~/.emacs.d/autosave/" t))))
  '(auto-save-interval 20)
+ '(auto-save-list-file-prefix "~/.emacs.d/autosave/")
  '(backup-by-copying t)
+ '(backup-directory-alist (quote ((".*" . "~/.emacs.d/backup"))))
  '(blink-cursor-mode nil)
+ '(bookmark-default-file "~/.emacs.d/etc/bookmarks")
  '(column-number-mode t)
  '(compilation-ask-about-save nil)
  '(confirm-kill-emacs (quote y-or-n-p))
@@ -25,6 +29,8 @@
  '(display-buffer-reuse-frames t)
  '(doc-view-continuous t)
  '(echo-keystrokes 0.1)
+ '(eldoc-echo-area-use-multiline-p nil)
+ '(eldoc-idle-delay 0.1)
  '(electric-pair-inhibit-predicate (quote electric-pair-conservative-inhibit))
  '(electric-pair-mode t)
  '(eshell-cmpl-autolist t)
@@ -51,10 +57,14 @@
  '(next-line-add-newlines nil)
  '(package-selected-packages
    (quote
-    (haskell-mode company flycheck projectile helm yaml-mode undo-tree swiper-helm pkgbuild-mode paredit multiple-cursors markdown-mode magit latex-preview-pane htmlize hlinum hlint-refactor helm-swoop helm-projectile gnuplot ggtags flycheck-haskell expand-region exec-path-from-shell company-math company-jedi company-ghci company-cabal company-c-headers cmake-mode c-eldoc base16-theme auctex anzu zenburn-theme)))
+    (helm-comapny haskell-mode company flycheck projectile helm yaml-mode undo-tree swiper-helm pkgbuild-mode paredit multiple-cursors markdown-mode magit latex-preview-pane htmlize hlinum hlint-refactor helm-swoop helm-projectile gnuplot ggtags flycheck-haskell expand-region exec-path-from-shell company-math company-jedi company-ghci company-cabal company-c-headers cmake-mode c-eldoc base16-theme auctex anzu zenburn-theme)))
  '(read-file-name-completion-ignore-case t)
  '(ring-bell-function (quote ignore))
  '(save-interprogram-paste-before-kill t)
+ '(save-place-file "~/.emacs.d/etc/saveplace")
+ '(save-place-mode t)
+ '(savehist-file "~/.emacs.d/etc/history")
+ '(savehist-mode t)
  '(scroll-bar-mode nil)
  '(show-paren-mode t)
  '(show-paren-style (quote mixed))

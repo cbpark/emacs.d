@@ -6,6 +6,8 @@
 (require-package 'hlinum)
 (hlinum-activate)
 
+(setq line-number-display-limit-width 10000)
+
 ;; separating line numbers from text
 (eval-after-load 'linum
   '(progn

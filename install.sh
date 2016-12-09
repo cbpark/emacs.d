@@ -18,6 +18,7 @@ else
     git clone git@github.com:cbpark/emacs.d.git $HOME/.emacs.d
     ln -s $HOME/.emacs.d/aspell/aspell.en.prepl $HOME/.aspell.en.prepl
     ln -s $HOME/.emacs.d/aspell/aspell.en.pws  $HOME/.aspell.en.pws
+    mkdir -p $HOME/.emacs.d/{backup,autosave,etc}
     pushd
     cd $HOME/.emacs.d/lisp
     emacs -Q -batch -eval '(batch-byte-recompile-directory 0)'
