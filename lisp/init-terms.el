@@ -21,7 +21,8 @@
   (add-hook mode (lambda ()
                    (setq line-spacing 0)
                    (linum-mode -1)
-                   (setq-local global-hl-line-mode nil))))
+                   (setq-local global-hl-line-mode nil)
+                   (undo-tree-mode -1))))
 
 ;; Add color to a shell
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
