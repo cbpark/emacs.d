@@ -4,10 +4,15 @@
 
 (require-package 'flycheck)
 (eval-after-load 'flycheck
-  '(progn
-     (setq flycheck-highlighting-mode 'lines)))
+  '(setq flycheck-highlighting-mode 'lines
+         flycheck-display-errors-function #'flycheck-display-error-messages-unless-error-list))
 
 (add-hook 'after-init-hook #'global-flycheck-mode)
+
+(when *helm-on*
+  (require-package 'helm-flycheck)
+  (eval-after-load 'flycheck
+    '(define-key flycheck-mode-map (kbd "C-c ! h") 'helm-flycheck)))
 
 (provide 'init-flycheck)
 ;;; init-flycheck.el ends here
