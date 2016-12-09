@@ -4,7 +4,6 @@
 
 (require-package 'helm)
 (require 'helm-config)
-(require 'helm-eshell)
 (require 'helm-utils)
 (require 'helm-files)
 (require 'helm-grep)
@@ -19,38 +18,30 @@
 
 (eval-after-load 'helm
   '(progn
-     ;; Yanking text
-     (setq helm-yank-symbol-first t)
-     ;; Buffer File Completion
-     (setq enable-recursive-minibuffers t)
-     ;; Ignore files
-     (setq helm-ff-skip-boring-files t)
-     (setq helm-boring-file-regexp-list '("\\.elc$" "\\.o$" "\\.hi$" "\\.pyc$"
-                                          "\\.localized$" "\\.DS_Store$" "\\.git$"
-                                          "\\.hg$" "\\.svn$"))
-     ;;
+     (setq enable-recursive-minibuffers t)  ;; buffer file completion
+     (setq helm-ff-skip-boring-files t)     ;; ignore files
+     (setq helm-boring-file-regexp-list
+           '("\\.elc$" "\\.o$" "\\.hi$" "\\.pyc$" "\\.localized$" "\\.DS_Store$"
+             "\\.git$" "\\.hg$" "\\.svn$"))
      (setq helm-scroll-amount 8
-           helm-quick-update t
            helm-input-idle-delay 0.01
            helm-split-window-default-side 'other
            helm-split-window-in-side-p t
            helm-candidate-number-limit 200
            helm-ff-file-name-history-use-recentf t
            helm-move-to-line-cycle-in-source t
-           helm-M-x-fuzzy-match t
            helm-buffers-fuzzy-matching t
            helm-recentf-fuzzy-match t)
 
      ;; (add-to-list 'helm-completing-read-handlers-alist '(find-file . ido))
-
      (add-hook 'helm-after-update-hook (lambda () (linum-mode -1)))
 
      ;; Save curren position when jumping
      (add-hook 'helm-goto-line-before-hook 'helm-save-current-pos-to-mark-ring)
 
      (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action)
-     (define-key helm-map (kbd "C-i") 'helm-execute-persistent-action)
-     (define-key helm-map (kbd "C-z") 'helm-select-action)
+     (define-key helm-map (kbd "C-i")   'helm-execute-persistent-action)
+     (define-key helm-map (kbd "C-z")   'helm-select-action)
 
      (define-key helm-grep-mode-map (kbd "<return>") 'helm-grep-mode-jump-other-window)
      (define-key helm-grep-mode-map (kbd "n") 'helm-grep-mode-jump-other-window-forward)
