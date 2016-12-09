@@ -12,7 +12,7 @@
 (when *helm-on*
   (require-package 'helm-flycheck)
   (eval-after-load 'flycheck
-    '(define-key flycheck-mode-map (kbd "C-c ! h") 'helm-flycheck)))
+    '(define-key flycheck-mode-map (kbd "C-c h !") 'helm-flycheck)))
 
 (provide 'init-flycheck)
 ;;; init-flycheck.el ends here
