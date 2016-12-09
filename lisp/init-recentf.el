@@ -39,7 +39,7 @@ That is, remove a non kept file from the recent list."
               (recentf-remove-if-non-kept buff-name))))
 
      (add-hook 'dired-after-readin-hook 'recentf-track-opened-file)
-     (add-hook 'kill-buffer-hook 'recentd-track-closed-file)))
+     (add-hook 'kill-buffer-hook 'recentf-track-closed-file)))
 
 (when (and (featurep 'ido) (not *helm-on*))
   (defun recentf-ido-find-file ()
