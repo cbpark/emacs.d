@@ -3,10 +3,10 @@
 ;;; Code:
 
 ;; (require-package 'base16-theme)
-;; (load-theme 'base16-default-dark)
+;; (load-theme 'base16-default-dark t)
 (require-package 'zenburn-theme)
 (defvar zenburn-override-colors-alist '(("zenburn-bg" . "#1f1f1f")))
-(load-theme 'zenburn)
+(load-theme 'zenburn t)
 (set-face-attribute 'region nil :background "#666" :foreground "#ffffff")
 
 ;; Transparent background.

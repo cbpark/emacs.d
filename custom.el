@@ -20,9 +20,6 @@
  '(confirm-kill-emacs (quote y-or-n-p))
  '(confirm-nonexistent-file-or-buffer t)
  '(current-language-environment "UTF-8")
- '(custom-safe-themes
-   (quote
-    ("4e753673a37c71b07e3026be75dc6af3efbac5ce335f3707b7d6a110ecb636a3" "16dd114a84d0aeccc5ad6fd64752a11ea2e841e3853234f19dc02a7b91f5d661" default)))
  '(delete-old-versions t)
  '(delete-selection-mode t)
  '(dired-dwim-target t)
@@ -57,7 +54,7 @@
  '(next-line-add-newlines nil)
  '(package-selected-packages
    (quote
-    (helm-comapny haskell-mode company flycheck projectile helm yaml-mode undo-tree swiper-helm pkgbuild-mode paredit multiple-cursors markdown-mode magit latex-preview-pane htmlize hlinum hlint-refactor helm-swoop helm-projectile gnuplot ggtags flycheck-haskell expand-region exec-path-from-shell company-math company-jedi company-ghci company-cabal company-c-headers cmake-mode c-eldoc base16-theme auctex anzu zenburn-theme)))
+    (helm-company haskell-mode company flycheck projectile helm yaml-mode undo-tree swiper-helm pkgbuild-mode paredit multiple-cursors markdown-mode magit latex-preview-pane htmlize hlinum hlint-refactor helm-swoop helm-projectile gnuplot ggtags flycheck-haskell expand-region exec-path-from-shell company-math company-jedi company-ghci company-cabal company-c-headers cmake-mode c-eldoc auctex anzu zenburn-theme)))
  '(read-file-name-completion-ignore-case t)
  '(ring-bell-function (quote ignore))
  '(save-interprogram-paste-before-kill t)

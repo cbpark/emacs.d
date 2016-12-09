@@ -5,7 +5,7 @@
 (require-package 'company)
 
 (setq company-idle-delay 0.1
-      company-minimum-prefix-length 2
+      company-minimum-prefix-length 3
       company-selection-wrap-around t
       company-show-numbers t
       company-require-match 'never)
