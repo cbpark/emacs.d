@@ -2,11 +2,9 @@
 ;;; Commentary:
 ;;; Code:
 
-(require 'dired)
-(require 'dired-x)
-
 (eval-after-load 'dired
   '(progn
+     (require 'dired-x)
      (setq-default dired-omit-files-p t)
      (setq dired-omit-files (concat dired-omit-files "\\|^\\..+$"))
      (setq dired-listing-switches "-alh")

@@ -2,7 +2,6 @@
 ;;; Commentary:
 ;;; Code:
 
-(require 'ediff)
 (eval-after-load 'ediff
   '(progn
      (add-hook 'ediff-quit-hook 'delete-frame)
