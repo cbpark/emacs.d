@@ -6,49 +6,38 @@
 (require 'helm-config)
 (require 'helm-utils)
 (require 'helm-files)
-(require 'helm-grep)
-
-(global-set-key (kbd "C-c h") 'helm-command-prefix)
-(global-unset-key (kbd "C-x c"))
-(helm-mode 1)
 
 (helm-autoresize-mode t)
 (setq helm-autoresize-max-height 30
       helm-autoresize-min-height 30)
+(setq enable-recursive-minibuffers t)  ;; buffer file completion
+(setq helm-ff-skip-boring-files t)     ;; ignore files
+(setq helm-boring-file-regexp-list
+      '("\\.elc$" "\\.o$" "\\.hi$" "\\.pyc$" "\\.localized$" "\\.DS_Store$"
+        "\\.git$" "\\.hg$" "\\.svn$"))
+(setq helm-scroll-amount 8
+      helm-input-idle-delay 0.01
+      helm-split-window-default-side 'other
+      helm-split-window-in-side-p t
+      helm-candidate-number-limit 200
+      helm-ff-file-name-history-use-recentf t
+      helm-move-to-line-cycle-in-source t
+      helm-buffers-fuzzy-matching t
+      helm-recentf-fuzzy-match t)
 
-(eval-after-load 'helm
-  '(progn
-     (setq enable-recursive-minibuffers t)  ;; buffer file completion
-     (setq helm-ff-skip-boring-files t)     ;; ignore files
-     (setq helm-boring-file-regexp-list
-           '("\\.elc$" "\\.o$" "\\.hi$" "\\.pyc$" "\\.localized$" "\\.DS_Store$"
-             "\\.git$" "\\.hg$" "\\.svn$"))
-     (setq helm-scroll-amount 8
-           helm-input-idle-delay 0.01
-           helm-split-window-default-side 'other
-           helm-split-window-in-side-p t
-           helm-candidate-number-limit 200
-           helm-ff-file-name-history-use-recentf t
-           helm-move-to-line-cycle-in-source t
-           helm-buffers-fuzzy-matching t
-           helm-recentf-fuzzy-match t)
+;; Save curren position when jumping
+(add-hook 'helm-goto-line-before-hook 'helm-save-current-pos-to-mark-ring)
 
-     ;; (add-to-list 'helm-completing-read-handlers-alist '(find-file . ido))
-     (add-hook 'helm-after-update-hook (lambda () (linum-mode -1)))
-
-     ;; Save curren position when jumping
-     (add-hook 'helm-goto-line-before-hook 'helm-save-current-pos-to-mark-ring)
-
-     (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action)
-     (define-key helm-map (kbd "C-i")   'helm-execute-persistent-action)
-     (define-key helm-map (kbd "C-z")   'helm-select-action)
-
-     (define-key helm-grep-mode-map (kbd "<return>") 'helm-grep-mode-jump-other-window)
-     (define-key helm-grep-mode-map (kbd "n") 'helm-grep-mode-jump-other-window-forward)
-     (define-key helm-grep-mode-map (kbd "p") 'helm-grep-mode-jump-other-window-backward)))
+(define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action)
+(define-key helm-map (kbd "C-i")   'helm-execute-persistent-action)
+(define-key helm-map (kbd "C-z")   'helm-select-action)
 
 ;; key bindings
+(global-set-key (kbd "C-c h") 'helm-command-prefix)
+(global-unset-key (kbd "C-x c"))
 (global-set-key (kbd "M-x")     'helm-M-x)
+(global-set-key (kbd "C-x C-m") 'helm-M-x)
+(global-set-key (kbd "C-c M-x") 'execute-extended-command)
 (global-set-key (kbd "M-y")     'helm-show-kill-ring)
 (global-set-key (kbd "C-x b")   'helm-mini)
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
@@ -57,10 +46,11 @@
 (global-set-key (kbd "C-c h m") 'helm-man-woman)
 (global-set-key (kbd "C-c h f") 'helm-find)
 (global-set-key (kbd "C-c h l") 'helm-locate)
-(global-set-key (kbd "C-c h g") 'helm-do-grep)
 (global-set-key (kbd "C-c h o") 'helm-occur)
 (global-set-key (kbd "C-c h r") 'helm-resume)
 (global-set-key (kbd "C-c SPC") 'helm-all-mark-rings)
+
+(helm-mode 1)
 
 ;; helm-swoop
 (require-package 'helm-swoop)
@@ -69,25 +59,24 @@
 (global-set-key (kbd "C-c M-i") 'helm-multi-swoop)
 (global-set-key (kbd "C-x M-i") 'helm-multi-swoop-all)
 (define-key isearch-mode-map (kbd "M-i") 'helm-swoop-from-isearch)
-(eval-after-load "helm-swoop"
+(eval-after-load 'helm-swoop
   '(progn
-     ;; Save buffer when helm-multi-swoop-edit complete
-     (setq helm-multi-swoop-edit-save t)
-     ;; If this value is t, split window inside the current window
-     (setq helm-swoop-split-with-multiple-windows nil)
-     ;; Split direcion. 'split-window-vertically or 'split-window-horizontally
-     (setq helm-swoop-split-direction 'split-window-vertically)
-     ;; Go to the opposite side of line from the end or beginning of line
-     (setq helm-swoop-move-to-line-cycle t)
-     ;; Optional face for line numbers
-     ;; Face name is `helm-swoop-line-number-face`
-     (setq helm-swoop-use-line-number-face t)
-     ;; key binds
+     (setq helm-multi-swoop-edit-save t
+           helm-swoop-split-with-multiple-windows nil
+           helm-swoop-split-direction 'split-window-vertically
+           helm-swoop-move-to-line-cycle t
+           helm-swoop-use-line-number-face t)
+
      (define-key helm-swoop-map (kbd "M-i") 'helm-multi-swoop-all-from-helm-swoop)
      (define-key helm-swoop-map (kbd "C-r") 'helm-previous-line)
      (define-key helm-swoop-map (kbd "C-s") 'helm-next-line)
      (define-key helm-multi-swoop-map (kbd "C-r") 'helm-previous-line)
      (define-key helm-multi-swoop-map (kbd "C-s") 'helm-next-line)))
+
+;; helm-ls-git
+(require-package 'helm-ls-git)
+(global-set-key (kbd "C-x C-d") 'helm-browse-project)
+(global-set-key (kbd "C-c h g") 'helm-grep-do-git-grep)
 
 ;; swiper
 (require-package 'swiper-helm)
