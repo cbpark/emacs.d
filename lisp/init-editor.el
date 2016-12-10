@@ -25,11 +25,6 @@
 (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
 (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 
-;; Save point position between sessions
-(require 'saveplace)
-(setq-default save-place t)
-(setq save-place-file (expand-file-name ".places" user-emacs-directory))
-
 ;; If indent-tabs-mode is off, untabify before saving
 (add-hook 'write-file-hooks (lambda () (when (not indent-tabs-mode)
                                          (untabify (point-min) (point-max)))

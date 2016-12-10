@@ -57,7 +57,7 @@
  '(read-file-name-completion-ignore-case t)
  '(ring-bell-function (quote ignore))
  '(save-interprogram-paste-before-kill t)
- '(save-place-file "~/.emacs.d/etc/saveplace")
+ '(save-place-file "~/.emacs.d/etc/places")
  '(save-place-mode t)
  '(savehist-file "~/.emacs.d/etc/history")
  '(savehist-mode t)
