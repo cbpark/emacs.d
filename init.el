@@ -47,7 +47,6 @@
 (require 'init-undo-tree)
 (require 'init-recentf)
 (require 'init-editor)
-(require 'init-ediff)
 (require 'init-magit)
 (require 'init-terms)
 (require 'init-dired)

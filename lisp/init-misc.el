@@ -6,7 +6,8 @@
 (when *is-linux*
   (require-package 'pkgbuild-mode)
   (autoload 'pkgbuild-mode "pkgbuild-mode.el" "ArchLinux PKGBUILD mode." t)
-  (setq auto-mode-alist (append '(("/PKGBUILD$" . pkgbuild-mode)) auto-mode-alist)))
+  (setq auto-mode-alist
+        (append '(("/PKGBUILD$" . pkgbuild-mode)) auto-mode-alist)))
 
 ;; yaml mode
 (require-package 'yaml-mode)
