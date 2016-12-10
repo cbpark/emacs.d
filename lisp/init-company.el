@@ -17,11 +17,6 @@
      (define-key company-active-map (kbd "S-TAB") 'company-select-previous)
      (define-key company-active-map (kbd "<backtab>") 'company-select-previous)))
 
-(when *helm-on*
-  (require-package 'helm-company)
-  (with-eval-after-load 'company
-    (define-key company-active-map (kbd "C-:") 'helm-company)))
-
 (add-hook 'after-init-hook 'global-company-mode)
 
 (provide 'init-company)
