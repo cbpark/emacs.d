@@ -17,7 +17,6 @@
  '(bookmark-default-file "~/.emacs.d/etc/bookmarks")
  '(column-number-mode t)
  '(compilation-ask-about-save nil)
- '(confirm-kill-emacs (quote y-or-n-p))
  '(confirm-nonexistent-file-or-buffer t)
  '(current-language-environment "UTF-8")
  '(delete-old-versions t)
