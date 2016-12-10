@@ -28,7 +28,8 @@
      (add-hook 'linum-before-numbering-hook 'my-linum-get-format-string)
      (setq linum-format 'my-linum-format)))
 
-(add-hook 'prog-mode-hook 'linum-mode)
+(dolist (hook '(prog-mode-hook text-mode-hook))
+  (add-hook hook #'linum-mode))
 
 (provide 'init-linum)
 ;;; init-linum.el ends here
