@@ -64,7 +64,7 @@
 
      (add-hook 'LaTeX-mode-hook (lambda ()
                                   (company-math-setup)
-                                  (flyspell-mode)
+                                  (when *has-aspell* (flyspell-mode))
                                   (turn-on-reftex)))))
 
 (eval-after-load 'reftex

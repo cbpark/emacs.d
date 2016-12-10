@@ -19,6 +19,7 @@
 (defconst *is-linux* (eq system-type 'gnu/linux))
 (defconst *is-darwin* (eq system-type 'darwin))
 (defconst *is-gui* (not (eq window-system 'nil)))
+(defconst *has-aspell* (executable-find "aspell"))
 
 (unless (boundp 'user-emacs-directory)
   (defvar user-emacs-directory "~/.emacs.d/"))

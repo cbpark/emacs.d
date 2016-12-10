@@ -96,8 +96,9 @@
      (add-hook 'haskell-mode-hook 'flycheck-mode)))
 
 ;; flyspell
-(eval-after-load 'haskell-mode
-  '(add-hook 'haskell-mode-hook 'flyspell-prog-mode))
+(when *has-aspell*
+  (eval-after-load 'haskell-mode
+    '(add-hook 'haskell-mode-hook 'flyspell-prog-mode)))
 
 ;; company
 (require-package 'company-cabal)

@@ -98,7 +98,7 @@
                                      (c-turn-on-eldoc-mode)
                                      (subword-mode 1)
                                      (company-mode 1)
-                                     (flyspell-prog-mode)
+                                     (when *has-aspell* (flyspell-prog-mode))
                                      (ggtags-mode 1)))
 
      (add-hook 'c++-mode-hook (lambda ()

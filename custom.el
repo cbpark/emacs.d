@@ -68,7 +68,7 @@
  '(tags-case-fold-search t)
  '(text-mode-hook
    (quote
-    (turn-on-flyspell turn-on-auto-fill text-mode-hook-identify)))
+    (turn-on-auto-fill text-mode-hook-identify)))
  '(tool-bar-mode nil)
  '(uniquify-buffer-name-style (quote reverse) nil (uniquify))
  '(uniquify-ignore-buffers-re "^\\*")
