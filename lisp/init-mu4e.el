@@ -2,10 +2,10 @@
 ;;; Commentary:
 ;;; Code:
 
-(defvar *mu4e-dir*
+(defconst *mu4e-dir*
   (car (file-expand-wildcards "/usr/*/share/emacs/site-lisp/mu4e")))
 
-(when (file-directory-p *mu4e-dir*)
+(when (and *mu4e-dir* (file-directory-p *mu4e-dir*))
   (add-to-list 'load-path *mu4e-dir*)
   (require 'mu4e)
   (eval-after-load 'mu4e
