@@ -29,7 +29,8 @@
      (setq linum-format 'my-linum-format)))
 
 (dolist (hook '(prog-mode-hook text-mode-hook))
-  (add-hook hook #'linum-mode))
+  (add-hook hook 'linum-mode))
+(add-hook 'message-mode-hook (lambda () (linum-mode -1)))
 
 (provide 'init-linum)
 ;;; init-linum.el ends here

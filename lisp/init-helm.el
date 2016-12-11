@@ -83,5 +83,10 @@
 (global-set-key (kbd "C-s") 'swiper-helm)
 (global-set-key (kbd "C-r") 'swiper-helm)
 
+;; helm-descbinds
+(require-package 'helm-descbinds)
+(global-set-key (kbd "C-h b") 'helm-descbinds)
+(helm-descbinds-mode)
+
 (provide 'init-helm)
 ;;; init-helm.el ends here
