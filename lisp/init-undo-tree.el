@@ -13,6 +13,8 @@
 (setq undo-strong-limit (* 4 undo-strong-limit))
 (setq undo-tree-visualizer-diff t)
 (setq undo-tree-auto-save-history nil)
+(setq undo-tree-auto-save-history t)
+(setq undo-tree-history-directory-alist '(("." . "~/.emacs.d/etc/undo")))
 
 (add-hook 'doc-view-mode-hook (lambda () (undo-tree-mode -1)))
 
