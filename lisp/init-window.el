@@ -60,5 +60,12 @@
 
 (global-set-key (kbd "C-x 5") 'my-toggle-window-split)
 
+;; dashboard
+(require-package 'dashboard)
+(dashboard-setup-startup-hook)
+(setq dashboard-items '((recents   . 10)
+                        (bookmarks . 5)
+                        (projects  . 5)))
+
 (provide 'init-window)
 ;;; init-window.el ends here

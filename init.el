@@ -25,8 +25,7 @@
   (defvar user-emacs-directory "~/.emacs.d/"))
 
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
-(when (file-exists-p custom-file)
-  (load custom-file))
+(when (file-exists-p custom-file) (load custom-file))
 
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 (add-to-list 'load-path (expand-file-name "site-lisp" user-emacs-directory))
@@ -69,16 +68,14 @@
                       init-python))
   (require init-files))
 
-(when (executable-find "nix-env")
-  (require 'init-nix))
+(when (executable-find "nix-env") (require 'init-nix))
 
 (require 'init-misc)
 (require 'init-keybinds)
 
 ;; Start server
 (require 'server)
-(unless (server-running-p)
-  (server-start))
+(unless (server-running-p) (server-start))
 
 ;; All done.
 (message "All done, %s%s" (user-login-name) ".")
