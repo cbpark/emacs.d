@@ -10,7 +10,7 @@
       '("\\.ido.last$" "^autoloads.el$" "^archive-contents$" "^.*\/bookmarks$"
         "^.*\/cookies$" "\\.html$" "\\.cache$" "^.*\/elpa\/.*$"  "\\.jpg$"
         "\\.png$" "^.*\/Maildir\/.*$" "^.*\/\.git\/.*$" "\\.ps$" "\\.pdf$"
-        "TAGS" "/tmp/" "/ssh:"))
+        "TAGS" "/tmp/" "/ssh:" "^.*\/recentf$"))
 
 ;; Periodically saving the list of files
 (run-at-time nil (* 10 60) 'recentf-save-list)
