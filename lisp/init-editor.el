@@ -3,9 +3,7 @@
 ;;; Code:
 
 ;; Flyspell
-(when *has-aspell*
-    (setq ispell-program-name "aspell")
-    (add-hook 'text-mode-hook 'turn-on-flyspell))
+(when *has-aspell* (add-hook 'text-mode-hook 'turn-on-flyspell))
 
 ;; Remove trailing whitespace
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
