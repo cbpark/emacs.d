@@ -29,6 +29,9 @@
                                  ("" "slashed")))
 (setq org-highlight-latex-and-related '(latex script entities))
 
+(require-package 'cdlatex)
+(add-hook 'org-mode-hook 'turn-on-org-cdlatex)
+
 ;; markdown
 (eval-after-load 'org '(require 'ox-md nil t))
 
