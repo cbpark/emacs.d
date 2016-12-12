@@ -29,8 +29,7 @@ re-downloaded in order to locate PACKAGE."
     (dolist (var '("SSH_AUTH_SOCK" "SSH_AGENT_PID" "GPG_AGENT_INFO" "LANG" "LC_CTYPE"))
       (exec-path-from-shell-copy-env var))))
 
-(when (memq window-system '(mac ns x))
-  (exec-path-from-shell-initialize))
+(when (memq window-system '(mac ns x)) (exec-path-from-shell-initialize))
 
 (require-package 'cl-lib)
 (require 'cl-lib)

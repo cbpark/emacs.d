@@ -23,8 +23,8 @@
                 ("\\.md$"       . markdown-mode)) auto-mode-alist))
 (autoload 'markdown-mode "markdown-mode" "Markdown mode" t)
 (autoload 'gfm-mode "markdown-mode" "GitHub Flavored Markdown mode" t)
-(eval-after-load 'markdown-mode
-  '(add-hook 'markdown-mode-hook 'turn-off-auto-fill))
+(with-eval-after-load 'markdown-mode
+  (add-hook 'markdown-mode-hook 'turn-off-auto-fill))
 
 ;; cmake mode
 (require-package 'cmake-mode)

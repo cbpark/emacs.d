@@ -34,25 +34,23 @@
       (switch-to-buffer-other-window this-buffer)
       (other-window -1)))
 
-  (eval-after-load 'maxima
-    '(progn
-       (define-key maxima-mode-map (kbd "C-c C-r") 'maxima-send-region)
-       (define-key maxima-mode-map (kbd "C-c C-b") 'maxima-send-buffer)
-       (define-key maxima-mode-map (kbd "C-c C-c") 'maxima-send-line)
-       (define-key maxima-mode-map (kbd "C-c C-l") 'maxima-load-file)
-       (define-key maxima-mode-map (kbd "C-c C-i") 'open-imaxima)
-       (define-key maxima-mode-map (kbd "C-c C-k") 'maxima-stop)))
+  (with-eval-after-load 'maxima
+    (define-key maxima-mode-map (kbd "C-c C-r") 'maxima-send-region)
+    (define-key maxima-mode-map (kbd "C-c C-b") 'maxima-send-buffer)
+    (define-key maxima-mode-map (kbd "C-c C-c") 'maxima-send-line)
+    (define-key maxima-mode-map (kbd "C-c C-l") 'maxima-load-file)
+    (define-key maxima-mode-map (kbd "C-c C-i") 'open-imaxima)
+    (define-key maxima-mode-map (kbd "C-c C-k") 'maxima-stop))
 
   ;; Imaxima
   (autoload 'imaxima "imaxima" "Image support for Maxima." t)
-  (eval-after-load 'imaxima
-    '(progn
-       (setq imaxima-maxima-program "maxima")
-       (setq imaxima-use-maxima-mode-flag t)
-       (setq imaxima-pt-size 12)
-       (if *is-darwin*
-           (setq imaxima-fnt-size "large")
-         (setq imaxima-fnt-size "LARGE")))))
+  (with-eval-after-load 'imaxima
+    (setq imaxima-maxima-program "maxima")
+    (setq imaxima-use-maxima-mode-flag t)
+    (setq imaxima-pt-size 12)
+    (if *is-darwin*
+        (setq imaxima-fnt-size "large")
+      (setq imaxima-fnt-size "LARGE"))))
 
 (provide 'init-maxima)
 ;;; init-maxima.el ends here
