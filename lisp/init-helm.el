@@ -28,11 +28,12 @@
 ;; Save curren position when jumping
 (add-hook 'helm-goto-line-before-hook 'helm-save-current-pos-to-mark-ring)
 
-(define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action)
-(define-key helm-map (kbd "C-i")   'helm-execute-persistent-action)
-(define-key helm-map (kbd "C-z")   'helm-select-action)
-
 ;; key bindings
+(with-eval-after-load 'helm
+  (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action)
+  (define-key helm-map (kbd "C-i")   'helm-execute-persistent-action)
+  (define-key helm-map (kbd "C-z")   'helm-select-action))
+
 (global-set-key (kbd "C-c h") 'helm-command-prefix)
 (global-unset-key (kbd "C-x c"))
 (global-set-key (kbd "M-x")     'helm-M-x)
@@ -58,20 +59,19 @@
 (global-set-key (kbd "M-I")     'helm-swoop-back-to-last-point)
 (global-set-key (kbd "C-c M-i") 'helm-multi-swoop)
 (global-set-key (kbd "C-x M-i") 'helm-multi-swoop-all)
-(define-key isearch-mode-map (kbd "M-i") 'helm-swoop-from-isearch)
-(eval-after-load 'helm-swoop
-  '(progn
-     (setq helm-multi-swoop-edit-save t
-           helm-swoop-split-with-multiple-windows nil
-           helm-swoop-split-direction 'split-window-vertically
-           helm-swoop-move-to-line-cycle t
-           helm-swoop-use-line-number-face t)
+(with-eval-after-load 'helm-swoop
+  (setq helm-multi-swoop-edit-save t
+        helm-swoop-split-with-multiple-windows nil
+        helm-swoop-split-direction 'split-window-vertically
+        helm-swoop-move-to-line-cycle t
+        helm-swoop-use-line-number-face t)
 
-     (define-key helm-swoop-map (kbd "M-i") 'helm-multi-swoop-all-from-helm-swoop)
-     (define-key helm-swoop-map (kbd "C-r") 'helm-previous-line)
-     (define-key helm-swoop-map (kbd "C-s") 'helm-next-line)
-     (define-key helm-multi-swoop-map (kbd "C-r") 'helm-previous-line)
-     (define-key helm-multi-swoop-map (kbd "C-s") 'helm-next-line)))
+  (define-key isearch-mode-map (kbd "M-i") 'helm-swoop-from-isearch)
+  (define-key helm-swoop-map (kbd "M-i") 'helm-multi-swoop-all-from-helm-swoop)
+  (define-key helm-swoop-map (kbd "C-r") 'helm-previous-line)
+  (define-key helm-swoop-map (kbd "C-s") 'helm-next-line)
+  (define-key helm-multi-swoop-map (kbd "C-r") 'helm-previous-line)
+  (define-key helm-multi-swoop-map (kbd "C-s") 'helm-next-line))
 
 ;; helm-ls-git
 (require-package 'helm-ls-git)

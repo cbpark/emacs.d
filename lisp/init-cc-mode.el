@@ -64,47 +64,44 @@
 
 ;; company
 (require-package 'company-c-headers)
-(setq company-c-headers-path-system '("/usr/include" "/usr/local/include"))
-(when *is-darwin*
-  (add-to-list 'company-c-headers-path-system
-               (car (file-expand-wildcards "/usr/include/c++/4.*"))))
-(eval-after-load 'company
-  '(progn
-     (add-to-list 'company-backends 'company-c-headers)))
+(with-eval-after-load 'company
+  (setq company-c-headers-path-system '("/usr/include" "/usr/local/include"))
+  (when *is-darwin*
+    (add-to-list 'company-c-headers-path-system
+                 (car (file-expand-wildcards "/usr/include/c++/4.*"))))
+  (add-to-list 'company-backends 'company-c-headers))
 
 ;; clang-format
 (when (executable-find "clang-format")
   (require 'clang-format)
-  (eval-after-load 'cc-mode
-    '(progn
-       (define-key c-mode-base-map (kbd "C-M-\\") 'clang-format-region)
-       (define-key c-mode-base-map (kbd "C-c l")  'clang-format-buffer))))
+  (with-eval-after-load 'cc-mode
+    (define-key c-mode-base-map (kbd "C-M-\\") 'clang-format-region)
+    (define-key c-mode-base-map (kbd "C-c l")  'clang-format-buffer)))
 
-(eval-after-load 'cc-mode
-  '(progn
-     (define-key c-mode-base-map (kbd "RET")     'c-context-line-break)
-     (define-key c-mode-base-map (kbd "C-c C-a") 'cc-insert-comment)
-     (define-key c-mode-base-map (kbd "C-c i")   'cc-insert-include)
-     (define-key c-mode-base-map (kbd "C-h d")   'cc-lookup-man)
-     (define-key c-mode-base-map (kbd "C-c s")   'cc-insert-std)
-     (define-key c-mode-base-map (kbd "C-c c")   'cc-insert-cout)
-     (define-key c-mode-base-map (kbd "C-c C-l") 'compile)
+(with-eval-after-load 'cc-mode
+  (define-key c-mode-base-map (kbd "RET")     'c-context-line-break)
+  (define-key c-mode-base-map (kbd "C-c C-a") 'cc-insert-comment)
+  (define-key c-mode-base-map (kbd "C-c i")   'cc-insert-include)
+  (define-key c-mode-base-map (kbd "C-h d")   'cc-lookup-man)
+  (define-key c-mode-base-map (kbd "C-c s")   'cc-insert-std)
+  (define-key c-mode-base-map (kbd "C-c c")   'cc-insert-cout)
+  (define-key c-mode-base-map (kbd "C-c C-l") 'compile)
 
-     (setq c-default-style "k&r"
-           c-basic-offset 4)
+  (setq c-default-style "k&r"
+        c-basic-offset 4)
 
-     (add-hook 'c-mode-common-hook (lambda ()
-                                     (c-toggle-hungry-state 1)
-                                     (c-turn-on-eldoc-mode)
-                                     (subword-mode 1)
-                                     (company-mode 1)
-                                     (when *has-aspell* (flyspell-prog-mode))
-                                     (ggtags-mode 1)))
+  (add-hook 'c-mode-common-hook (lambda ()
+                                  (c-toggle-hungry-state 1)
+                                  (c-turn-on-eldoc-mode)
+                                  (subword-mode 1)
+                                  (company-mode 1)
+                                  (when *has-aspell* (flyspell-prog-mode))
+                                  (ggtags-mode 1)))
 
-     (add-hook 'c++-mode-hook (lambda ()
-                                (c-set-offset 'innamespace 0)
-                                (flycheck-cpp-setup)
-                                (company-clang-args)))))
+  (add-hook 'c++-mode-hook (lambda ()
+                             (c-set-offset 'innamespace 0)
+                             (flycheck-cpp-setup)
+                             (company-clang-args))))
 
 (provide 'init-cc-mode)
 ;;; init-cc-mode.el ends here

@@ -14,13 +14,13 @@
 ;; Expand region
 (require-package 'expand-region)
 (global-set-key (kbd "C-c =") 'er/expand-region)
+(global-set-key (kbd "C-=") 'er/expand-region)
 
 ;; Paredit
 (require-package 'paredit)
-(eval-after-load 'paredit
-  '(progn
-     (define-key paredit-mode-map (kbd "C-c )") 'paredit-forward-slurp-sexp)
-     (define-key paredit-mode-map (kbd "C-c (") 'paredit-backward-slurp-sexp)))
+(with-eval-after-load 'paredit
+  (define-key paredit-mode-map (kbd "C-c )") 'paredit-forward-slurp-sexp)
+  (define-key paredit-mode-map (kbd "C-c (") 'paredit-backward-slurp-sexp))
 
 ;; multiple-cursors
 (require-package 'multiple-cursors)
@@ -30,17 +30,16 @@
 
 ;; If indent-tabs-mode is off, untabify before saving
 (add-hook 'write-file-hooks (lambda () (when (not indent-tabs-mode)
-                                         (untabify (point-min) (point-max)))
-                              nil))
+                                         (untabify (point-min) (point-max))) nil))
 
 ;; Recompile elisp when saving
-(defun byte-compile-current-buffer ()
+(defun my-byte-compile-current-buffer ()
   "Byte-compile current buffer if it's `emacs-lisp-mode' and compiled file exists."
   (interactive)
   (when (and (eq major-mode 'emacs-lisp-mode)
              (file-exists-p (byte-compile-dest-file buffer-file-name)))
     (byte-compile-file buffer-file-name)))
-(add-hook 'after-save-hook 'byte-compile-current-buffer)
+(add-hook 'after-save-hook 'my-byte-compile-current-buffer)
 
 ;; Semantic mode
 (require 'semantic)

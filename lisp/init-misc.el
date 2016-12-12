@@ -26,5 +26,12 @@
 (eval-after-load 'markdown-mode
   '(add-hook 'markdown-mode-hook 'turn-off-auto-fill))
 
+;; cmake mode
+(require-package 'cmake-mode)
+(setq auto-mode-alist
+      (append '(("CMakeLists\\.txt\\'" . cmake-mode))
+              '(("\\.cmake\\'"         . cmake-mode)) auto-mode-alist))
+(autoload 'cmake-mode "cmake-mode" "CMake mode" t)
+
 (provide 'init-misc)
 ;;; init-misc.el ends here

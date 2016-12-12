@@ -5,27 +5,26 @@
 (require-package 'auctex)
 (setq auto-mode-alist (append '(("\\.tex\\'" . latex-mode)) auto-mode-alist))
 
-(eval-after-load 'tex
-  '(progn
-     (setq TeX-auto-save t
-           TeX-parse-self t
-           TeX-save-query nil)
-     (setq-default TeX-master nil)
-     (setq TeX-PDF-mode t)
-     (setq TeX-view-program-selection
-           '((output-dvi "DVI Viewer")
-             (output-pdf "PDF Viewer")
-             (output-html "HTML Viewer")))
+(with-eval-after-load 'tex
+  (setq TeX-auto-save t
+        TeX-parse-self t
+        TeX-save-query nil)
+  (setq-default TeX-master nil)
+  (setq TeX-PDF-mode t)
+  (setq TeX-view-program-selection
+        '((output-dvi "DVI Viewer")
+          (output-pdf "PDF Viewer")
+          (output-html "HTML Viewer")))
 
-     (if *is-darwin*
-         (setq TeX-view-program-list
-               '(("DVI Viewer"  "/usr/bin/open -a TeXShop %o")
-                 ("PDF Viewer"  "/usr/bin/open -a Preview %o")
-                 ("HTML Viewer" "/usr/bin/open -a Safari %o")))
-       (setq TeX-view-program-list
-             '(("DVI Viewer"  "xdg-open %o")
-               ("PDF Viewer"  "xdg-open %o")
-               ("HTML Viewer" "xdg-open %o"))))))
+  (if *is-darwin*
+      (setq TeX-view-program-list
+            '(("DVI Viewer"  "/usr/bin/open -a TeXShop %o")
+              ("PDF Viewer"  "/usr/bin/open -a Preview %o")
+              ("HTML Viewer" "/usr/bin/open -a Safari %o")))
+    (setq TeX-view-program-list
+          '(("DVI Viewer"  "xdg-open %o")
+            ("PDF Viewer"  "xdg-open %o")
+            ("HTML Viewer" "xdg-open %o")))))
 
 (require-package 'company-math)
 (defun company-math-setup ()
@@ -54,30 +53,27 @@
         (delete-region end-start end-end)
         (delete-region begin-start begin-end)))))
 
-(eval-after-load 'latex
-  '(progn
-     (setq latex-run-command "pdflatex")
-     (setq LaTeX-default-style "article")
-     (setq LaTeX-default-environment "align")
+(with-eval-after-load 'latex
+  (setq latex-run-command "pdflatex")
+  (setq LaTeX-default-style "article")
+  (setq LaTeX-default-environment "align")
 
-     (define-key LaTeX-mode-map (kbd "C-c C-d") 'LaTeX-delete-environment)
+  (define-key LaTeX-mode-map (kbd "C-c C-d") 'LaTeX-delete-environment)
 
-     (add-hook 'LaTeX-mode-hook (lambda ()
-                                  (company-math-setup)
-                                  (when *has-aspell* (flyspell-mode))
-                                  (turn-on-reftex)))))
+  (add-hook 'LaTeX-mode-hook (lambda ()
+                               (company-math-setup)
+                               (when *has-aspell* (flyspell-mode))
+                               (turn-on-reftex))))
 
-(eval-after-load 'reftex
-  '(progn
-     (setq reftex-plug-into-AUCTeX t
-           reftex-extra-bindings t)))
+(with-eval-after-load 'reftex
+  (setq reftex-plug-into-AUCTeX t
+        reftex-extra-bindings t))
 
 ;; doc-view with auto-revert to review output
 (add-hook 'doc-view-mode-hook 'auto-revert-mode)
 
 ;; latex-preview-pane
-(when *is-gui*
-  (require-package 'latex-preview-pane))
+(when *is-gui* (require-package 'latex-preview-pane))
 
 (provide 'init-auctex)
 ;;; init-auctex.el ends here
