@@ -14,6 +14,9 @@
       org-export-with-timestamps nil
       org-export-with-creator nil
       org-html-validation-link nil)
+(setq org-src-fontify-natively t
+      org-src-preserve-indentation nil
+      org-edit-src-content-indentation 0)
 
 ;; LaTeX export
 (setq org-latex-default-packages-alist
@@ -24,6 +27,7 @@
                                  ("margin=1in" "geometry")
                                  ("" "mathtools")
                                  ("" "slashed")))
+(setq org-highlight-latex-and-related '(latex script entities))
 
 ;; markdown
 (eval-after-load 'org '(require 'ox-md nil t))
