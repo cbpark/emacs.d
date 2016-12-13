@@ -74,12 +74,5 @@
 
 (global-set-key (kbd "C-x 6") 'my-swap-two-windows)
 
-;; dashboard
-(require-package 'dashboard)
-(dashboard-setup-startup-hook)
-(setq dashboard-items '((recents   . 15)
-                        (bookmarks . 5)
-                        (projects  . 5)))
-
 (provide 'init-window)
 ;;; init-window.el ends here
