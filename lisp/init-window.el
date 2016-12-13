@@ -60,6 +60,20 @@
 
 (global-set-key (kbd "C-x 5") 'my-toggle-window-split)
 
+(defun my-swap-two-windows ()
+    "Swap two windows."
+    (interactive)
+    (let ((this-buffer (window-buffer (selected-window)))
+          (other-buffer (prog2
+                            (other-window +1)
+                            (window-buffer (selected-window))
+                          (other-window -1))))
+      (switch-to-buffer other-buffer)
+      (switch-to-buffer-other-window this-buffer)
+      (other-window -1)))
+
+(global-set-key (kbd "C-x 6") 'my-swap-two-windows)
+
 ;; dashboard
 (require-package 'dashboard)
 (dashboard-setup-startup-hook)
