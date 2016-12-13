@@ -2,10 +2,8 @@
 ;;; Commentary:
 ;;; Code:
 
-(with-eval-after-load 'python
-  (when (executable-find "ipython")
-    (setq python-shell-interpreter "ipython"
-          python-shell-interpreter-args "-i")))
+(require 'python)
+(setq python-indent-offset 4)
 
 ;; company-jedi
 (require-package 'company-jedi)

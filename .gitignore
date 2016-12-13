@@ -41,6 +41,7 @@ elpa/
 request/
 url/
 semanticdb/
+.python-environments/
 
 # Auxiliary and tempary files #
 ###############################
