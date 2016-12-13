@@ -3,6 +3,8 @@
 ;;; Code:
 
 (require 'cc-mode)
+(add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
+
 (setq-default c-basic-offset 4)
 (setq c-default-style "k&r")
 
@@ -52,21 +54,26 @@
                                 (when *has-aspell* (flyspell-prog-mode))
                                 (c-turn-on-eldoc-mode)))
 
-(add-hook 'c++-mode-hook (lambda () (c-set-offset 'innamespace 0)))
-
-(with-eval-after-load 'flycheck
+(defun flycheck-cpp-setup ()
+  "Set clang language standard."
   (setq flycheck-clang-language-standard "c++14")
   (when (executable-find "root-config")
     (setq flycheck-clang-include-path
-          (list
-           (substring (shell-command-to-string "root-config --incdir") 0 -1))))
+          (list (substring
+                 (shell-command-to-string "root-config --incdir") 0 -1))))
   (when *is-darwin* (setq flycheck-clang-standard-library "libc++")))
 
-(with-eval-after-load 'company
+(defun company-clang-args ()
+  "Set company-clang-arguments."
   (setq company-clang-arguments '("-std=c++14"))
   (when *is-darwin*
-    (setq company-clang-arguments (append company-clang-arguments
-                                          '("-stdlib=libc++")))))
+    (setq company-clang-arguments
+          (append company-clang-arguments '("-stdlib=libc++")))))
+
+(add-hook 'c++-mode-hook (lambda ()
+                           (c-set-offset 'innamespace 0)
+                           (flycheck-cpp-setup)
+                           (company-clang-args)))
 
 (require-package 'company-c-headers)
 (with-eval-after-load 'company
