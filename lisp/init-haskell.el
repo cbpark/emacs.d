@@ -3,16 +3,17 @@
 ;;; Code:
 
 (require-package 'haskell-mode)
-(autoload 'haskell-mode "haskell-mode" "Haskell Mode" t)
-(setq auto-mode-alist
-      (append '(("\\.hs\\'"    . haskell-mode)
-                ("\\.hsc\\'"   . haskell-mode)
-                ("\\.cpphs\\'" . haskell-mode)) auto-mode-alist))
-(autoload 'haskell-cabal-mode "haskell-cabal-mode" "Haskell Cabal Mode" t)
-(add-to-list 'auto-mode-alist '("\\.cabal\\'" . haskell-cabal-mode))
 
-;; Ignore compiled Haskell files in filename completions
+(add-to-list 'auto-mode-alist '("\\.ghci\\'" . haskell-mode))
 (add-to-list 'completion-ignored-extensions ".hi")
+
+(with-eval-after-load 'haskell-mode
+  (add-hook 'haskell-mode-hook (lambda () (subword-mode 1)))
+  (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
+
+  (when (fboundp 'global-hl-line-mode)
+    (dolist (hook '(inferior-haskell-mode-hook haskell-interactive-mode-hook))
+      (add-hook hook (lambda () (setq-local global-hl-line-mode nil))))))
 
 ;; Indentation
 (defun my-haskell-style ()
@@ -25,18 +26,11 @@
         haskell-indentation-where-post-offset 2))
 (add-hook 'haskell-mode-hook 'my-haskell-style)
 
-;; Subword movement and editing
-(add-hook 'haskell-mode-hook (lambda () (subword-mode 1)))
-
 ;; stylish-haskell
 (when (executable-find "stylish-haskell")
   (with-eval-after-load 'haskell-mode
     (setq haskell-stylish-on-save nil)
     (define-key haskell-mode-map (kbd "C-c l") 'haskell-mode-stylish-buffer)))
-
-;; Haksell interactive mode
-(with-eval-after-load 'haskell-mode
-  (add-hook 'haskell-mode-hook 'interactive-haskell-mode))
 
 (with-eval-after-load 'haskell-mode
   (setq haskell-align-imports-pad-after-name t
@@ -71,9 +65,10 @@
   (define-key haskell-cabal-mode-map (kbd "C-c o")   'haskell-session-change-target))
 
 ;; Tags
-(with-eval-after-load 'haskell-mode
-  (setq haskell-tags-on-save t)
-  (define-key haskell-mode-map (kbd "M-.") 'haskell-mode-jump-to-def-or-tag))
+(when (executable-find "hasktags")
+  (with-eval-after-load 'haskell-mode
+    (setq haskell-tags-on-save t)
+    (define-key haskell-mode-map (kbd "M-.") 'haskell-mode-jump-to-def-or-tag)))
 
 ;; Haskell doc mode
 (with-eval-after-load 'haskell-mode
@@ -107,12 +102,6 @@
       'hlint-refactor-refactor-buffer)
     (define-key haskell-mode-map (kbd "C-c , r")
       'hlint-refactor-refactor-at-point)))
-
-;; turn off global-hl-line-mode
-(with-eval-after-load 'haskell-mode
-  (when (fboundp 'global-hl-line-mode)
-    (dolist (hook '(inferior-haskell-mode-hook haskell-interactive-mode-hook))
-      (add-hook hook (lambda () (setq-local global-hl-line-mode nil))))))
 
 (defun my-haskell-insert-import ()
   "Insert import."
@@ -171,7 +160,6 @@
   (interactive)
   (insert " => "))
 
-;; Key bindings
 (with-eval-after-load 'haskell-mode
   (define-key haskell-mode-map (kbd "C-c i")   'my-haskell-insert-import)
   (define-key haskell-mode-map (kbd "C-c q")   'my-haskell-insert-import-qual)

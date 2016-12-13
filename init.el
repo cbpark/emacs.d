@@ -39,7 +39,6 @@
 (require 'init-helm)
 (defconst *helm-on* (featurep 'helm))
 
-(require-package 'ggtags)
 (require 'init-projectile)
 (require 'init-flycheck)
 (require 'init-company)
