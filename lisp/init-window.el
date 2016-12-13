@@ -77,7 +77,7 @@
 ;; dashboard
 (require-package 'dashboard)
 (dashboard-setup-startup-hook)
-(setq dashboard-items '((recents   . 10)
+(setq dashboard-items '((recents   . 15)
                         (bookmarks . 5)
                         (projects  . 5)))
 

@@ -4,27 +4,27 @@
 
 (require-package 'haskell-mode)
 
-(add-to-list 'auto-mode-alist '("\\.ghci\\'" . haskell-mode))
 (add-to-list 'completion-ignored-extensions ".hi")
 
 (with-eval-after-load 'haskell-mode
   (add-hook 'haskell-mode-hook (lambda () (subword-mode 1)))
   (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
-
+  ;; turn off hl-line-mode in interactive modes
   (when (fboundp 'global-hl-line-mode)
     (dolist (hook '(inferior-haskell-mode-hook haskell-interactive-mode-hook))
       (add-hook hook (lambda () (setq-local global-hl-line-mode nil))))))
 
 ;; Indentation
-(defun my-haskell-style ()
-  "Set haskell indentation offsets."
-  (interactive)
-  (setq haskell-indentation-layout-offset 4
-        haskell-indentation-starter-offset 4
-        haskell-indentation-left-offset 4
-        haskell-indentation-where-pre-offset 2
-        haskell-indentation-where-post-offset 2))
-(add-hook 'haskell-mode-hook 'my-haskell-style)
+(with-eval-after-load 'haskell-mode
+  (defun my-haskell-style ()
+    "Set haskell indentation offsets."
+    (interactive)
+    (setq haskell-indentation-layout-offset 4
+          haskell-indentation-starter-offset 4
+          haskell-indentation-left-offset 4
+          haskell-indentation-where-pre-offset 2
+          haskell-indentation-where-post-offset 2))
+  (add-hook 'haskell-mode-hook 'my-haskell-style))
 
 ;; stylish-haskell
 (when (executable-find "stylish-haskell")
