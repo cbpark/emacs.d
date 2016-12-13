@@ -42,14 +42,15 @@
 (define-key c-mode-base-map (kbd "C-c C-l") 'compile)
 
 (require-package 'c-eldoc)
-(require-package 'ggtags)
+(if (executable-find "clang")
+    (setq c-eldoc-cpp-command "clang")
+  (setq c-eldoc-cpp-command "cpp"))
 
 (add-hook 'c-mode-common-hook (lambda ()
                                 (c-toggle-hungry-state 1)
                                 (subword-mode 1)
                                 (when *has-aspell* (flyspell-prog-mode))
-                                (c-turn-on-eldoc-mode)
-                                (ggtags-mode 1)))
+                                (c-turn-on-eldoc-mode)))
 
 (add-hook 'c++-mode-hook (lambda () (c-set-offset 'innamespace 0)))
 
@@ -79,6 +80,14 @@
   (require 'clang-format)
   (define-key c-mode-base-map (kbd "C-M-\\") 'clang-format-region)
   (define-key c-mode-base-map (kbd "C-c l")  'clang-format-buffer))
+
+;; GNU Global
+(when (executable-find "global")
+  (require-package 'ggtags)
+  (add-hook 'c-mode-common-hook
+            (lambda ()
+              (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
+                (ggtags-mode 1)))))
 
 (provide 'init-cc-mode)
 ;;; init-cc-mode.el ends here
