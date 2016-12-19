@@ -9,7 +9,7 @@
   (add-to-list 'load-path *mu4e-dir*)
   (require 'mu4e)
 
-  (setq mu4e-maildir "~/mail"
+  (setq mu4e-maildir "~/Maildir"
         mu4e-attachment-dir  "~/Downloads"
         mu4e-sent-folder "/cbpark_gmail.com/[Google Mail].Sent Mail"
         mu4e-drafts-folder "/cbpark_gmail.com/[Google Mail].Drafts"
