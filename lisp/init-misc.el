@@ -24,7 +24,8 @@
 (autoload 'markdown-mode "markdown-mode" "Markdown mode" t)
 (autoload 'gfm-mode "markdown-mode" "GitHub Flavored Markdown mode" t)
 (with-eval-after-load 'markdown-mode
-  (add-hook 'markdown-mode-hook 'turn-off-auto-fill))
+  (add-hook 'markdown-mode-hook 'turn-off-auto-fill)
+  (setq markdown-command "multimarkdown"))
 
 ;; cmake mode
 (require-package 'cmake-mode)
