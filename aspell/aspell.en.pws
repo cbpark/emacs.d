@@ -1,4 +1,4 @@
-personal_ws-1.1 en 101 
+personal_ws-1.1 en 102 
 anticommuting
 unitarity
 antispinors
@@ -15,7 +15,6 @@ hadronic
 VEVs
 CKM
 radiative
-Radiative
 Higgses
 counterterms
 LHC
@@ -51,6 +50,7 @@ RG
 collider
 bilinear
 polarizations
+VEV
 hypercharges
 priori
 invariance
@@ -94,6 +94,7 @@ axion
 parton
 spinors
 Majorana
+fermionic
 gaugino
 fermion
 RGE
