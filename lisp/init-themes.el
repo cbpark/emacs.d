@@ -27,8 +27,8 @@
       (setq initial-frame-alist '((font . "Source Code Pro 12")))
       (setq default-frame-alist '((font . "Source Code Pro 12"))))
   (progn
-    (setq initial-frame-alist '((font . "Source Code Pro Semibold-9")))
-    (setq default-frame-alist '((font . "Source Code Pro Semibold-9")))))
+    (setq initial-frame-alist '((font . "Source Code Pro 9")))
+    (setq default-frame-alist '((font . "Source Code Pro 9")))))
 
 (set-fontset-font "fontset-default" '(#x1100 . #xffdc)
                   '("NanumGothicCoding" . "iso10646-1"))
