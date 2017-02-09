@@ -47,6 +47,7 @@
  '(kept-old-versions 0)
  '(kill-whole-line t)
  '(make-backup-files nil)
+ '(message-kill-buffer-on-exit t)
  '(mouse-avoidance-mode (quote animate) nil (avoid))
  '(mouse-drag-copy-region t)
  '(mouse-yank-at-point t)

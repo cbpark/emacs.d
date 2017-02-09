@@ -121,7 +121,12 @@
   (setq mu4e-hide-index-messages t)
 
   (add-to-list 'mu4e-view-actions
-               '("ViewInBrowser" . mu4e-action-view-in-browser) t))
+               '("ViewInBrowser" . mu4e-action-view-in-browser) t)
+
+  (setq mu4e-compose-format-flowed t
+        mu4e-compose-in-new-frame  t)
+
+  (setq mu4e-view-show-addresses t))
 
 (provide 'init-mu4e)
 ;;; init-mu4e.el ends here
