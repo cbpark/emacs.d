@@ -90,8 +90,14 @@
 (require-package 'company-cabal)
 (require-package 'company-ghci)
 (with-eval-after-load 'company
+  (add-hook 'haskell-mode-hook
+            (lambda ()
+              (set (make-local-variable 'company-backend)
+                   (append '((company-capf company-dabbrev-code))
+                           company-backend))))
   (dolist (backend '(company-cabal company-ghci))
     (add-to-list 'company-backends backend)))
+
 
 ;; hlint-refactor
 (when (executable-find "refactor")
