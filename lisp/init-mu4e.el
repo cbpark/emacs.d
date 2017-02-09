@@ -123,8 +123,7 @@
   (add-to-list 'mu4e-view-actions
                '("ViewInBrowser" . mu4e-action-view-in-browser) t)
 
-  (setq mu4e-compose-format-flowed t
-        mu4e-compose-in-new-frame  t)
+  (setq mu4e-compose-format-flowed t)
 
   (setq mu4e-view-show-addresses t))
 

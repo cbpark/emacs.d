@@ -98,7 +98,6 @@
   (dolist (backend '(company-cabal company-ghci))
     (add-to-list 'company-backends backend)))
 
-
 ;; hlint-refactor
 (when (executable-find "refactor")
   (require-package 'hlint-refactor)
