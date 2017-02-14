@@ -28,6 +28,7 @@
                                          (horizontal-scroll-bars . nil)))
               (set-fringe-mode 0))))
 
+;; Turn on winner-mode
 (when (fboundp 'winner-mode)
   (winner-mode 1)
   (global-set-key (kbd "C-x 0") 'winner-undo)
@@ -61,18 +62,32 @@
 (global-set-key (kbd "C-x 5") 'my-toggle-window-split)
 
 (defun my-swap-two-windows ()
-    "Swap two windows."
-    (interactive)
-    (let ((this-buffer (window-buffer (selected-window)))
-          (other-buffer (prog2
-                            (other-window +1)
-                            (window-buffer (selected-window))
-                          (other-window -1))))
-      (switch-to-buffer other-buffer)
-      (switch-to-buffer-other-window this-buffer)
-      (other-window -1)))
+  "Swap two windows."
+  (interactive)
+  (let ((this-buffer (window-buffer (selected-window)))
+        (other-buffer (prog2
+                          (other-window +1)
+                          (window-buffer (selected-window))
+                        (other-window -1))))
+    (switch-to-buffer other-buffer)
+    (switch-to-buffer-other-window this-buffer)
+    (other-window -1)))
 
 (global-set-key (kbd "C-x 6") 'my-swap-two-windows)
+
+(defun compile-autoclose-if-successful (buffer string)
+  "Close the compilation BUFFER after a successful compilation, determined by reading the STRING."
+  (when (and (buffer-live-p buffer)
+             (string-match "compilation" (buffer-name buffer))
+             (string-match "finished" string)
+             (not (with-current-buffer buffer
+                    (goto-char (point-min))
+                    (search-forward "warning" nil t))))
+    (bury-buffer "*compilation*")
+    (winner-undo)
+    (message "Build successful.")))
+
+(setq compilation-finish-functions 'compile-autoclose-if-successful)
 
 (provide 'init-window)
 ;;; init-window.el ends here
