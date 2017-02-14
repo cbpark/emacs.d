@@ -8,8 +8,8 @@
 (require 'helm-files)
 
 (helm-autoresize-mode t)
-(setq helm-autoresize-max-height 30
-      helm-autoresize-min-height 30)
+(setq helm-autoresize-max-height 25
+      helm-autoresize-min-height 25)
 (setq enable-recursive-minibuffers t)  ;; buffer file completion
 (setq helm-ff-skip-boring-files t)     ;; ignore files
 (setq helm-boring-file-regexp-list
