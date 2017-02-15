@@ -3,14 +3,21 @@
 ;;; Code:
 
 (require-package 'projectile)
+
 ;; Indexing method
 (setq projectile-indexing-method 'alien)
 (setq projectile-enable-caching t)
+
 ;; Switching projects
 (setq projectile-switch-project-action 'projectile-find-dir)
 (setq projectile-find-dir-includes-top-level t)
-;; tags
-(setq projectile-tags-command "/usr/bin/ctags -e -R %s")
+
+;; Tags
+(setq projectile-tags-command "ctags -e -R %s")
+
+;; Use `vc-git-grep' in git projects
+(setq projectile-use-git-grep t)
+
 (projectile-mode)
 
 ;; helm projectile
