@@ -8,21 +8,26 @@
 
 (with-eval-after-load 'haskell-mode
   (add-hook 'haskell-mode-hook (lambda () (subword-mode 1)))
-  (add-hook 'haskell-mode-hook 'interactive-haskell-mode)
+  (dolist (minor-modes '(haskell-doc-mode
+                         haskell-decl-scan-mode
+                         interactive-haskell-mode))
+    (add-hook 'haskell-mode-hook minor-modes))
+
   ;; turn off hl-line-mode in interactive modes
   (when (fboundp 'global-hl-line-mode)
-    (dolist (hook '(inferior-haskell-mode-hook haskell-interactive-mode-hook))
-      (add-hook hook (lambda () (setq-local global-hl-line-mode nil))))))
+    (dolist (hooks '(inferior-haskell-mode-hook
+                     haskell-interactive-mode-hook))
+      (add-hook hooks (lambda () (setq-local global-hl-line-mode nil))))))
 
 ;; Indentation
 (with-eval-after-load 'haskell-mode
   (defun my-haskell-style ()
     "Set haskell indentation offsets."
     (interactive)
-    (setq haskell-indentation-layout-offset 4
-          haskell-indentation-starter-offset 4
-          haskell-indentation-left-offset 4
-          haskell-indentation-where-pre-offset 2
+    (setq haskell-indentation-layout-offset     4
+          haskell-indentation-starter-offset    4
+          haskell-indentation-left-offset       4
+          haskell-indentation-where-pre-offset  2
           haskell-indentation-where-post-offset 2))
   (add-hook 'haskell-mode-hook 'my-haskell-style))
 
@@ -38,13 +43,13 @@
         haskell-process-log t
         haskell-process-suggest-add-package t
         haskell-process-suggest-remove-import-lines t
-        haskell-process-use-presentation-mode t)
+        haskell-process-use-presentation-mode t
+        haskell-ask-also-kill-buffers nil)
 
-  (cond ((and (executable-find "stack") (file-exists-p "~/.stack"))
-         (setq haskell-process-type 'stack-ghci))
-        ((and (executable-find "cabal") (file-exists-p "~/.cabal"))
-         (setq haskell-process-type 'cabal-repl))
-        (t (setq haskell-process-type 'ghci)))
+  (when *helm-on*
+    (setq haskell-completing-read-function 'helm--completing-read-default))
+
+  (setq haskell-process-type 'cabal-repl)
 
   (define-key haskell-mode-map (kbd "C-c C-l") 'haskell-process-load-or-reload)
   (define-key haskell-mode-map (kbd "C-`")     'haskell-interactive-bring)
@@ -70,14 +75,10 @@
     (setq haskell-tags-on-save t)
     (define-key haskell-mode-map (kbd "M-.") 'haskell-mode-jump-to-def-or-tag)))
 
-;; Haskell doc mode
-(with-eval-after-load 'haskell-mode
-  (dolist (hook '(haskell-mode-hook inferior-haskell-mode-hook))
-    (add-hook hook 'turn-on-haskell-doc-mode)))
-
 ;; flycheck-haskell
 (require-package 'flycheck-haskell)
 (with-eval-after-load 'flycheck
+  (setq flycheck-haskell-runghc-command '("runghc"))
   (add-hook 'flycheck-mode-hook 'flycheck-haskell-setup)
   (add-hook 'haskell-mode-hook 'flycheck-mode))
 
@@ -95,8 +96,8 @@
               (set (make-local-variable 'company-backend)
                    (append '((company-capf company-dabbrev-code))
                            company-backend))))
-  (dolist (backend '(company-cabal company-ghci))
-    (add-to-list 'company-backends backend)))
+  (dolist (backends '(company-cabal company-ghci))
+    (add-to-list 'company-backends backends)))
 
 ;; hlint-refactor
 (when (executable-find "refactor")
