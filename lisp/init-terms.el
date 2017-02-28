@@ -63,6 +63,15 @@
                             (goto-address-mode)
                             (define-key term-raw-map (kbd "C-y") 'my-term-paste)))
 
+(defun my-term-exit-hook ()
+  "Kill the buffer automatically after closing the term."
+  (let* ((buff (current-buffer))
+         (proc (get-buffer-process buff)))
+    (set-process-sentinel proc `(lambda (process event)
+                                  (if (string-equal event "finished\n")
+                                      (kill-buffer ,buff))))))
+(add-hook 'term-exec-hook 'my-term-exit-hook)
+
 (global-set-key (kbd "C-c t") (lambda ()
                                 (interactive)
                                 (ansi-term (getenv "SHELL"))))
