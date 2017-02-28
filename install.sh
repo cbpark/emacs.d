@@ -1,5 +1,7 @@
 #! /usr/bin/env bash
 
+EMACSD=$HOME/.emacs.d
+
 function backup {
     if [ -e $HOME/$1 ]; then
         echo "-- $1 found."
@@ -9,17 +11,24 @@ function backup {
 
 if [ "$(pgrep "^[eE]macs")" ]; then
     echo "-- Emacs is running. Shutdown it and try again."
-    exit
+    exit 1
 else
-    backup ".emacs"
-    backup ".emacs.d"
-    backup ".aspell.en.prepl"
-    backup ".aspell.en.pws"
-    git clone git@github.com:cbpark/emacs.d.git $HOME/.emacs.d
-    ln -s $HOME/.emacs.d/aspell/aspell.en.prepl $HOME/.aspell.en.prepl
-    ln -s $HOME/.emacs.d/aspell/aspell.en.pws  $HOME/.aspell.en.pws
-    mkdir -p $HOME/.emacs.d/{backup,autosave,etc}
-    pushd
-    cd $HOME/.emacs.d/lisp
-    emacs -Q -batch -eval '(batch-byte-recompile-directory 0)'
+    for oldfile in ".emacs" ".emacs.d" ".aspell.en.prepl" ".aspell.en.pws"; do
+        backup $oldfile
+    done
+
+    git clone git@github.com:cbpark/emacs.d.git ${EMACSD} \
+        || git clone https://github.com/cbpark/emacs.d.git ${EMACSD} \
+        || { echo "-- git clone failed."; exit 1; }
+
+    for aspelldict in ".aspell.en.prepl" ".aspell.en.pws"; do
+        ln -sf ${EMACSD}/aspell/${aspelldict#*.} $HOME/$aspelldict
+    done
+
+    mkdir -p ${EMACSD}/{backup,autosave,etc}
+    # pushd
+    # cd $HOME/.emacs.d/lisp
+    # emacs -Q -batch -eval '(batch-byte-recompile-directory 0)'
+
+    echo -e "-- Succeesfully done.\n-- Happy Hacking!"
 fi
