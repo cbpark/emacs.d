@@ -21,9 +21,11 @@ else
         || git clone https://github.com/cbpark/emacs.d.git ${EMACSD} \
         || { echo "-- git clone failed."; exit 1; }
 
-    for aspelldict in ".aspell.en.prepl" ".aspell.en.pws"; do
-        ln -sf ${EMACSD}/aspell/${aspelldict#*.} $HOME/$aspelldict
-    done
+    if command -v aspell >/dev/null 2>&1; then
+        for aspelldict in ".aspell.en.prepl" ".aspell.en.pws"; do
+            ln -sf ${EMACSD}/aspell/${aspelldict#*.} $HOME/$aspelldict
+        done
+    fi
 
     mkdir -p ${EMACSD}/{backup,autosave,etc}
     # pushd
