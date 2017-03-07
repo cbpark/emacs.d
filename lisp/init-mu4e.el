@@ -28,9 +28,9 @@
           ("/cbpark_gmail.com/[Google Mail].Trash"     . ?t)
           ("/cbpark_gmail.com/ArchLinux"               . ?l)
           ("/cbpark_gmail.com/arXiv-hep"               . ?a)
+          ("/cbpark_gmail.com/Bitbucket"               . ?b)
           ("/cbpark_gmail.com/GitHub"                  . ?g)
-          ("/cbpark_gmail.com/Haskell-cafe"            . ?h)
-          ("/cbpark_gmail.com/Quora"                   . ?q)))
+          ("/cbpark_gmail.com/Haskell-cafe"            . ?h)))
 
   ;; allow for updating mail using 'U' in the main view:
   (setq mu4e-get-mail-command "offlineimap -q")
