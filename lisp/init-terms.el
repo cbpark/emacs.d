@@ -59,19 +59,9 @@
   (interactive)
   (process-send-string (get-buffer-process (current-buffer))
                        (if string string (current-kill 0))))
-(add-hook 'term-mode-hook
-          (lambda ()
-            (goto-address-mode)
-            (define-key term-raw-map (kbd "C-y") 'my-term-paste)))
-
-(defun my-term-exit-hook ()
-  "Kill the buffer automatically after closing the term."
-  (let* ((buff (current-buffer))
-         (proc (get-buffer-process buff)))
-    (set-process-sentinel proc `(lambda (process event)
-                                  (when (string-equal event "finished\n")
-                                    (kill-buffer ,buff))))))
-(add-hook 'term-exec-hook 'my-term-exit-hook)
+(add-hook 'term-mode-hook (lambda ()
+                            (goto-address-mode)
+                            (define-key term-raw-map (kbd "C-y") 'my-term-paste)))
 
 (global-set-key (kbd "C-c t") (lambda ()
                                 (interactive)
