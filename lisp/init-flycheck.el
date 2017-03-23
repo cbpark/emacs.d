@@ -14,5 +14,9 @@
   (with-eval-after-load 'flycheck
     (define-key flycheck-mode-map (kbd "C-c h !") 'helm-flycheck)))
 
+(when (executable-find "shellcheck")
+  (setq flycheck-sh-shellcheck-executable "shellcheck")
+  (setq flycheck-shellcheck-excluded-warnings '("SC2086")))
+
 (provide 'init-flycheck)
 ;;; init-flycheck.el ends here
