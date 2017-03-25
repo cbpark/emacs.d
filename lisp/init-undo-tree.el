@@ -3,7 +3,7 @@
 ;;; Code:
 
 (require-package 'undo-tree)
-(global-undo-tree-mode)
+(run-with-idle-timer 1 nil (lambda () (global-undo-tree-mode t)))
 
 (defalias 'redo 'undo-tree-redo)
 (global-set-key (kbd "C-c C-z") 'undo)
