@@ -54,7 +54,7 @@
  '(next-line-add-newlines nil)
  '(package-selected-packages
    (quote
-    (cdlatex helm-descbinds helm-ls-git helm-flycheck haskell-mode company flycheck projectile helm yaml-mode undo-tree swiper-helm pkgbuild-mode paredit multiple-cursors markdown-mode magit latex-preview-pane htmlize hlinum hlint-refactor helm-swoop helm-projectile gnuplot ggtags flycheck-haskell expand-region exec-path-from-shell company-math company-jedi company-ghci company-cabal company-c-headers cmake-mode c-eldoc auctex anzu zenburn-theme)))
+    (cmake-mode markdown-mode yaml-mode pkgbuild-mode company-jedi cdlatex hlint-refactor company-ghci company-cabal flycheck-haskell haskell-mode gnuplot ggtags company-c-headers c-eldoc latex-preview-pane company-math auctex htmlize magit multiple-cursors paredit expand-region undo-tree anzu company helm-flycheck flycheck helm-projectile projectile helm-descbinds helm-ls-git helm-swoop helm hlinum zenburn-theme exec-path-from-shell)))
  '(read-file-name-completion-ignore-case t)
  '(ring-bell-function (quote ignore))
  '(save-interprogram-paste-before-kill t)
