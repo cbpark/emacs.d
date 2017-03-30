@@ -16,7 +16,7 @@
 
 (when (executable-find "shellcheck")
   (setq flycheck-sh-shellcheck-executable "shellcheck")
-  (setq flycheck-shellcheck-excluded-warnings '("SC2086")))
+  (setq flycheck-shellcheck-excluded-warnings '("SC2046" "SC2086")))
 
 (provide 'init-flycheck)
 ;;; init-flycheck.el ends here
