@@ -59,7 +59,41 @@
         (process-send-eof proc))))
 
   (setq interprogram-paste-function 'copy-from-osx)
-  (setq interprogram-cut-function 'paste-to-osx))
+  (setq interprogram-cut-function   'paste-to-osx))
+
+;; Move text up/down.
+(defun my-move-text-internal (arg)
+  "Move text ARG lines."
+  (cond ((and mark-active transient-mark-mode)
+         (when (> (point) (mark))
+           (exchange-point-and-mark))
+         (let ((column (current-column))
+               (text (delete-and-extract-region (point) (mark))))
+           (forward-line arg)
+           (move-to-column column t)
+           (set-mark (point))
+           (insert text)
+           (exchange-point-and-mark)
+           (setq deactivate-mark nil)))
+        (t (beginning-of-line)
+           (when (or (> arg 0) (not (bobp)))
+             (forward-line)
+             (when (or (< arg 0) (not (eobp)))
+               (transpose-lines arg))
+             (forward-line -1)))))
+
+(defun my-move-text-down (arg)
+   "Move region (transient-mark-mode active) or current line ARG lines down."
+   (interactive "*p")
+   (my-move-text-internal arg))
+
+(defun my-move-text-up (arg)
+   "Move region (transient-mark-mode active) or current line ARG lines up."
+   (interactive "*p")
+   (my-move-text-internal (- arg)))
+
+(global-set-key (kbd "C-M-<up>")   'my-move-text-up)
+(global-set-key (kbd "C-M-<down>") 'my-move-text-down)
 
 ;; Input method
 (setq default-input-method "korean-hangul")
