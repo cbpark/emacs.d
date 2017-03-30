@@ -78,11 +78,6 @@
 (global-set-key (kbd "C-x C-d") 'helm-browse-project)
 (global-set-key (kbd "C-c h g") 'helm-grep-do-git-grep)
 
-;; swiper
-(require-package 'swiper-helm)
-(global-set-key (kbd "C-s") 'swiper-helm)
-(global-set-key (kbd "C-r") 'swiper-helm)
-
 ;; helm-descbinds
 (require-package 'helm-descbinds)
 (global-set-key (kbd "C-h b") 'helm-descbinds)

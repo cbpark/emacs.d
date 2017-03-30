@@ -3,8 +3,6 @@
 ;;; Code:
 
 (fset 'yes-or-no-p 'y-or-n-p)
-(define-key query-replace-map (kbd "RET") 'act)
-(define-key query-replace-map (kbd "C-m") 'act)
 
 ;; shortening of commands
 (defalias 'qrr 'query-replace-regexp)
@@ -13,9 +11,8 @@
 (defalias 'dw  'delete-trailing-whitespace)
 
 ;; key bindings
-(when (not *helm-on*)
-  (global-set-key (kbd "C-s") 'isearch-forward-regexp)
-  (global-set-key (kbd "C-r") 'isearch-backward-regexp))
+(global-set-key (kbd "C-s")     'isearch-forward-regexp)
+(global-set-key (kbd "C-r")     'isearch-backward-regexp)
 (global-set-key (kbd "C-x a r") 'align-regexp)
 (global-set-key (kbd "C-c o")   'occur)
 (global-set-key (kbd "M-o")     'other-window)
