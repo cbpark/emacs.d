@@ -6,6 +6,10 @@
 (require 'helm-config)
 (require 'helm-utils)
 (require 'helm-files)
+(require 'helm-command)
+(require 'helm-imenu)
+(require 'helm-elisp)
+(require 'helm-semantic)
 
 (helm-autoresize-mode t)
 (setq helm-autoresize-max-height 25
@@ -19,11 +23,16 @@
       helm-input-idle-delay 0.01
       helm-split-window-default-side 'other
       helm-split-window-in-side-p t
-      helm-candidate-number-limit 200
+      helm-candidate-number-limit 50
       helm-ff-file-name-history-use-recentf t
       helm-move-to-line-cycle-in-source t
+
       helm-buffers-fuzzy-matching t
-      helm-recentf-fuzzy-match t)
+      helm-recentf-fuzzy-match    t
+      helm-M-x-fuzzy-match        t
+      helm-imenu-fuzzy-match      t
+      helm-apropos-fuzzy-match    t
+      helm-semantic-fuzzy-match   t)
 
 ;; Save curren position when jumping
 (add-hook 'helm-goto-line-before-hook 'helm-save-current-pos-to-mark-ring)
