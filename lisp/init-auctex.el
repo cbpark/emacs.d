@@ -9,10 +9,16 @@
       TeX-parse-self t
       TeX-save-query nil)
 (setq-default TeX-master nil)
-(setq TeX-PDF-mode t)
-(setq latex-run-command "pdflatex")
 (setq LaTeX-default-style       "article"
       LaTeX-default-environment "align")
+
+(add-hook 'LaTeX-mode-hook 'TeX-PDF-mode)
+(setq LaTeX-command "latex -synctex=1 --shell-escape -interaction=nonstopmode -halt-on-error -file-line-error")
+
+;; synctex
+(add-hook 'LaTeX-mode-hook 'TeX-source-correlate-mode)
+(setq TeX-source-correlate-method 'synctex
+      TeX-source-correlate-start-server t)
 
 (add-hook 'LaTeX-mode-hook (lambda ()
                              (when *has-aspell* (flyspell-mode))
