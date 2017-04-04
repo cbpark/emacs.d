@@ -22,12 +22,6 @@
   (define-key paredit-mode-map (kbd "C-c )") 'paredit-forward-slurp-sexp)
   (define-key paredit-mode-map (kbd "C-c (") 'paredit-backward-slurp-sexp))
 
-;; multiple-cursors
-(require-package 'multiple-cursors)
-(global-set-key (kbd "C->") 'mc/mark-next-like-this)
-(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
-(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
-
 ;; If indent-tabs-mode is off, untabify before saving
 (add-hook 'write-file-hooks (lambda () (when (not indent-tabs-mode)
                                          (untabify (point-min) (point-max))) nil))
