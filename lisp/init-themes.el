@@ -20,14 +20,22 @@
 ;; (add-hook 'window-setup-hook 'on-frame-open)
 
 ;; Font
-(when (member "Source Code Pro" (font-family-list))
-  (if *is-darwin*
-      (progn
-        (setq initial-frame-alist '((font . "Source Code Pro-12")))
-        (setq default-frame-alist '((font . "Source Code Pro-12"))))
-    (progn
-      (setq initial-frame-alist '((font . "Source Code Pro-9")))
-      (setq default-frame-alist '((font . "Source Code Pro-9"))))))
+(defconst *default-font* "Source Code Pro")
+
+(defun my-set-default-font (frame)
+  "Set default font on FRAME creation."
+  (select-frame frame)
+  (when (display-graphic-p)
+    (when (member *default-font* (font-family-list))
+      (set-frame-font (concat *default-font* "-9")))))
+
+(cond (*is-darwin*
+       (when (member *default-font* (font-family-list))
+         (let ((*default-font-darwin* (concat *default-font* "-12")))
+           (setq initial-frame-alist '((font . *default-font-darwin*)))
+           (setq default-frame-alist '((font . *default-font-darwin*))))))
+      (t
+       (add-hook 'after-make-frame-functions 'my-set-default-font)))
 
 (provide 'init-themes)
 ;;; init-themes.el ends here
