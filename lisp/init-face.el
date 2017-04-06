@@ -31,9 +31,7 @@
 
 (cond (*is-darwin*
        (when (member *default-font* (font-family-list))
-         (let ((*default-font-darwin* (concat *default-font* "-12")))
-           (setq initial-frame-alist '((font . *default-font-darwin*)))
-           (setq default-frame-alist '((font . *default-font-darwin*))))))
+         (set-face-attribute 'default nil :font *default-font* :height 120)))
       (t
        (add-hook 'after-make-frame-functions 'my-set-default-font)))
 
