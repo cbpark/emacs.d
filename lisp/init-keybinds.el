@@ -28,13 +28,8 @@
 (global-set-key (kbd "<f1>") 'help-command)
 
 ;; toggle fullscreen
-;; (defun toggle-fullscreen ()
-;;   "Toggle full screen."
-;;   (interactive)
-;;   (set-frame-parameter nil 'fullscreen
-;;                        (when (not (frame-parameter nil 'fullscreen))
-;;                          'fullboth)))
-;; (global-set-key (kbd "M-RET") 'toggle-fullscreen)
+(when *is-darwin*
+  (global-set-key (kbd "M-RET") 'toggle-frame-fullscreen))
 
 ;; ibuffer
 (global-set-key (kbd "C-x C-b") 'ibuffer)
