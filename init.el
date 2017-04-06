@@ -33,7 +33,7 @@
 (require 'init-elpa)
 (require 'init-encoding)
 (require 'init-window)
-(require 'init-themes)
+(require 'init-face)
 (require 'init-linum)
 
 (require 'init-helm)

@@ -1,4 +1,4 @@
-;;; init-themes.el -- Custom theme
+;;; init-face.el -- Custom faces
 ;;; Commentary:
 ;;; Code:
 
@@ -37,5 +37,5 @@
       (t
        (add-hook 'after-make-frame-functions 'my-set-default-font)))
 
-(provide 'init-themes)
-;;; init-themes.el ends here
+(provide 'init-face)
+;;; init-face.el ends here
