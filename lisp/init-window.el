@@ -59,7 +59,7 @@
           (select-window first-win)
           (if this-win-2nd (other-window 1))))))
 
-(global-set-key (kbd "C-x 5") 'my-toggle-window-split)
+(global-set-key (kbd "C-x 6") 'my-toggle-window-split)
 
 (defun my-swap-two-windows ()
   "Swap two windows."
@@ -73,7 +73,7 @@
     (switch-to-buffer-other-window this-buffer)
     (other-window -1)))
 
-(global-set-key (kbd "C-x 6") 'my-swap-two-windows)
+(global-set-key (kbd "C-x 7") 'my-swap-two-windows)
 
 (defun compile-autoclose-if-successful (buffer string)
   "Close the compilation BUFFER after a successful compilation, determined by reading the STRING."
