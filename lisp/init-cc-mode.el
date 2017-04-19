@@ -43,6 +43,9 @@
 (define-key c-mode-base-map (kbd "C-c c")   'cc-insert-cout)
 (define-key c-mode-base-map (kbd "C-c C-l") 'compile)
 
+;; do not override the key binding
+(define-key c-mode-base-map (kbd "M-j") nil)
+
 (require-package 'c-eldoc)
 (if (executable-find "clang")
     (setq c-eldoc-cpp-command "clang")
