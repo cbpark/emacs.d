@@ -36,10 +36,10 @@
 (add-hook 'after-save-hook 'my-byte-compile-current-buffer)
 
 ;; Semantic mode
-(require 'semantic)
-(global-semanticdb-minor-mode 1)
-(global-semantic-idle-scheduler-mode 1)
-(semantic-mode 1)
+;; (require 'semantic)
+;; (global-semanticdb-minor-mode 1)
+;; (global-semantic-idle-scheduler-mode 1)
+;; (semantic-mode 1)
 
 ;; Clipboard in darwin
 (when *is-darwin*
