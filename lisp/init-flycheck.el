@@ -4,8 +4,11 @@
 
 (require-package 'flycheck)
 (with-eval-after-load 'flycheck
-  (setq flycheck-highlighting-mode 'lines
-        flycheck-display-errors-function 'flycheck-display-error-messages-unless-error-list))
+  (setq flycheck-indication-mode nil
+        flycheck-idle-change-delay 2.0
+        flycheck-highlighting-mode 'lines
+        flycheck-display-errors-function 'flycheck-display-error-messages-unless-error-list
+        flycheck-check-syntax-automatically '(save mode-enabled)))
 
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
