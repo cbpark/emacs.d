@@ -26,7 +26,7 @@
  '(doc-view-continuous t)
  '(echo-keystrokes 0.1)
  '(eldoc-echo-area-use-multiline-p nil)
- '(eldoc-idle-delay 0.1)
+ '(eldoc-idle-delay 1.0)
  '(electric-pair-inhibit-predicate (quote electric-pair-conservative-inhibit))
  '(electric-pair-mode t)
  '(eshell-cmpl-autolist t)
