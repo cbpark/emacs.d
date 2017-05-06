@@ -11,7 +11,7 @@
 (define-key dired-mode-map (kbd "RET") 'dired-find-alternate-file)
 (define-key dired-mode-map (kbd "^")
   (lambda () (interactive) (find-alternate-file "..")))
-
+(define-key dired-mode-map (kbd "C-s") 'dired-isearch-filenames)
 (add-hook 'dired-mode-hook (lambda () (dired-hide-details-mode)))
 
 ;; remove uid and gid
