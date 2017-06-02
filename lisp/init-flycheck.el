@@ -11,7 +11,8 @@
 
 (when *helm-on*
   (require-package 'helm-flycheck)
-  (define-key flycheck-mode-map (kbd "C-c h !") 'helm-flycheck))
+  (with-eval-after-load 'flycheck
+    (define-key flycheck-mode-map (kbd "C-c h !") 'helm-flycheck)))
 
 (when (executable-find "shellcheck")
   (setq flycheck-sh-shellcheck-executable "shellcheck")
