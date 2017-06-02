@@ -3,19 +3,15 @@
 ;;; Code:
 
 (require-package 'flycheck)
-(with-eval-after-load 'flycheck
-  (setq flycheck-indication-mode nil
-        flycheck-idle-change-delay 2.0
-        flycheck-highlighting-mode 'lines
-        flycheck-display-errors-function 'flycheck-display-error-messages-unless-error-list
-        flycheck-check-syntax-automatically '(save mode-enabled)))
-
+(setq flycheck-indication-mode nil
+      flycheck-highlighting-mode 'lines
+      flycheck-display-errors-function 'flycheck-display-error-messages-unless-error-list
+      flycheck-check-syntax-automatically '(save mode-enabled))
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
 (when *helm-on*
   (require-package 'helm-flycheck)
-  (with-eval-after-load 'flycheck
-    (define-key flycheck-mode-map (kbd "C-c h !") 'helm-flycheck)))
+  (define-key flycheck-mode-map (kbd "C-c h !") 'helm-flycheck))
 
 (when (executable-find "shellcheck")
   (setq flycheck-sh-shellcheck-executable "shellcheck")
