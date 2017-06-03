@@ -26,6 +26,8 @@
 (dolist (hook '(prog-mode-hook text-mode-hook))
   (add-hook hook 'linum-mode))
 (add-hook 'message-mode-hook (lambda () (linum-mode -1)))
+(when (featurep 'markdown-mode)
+  (add-hook 'markdown-mode-hook (lambda () (linum-mode -1))))
 
 (provide 'init-linum)
 ;;; init-linum.el ends here
