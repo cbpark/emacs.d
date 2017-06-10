@@ -60,10 +60,16 @@
 (defun flycheck-cpp-setup ()
   "Set clang language standard."
   (setq flycheck-clang-language-standard "c++14")
+  (setq flycheck-clang-include-path
+        (mapcar (lambda (dir)
+                  (concat "/usr/local/include/" dir))
+                (cddr (directory-files "/usr/local/include"))))
   (when (executable-find "root-config")
     (setq flycheck-clang-include-path
-          (list (substring
-                 (shell-command-to-string "root-config --incdir") 0 -1))))
+          (append (list
+                   (substring
+                    (shell-command-to-string "root-config --incdir") 0 -1))
+                  flycheck-clang-include-path)))
   (when *is-darwin* (setq flycheck-clang-standard-library "libc++")))
 
 (defun company-clang-args ()
