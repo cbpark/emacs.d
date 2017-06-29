@@ -22,18 +22,19 @@
 ;; Font
 (defconst *default-font* "Source Code Pro")
 
+(when (member *default-font* (font-family-list))
+  (cond (*is-darwin*
+         (set-face-attribute 'default nil :font *default-font* :height 120))
+        (t
+         (set-face-attribute 'default nil :font *default-font* :height 90))))
+
 (defun my-set-default-font (frame)
   "Set default font on FRAME creation."
-  (select-frame frame)
-  (when (display-graphic-p)
+  (with-selected-frame frame
     (when (member *default-font* (font-family-list))
       (set-frame-font (concat *default-font* "-9")))))
 
-(cond (*is-darwin*
-       (when (member *default-font* (font-family-list))
-         (set-face-attribute 'default nil :font *default-font* :height 120)))
-      (t
-       (add-hook 'after-make-frame-functions 'my-set-default-font)))
+(when *is-linux* (add-hook 'after-make-frame-functions 'my-set-default-font))
 
 (provide 'init-face)
 ;;; init-face.el ends here
