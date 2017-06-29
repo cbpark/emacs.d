@@ -49,8 +49,6 @@
   (when *helm-on*
     (setq haskell-completing-read-function 'helm--completing-read-default))
 
-  (setq haskell-process-type 'cabal-repl)
-
   (define-key haskell-mode-map (kbd "C-c C-l") 'haskell-process-load-or-reload)
   (define-key haskell-mode-map (kbd "C-`")     'haskell-interactive-bring)
   (define-key haskell-mode-map (kbd "C-c C-t") 'haskell-process-do-type)
