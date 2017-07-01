@@ -76,7 +76,6 @@
 ;; flycheck-haskell
 (require-package 'flycheck-haskell)
 (with-eval-after-load 'flycheck
-  (setq flycheck-haskell-runghc-command '("runghc"))
   (add-hook 'flycheck-mode-hook 'flycheck-haskell-setup)
   (add-hook 'haskell-mode-hook 'flycheck-mode))
 
