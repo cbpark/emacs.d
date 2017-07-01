@@ -31,7 +31,7 @@
 (defun my-set-default-font (frame)
   "Set default font on FRAME creation."
   (with-selected-frame frame
-    (when (member *default-font* (font-family-list))
+    (when (and (member *default-font* (font-family-list)) (display-graphic-p))
       (set-frame-font (concat *default-font* "-9")))))
 
 (when *is-linux* (add-hook 'after-make-frame-functions 'my-set-default-font))
