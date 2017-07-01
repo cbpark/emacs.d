@@ -23,13 +23,11 @@ re-downloaded in order to locate PACKAGE."
 
 ;; exec-path-from-shell
 (require-package 'exec-path-from-shell)
-
-(when (memq window-system '(mac ns x))
-  (eval-after-load 'exec-path-from-shell
-    (dolist (var '("SSH_AUTH_SOCK" "SSH_AGENT_PID" "GPG_AGENT_INFO" "LANG" "LC_CTYPE"))
-      (exec-path-from-shell-copy-env var))))
-
-(when (memq window-system '(mac ns x)) (exec-path-from-shell-initialize))
+(eval-after-load 'exec-path-from-shell
+  (dolist (var
+           '("SSH_AUTH_SOCK" "SSH_AGENT_PID" "GPG_AGENT_INFO" "LANG" "LC_CTYPE"))
+    (exec-path-from-shell-copy-env var)))
+(exec-path-from-shell-initialize)
 
 (require-package 'cl-lib)
 (require 'cl-lib)
