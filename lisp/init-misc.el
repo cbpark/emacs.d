@@ -34,5 +34,10 @@
               '(("\\.cmake\\'"         . cmake-mode)) auto-mode-alist))
 (autoload 'cmake-mode "cmake-mode" "CMake mode" t)
 
+;; nix mode
+(when (file-directory-p "~/.nix-profile/share/emacs")
+  (add-to-list 'load-path "~/.nix-profile/share/emacs/site-lisp")
+  (require 'nix-mode))
+
 (provide 'init-misc)
 ;;; init-misc.el ends here
