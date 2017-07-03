@@ -15,6 +15,11 @@
 (add-hook 'after-init-hook
           (lambda () (setq gc-cons-threshold *initial-gc-cons-threshold*)))
 
+(defconst *site-lisp-dir*
+  (car (file-expand-wildcards "/*/share/emacs/site-lisp")))
+(when (and *site-lisp-dir* (file-directory-p *site-lisp-dir*))
+  (add-to-list 'load-path *site-lisp-dir*))
+
 ;; Constants.
 (defconst *is-linux* (eq system-type 'gnu/linux))
 (defconst *is-darwin* (eq system-type 'darwin))
@@ -24,6 +29,8 @@
 (unless (boundp 'user-emacs-directory)
   (defvar user-emacs-directory "~/.emacs.d/"))
 
+;; Disable package-selected-packages.
+(defun package--save-selected-packages (&rest opt) nil)
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (when (file-exists-p custom-file) (load custom-file))
 
