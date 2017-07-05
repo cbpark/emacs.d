@@ -3,7 +3,7 @@
 ;;; Code:
 
 (defconst *mu4e-dir*
-  (car (file-expand-wildcards "/*/share/emacs/site-lisp/mu4e")))
+  (car (file-expand-wildcards "/usr/*/share/emacs/site-lisp/mu4e")))
 
 (when (and *mu4e-dir* (file-directory-p *mu4e-dir*))
   (add-to-list 'load-path *mu4e-dir*)

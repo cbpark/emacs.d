@@ -16,7 +16,7 @@
           (lambda () (setq gc-cons-threshold *initial-gc-cons-threshold*)))
 
 (defconst *site-lisp-dir*
-  (car (file-expand-wildcards "/*/share/emacs/site-lisp")))
+  (car (file-expand-wildcards "/usr/*/share/emacs/site-lisp")))
 (when (and *site-lisp-dir* (file-directory-p *site-lisp-dir*))
   (add-to-list 'load-path *site-lisp-dir*))
 
