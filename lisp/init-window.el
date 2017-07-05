@@ -75,6 +75,7 @@
 
 (global-set-key (kbd "C-x 7") 'my-swap-two-windows)
 
+;; Compilation buffer
 (defun compile-autoclose-if-successful (buffer string)
   "Close the compilation BUFFER after a successful compilation, determined by reading the STRING."
   (when (and (buffer-live-p buffer)
@@ -86,8 +87,14 @@
     (bury-buffer "*compilation*")
     (winner-undo)
     (message "Build successful.")))
-
 (setq compilation-finish-functions 'compile-autoclose-if-successful)
+
+(require 'ansi-color)
+(defun my-ansi-colorize-compilation ()
+  "Handle ANSI escape sequences."
+  (let ((buffer-read-only nil))
+    (ansi-color-apply-on-region (point-min) (point-max))))
+(add-hook 'compilation-filter-hook 'my-ansi-colorize-compilation)
 
 (provide 'init-window)
 ;;; init-window.el ends here
