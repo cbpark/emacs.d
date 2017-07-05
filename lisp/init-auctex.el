@@ -2,12 +2,11 @@
 ;;; Commentary:
 ;;; Code:
 
-(if (file-directory-p (concat *site-lisp-dir* "/auctex"))
+(if (file-directory-p (concat *site-lisp-dir* "auctex"))
     (progn
       (load "auctex.el" nil t t)
       (load "preview-latex.el" nil t t))
   (require-package 'auctex))
-(setq auto-mode-alist (append '(("\\.tex\\'" . latex-mode)) auto-mode-alist))
 
 (setq TeX-auto-save  t
       TeX-parse-self t

@@ -15,16 +15,18 @@
 (add-hook 'after-init-hook
           (lambda () (setq gc-cons-threshold *initial-gc-cons-threshold*)))
 
-(defconst *site-lisp-dir*
-  (car (file-expand-wildcards "/usr/*/share/emacs/site-lisp")))
-(when (and *site-lisp-dir* (file-directory-p *site-lisp-dir*))
-  (add-to-list 'load-path *site-lisp-dir*))
-
 ;; Constants.
 (defconst *is-linux* (eq system-type 'gnu/linux))
 (defconst *is-darwin* (eq system-type 'darwin))
 (defconst *is-gui* (not (eq window-system 'nil)))
 (defconst *has-aspell* (executable-find "aspell"))
+
+(defconst *site-lisp-dir*
+  (cond (*is-linux* "/usr/share/emacs/site-lisp/")
+        ((and *is-darwin* (executable-find "port"))
+         "/opt/local/share/emacs/site-lisp/")
+        (t "/usr/local/emacs/site-lisp/")))
+(add-to-list 'load-path *site-lisp-dir*)
 
 (unless (boundp 'user-emacs-directory)
   (defvar user-emacs-directory "~/.emacs.d/"))

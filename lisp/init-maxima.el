@@ -2,8 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 
-(defconst *maxima-dir*
-  (car (file-expand-wildcards "/usr/*/share/emacs/site-lisp/maxima")))
+(defconst *maxima-dir* (concat *site-lisp-dir* "maxima"))
 
 (when (and *maxima-dir* (file-directory-p *maxima-dir*))
   (add-to-list 'load-path *maxima-dir*)

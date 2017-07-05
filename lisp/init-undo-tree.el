@@ -2,7 +2,8 @@
 ;;; Commentary:
 ;;; Code:
 
-(require-package 'undo-tree)
+(when (not (file-directory-p (concat *site-lisp-dir* "undo-tree")))
+  (require-package 'undo-tree))
 (run-with-idle-timer 1 nil (lambda () (global-undo-tree-mode t)))
 
 (defalias 'redo 'undo-tree-redo)
