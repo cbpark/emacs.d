@@ -28,11 +28,9 @@
   (setq markdown-command "multimarkdown"))
 
 ;; cmake mode
-(require-package 'cmake-mode)
-(setq auto-mode-alist
-      (append '(("CMakeLists\\.txt\\'" . cmake-mode))
-              '(("\\.cmake\\'"         . cmake-mode)) auto-mode-alist))
-(autoload 'cmake-mode "cmake-mode" "CMake mode" t)
+(if (file-exists-p (concat *site-lisp-dir* "cmake-mode.el"))
+    (require 'cmake-mode)
+  (require-package 'cmake-mode))
 
 ;; nix mode
 (when (file-directory-p "~/.nix-profile/share/emacs")
