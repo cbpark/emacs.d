@@ -2,8 +2,11 @@
 ;;; Commentary:
 ;;; Code:
 
-(when (not (file-directory-p (concat *site-lisp-dir* "undo-tree")))
+(defconst *undo-tree-dir* (concat *site-lisp-dir* "undo-tree"))
+(if (and *undo-tree-dir* (file-directory-p *undo-tree-dir*))
+    (require 'undo-tree)
   (require-package 'undo-tree))
+
 (run-with-idle-timer 1 nil (lambda () (global-undo-tree-mode t)))
 
 (defalias 'redo 'undo-tree-redo)

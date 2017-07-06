@@ -2,8 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 
-(when (not (file-directory-p (concat *site-lisp-dir* "haskell-mode")))
-  (require-package 'haskell-mode))
+(require-package 'haskell-mode)
 (add-to-list 'completion-ignored-extensions ".hi")
 
 (with-eval-after-load 'haskell-mode
