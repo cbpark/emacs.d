@@ -4,17 +4,17 @@
 
 (require 'recentf)
 (setq recentf-save-file "~/.emacs.d/etc/recentf"
-      recentf-max-saved-items 200
-      recentf-max-menu-items 25)
+      recentf-max-saved-items 300
+      recentf-max-menu-items 30)
 (setq recentf-exclude
       '("\\.ido.last$" "^autoloads.el$" "^archive-contents$" "^.*\/bookmarks$"
         "^.*\/cookies$" "\\.html$" "\\.cache$" "^.*\/elpa\/.*$"  "\\.jpg$"
         "\\.png$" "^.*\/Maildir\/.*$" "^.*\/\.git\/.*$" "\\.ps$" "\\.pdf$"
-        "TAGS" "/tmp/" "/ssh:" "^.*\/recentf$"))
+        "TAGS" "/tmp/" "/ssh:" "^.*\/recentf$"
+        "\\.hepmc$" "\\.lhef$" "\\.lhco$"))
 
 ;; Periodically saving the list of files
 (run-at-time nil (* 10 60) 'recentf-save-list)
-
 (recentf-mode 1)
 
 ;; Put the visited directories to recentf
