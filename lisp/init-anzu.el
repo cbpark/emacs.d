@@ -2,7 +2,10 @@
 ;;; Commentary:
 ;;; Code:
 
-(require-package 'anzu)
+(defconst *anzu-dir* (concat *site-lisp-dir* "anzu"))
+(if (and *anzu-dir* (file-directory-p *anzu-dir*))
+    (require 'anzu)
+  (require-package 'anzu))
 (global-anzu-mode t)
 
 (set-face-attribute 'anzu-mode-line nil :foreground "yellow" :weight 'bold)
