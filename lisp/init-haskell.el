@@ -41,8 +41,6 @@
         haskell-process-auto-import-loaded-modules t
         haskell-process-log t
         haskell-process-suggest-add-package t
-        haskell-process-suggest-remove-import-lines t
-        haskell-process-use-presentation-mode t
         haskell-ask-also-kill-buffers nil)
 
   (when *helm-on*
