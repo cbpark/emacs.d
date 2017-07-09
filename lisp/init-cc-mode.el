@@ -99,7 +99,9 @@
 
 ;; GNU Global
 (when (executable-find "global")
-  (require-package 'ggtags)
+  (if (file-exists-p (concat *site-lisp-dir* "ggtags.el"))
+      (require 'ggtags)
+    (require-package 'ggtags))
   (add-hook 'c-mode-common-hook
             (lambda ()
               (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
