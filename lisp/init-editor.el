@@ -12,7 +12,12 @@
 (put 'narrow-to-region 'disabled nil)
 
 ;; Expand region
-(require-package 'expand-region)
+(defconst *expand-region-dir* (concat *site-lisp-dir* "expand-region"))
+(if (and *expand-region-dir* (file-directory-p *expand-region-dir*))
+    (progn
+      (add-to-list 'load-path *expand-region-dir*)
+      (require 'expand-region))
+  (require-package 'expand-region))
 (global-set-key (kbd "C-c =") 'er/expand-region)
 (global-set-key (kbd "C-=") 'er/expand-region)
 
@@ -77,14 +82,14 @@
              (forward-line -1)))))
 
 (defun my-move-text-down (arg)
-   "Move region (transient-mark-mode active) or current line ARG lines down."
-   (interactive "*p")
-   (my-move-text-internal arg))
+  "Move region (transient-mark-mode active) or current line ARG lines down."
+  (interactive "*p")
+  (my-move-text-internal arg))
 
 (defun my-move-text-up (arg)
-   "Move region (transient-mark-mode active) or current line ARG lines up."
-   (interactive "*p")
-   (my-move-text-internal (- arg)))
+  "Move region (transient-mark-mode active) or current line ARG lines up."
+  (interactive "*p")
+  (my-move-text-internal (- arg)))
 
 (global-set-key (kbd "C-M-<up>")   'my-move-text-up)
 (global-set-key (kbd "C-M-<down>") 'my-move-text-down)

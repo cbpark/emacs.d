@@ -2,7 +2,12 @@
 ;;; Commentary:
 ;;; Code:
 
-(require-package 'magit)
+(defconst *magit-dir* (concat *site-lisp-dir* "magit"))
+(if (and *magit-dir* (file-directory-p *magit-dir*))
+    (progn
+      (add-to-list 'load-path *magit-dir*)
+      (autoload 'magit-status "magit" nil t))
+  (require-package 'magit))
 
 (global-set-key (kbd "C-x g s") 'magit-status)
 (global-set-key (kbd "C-x g x") 'magit-checkout)
