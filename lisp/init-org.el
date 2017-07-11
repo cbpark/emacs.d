@@ -36,7 +36,7 @@
 (eval-after-load 'org '(require 'ox-md nil t))
 
 ;; Set the major mode of the initial *scratch* buffer to be org-mode
-(setq initial-major-mode 'org-mode)
+;; (setq initial-major-mode 'org-mode)
 
 (provide 'init-org)
 ;;; init-org.el ends here
