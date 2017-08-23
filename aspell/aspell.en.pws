@@ -1,4 +1,4 @@
-personal_ws-1.1 en 143 
+personal_ws-1.1 en 145 
 perturbative
 anticommuting
 lagrangian
@@ -28,8 +28,8 @@ Higgses
 counterterms
 rescaling
 LHC
-Eq
 anticommutation
+Eq
 phenomenologically
 EW
 BSM
@@ -65,19 +65,20 @@ Subsec
 Schouten
 massless
 spinor
+Mandelstam
 spurion
 Abelian
 lightlike
-PQ
 RG
+PQ
 collider
 bilinear
 redefinitions
 ansatz
 polarizations
 VEV
-hypercharges
 priori
+hypercharges
 invariance
 Yukawa
 compactified
@@ -130,6 +131,7 @@ parton
 spinors
 Majorana
 leptonic
+hermiticity
 saxion
 fermionic
 gaugino
