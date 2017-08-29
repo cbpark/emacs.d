@@ -1,4 +1,4 @@
-personal_ws-1.1 en 145 
+personal_ws-1.1 en 146 
 perturbative
 anticommuting
 lagrangian
@@ -11,6 +11,7 @@ rescale
 eigenstate
 renormalization
 superfield
+partons
 collinear
 gluons
 minima
@@ -64,21 +65,21 @@ multilepton
 Subsec
 Schouten
 massless
-spinor
 Mandelstam
+spinor
 spurion
 Abelian
 lightlike
-RG
 PQ
+RG
 collider
 bilinear
 redefinitions
 ansatz
 polarizations
 VEV
-priori
 hypercharges
+priori
 invariance
 Yukawa
 compactified
