@@ -1,4 +1,4 @@
-personal_ws-1.1 en 146 
+personal_ws-1.1 en 147 
 perturbative
 anticommuting
 lagrangian
@@ -70,16 +70,16 @@ spinor
 spurion
 Abelian
 lightlike
-PQ
 RG
+PQ
 collider
 bilinear
 redefinitions
 ansatz
 polarizations
 VEV
-hypercharges
 priori
+hypercharges
 invariance
 Yukawa
 compactified
@@ -143,5 +143,6 @@ renormalizations
 quartic
 superfields
 superspace
+trilinear
 Fierz
 renormalizable
