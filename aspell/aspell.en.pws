@@ -1,4 +1,4 @@
-personal_ws-1.1 en 147 
+personal_ws-1.1 en 148 
 perturbative
 anticommuting
 lagrangian
@@ -70,16 +70,16 @@ spinor
 spurion
 Abelian
 lightlike
-RG
 PQ
+RG
 collider
 bilinear
 redefinitions
 ansatz
 polarizations
 VEV
-priori
 hypercharges
+priori
 invariance
 Yukawa
 compactified
@@ -130,6 +130,7 @@ GSL
 axion
 parton
 spinors
+eigenstates
 Majorana
 leptonic
 hermiticity
