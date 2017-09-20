@@ -119,6 +119,10 @@
   ;; message buffers left lying around are cleaned up if exited.
   (setq mu4e-hide-index-messages t)
 
+  ;; customize the reply-quote-string
+  (setq message-citation-line-format   "On %a, %d %b %Y at %R %Z, %f wrote:\n"
+        message-citation-line-function 'message-insert-formatted-citation-line)
+
   (add-to-list 'mu4e-view-actions
                '("ViewInBrowser" . mu4e-action-view-in-browser) t)
 
