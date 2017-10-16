@@ -32,7 +32,7 @@
           ("/cbpark_gmail.com/Haskell-cafe"            . ?h)))
 
   ;; allow for updating mail using 'U' in the main view:
-  (setq mu4e-get-mail-command "offlineimap -q")
+  (setq mu4e-get-mail-command "offlineimap -o")
 
   ;; update every 15 minuites
   (setq mu4e-update-interval 900)
