@@ -24,8 +24,7 @@
 (autoload 'markdown-mode "markdown-mode" "Markdown mode" t)
 (autoload 'gfm-mode "markdown-mode" "GitHub Flavored Markdown mode" t)
 (with-eval-after-load 'markdown-mode
-  (add-hook 'markdown-mode-hook 'turn-off-auto-fill)
-  (setq markdown-command "multimarkdown"))
+  (add-hook 'markdown-mode-hook 'turn-off-auto-fill))
 
 ;; cmake mode
 (if (file-exists-p (concat *site-lisp-dir* "cmake-mode.el"))
