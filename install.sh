@@ -13,7 +13,7 @@ if [ "$(pgrep "^[eE]macs")" ]; then
     echo "-- Emacs is running. Shutdown it and try again."
     exit 1
 else
-    for oldfile in ".emacs" ".emacs.d" ".aspell.en.prepl" ".aspell.en.pws"; do
+    for oldfile in ".emacs" ".emacs.d"; do
         backup $oldfile
     done
 
@@ -21,16 +21,17 @@ else
         || git clone https://github.com/cbpark/emacs.d.git ${EMACSD} \
         || { echo "-- git clone failed."; exit 1; }
 
-    if command -v aspell >/dev/null 2>&1; then
-        for aspelldict in ".aspell.en.prepl" ".aspell.en.pws"; do
-            ln -sf ${EMACSD}/aspell/${aspelldict#*.} $HOME/$aspelldict
-        done
-    fi
+    # if command -v aspell >/dev/null 2>&1; then
+    #     for aspelldict in ".aspell.en.prepl" ".aspell.en.pws"; do
+    #         ln -sf ${EMACSD}/aspell/${aspelldict#*.} $HOME/$aspelldict
+    #     done
+    # fi
 
     mkdir -p ${EMACSD}/{backup,autosave,etc}
-    # pushd
-    # cd $HOME/.emacs.d/lisp
-    # emacs -Q -batch -eval '(batch-byte-recompile-directory 0)'
+    pushd
+    cd $HOME/.emacs.d/lisp
+    emacs -Q --batch --eval '(batch-byte-recompile-directory 0)'
+    popd
 
     echo -e "-- Succeesfully done.\n-- Happy Hacking!"
 fi
