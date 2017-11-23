@@ -1,4 +1,4 @@
-personal_ws-1.1 en 153 
+personal_ws-1.1 en 156 
 perturbative
 anticommuting
 lagrangian
@@ -30,8 +30,8 @@ radiative
 Higgses
 counterterms
 rescaling
-LHC
 muon
+LHC
 anticommutation
 Eq
 phenomenologically
@@ -73,8 +73,9 @@ spinor
 spurion
 Abelian
 lightlike
-PQ
 RG
+PQ
+kinematically
 collider
 LHCb
 bilinear
@@ -82,8 +83,8 @@ redefinitions
 ansatz
 polarizations
 VEV
-hypercharges
 priori
+hypercharges
 invariance
 Yukawa
 compactified
@@ -92,6 +93,7 @@ bosons
 BCFW
 GeV
 antisymmetric
+diboson
 rescalings
 covariance
 hypercharge
@@ -120,6 +122,7 @@ isometry
 supersymmetric
 hadrons
 rescaled
+dijet
 antimuon
 traceless
 diagonalized
