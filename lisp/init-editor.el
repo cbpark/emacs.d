@@ -46,20 +46,6 @@
 ;; (global-semantic-idle-scheduler-mode 1)
 ;; (semantic-mode 1)
 
-;; Clipboard in darwin
-(when *is-darwin*
-  (defun copy-from-osx ()
-    (shell-command-to-string "pbpaste"))
-
-  (defun paste-to-osx (text &optional push)
-    (let ((process-connection-type nil))
-      (let ((proc (start-process "pbcopy" "*Messages*" "pbcopy")))
-        (process-send-string proc text)
-        (process-send-eof proc))))
-
-  (setq interprogram-paste-function 'copy-from-osx)
-  (setq interprogram-cut-function   'paste-to-osx))
-
 ;; Move text up/down.
 (defun my-move-text-internal (arg)
   "Move text ARG lines."
