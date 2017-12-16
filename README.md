@@ -25,6 +25,7 @@ It is obtained from [ArchWiki](https://wiki.archlinux.org/index.php/Emacs). Copy
 
 ```
 mkdir -p ~/.config/systemd/user
+cp ~/.emacs.d/emacs.service ~/.config/systemd/user
 systemctl --user enable emacs
 systemctl --user start emacs
 ```
