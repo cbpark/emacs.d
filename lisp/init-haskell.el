@@ -36,6 +36,14 @@
     (setq haskell-stylish-on-save nil)
     (define-key haskell-mode-map (kbd "C-c l") 'haskell-mode-stylish-buffer)))
 
+;; hindent
+(when (executable-find "hindent")
+  (defconst *hindent-dir* (car (file-expand-wildcards "/*/share/hindent/elisp")))
+  (when (and *hindent-dir* (file-directory-p *hindent-dir*))
+    (add-to-list 'load-path *hindent-dir*)
+    (require 'hindent)
+    (add-hook 'haskell-mode-hook 'hindent-mode)))
+
 (with-eval-after-load 'haskell-mode
   (setq haskell-align-imports-pad-after-name t
         haskell-process-auto-import-loaded-modules t
