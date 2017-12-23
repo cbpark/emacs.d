@@ -34,6 +34,10 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'term)
 
+(global-set-key (kbd "C-c t") (lambda ()
+                                (interactive)
+                                (ansi-term (getenv "SHELL"))))
+
 ;; Use Emacs terminfo, not system terminfo
 (setq system-uses-terminfo nil)
 
@@ -63,9 +67,17 @@
                             (goto-address-mode)
                             (define-key term-raw-map (kbd "C-y") 'my-term-paste)))
 
-(global-set-key (kbd "C-c t") (lambda ()
-                                (interactive)
-                                (ansi-term (getenv "SHELL"))))
+(defun my-term-finish ()
+  "Kill buffer automatically when finished."
+  (let* ((buff (current-buffer))
+         (proc (get-buffer-process buff)))
+    (set-process-sentinel proc `(lambda (process event)
+                                  (when (string= event "finished\n")
+                                    (kill-buffer ,buff))))))
+(add-hook 'term-exec-hook 'my-term-finish)
+
+(with-eval-after-load 'term
+  (define-key term-raw-map (kbd "C-c C-y") 'term-paste))
 
 (provide 'init-terms)
 ;;; init-terms.el ends here
