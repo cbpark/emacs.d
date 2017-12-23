@@ -18,5 +18,7 @@
 
 (add-hook 'after-init-hook 'global-company-mode)
 
+(setq company-global-modes '(not term-mode))
+
 (provide 'init-company)
 ;;; init-company.el ends here
