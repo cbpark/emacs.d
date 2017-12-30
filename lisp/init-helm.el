@@ -19,20 +19,16 @@
 (setq helm-boring-file-regexp-list
       '("\\.elc$" "\\.o$" "\\.hi$" "\\.pyc$" "\\.localized$" "\\.DS_Store$"
         "\\.git$" "\\.hg$" "\\.svn$"))
-(setq helm-scroll-amount 8
-      helm-input-idle-delay 0.01
-      helm-split-window-default-side 'other
-      helm-split-window-in-side-p t
-      helm-candidate-number-limit 50
+(setq helm-split-window-default-side        'other
+      helm-split-window-in-side-p           t
+      helm-candidate-number-limit           50
       helm-ff-file-name-history-use-recentf t
-      helm-move-to-line-cycle-in-source t
-
-      helm-buffers-fuzzy-matching t
-      helm-recentf-fuzzy-match    t
-      helm-M-x-fuzzy-match        t
-      helm-imenu-fuzzy-match      t
-      helm-apropos-fuzzy-match    t
-      helm-semantic-fuzzy-match   t)
+      helm-buffers-fuzzy-matching           t
+      helm-recentf-fuzzy-match              t
+      helm-M-x-fuzzy-match                  t
+      helm-imenu-fuzzy-match                t
+      helm-apropos-fuzzy-match              t
+      helm-semantic-fuzzy-match             t)
 
 ;; Save curren position when jumping
 (add-hook 'helm-goto-line-before-hook 'helm-save-current-pos-to-mark-ring)
