@@ -16,8 +16,6 @@ The required emacs packages will be automatically installed when running Emacs a
 - [auctex](https://www.gnu.org/software/auctex/)
 - [expand-region](https://github.com/magnars/expand-region.el)
 - [ggtags](https://github.com/leoliu/ggtags)
-- [magit](https://magit.vc/)
-- [undo-tree](http://www.dr-qubit.org/undo-tree.html)
 
 ## Systemd unit
 
