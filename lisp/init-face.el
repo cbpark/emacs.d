@@ -2,10 +2,14 @@
 ;;; Commentary:
 ;;; Code:
 
-(require-package 'zenburn-theme)
-(defvar zenburn-override-colors-alist '(("zenburn-bg" . "#1f1f1f")))
-(load-theme 'zenburn t)
-(set-face-attribute 'region nil :background "#666" :foreground "#ffffff")
+;; zenburn theme
+;; (require-package 'zenburn-theme)
+;; (defvar zenburn-override-colors-alist '(("zenburn-bg" . "#1f1f1f")))
+;; (load-theme 'zenburn t)
+;; (set-face-attribute 'region nil :background "#666" :foreground "#ffffff")
+;; base16-tomorrow-night theme
+(require-package 'base16-theme)
+(load-theme 'base16-tomorrow-night t)
 
 ;; Transparent background.
 (when (and *is-darwin* window-system)
