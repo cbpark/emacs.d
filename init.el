@@ -57,7 +57,6 @@
 (require 'init-projectile)
 (require 'init-flycheck)
 (require 'init-company)
-(require 'init-anzu)
 (require 'init-undo-tree)
 (require 'init-recentf)
 (require 'init-editor)

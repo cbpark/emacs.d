@@ -31,6 +31,22 @@
 (add-hook 'write-file-hooks (lambda () (when (not indent-tabs-mode)
                                          (untabify (point-min) (point-max))) nil))
 
+;; anzu
+(defconst *anzu-dir* (concat *site-lisp-dir* "anzu"))
+(if (and *anzu-dir* (file-directory-p *anzu-dir*))
+    (require 'anzu)
+  (require-package 'anzu))
+(global-anzu-mode t)
+
+(set-face-attribute 'anzu-mode-line nil :foreground "yellow" :weight 'bold)
+(setq anzu-mode-lighter ""
+      anzu-deactivate-region t
+      anzu-search-threshold 1000
+      anzu-replace-to-string-separator " => ")
+
+(global-set-key (kbd "M-%")   'anzu-query-replace)
+(global-set-key (kbd "C-M-%") 'anzu-query-replace-regexp)
+
 ;; Recompile elisp when saving
 (defun my-byte-compile-current-buffer ()
   "Byte-compile current buffer if it's `emacs-lisp-mode' and compiled file exists."
