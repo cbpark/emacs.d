@@ -20,11 +20,9 @@
       '("\\.elc$" "\\.o$" "\\.hi$" "\\.pyc$" "\\.localized$" "\\.DS_Store$"
         "\\.git$" "\\.hg$" "\\.svn$"))
 (setq helm-split-window-default-side        'other
-      helm-split-window-in-side-p           t
       helm-candidate-number-limit           50
       helm-ff-file-name-history-use-recentf t
       helm-buffers-fuzzy-matching           t
-      helm-recentf-fuzzy-match              t
       helm-M-x-fuzzy-match                  t
       helm-imenu-fuzzy-match                t
       helm-apropos-fuzzy-match              t
@@ -39,8 +37,8 @@
   (define-key helm-map (kbd "C-i")   'helm-execute-persistent-action)
   (define-key helm-map (kbd "C-z")   'helm-select-action))
 
-(global-set-key (kbd "C-c h") 'helm-command-prefix)
 (global-unset-key (kbd "C-x c"))
+(global-set-key (kbd "C-c h")   'helm-command-prefix)
 (global-set-key (kbd "M-x")     'helm-M-x)
 (global-set-key (kbd "C-x C-m") 'helm-M-x)
 (global-set-key (kbd "C-c M-x") 'execute-extended-command)
