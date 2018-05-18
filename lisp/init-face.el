@@ -4,7 +4,7 @@
 
 ;; zenburn theme
 ;; (require-package 'zenburn-theme)
-;; (defvar zenburn-override-colors-alist '(("zenburn-bg" . "#1f1f1f")))
+;; (setq zenburn-override-colors-alist '(("zenburn-bg" . "#1f1f1f")))
 ;; (load-theme 'zenburn t)
 ;; (set-face-attribute 'region nil :background "#666" :foreground "#ffffff")
 ;; base16-tomorrow-night theme
