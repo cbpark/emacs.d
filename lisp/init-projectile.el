@@ -3,6 +3,7 @@
 ;;; Code:
 
 (require-package 'projectile)
+(setq projectile-keymap-prefix (kbd "C-c p"))
 
 ;; Indexing method
 (setq projectile-indexing-method 'alien)
