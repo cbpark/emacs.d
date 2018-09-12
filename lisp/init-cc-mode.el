@@ -46,6 +46,9 @@
 ;; do not override the key binding
 (define-key c-mode-base-map (kbd "M-j") nil)
 
+;; use line comments by default
+(add-hook 'c-mode-hook (lambda () (c-toggle-comment-style -1)))
+
 (require-package 'c-eldoc)
 (if (executable-find "clang")
     (setq c-eldoc-cpp-command "clang")
