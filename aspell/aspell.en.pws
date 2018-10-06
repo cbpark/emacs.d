@@ -1,4 +1,4 @@
-personal_ws-1.1 en 169 
+personal_ws-1.1 en 173 
 perturbative
 anticommuting
 lagrangian
@@ -22,6 +22,7 @@ compactification
 unpolarized
 diagonalization
 hadronic
+CP
 DM
 VEVs
 CKM
@@ -53,6 +54,7 @@ covariant
 vacua
 Hermitian
 EWSB
+EWPT
 fermions
 Casimir
 helicity
@@ -63,15 +65,15 @@ hypergeometric
 diagonalizing
 electroweak
 eigenoperators
-semileptonic
 dimuon
+semileptonic
 Higgs
 perturbativity
 CSV
 MHV
 multilepton
-detections
 Subsec
+detections
 Schouten
 massless
 Mandelstam
@@ -79,8 +81,8 @@ spinor
 spurion
 Abelian
 lightlike
-RG
 PQ
+RG
 kinematically
 collider
 LHCb
@@ -89,8 +91,8 @@ redefinitions
 ansatz
 polarizations
 VEV
-priori
 hypercharges
+priori
 invariance
 Yukawa
 compactified
@@ -132,6 +134,7 @@ supersymmetric
 hadrons
 rescaled
 dijet
+Leptoquark
 antimuon
 traceless
 diagonalized
@@ -139,6 +142,7 @@ decompositions
 eigenbasis
 holomorphic
 radiatively
+arXiv
 superpartners
 subdiagrams
 Weyl
