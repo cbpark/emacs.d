@@ -1,4 +1,4 @@
-personal_ws-1.1 en 173 
+personal_ws-1.1 en 177 
 perturbative
 anticommuting
 lagrangian
@@ -65,15 +65,15 @@ hypergeometric
 diagonalizing
 electroweak
 eigenoperators
-dimuon
 semileptonic
+dimuon
 Higgs
 perturbativity
 CSV
 MHV
 multilepton
-Subsec
 detections
+Subsec
 Schouten
 massless
 Mandelstam
@@ -81,8 +81,8 @@ spinor
 spurion
 Abelian
 lightlike
-PQ
 RG
+PQ
 kinematically
 collider
 LHCb
@@ -91,8 +91,8 @@ redefinitions
 ansatz
 polarizations
 VEV
-hypercharges
 priori
+hypercharges
 invariance
 Yukawa
 compactified
@@ -123,10 +123,13 @@ partonic
 superpartner
 helicities
 QCD
+CERN
 HDMs
 pseudoscalars
 PDFs
 mixings
+supersymmetry
+Supersymmetry
 renormalized
 annihilations
 isometry
@@ -143,6 +146,7 @@ eigenbasis
 holomorphic
 radiatively
 arXiv
+squark
 superpartners
 subdiagrams
 Weyl
