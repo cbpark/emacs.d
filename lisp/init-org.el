@@ -3,7 +3,7 @@
 ;;; Code:
 
 (require 'org)
-(add-to-list 'auto-mode-alist '("\\.txt\\'" . org-mode))
+;; (add-to-list 'auto-mode-alist '("\\.txt\\'" . org-mode))
 (setq org-directory "~/Documents/org"
       org-agenda-files (file-expand-wildcards "~/Documents/org/*.org")
       org-log-done 'time)
