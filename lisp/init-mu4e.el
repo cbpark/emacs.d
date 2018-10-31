@@ -11,7 +11,6 @@
   (setq mu4e-maildir "~/Maildir"
         mu4e-attachment-dir  "~/Downloads"
         mu4e-sent-folder "/cbpark_gmail.com/[Google Mail].Sent Mail"
-        mu4e-drafts-folder "/cbpark_gmail.com/[Google Mail].Drafts"
         mu4e-trash-folder "/cbpark_gmail.com/[Google Mail].Trash")
 
   ;; don't save message to Sent Messages, Gmail/IMAP takes care of this.
