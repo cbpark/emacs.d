@@ -33,8 +33,8 @@
   ;; allow for updating mail using 'U' in the main view:
   (setq mu4e-get-mail-command "offlineimap -o")
 
-  ;; update every 15 minuites
-  (setq mu4e-update-interval 900)
+  ;; update every 20 minuites
+  (setq mu4e-update-interval 1200)
 
   ;; off threading
   (setq mu4e-headers-show-threads nil)
