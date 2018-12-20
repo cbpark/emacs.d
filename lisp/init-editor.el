@@ -12,12 +12,7 @@
 (put 'narrow-to-region 'disabled nil)
 
 ;; Expand region
-(defconst *expand-region-dir* (concat *site-lisp-dir* "expand-region"))
-(if (and *expand-region-dir* (file-directory-p *expand-region-dir*))
-    (progn
-      (add-to-list 'load-path *expand-region-dir*)
-      (require 'expand-region))
-  (require-package 'expand-region))
+(require-package 'expand-region)
 (global-set-key (kbd "C-c =") 'er/expand-region)
 (global-set-key (kbd "C-=") 'er/expand-region)
 
