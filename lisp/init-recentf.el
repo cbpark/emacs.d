@@ -4,13 +4,13 @@
 
 (require 'recentf)
 (setq recentf-save-file "~/.emacs.d/etc/recentf"
-      recentf-max-saved-items 300
-      recentf-max-menu-items 30)
+      recentf-max-saved-items 1000
+      recentf-max-menu-items 100)
 (setq recentf-exclude
       '("\\.ido.last$" "^autoloads.el$" "^archive-contents$" "^.*\/bookmarks$"
-        "^.*\/cookies$" "\\.html$" "\\.cache$" "^.*\/elpa\/.*$"  "\\.jpg$"
-        "\\.png$" "^.*\/Maildir\/.*$" "^.*\/\.git\/.*$" "\\.ps$" "\\.pdf$"
-        "TAGS" "/tmp/" "/ssh:" "^.*\/recentf$"
+        "^.*\/cookies$" "\\.cache$" "^.*\/elpa\/.*$"  "\\.jpg$" "\\.png$"
+        "^.*\/Maildir\/.*$" "^.*\/\.git\/.*$" "\\.ps$" "\\.pdf$"
+        "TAGS" "^.*\/recentf$"
         "\\.hepmc$" "\\.lhef$" "\\.lhco$"))
 
 ;; Periodically saving the list of files
