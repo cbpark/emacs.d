@@ -9,5 +9,10 @@
         python-shell-interpreter-args "-i")
   (setenv "IPY_TEST_SIMPLE_PROMPT" "1"))
 
+(require-package 'elpy)
+(elpy-enable)
+(with-eval-after-load 'elpy
+  (defalias 'workon 'pyvenv-workon))
+
 (provide 'init-python)
 ;;; init-python.el ends here
