@@ -14,10 +14,12 @@
             (setq-local global-hl-line-mode nil)
             (undo-tree-mode -1)))
 
+;; elpy
 (require-package 'elpy)
 (elpy-enable)
 (with-eval-after-load 'elpy
-  (defalias 'workon 'pyvenv-workon))
+  (defalias 'workon 'pyvenv-workon)
+  (add-hook 'elpy-mode-hook (lambda () (highlight-indentation-mode -1))))
 
 (provide 'init-python)
 ;;; init-python.el ends here
