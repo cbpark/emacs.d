@@ -16,7 +16,10 @@
   (when (fboundp 'global-hl-line-mode)
     (dolist (hooks '(inferior-haskell-mode-hook
                      haskell-interactive-mode-hook))
-      (add-hook hooks (lambda () (setq-local global-hl-line-mode nil))))))
+      (add-hook hooks (lambda ()
+                        (linum-mode -1)
+                        (setq-local global-hl-line-mode nil)
+                        (undo-tree-mode -1))))))
 
 ;; Indentation
 (with-eval-after-load 'haskell-mode
