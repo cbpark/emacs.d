@@ -125,6 +125,10 @@
   (add-to-list 'mu4e-view-actions
                '("ViewInBrowser" . mu4e-action-view-in-browser) t)
 
+  ;; apply format=flowed
+  (setq mu4e-compose-format-flowed t)
+  (add-hook 'mu4e-compose-mode-hook (lambda () (use-hard-newlines -1)))
+
   (setq mu4e-view-show-addresses t))
 
 (provide 'init-mu4e)
