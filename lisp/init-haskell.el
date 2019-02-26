@@ -104,16 +104,6 @@
   (dolist (backends '(company-cabal company-ghci))
     (add-to-list 'company-backends backends)))
 
-;; hlint-refactor
-(when (executable-find "refactor")
-  (require-package 'hlint-refactor)
-  (add-hook 'haskell-mode-hook 'hlint-refactor-mode)
-  (with-eval-after-load 'haskell-mode
-    (define-key haskell-mode-map (kbd "C-c , b")
-      'hlint-refactor-refactor-buffer)
-    (define-key haskell-mode-map (kbd "C-c , r")
-      'hlint-refactor-refactor-at-point)))
-
 (defun my-haskell-insert-import ()
   "Insert import."
   (interactive)
