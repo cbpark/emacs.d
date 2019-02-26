@@ -29,6 +29,8 @@
     (define-key maxima-mode-map (kbd "C-c C-i") 'open-imaxima)
     (define-key maxima-mode-map (kbd "C-c C-k") 'maxima-stop))
 
+  (add-hook 'inferior-maxima-mode-hook (lambda () (undo-tree-mode -1)))
+
   ;; Imaxima
   (autoload 'imaxima "imaxima" "Image support for Maxima." t)
   (with-eval-after-load 'imaxima
