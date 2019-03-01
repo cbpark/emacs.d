@@ -76,11 +76,6 @@
   (define-key helm-multi-swoop-map (kbd "C-r") 'helm-previous-line)
   (define-key helm-multi-swoop-map (kbd "C-s") 'helm-next-line))
 
-;; helm-ls-git
-(require-package 'helm-ls-git)
-(global-set-key (kbd "C-x C-d") 'helm-browse-project)
-(global-set-key (kbd "C-c h g") 'helm-grep-do-git-grep)
-
 ;; helm-descbinds
 (require-package 'helm-descbinds)
 (global-set-key (kbd "C-h b") 'helm-descbinds)
