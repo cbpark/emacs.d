@@ -1,4 +1,4 @@
-personal_ws-1.1 en 177 
+personal_ws-1.1 en 178 
 perturbative
 anticommuting
 lagrangian
@@ -81,8 +81,8 @@ spinor
 spurion
 Abelian
 lightlike
-RG
 PQ
+RG
 kinematically
 collider
 LHCb
@@ -91,8 +91,8 @@ redefinitions
 ansatz
 polarizations
 VEV
-priori
 hypercharges
+priori
 invariance
 Yukawa
 compactified
@@ -121,6 +121,7 @@ masslessness
 nonvanishing
 partonic
 superpartner
+chargino
 helicities
 QCD
 CERN
@@ -129,7 +130,6 @@ pseudoscalars
 PDFs
 mixings
 supersymmetry
-Supersymmetry
 renormalized
 annihilations
 isometry
@@ -155,6 +155,7 @@ axino
 GSL
 axion
 parton
+Higgsino
 spinors
 eigenstates
 ILC
