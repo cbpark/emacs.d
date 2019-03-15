@@ -70,6 +70,7 @@
 
 (dolist (init-files '(init-auctex
                       init-cc-mode
+                      init-gnuplot
                       init-haskell
                       init-html-js
                       init-lisp-mode
