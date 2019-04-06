@@ -34,7 +34,7 @@
   (setq mu4e-get-mail-command "offlineimap -o")
 
   ;; update every 20 minuites
-  (setq mu4e-update-interval 1200)
+  ;; (setq mu4e-update-interval 1200)
 
   ;; off threading
   (setq mu4e-headers-show-threads nil)
@@ -128,6 +128,10 @@
   ;; apply format=flowed
   (setq mu4e-compose-format-flowed t)
   (add-hook 'mu4e-compose-mode-hook (lambda () (use-hard-newlines -1)))
+
+  ;; speeding up indexing
+  (setq mu4e-index-cleanup    nil ;; don't do a full cleanup check
+        mu4e-index-lazy-check t)  ;; don't consider up-to-date dirs
 
   (setq mu4e-view-show-addresses t))
 
