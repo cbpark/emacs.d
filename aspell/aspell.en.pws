@@ -1,4 +1,4 @@
-personal_ws-1.1 en 178 
+personal_ws-1.1 en 180 
 perturbative
 anticommuting
 lagrangian
@@ -14,6 +14,7 @@ eigenstate
 renormalization
 superfield
 partons
+Higgsinos
 collinear
 gluons
 minima
@@ -57,6 +58,7 @@ EWSB
 EWPT
 fermions
 Casimir
+gauginos
 helicity
 wavefunction
 MeV
@@ -81,8 +83,8 @@ spinor
 spurion
 Abelian
 lightlike
-PQ
 RG
+PQ
 kinematically
 collider
 LHCb
@@ -91,8 +93,8 @@ redefinitions
 ansatz
 polarizations
 VEV
-hypercharges
 priori
+hypercharges
 invariance
 Yukawa
 compactified
