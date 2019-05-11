@@ -64,6 +64,7 @@
 (require 'init-terms)
 (require 'init-dired)
 
+(require-package 'htmlize)
 (require 'init-mu4e)
 
 ;; (require 'init-slime)
