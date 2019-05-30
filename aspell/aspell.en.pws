@@ -1,4 +1,4 @@
-personal_ws-1.1 en 185 
+personal_ws-1.1 en 190 
 perturbative
 anticommuting
 lagrangian
@@ -14,6 +14,7 @@ eigenstate
 renormalization
 superfield
 partons
+higgsinos
 Higgsinos
 collinear
 gluons
@@ -47,8 +48,8 @@ charmonium
 SUSY
 Goldstone
 CMS
-FCNC
 sparticle
+FCNC
 NMSSM
 TeV
 diagonalize
@@ -86,8 +87,8 @@ spinor
 spurion
 Abelian
 lightlike
-RG
 PQ
+RG
 kinematically
 collider
 LHCb
@@ -129,6 +130,7 @@ superpartner
 chargino
 helicities
 QCD
+irrespectively
 CERN
 HDMs
 pseudoscalars
@@ -158,10 +160,12 @@ subdiagrams
 sparticles
 Weyl
 SFDM
+quadratically
 axino
 GSL
 axion
 parton
+higgsino
 Higgsino
 spinors
 eigenstates
@@ -179,6 +183,7 @@ renormalizations
 quartic
 superfields
 superspace
+charginos
 Higgsstrahlung
 trilinear
 Fierz
