@@ -1,4 +1,4 @@
-personal_ws-1.1 en 191 
+personal_ws-1.1 en 192 
 perturbative
 anticommuting
 lagrangian
@@ -15,7 +15,6 @@ renormalization
 superfield
 partons
 higgsinos
-Higgsinos
 collinear
 gluons
 minima
@@ -40,6 +39,7 @@ rescaling
 muon
 LHC
 anticommutation
+eq
 Eq
 phenomenologically
 EW
@@ -77,8 +77,8 @@ Higgs
 perturbativity
 CSV
 MHV
-multilepton
 singlino
+multilepton
 detections
 Subsec
 Schouten
@@ -88,8 +88,8 @@ spinor
 spurion
 Abelian
 lightlike
-PQ
 RG
+PQ
 kinematically
 collider
 LHCb
@@ -117,6 +117,7 @@ bispinors
 boson
 DFSZ
 Bjorken
+eqs
 Eqs
 chiral
 CEPC
@@ -130,6 +131,7 @@ partonic
 superpartner
 chargino
 helicities
+sleptons
 QCD
 irrespectively
 CERN
@@ -167,7 +169,6 @@ GSL
 axion
 parton
 higgsino
-Higgsino
 spinors
 eigenstates
 ILC
