@@ -4,11 +4,12 @@
 
 (require-package 'company)
 
-(setq company-idle-delay 0.1
-      company-minimum-prefix-length 3
-      company-selection-wrap-around t
-      company-show-numbers t
-      company-require-match 'never)
+(setq company-idle-delay                0.1
+      company-minimum-prefix-length     3
+      company-selection-wrap-around     t
+      company-tooltip-align-annotations t
+      company-show-numbers              t
+      company-require-match             'never)
 
 (with-eval-after-load 'comapny
   (define-key company-active-map (kbd "TAB") 'company-complete-common-or-cycle)
