@@ -73,6 +73,7 @@
                       init-cc-mode
                       init-gnuplot
                       init-haskell
+                      init-rust
                       init-html-js
                       init-lisp-mode
                       init-maxima
