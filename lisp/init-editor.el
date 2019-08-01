@@ -22,9 +22,20 @@
   (define-key paredit-mode-map (kbd "C-c )") 'paredit-forward-slurp-sexp)
   (define-key paredit-mode-map (kbd "C-c (") 'paredit-backward-slurp-sexp))
 
+;; go to matching parenthesis
+(global-set-key "%" 'my-match-paren)
+
+(defun my-match-paren (arg)
+  "Go to the matching paren if on a paren; otherwise insert %."
+  (interactive "p")
+  (cond ((looking-at "\\s(") (forward-list 1) (backward-char 1))
+        ((looking-at "\\s)") (forward-char 1) (backward-list 1))
+        (t (self-insert-command (or arg 1)))))
+
 ;; If indent-tabs-mode is off, untabify before saving
-(add-hook 'write-file-hooks (lambda () (when (not indent-tabs-mode)
-                                         (untabify (point-min) (point-max))) nil))
+(add-hook 'write-file-hooks
+          (lambda () (when (not indent-tabs-mode)
+                       (untabify (point-min) (point-max))) nil))
 
 ;; anzu
 (defconst *anzu-dir* (concat *site-lisp-dir* "anzu"))
