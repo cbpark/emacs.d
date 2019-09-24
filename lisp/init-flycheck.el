@@ -13,5 +13,7 @@
   (setq flycheck-sh-shellcheck-executable "shellcheck")
   (setq flycheck-shellcheck-excluded-warnings '("SC2046" "SC2086")))
 
+(setq-default flycheck-disabled-checkers '(python-flake8))
+
 (provide 'init-flycheck)
 ;;; init-flycheck.el ends here
