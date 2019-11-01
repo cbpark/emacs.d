@@ -5,39 +5,36 @@
 (require-package 'haskell-mode)
 (add-to-list 'completion-ignored-extensions ".hi")
 
-(with-eval-after-load 'haskell-mode
-  (add-hook 'haskell-mode-hook (lambda () (subword-mode 1)))
-  (dolist (minor-modes '(haskell-doc-mode
-                         haskell-decl-scan-mode
-                         interactive-haskell-mode))
-    (add-hook 'haskell-mode-hook minor-modes))
+(add-hook 'haskell-mode-hook (lambda () (subword-mode 1)))
+(dolist (minor-modes '(haskell-doc-mode
+                       haskell-decl-scan-mode
+                       interactive-haskell-mode))
+  (add-hook 'haskell-mode-hook minor-modes))
 
-  ;; turn off hl-line-mode in interactive modes
-  (when (fboundp 'global-hl-line-mode)
-    (dolist (hooks '(inferior-haskell-mode-hook
-                     haskell-interactive-mode-hook))
-      (add-hook hooks (lambda ()
-                        (linum-mode -1)
-                        (setq-local global-hl-line-mode nil)
-                        (undo-tree-mode -1))))))
+;; turn off hl-line-mode in interactive modes
+(when (fboundp 'global-hl-line-mode)
+  (dolist (hooks '(inferior-haskell-mode-hook
+                   haskell-interactive-mode-hook))
+    (add-hook hooks (lambda ()
+                      (linum-mode -1)
+                      (setq-local global-hl-line-mode nil)
+                      (undo-tree-mode -1)))))
 
 ;; Indentation
-(with-eval-after-load 'haskell-mode
-  (defun my-haskell-style ()
-    "Set haskell indentation offsets."
-    (interactive)
-    (setq haskell-indentation-layout-offset     4
-          haskell-indentation-starter-offset    4
-          haskell-indentation-left-offset       4
-          haskell-indentation-where-pre-offset  2
-          haskell-indentation-where-post-offset 2))
-  (add-hook 'haskell-mode-hook 'my-haskell-style))
+(defun my-haskell-style ()
+  "Set haskell indentation offsets."
+  (interactive)
+  (setq haskell-indentation-layout-offset     4
+        haskell-indentation-starter-offset    4
+        haskell-indentation-left-offset       4
+        haskell-indentation-where-pre-offset  2
+        haskell-indentation-where-post-offset 2))
+(add-hook 'haskell-mode-hook 'my-haskell-style)
 
 ;; stylish-haskell
 (when (executable-find "stylish-haskell")
-  (with-eval-after-load 'haskell-mode
-    (setq haskell-stylish-on-save nil)
-    (define-key haskell-mode-map (kbd "C-c l") 'haskell-mode-stylish-buffer)))
+  (setq haskell-stylish-on-save nil)
+  (define-key haskell-mode-map (kbd "C-c l") 'haskell-mode-stylish-buffer))
 
 ;; hindent
 (when (executable-find "hindent")
@@ -47,13 +44,13 @@
     (require 'hindent)
     (add-hook 'haskell-mode-hook 'hindent-mode)))
 
-(with-eval-after-load 'haskell-mode
-  (setq haskell-align-imports-pad-after-name t
-        haskell-process-auto-import-loaded-modules t
-        haskell-process-log t
-        haskell-process-suggest-add-package t
-        haskell-ask-also-kill-buffers nil)
+(setq haskell-align-imports-pad-after-name t
+      haskell-process-auto-import-loaded-modules t
+      haskell-process-log t
+      haskell-process-suggest-add-package t
+      haskell-ask-also-kill-buffers nil)
 
+(with-eval-after-load 'haskell-mode
   (when *helm-on*
     (setq haskell-completing-read-function 'helm--completing-read-default))
 
@@ -77,20 +74,18 @@
 
 ;; Tags
 (when (executable-find "hasktags")
+  (setq haskell-tags-on-save t)
   (with-eval-after-load 'haskell-mode
-    (setq haskell-tags-on-save t)
     (define-key haskell-mode-map (kbd "M-.") 'haskell-mode-jump-to-def-or-tag)))
 
 ;; flycheck-haskell
 (require-package 'flycheck-haskell)
-(with-eval-after-load 'flycheck
-  (add-hook 'flycheck-mode-hook 'flycheck-haskell-setup)
-  (add-hook 'haskell-mode-hook 'flycheck-mode))
+(add-hook 'flycheck-mode-hook 'flycheck-haskell-setup)
+(add-hook 'haskell-mode-hook 'flycheck-mode)
 
 ;; flyspell
 (when *has-aspell*
-  (with-eval-after-load 'haskell-mode
-    (add-hook 'haskell-mode-hook 'flyspell-prog-mode)))
+  (add-hook 'haskell-mode-hook 'flyspell-prog-mode))
 
 ;; company
 (require-package 'company-cabal)
