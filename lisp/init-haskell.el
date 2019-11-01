@@ -34,7 +34,8 @@
 ;; stylish-haskell
 (when (executable-find "stylish-haskell")
   (setq haskell-stylish-on-save nil)
-  (define-key haskell-mode-map (kbd "C-c l") 'haskell-mode-stylish-buffer))
+  (with-eval-after-load 'haskell-mode
+    (define-key haskell-mode-map (kbd "C-c l") 'haskell-mode-stylish-buffer)))
 
 ;; hindent
 (when (executable-find "hindent")
