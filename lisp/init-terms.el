@@ -34,9 +34,20 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (require 'term)
 
-(global-set-key (kbd "C-c t") (lambda ()
-                                (interactive)
-                                (ansi-term (getenv "SHELL"))))
+;; (global-set-key (kbd "C-c t") (lambda ()
+;;                                 (interactive)
+;;                                 (ansi-term (getenv "SHELL"))))
+(defun my-toggle-term ()
+  "This opens and closes a terminal in a buffer."
+  (interactive)
+  (if (get-buffer "*terminal*")
+      (kill-buffer "*terminal*")
+    (progn (split-window-below)
+           (other-window 1)
+           (enlarge-window -10)
+           (term "/usr/bin/zsh")
+           (set-window-dedicated-p (selected-window) t))))
+(global-set-key (kbd "C-c t") 'my-toggle-term)
 
 ;; Use Emacs terminfo, not system terminfo
 (setq system-uses-terminfo nil)
