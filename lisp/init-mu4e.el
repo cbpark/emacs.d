@@ -129,8 +129,8 @@
   (add-hook 'mu4e-compose-mode-hook (lambda () (use-hard-newlines -1)))
 
   ;; speeding up indexing
-  (setq mu4e-index-cleanup    nil ;; don't do a full cleanup check
-        mu4e-index-lazy-check t)  ;; don't consider up-to-date dirs
+  ;; (setq mu4e-index-cleanup    nil ;; don't do a full cleanup check
+  ;;       mu4e-index-lazy-check t)  ;; don't consider up-to-date dirs
 
   (setq mu4e-view-show-addresses t))
 
