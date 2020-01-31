@@ -1,4 +1,4 @@
-personal_ws-1.1 en 202 
+personal_ws-1.1 en 205 
 AMS
 Abelian
 BCFW
@@ -75,6 +75,7 @@ axion
 bilinear
 bispinors
 boson
+bosonic
 bosons
 calorimeter
 chargino
@@ -97,7 +98,9 @@ diagonalize
 diagonalized
 diagonalizing
 diboson
+digluon
 dijet
+dilogarithm
 dimuon
 diphoton
 eigenbasis
