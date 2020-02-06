@@ -31,6 +31,9 @@
         haskell-indentation-where-post-offset 2))
 (add-hook 'haskell-mode-hook 'my-haskell-style)
 
+;; module templates
+(add-hook 'haskell-mode-hook 'haskell-auto-insert-module-template)
+
 ;; stylish-haskell
 (when (executable-find "stylish-haskell")
   (setq haskell-stylish-on-save nil)
