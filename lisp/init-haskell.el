@@ -52,7 +52,7 @@
       haskell-process-auto-import-loaded-modules t
       haskell-process-log t
       haskell-process-suggest-add-package t
-      haskell-process-type 'cabal-new-repl
+      ;; haskell-process-type 'cabal-new-repl
       haskell-ask-also-kill-buffers nil)
 
 (with-eval-after-load 'haskell-mode

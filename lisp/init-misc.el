@@ -13,6 +13,13 @@
 (with-eval-after-load 'markdown-mode
   (add-hook 'markdown-mode-hook 'turn-off-auto-fill))
 
+(require-package 'yaml-mode)
+(setq auto-mode-alist
+      (append '(("\\.yaml$" . yaml-mode)
+                ("\\.yml$"  . yaml-mode)) auto-mode-alist))
+(add-hook 'yaml-mode-hook
+      '(lambda () (define-key yaml-mode-map "\C-m" 'newline-and-indent)))
+
 ;; syntax highlighting for sysmtemd files
 (add-to-list 'auto-mode-alist '("\\.service\\'"   . conf-unix-mode))
 (add-to-list 'auto-mode-alist '("\\.timer\\'"     . conf-unix-mode))
