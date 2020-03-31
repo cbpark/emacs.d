@@ -9,8 +9,11 @@
 ;; (set-face-attribute 'region nil :background "#666" :foreground "#ffffff")
 ;; base16-tomorrow-night theme
 (require-package 'base16-theme)
-(setq base16-theme-256-color-source "colors")
-(load-theme 'base16-tomorrow-night t)
+(setq base16-theme-256-color-source "colors"
+      base16-highlight-mode-line 'contrast
+      base16-distinct-fringe-background nil)
+;; (load-theme 'base16-tomorrow-night t)
+(load-theme 'base16-default-dark t)
 
 ;; Transparent background.
 (when (and *is-darwin* window-system)
