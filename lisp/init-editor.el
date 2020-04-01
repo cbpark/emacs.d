@@ -106,10 +106,10 @@
 (setq default-input-method "korean-hangul")
 
 ;; hl-line mode
-(dolist (hook '(prog-mode-hook
-                ;; text-mode-hook
-                ))
-  (add-hook hook 'hl-line-mode))
+;; (dolist (hook '(prog-mode-hook
+;;                 ;; text-mode-hook
+;;                 ))
+;;   (add-hook hook 'hl-line-mode))
 ;; (add-hook 'message-mode-hook (lambda () (hl-line-mode -1)))
 
 (provide 'init-editor)
