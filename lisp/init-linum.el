@@ -3,8 +3,8 @@
 ;;; Code:
 
 ;; hlinum
-;; (require-package 'hlinum)
-;; (hlinum-activate)
+(require-package 'hlinum)
+(hlinum-activate)
 
 (setq line-number-display-limit-width 10000)
 
@@ -25,6 +25,7 @@
 
 ;; (dolist (hook '(prog-mode-hook text-mode-hook))
 ;;   (add-hook hook 'linum-mode))
+;; (add-hook 'prog-mode-hook 'linum-mode)
 (add-hook 'message-mode-hook (lambda () (linum-mode -1)))
 (when (featurep 'markdown-mode)
   (add-hook 'markdown-mode-hook (lambda () (linum-mode -1))))
