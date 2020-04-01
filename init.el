@@ -49,7 +49,6 @@
 (require 'init-encoding)
 (require 'init-window)
 (require 'init-face)
-(require 'init-linum)
 
 (require 'init-helm)
 (defconst *helm-on* (featurep 'helm))
