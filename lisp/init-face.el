@@ -14,6 +14,7 @@
       base16-distinct-fringe-background nil)
 ;; (load-theme 'base16-tomorrow-night t)
 (load-theme 'base16-default-dark t)
+(setq default-frame-alist '((cursor-color . "#ab4642")))
 
 ;; Transparent background.
 (when (and *is-darwin* window-system)
