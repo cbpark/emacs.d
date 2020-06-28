@@ -26,7 +26,6 @@
           ("/cbpark_gmail.com/[Google Mail].Trash"     . ?t)
           ("/cbpark_gmail.com/ArchLinux"               . ?l)
           ("/cbpark_gmail.com/arXiv-hep"               . ?a)
-          ("/cbpark_gmail.com/Bitbucket"               . ?b)
           ("/cbpark_gmail.com/GitHub"                  . ?g)))
 
   ;; allow for updating mail using 'U' in the main view:
