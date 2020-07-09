@@ -62,7 +62,7 @@
 
 (defun flycheck-cpp-setup ()
   "Set clang language standard."
-  (setq flycheck-clang-language-standard "c++14")
+  (setq flycheck-clang-language-standard "c++17")
   (setq flycheck-clang-include-path
         (mapcar (lambda (dir)
                   (concat "/usr/local/include/" dir))
@@ -77,7 +77,7 @@
 
 (defun company-clang-args ()
   "Set company-clang-arguments."
-  (setq company-clang-arguments '("-std=c++14"))
+  (setq company-clang-arguments '("-std=c++17"))
   (when *is-darwin*
     (setq company-clang-arguments
           (append company-clang-arguments '("-stdlib=libc++")))))
