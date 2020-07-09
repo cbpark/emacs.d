@@ -72,15 +72,11 @@
           (append (list
                    (substring
                     (shell-command-to-string "root-config --incdir") 0 -1))
-                  flycheck-clang-include-path)))
-  (when *is-darwin* (setq flycheck-clang-standard-library "libc++")))
+                  flycheck-clang-include-path))))
 
 (defun company-clang-args ()
   "Set company-clang-arguments."
-  (setq company-clang-arguments '("-std=c++17"))
-  (when *is-darwin*
-    (setq company-clang-arguments
-          (append company-clang-arguments '("-stdlib=libc++")))))
+  (setq company-clang-arguments '("-std=c++17")))
 
 (add-hook 'c++-mode-hook (lambda ()
                            (c-set-offset 'innamespace 0)
@@ -90,9 +86,6 @@
 (require-package 'company-c-headers)
 (with-eval-after-load 'company
   (setq company-c-headers-path-system '("/usr/include" "/usr/local/include"))
-  (when *is-darwin*
-    (add-to-list 'company-c-headers-path-system
-                 (car (file-expand-wildcards "/usr/include/c++/4.*"))))
   (add-to-list 'company-backends 'company-c-headers))
 
 (when (executable-find "clang-format")
