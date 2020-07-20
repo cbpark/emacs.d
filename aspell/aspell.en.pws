@@ -1,4 +1,4 @@
-personal_ws-1.1 en 212 
+personal_ws-1.1 en 214 
 AMS
 Abelian
 BCFW
@@ -117,6 +117,7 @@ fermionic
 fermions
 gaugino
 gauginos
+gluinos
 gluon
 gluons
 hadron
@@ -151,6 +152,7 @@ multilepton
 muon
 neutralino
 nonvanishing
+notational
 observables
 orthochronous
 parameterizes
