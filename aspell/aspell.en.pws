@@ -1,4 +1,4 @@
-personal_ws-1.1 en 214 
+personal_ws-1.1 en 227 
 AMS
 Abelian
 BCFW
@@ -35,16 +35,21 @@ Higgses
 Higgsstrahlung
 ILC
 Jacobian
+KKT
+Karush
 LEP
 LHC
 LHCb
 Leptoquark
+MAOS
 MHV
 MSSM
 Majorana
 Mandelstam
 MeV
+Migrad
 NMSSM
+Nelder
 PDFs
 PQ
 Pseudorapidity
@@ -53,8 +58,10 @@ RG
 RGE
 Radion
 SFDM
+SQP
 SUSY
 Schouten
+Sturm
 Subsec
 TeV
 VEV
@@ -103,6 +110,7 @@ diboson
 digluon
 dijet
 dilogarithm
+dimensionful
 dimuon
 diphoton
 eigenbasis
@@ -112,6 +120,7 @@ eigenstates
 electroweak
 eq
 eqs
+executables
 fermion
 fermionic
 fermions
@@ -134,6 +143,7 @@ hypercharge
 hypercharges
 hypergeometric
 hypersurface
+infeasibility
 invariance
 invertible
 irrespectively
@@ -151,9 +161,11 @@ mixings
 multilepton
 muon
 neutralino
+nonlinearly
 nonvanishing
 notational
 observables
+optimality
 orthochronous
 parameterizes
 parametrized
@@ -194,6 +206,7 @@ spurion
 squark
 squarks
 subdiagrams
+subproblem
 superfield
 superfields
 supergravity
