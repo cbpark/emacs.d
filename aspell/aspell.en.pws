@@ -1,7 +1,8 @@
-personal_ws-1.1 en 227 
+personal_ws-1.1 en 232 
 AMS
 Abelian
 BCFW
+BFGS
 BSM
 Bjorken
 CEPC
@@ -45,6 +46,7 @@ MAOS
 MHV
 MSSM
 Majorana
+Makefile
 Mandelstam
 MeV
 Migrad
@@ -53,6 +55,7 @@ Nelder
 PDFs
 PQ
 Pseudorapidity
+Pythia
 QCD
 RG
 RGE
@@ -157,9 +160,11 @@ massless
 masslessness
 metastable
 minima
+minimizer
 mixings
 multilepton
 muon
+namespace
 neutralino
 nonlinearly
 nonvanishing
