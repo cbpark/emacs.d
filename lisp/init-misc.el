@@ -41,7 +41,7 @@
 (setq-default display-line-numbers-width 4
               display-line-numbers-widen t)
 
-(add-hook 'prog-mode-hook #'display-line-numbers-mode)
+;; (add-hook 'prog-mode-hook #'display-line-numbers-mode)
 (dolist (hook '(text-mode-hook lisp-interaction-mode-hook))
   (add-hook hook (lambda () (display-line-numbers-mode -1))))
 

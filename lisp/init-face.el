@@ -3,18 +3,18 @@
 ;;; Code:
 
 ;; zenburn theme
-;; (require-package 'zenburn-theme)
-;; (setq zenburn-override-colors-alist '(("zenburn-bg" . "#1f1f1f")))
-;; (load-theme 'zenburn t)
-;; (set-face-attribute 'region nil :background "#666" :foreground "#ffffff")
+(require-package 'zenburn-theme)
+(setq zenburn-override-colors-alist '(("zenburn-bg" . "#1f1f1f")))
+(load-theme 'zenburn t)
+(set-face-attribute 'region nil :background "#666" :foreground "#ffffff")
 ;; base16-tomorrow-night theme
-(require-package 'base16-theme)
-(setq base16-theme-256-color-source "colors"
-      base16-highlight-mode-line 'contrast
-      base16-distinct-fringe-background nil)
-;; (load-theme 'base16-tomorrow-night t)
-(load-theme 'base16-default-dark t)
-(setq default-frame-alist '((cursor-color . "#ab4642")))
+;; (require-package 'base16-theme)
+;; (setq base16-theme-256-color-source "colors"
+;;       base16-highlight-mode-line 'contrast
+;;       base16-distinct-fringe-background nil)
+;; ;; (load-theme 'base16-tomorrow-night t)
+;; (load-theme 'base16-default-dark t)
+;; (setq default-frame-alist '((cursor-color . "#ab4642")))
 
 ;; Transparent background.
 (when (and *is-darwin* window-system)
