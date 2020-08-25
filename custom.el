@@ -43,8 +43,6 @@
  '(inhibit-startup-screen t)
  '(initial-scratch-message nil)
  '(ispell-program-name "aspell")
- '(kept-new-versions 10)
- '(kept-old-versions 0)
  '(kill-whole-line t)
  '(make-backup-files nil)
  '(message-kill-buffer-on-exit t)
@@ -70,8 +68,7 @@
  '(uniquify-ignore-buffers-re "^\\*")
  '(uniquify-separator " • ")
  '(use-dialog-box nil)
- '(use-file-dialog nil)
- '(vc-make-backup-files t))
+ '(use-file-dialog nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
