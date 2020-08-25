@@ -44,8 +44,9 @@
       (kill-buffer "*terminal*")
     (progn (split-window-below)
            (other-window 1)
-           (enlarge-window -10)
-           (term "/usr/bin/zsh")
+           (enlarge-window -5)
+           ;; (term "/usr/bin/zsh")
+           (term (getenv "SHELL"))
            (set-window-dedicated-p (selected-window) t))))
 (global-set-key (kbd "C-c t") 'my-toggle-term)
 
