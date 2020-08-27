@@ -1,4 +1,4 @@
-personal_ws-1.1 en 232 
+personal_ws-1.1 en 239 
 AMS
 Abelian
 BCFW
@@ -16,6 +16,8 @@ DFSZ
 DGLAP
 DM
 ECAL
+EDM
+EDMs
 EW
 EWPT
 EWSB
@@ -116,6 +118,7 @@ dilogarithm
 dimensionful
 dimuon
 diphoton
+eEDM
 eigenbasis
 eigenoperators
 eigenstate
@@ -129,6 +132,7 @@ fermionic
 fermions
 gaugino
 gauginos
+gluino
 gluinos
 gluon
 gluons
@@ -199,7 +203,9 @@ rescaled
 rescaling
 rescalings
 saxion
+sbottom
 semileptonic
+sfermion
 sfermions
 singlino
 sleptons
@@ -210,6 +216,7 @@ spinors
 spurion
 squark
 squarks
+stau
 subdiagrams
 subproblem
 superfield
