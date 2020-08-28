@@ -72,7 +72,6 @@
                       init-cc-mode
                       init-haskell
                       ;; init-rust
-                      init-html-js
                       init-lisp-mode
                       init-maxima
                       init-python))

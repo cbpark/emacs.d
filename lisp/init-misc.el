@@ -2,6 +2,13 @@
 ;;; Commentary:
 ;;; Code:
 
+;; html and js modes
+(add-to-list 'auto-mode-alist '("\\.json$" . js-mode))
+(dolist (hook '(html-mode-hook js-mode-hook))
+  (add-hook hook (lambda ()
+                   (when *has-aspell* (flyspell-prog-mode))
+                   (company-mode 1))))
+
 ;; gnuplot mode
 (require-package 'gnuplot)
 (autoload 'gnuplot-mode "gnuplot" "gnuplot major mode" t)
