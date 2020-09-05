@@ -74,7 +74,8 @@
                       ;; init-rust
                       init-lisp-mode
                       init-maxima
-                      init-python))
+                      init-python
+                      init-org))
   (require init-files))
 
 ;; (when (executable-find "nix-env") (require 'init-nix))

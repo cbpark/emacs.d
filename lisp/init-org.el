@@ -26,11 +26,9 @@
 (setq org-latex-packages-alist '(("" "amsmath")
                                  ("" "amsfonts")
                                  ("" "amssymb")
-                                 ("" "bbm")
                                  ("small" "caption")
                                  ("margin=1in" "geometry")
-                                 ("" "mathtools")
-                                 ("" "slashed")))
+                                 ("" "mathtools")))
 (setq org-highlight-latex-and-related '(latex script entities))
 
 (require-package 'cdlatex)
@@ -41,6 +39,20 @@
 
 ;; Set the major mode of the initial *scratch* buffer to be org-mode
 ;; (setq initial-major-mode 'org-mode)
+
+;; Languages
+(org-babel-do-load-languages
+ 'org-babel-load-languages '((C          . t)
+                             (emacs-lisp . t)
+                             (gnuplot    . t)
+                             (haskell    . t)
+                             (latex      . t)
+                             (lisp       . t)
+                             (python     . t)
+                             (sql        . t)))
+
+;; show inline images
+(add-hook 'org-babel-after-execute-hook 'org-display-inline-images 'append)
 
 (provide 'init-org)
 ;;; init-org.el ends here
