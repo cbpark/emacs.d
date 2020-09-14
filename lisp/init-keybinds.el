@@ -19,6 +19,7 @@
 (global-set-key (kbd "C-x k")   'kill-this-buffer)
 (global-set-key (kbd "C-x w")   'delete-frame)
 (global-set-key (kbd "M-SPC")   'cycle-spacing)
+;; (global-set-key (kbd "C-x C-m") 'execute-extended-command)
 
 ;; scrolling without moving the point
 (global-set-key (kbd "M-p")  (lambda () (interactive) (scroll-up   4)))

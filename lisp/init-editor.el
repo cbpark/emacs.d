@@ -16,6 +16,10 @@
 (global-set-key (kbd "C-c =") 'er/expand-region)
 (global-set-key (kbd "C-=")   'er/expand-region)
 
+;; browse-kill-ring
+(require-package 'browse-kill-ring)
+(browse-kill-ring-default-keybindings)
+
 ;; Paredit
 (require-package 'paredit)
 (with-eval-after-load 'paredit
