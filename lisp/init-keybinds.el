@@ -26,13 +26,6 @@
 (global-set-key (kbd "M-p")  (lambda () (interactive) (scroll-up   4)))
 (global-set-key (kbd "M-n")  (lambda () (interactive) (scroll-down 4)))
 
-;; help command (instead of C-h)
-(global-set-key (kbd "<f1>") 'help-command)
-
-;; toggle fullscreen
-(when *is-darwin*
-  (global-set-key (kbd "M-RET") 'toggle-frame-fullscreen))
-
 ;; ibuffer
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
