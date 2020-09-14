@@ -162,7 +162,7 @@
   (insert " => "))
 
 (with-eval-after-load 'haskell-mode
-  (define-key haskell-mode-map (kbd "C-c i")   'my-haskell-insert-import)
+  (define-key haskell-mode-map (kbd "C-c C-i") 'my-haskell-insert-import)
   (define-key haskell-mode-map (kbd "C-c q")   'my-haskell-insert-import-qual)
   (define-key haskell-mode-map (kbd "C-c C-a") 'my-haskell-insert-comment)
   (define-key haskell-mode-map (kbd "C-c C-d") 'my-haskell-insert-nested-comment)

@@ -11,6 +11,7 @@
 (defalias 'dw  'delete-trailing-whitespace)
 
 ;; key bindings
+(global-set-key (kbd "C-c i")   'imenu)
 (global-set-key (kbd "C-s")     'isearch-forward-regexp)
 (global-set-key (kbd "C-r")     'isearch-backward-regexp)
 (global-set-key (kbd "C-x a r") 'align-regexp)

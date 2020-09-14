@@ -37,7 +37,7 @@
 
 (define-key c-mode-base-map (kbd "RET")     'c-context-line-break)
 (define-key c-mode-base-map (kbd "C-c C-a") 'cc-insert-comment)
-(define-key c-mode-base-map (kbd "C-c i")   'cc-insert-include)
+(define-key c-mode-base-map (kbd "C-c C-i") 'cc-insert-include)
 (define-key c-mode-base-map (kbd "C-h d")   'cc-lookup-man)
 (define-key c-mode-base-map (kbd "C-c s")   'cc-insert-std)
 (define-key c-mode-base-map (kbd "C-c c")   'cc-insert-cout)
