@@ -75,7 +75,7 @@
   (define-key haskell-cabal-mode-map (kbd "C-c C-c") 'haskell-process-cabal-build)
   (define-key haskell-cabal-mode-map (kbd "C-c c")   'haskell-process-cabal)
   (define-key haskell-cabal-mode-map (kbd "C-c C-b") 'haskell-interactive-switch)
-  (define-key haskell-cabal-mode-map (kbd "C-c o")   'haskell-session-change-target))
+  (define-key haskell-cabal-mode-map (kbd "C-c C-o")   'haskell-session-change-target))
 
 ;; Tags
 (when (executable-find "hasktags")
@@ -89,11 +89,9 @@
 (add-hook 'haskell-mode-hook 'flycheck-mode)
 
 ;; flyspell
-(when *has-aspell*
-  (add-hook 'haskell-mode-hook 'flyspell-prog-mode))
+(when *has-aspell* (add-hook 'haskell-mode-hook 'flyspell-prog-mode))
 
 ;; company
-(require-package 'company-cabal)
 (require-package 'company-ghci)
 (with-eval-after-load 'company
   (add-hook 'haskell-mode-hook
@@ -101,8 +99,7 @@
               (set (make-local-variable 'company-backend)
                    (append '((company-capf company-dabbrev-code))
                            company-backend))))
-  (dolist (backends '(company-cabal company-ghci))
-    (add-to-list 'company-backends backends)))
+  (add-to-list 'company-backends 'company-ghci))
 
 (defun my-haskell-insert-import ()
   "Insert import."
