@@ -72,7 +72,7 @@
 (dolist (init-files '(init-auctex
                       init-cc-mode
                       init-haskell
-                      ;; init-rust
+                      init-rust
                       init-lisp-mode
                       init-maxima
                       init-python
