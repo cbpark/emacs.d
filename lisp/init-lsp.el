@@ -10,9 +10,15 @@
       lsp-idle-delay 0.1
       lsp-headerline-breadcrumb-enable t)
 
+(require-package 'yasnippet)
 (with-eval-after-load 'lsp-mode
   (add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration)
+  (lsp-ui-mode)
   (yas-global-mode))
+
+(with-eval-after-load 'lsp-ui-mode
+  (define-key lsp-ui-mode-map [remap xref-find-definitions] #'lsp-ui-peek-find-definitions)
+  (define-key lsp-ui-mode-map [remap xref-find-references] #'lsp-ui-peek-find-references))
 
 (provide 'init-lsp)
 ;;; init-lsp.el ends here
