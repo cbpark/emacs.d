@@ -54,6 +54,7 @@
 (require 'init-ido)
 (defconst *helm-on* (featurep 'helm))
 
+(require 'init-lsp)
 (require 'init-projectile)
 (require 'init-flycheck)
 (require 'init-company)

@@ -66,3 +66,4 @@ network-security.data
 etc
 transient
 elpy
+.lsp-*

@@ -14,12 +14,18 @@
     (define-key rust-mode-map (kbd "C-c l") 'rust-format-buffer)))
 
 ;; racer
-(when (executable-find "racer")
-  (require-package 'racer)
-  (with-eval-after-load 'rust-mode
-    (add-hook 'rust-mode-hook 'racer-mode)
-    (dolist (minor-modes '(eldoc-mode company-mode))
-      (add-hook 'racer-mode-hook minor-modes))))
+;; (when (executable-find "racer")
+;;   (require-package 'racer)
+;;   (with-eval-after-load 'rust-mode
+;;     (add-hook 'rust-mode-hook 'racer-mode)
+;;     (dolist (minor-modes '(eldoc-mode company-mode))
+;;       (add-hook 'racer-mode-hook minor-modes))))
+
+;; lsp
+(with-eval-after-load 'rust-mode
+  (add-hook 'rust-mode-hook 'lsp)
+  (when (executable-find "rls")
+    (setq lsp-rust-server 'rls)))
 
 ;; flycheck
 (require-package 'flycheck-rust)
