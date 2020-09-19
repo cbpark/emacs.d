@@ -40,14 +40,6 @@
   (with-eval-after-load 'haskell-mode
     (define-key haskell-mode-map (kbd "C-c l") 'haskell-mode-stylish-buffer)))
 
-;; hindent
-(when (executable-find "hindent")
-  (defconst *hindent-dir* (car (file-expand-wildcards "/*/share/hindent/elisp")))
-  (when (and *hindent-dir* (file-directory-p *hindent-dir*))
-    (add-to-list 'load-path *hindent-dir*)
-    (require 'hindent)
-    (add-hook 'haskell-mode-hook 'hindent-mode)))
-
 (setq haskell-align-imports-pad-after-name t
       haskell-process-auto-import-loaded-modules t
       haskell-process-log t
@@ -75,7 +67,7 @@
   (define-key haskell-cabal-mode-map (kbd "C-c C-c") 'haskell-process-cabal-build)
   (define-key haskell-cabal-mode-map (kbd "C-c c")   'haskell-process-cabal)
   (define-key haskell-cabal-mode-map (kbd "C-c C-b") 'haskell-interactive-switch)
-  (define-key haskell-cabal-mode-map (kbd "C-c C-o")   'haskell-session-change-target))
+  (define-key haskell-cabal-mode-map (kbd "C-c C-o") 'haskell-session-change-target))
 
 ;; Tags
 (when (executable-find "hasktags")
@@ -93,12 +85,7 @@
 
 ;; company
 (require-package 'company-ghci)
-(with-eval-after-load 'company
-  (add-hook 'haskell-mode-hook
-            (lambda ()
-              (set (make-local-variable 'company-backend)
-                   (append '((company-capf company-dabbrev-code))
-                           company-backend))))
+(with-eval-after-load 'haskell-mode
   (add-to-list 'company-backends 'company-ghci))
 
 (defun my-haskell-insert-import ()
@@ -111,64 +98,22 @@
   (interactive)
   (insert "import qualified "))
 
-(defun my-haskell-insert-comment ()
-  "Insert the comments for the documentation."
-  (interactive)
-  (insert "-- | "))
-
-(defun my-haskell-insert-nested-comment ()
-  "Insert the nested comments for documentation."
-  (interactive)
-  (insert "{-|  -}")
-  (backward-char 3))
-
 (defun my-haskell-insert-pragma ()
   "Insert the pragmas."
   (interactive)
   (insert "{-# LANGUAGE  #-}")
   (backward-char 4))
 
-(defun my-haskell-main-function ()
-  "Insert main function."
-  (interactive)
-  (insert "module Main where")
-  (newline) (newline)
-  (insert "main :: IO ()")
-  (newline)
-  (insert "main = "))
-
-(defun my-haskell-module-decl ()
-  "Insert module declaration."
-  (interactive)
-  (insert "module  where")
-  (backward-char 6))
-
 (defun my-haskell-insert-undefined ()
   "Insert undefined."
   (interactive)
   (insert "undefined"))
 
-(defun my-haskell-insert-arrow ()
-  "Insert ->."
-  (interactive)
-  (insert " -> "))
-
-(defun my-haskell-insert-bigarrow ()
-  "Insert =>."
-  (interactive)
-  (insert " => "))
-
 (with-eval-after-load 'haskell-mode
   (define-key haskell-mode-map (kbd "C-c C-i") 'my-haskell-insert-import)
   (define-key haskell-mode-map (kbd "C-c q")   'my-haskell-insert-import-qual)
-  (define-key haskell-mode-map (kbd "C-c C-a") 'my-haskell-insert-comment)
-  (define-key haskell-mode-map (kbd "C-c C-d") 'my-haskell-insert-nested-comment)
   (define-key haskell-mode-map (kbd "C-c C-p") 'my-haskell-insert-pragma)
-  (define-key haskell-mode-map (kbd "C-c C-m") 'my-haskell-main-function)
-  (define-key haskell-mode-map (kbd "C-c m")   'my-haskell-module-decl)
-  (define-key haskell-mode-map (kbd "C-c u")   'my-haskell-insert-undefined)
-  (define-key haskell-mode-map (kbd "C-c n")   'my-haskell-insert-arrow)
-  (define-key haskell-mode-map (kbd "C-c C-n") 'my-haskell-insert-bigarrow))
+  (define-key haskell-mode-map (kbd "C-c u")   'my-haskell-insert-undefined))
 
 (provide 'init-haskell)
 ;;; init-haskell.el ends here

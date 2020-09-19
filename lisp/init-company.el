@@ -11,6 +11,8 @@
       company-show-numbers              t
       company-require-match             'never)
 
+(setq company-backends '((company-capf company-dabbrev-code)))
+
 (with-eval-after-load 'comapny
   (define-key company-active-map (kbd "TAB")   'company-complete-common-or-cycle)
   (define-key company-active-map (kbd "<tab>") 'company-complete-common-or-cycle)
