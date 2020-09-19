@@ -76,18 +76,18 @@
 (global-set-key (kbd "C-x 7") 'my-swap-two-windows)
 
 ;; Compilation buffer
-(defun compile-autoclose-if-successful (buffer string)
-  "Close the compilation BUFFER after a successful compilation, determined by reading the STRING."
-  (when (and (buffer-live-p buffer)
-             (string-match "compilation" (buffer-name buffer))
-             (string-match "finished" string)
-             (not (with-current-buffer buffer
-                    (goto-char (point-min))
-                    (search-forward "warning" nil t))))
-    (bury-buffer "*compilation*")
-    (winner-undo)
-    (message "Build successful.")))
-(setq compilation-finish-functions 'compile-autoclose-if-successful)
+;; (defun compile-autoclose-if-successful (buffer string)
+;;   "Close the compilation BUFFER after a successful compilation, determined by reading the STRING."
+;;   (when (and (buffer-live-p buffer)
+;;              (string-match "compilation" (buffer-name buffer))
+;;              (string-match "finished" string)
+;;              (not (with-current-buffer buffer
+;;                     (goto-char (point-min))
+;;                     (search-forward "warning" nil t))))
+;;     (bury-buffer "*compilation*")
+;;     (winner-undo)
+;;     (message "Build successful.")))
+;; (setq compilation-finish-functions 'compile-autoclose-if-successful)
 
 (require 'ansi-color)
 (defun my-ansi-colorize-compilation ()
