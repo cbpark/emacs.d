@@ -16,9 +16,10 @@
   (lsp-ui-mode)
   (yas-global-mode))
 
-(with-eval-after-load 'lsp-ui-mode
-  (define-key lsp-ui-mode-map [remap xref-find-definitions] #'lsp-ui-peek-find-definitions)
-  (define-key lsp-ui-mode-map [remap xref-find-references] #'lsp-ui-peek-find-references))
+(with-eval-after-load 'lsp-mode
+  (define-key lsp-ui-mode-map [remap xref-find-definitions] 'lsp-ui-peek-find-definitions)
+  (define-key lsp-ui-mode-map [remap xref-find-references] 'lsp-ui-peek-find-references)
+  (define-key lsp-ui-mode-map (kbd "C-c C-u") 'lsp-ui-imenu))
 
 (provide 'init-lsp)
 ;;; init-lsp.el ends here
