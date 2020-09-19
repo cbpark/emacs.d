@@ -3,16 +3,15 @@
 ;;; Code:
 
 (require-package 'rust-mode)
-(require-package 'cargo)
-(add-hook 'rust-mode-hook 'cargo-minor-mode)
+(with-eval-after-load 'rust-mode
+  (define-key rust-mode-map (kbd "C-c C-r") 'rust-run)
+  (define-key rust-mode-map (kbd "C-c C-c") 'rust-run-clippy))
 
 ;; rustfmt
 (when (executable-find "rustfmt")
   (with-eval-after-load 'rust-mode
     (setq rust-format-on-save nil)
-    (add-hook 'rust-mode-hook
-              (lambda ()
-                (local-set-key (kbd "C-c l") 'rust-format-buffer)))))
+    (define-key rust-mode-map (kbd "C-c l") 'rust-format-buffer)))
 
 ;; racer
 (when (executable-find "racer")
