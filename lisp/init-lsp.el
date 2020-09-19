@@ -11,6 +11,7 @@
       lsp-headerline-breadcrumb-enable t)
 
 (require-package 'yasnippet)
+(require-package 'which-key)
 (with-eval-after-load 'lsp-mode
   (add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration)
   (lsp-ui-mode)
@@ -18,7 +19,7 @@
 
 (with-eval-after-load 'lsp-mode
   (define-key lsp-ui-mode-map [remap xref-find-definitions] 'lsp-ui-peek-find-definitions)
-  (define-key lsp-ui-mode-map [remap xref-find-references] 'lsp-ui-peek-find-references)
+  (define-key lsp-ui-mode-map [remap xref-find-references]  'lsp-ui-peek-find-references)
   (define-key lsp-ui-mode-map (kbd "C-c C-u") 'lsp-ui-imenu))
 
 (provide 'init-lsp)
