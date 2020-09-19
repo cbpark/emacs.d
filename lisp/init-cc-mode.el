@@ -103,5 +103,11 @@
               (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
                 (ggtags-mode 1)))))
 
+;; lsp
+(when (executable-find "clangd")
+  (setq-default flycheck-disabled-checkers
+                '(c/c++-clang c/c++-cppcheck c/c++-gcc))
+  (add-hook 'c-mode-common-hook #'lsp))
+
 (provide 'init-cc-mode)
 ;;; init-cc-mode.el ends here

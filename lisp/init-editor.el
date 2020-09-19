@@ -66,12 +66,6 @@
     (byte-compile-file buffer-file-name)))
 (add-hook 'after-save-hook 'my-byte-compile-current-buffer)
 
-;; Semantic mode
-;; (require 'semantic)
-;; (global-semanticdb-minor-mode 1)
-;; (global-semantic-idle-scheduler-mode 1)
-;; (semantic-mode 1)
-
 ;; Move text up/down.
 (defun my-move-text-internal (arg)
   "Move text ARG lines."
