@@ -53,6 +53,10 @@
 ;; PKGBUILD files
 (add-to-list 'auto-mode-alist '("/PKGBUILD$" . shell-script-mode))
 
+;; rainbow-delimeter
+(require-package 'rainbow-delimiters)
+(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
+
 ;; display-line-numbers
 (setq-default display-line-numbers-width 4
               display-line-numbers-widen t)
