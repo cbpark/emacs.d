@@ -14,7 +14,8 @@
       ido-ignore-extensions t
       ido-max-prospects 10
       ido-use-filename-at-point nil
-      ido-use-url-at-point nil)
+      ido-use-url-at-point nil
+      ido-use-virtual-buffers t)
 
 (setq ido-ignore-buffers '("\\` " "^\\*.*buffer\\*$" "^\\*GNU Emacs\\*$"
                            "\\.log$" "^.*Help\\*$" "^\\*Warnings\\*$"
