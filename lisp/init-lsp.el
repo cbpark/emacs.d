@@ -13,8 +13,10 @@
       lsp-eldoc-render-all t
       lsp-enable-imenu t)
 
-(require-package 'yasnippet)
 (require-package 'which-key)
+(which-key-mode)
+
+(require-package 'yasnippet)
 (with-eval-after-load 'lsp-mode
   (add-hook 'lsp-mode-hook #'lsp-enable-which-key-integration)
   (yas-global-mode))
