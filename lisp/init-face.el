@@ -16,6 +16,12 @@
 ;; (load-theme 'base16-default-dark t)
 ;; (setq default-frame-alist '((cursor-color . "#ab4642")))
 
+;; doom-modeline
+(require-package 'doom-modeline)
+(require-package 'all-the-icons)
+(setq doom-modeline-icon (display-graphic-p))
+(doom-modeline-mode 1)
+
 ;; Transparent background.
 (when (and *is-darwin* window-system)
   (set-frame-parameter (selected-frame) 'alpha '(96 96))
