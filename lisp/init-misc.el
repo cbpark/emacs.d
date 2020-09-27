@@ -57,6 +57,16 @@
 (require-package 'rainbow-delimiters)
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 
+;; treemacs
+(require-package 'treemacs)
+(require-package 'treemacs-projectile)
+(setq treemacs-follow-mode t
+      treemacs-filewatch-mode t)
+(global-set-key (kbd "M-0")       'treemacs-select-window)
+(global-set-key (kbd "C-x t 1")   'treemacs-delete-other-windows)
+(global-set-key (kbd "C-x t t")   'treemacs)
+(global-set-key (kbd "C-x t C-t") 'treemacs-find-file)
+
 ;; display-line-numbers
 (setq-default display-line-numbers-width 4
               display-line-numbers-widen t)
