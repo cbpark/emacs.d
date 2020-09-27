@@ -8,7 +8,10 @@
       read-process-output-max (* 1024 1024)
       lsp-idle-delay 0.1
       lsp-headerline-breadcrumb-enable nil
-      lsp-modeline-code-actions-segments '(count name icon))
+      lsp-modeline-code-actions-segments '(count name icon)
+      lsp-enable-snippet t
+      lsp-eldoc-render-all t
+      lsp-enable-imenu t)
 
 (require-package 'yasnippet)
 (require-package 'which-key)
