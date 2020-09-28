@@ -61,7 +61,8 @@
 (require-package 'treemacs)
 (require-package 'treemacs-projectile)
 (setq treemacs-follow-mode t
-      treemacs-filewatch-mode t)
+      treemacs-filewatch-mode t
+      treemacs-is-never-other-window t)
 (global-set-key (kbd "M-0")       'treemacs-select-window)
 (global-set-key (kbd "C-x t 1")   'treemacs-delete-other-windows)
 (global-set-key (kbd "C-x t t")   'treemacs)

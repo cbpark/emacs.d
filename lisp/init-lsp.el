@@ -7,7 +7,7 @@
 (setq gc-cons-threshold (* 100 1024 1024)
       read-process-output-max (* 1024 1024)
       lsp-idle-delay 0.1
-      lsp-headerline-breadcrumb-enable nil
+      lsp-headerline-breadcrumb-enable t
       lsp-modeline-code-actions-segments '(count name icon)
       lsp-enable-snippet t
       lsp-eldoc-render-all t
