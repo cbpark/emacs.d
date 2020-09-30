@@ -104,7 +104,8 @@
                 (ggtags-mode 1)))))
 
 ;; lsp
-(when (executable-find "clangd")
+(when (executable-find "ccls")
+  (require-package 'ccls)
   (setq-default flycheck-disabled-checkers
                 '(c/c++-clang c/c++-cppcheck c/c++-gcc))
   (add-hook 'c-mode-common-hook #'lsp))
