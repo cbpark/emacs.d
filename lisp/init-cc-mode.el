@@ -49,10 +49,10 @@
 ;; use line comments by default
 (add-hook 'c-mode-hook (lambda () (c-toggle-comment-style -1)))
 
-(require-package 'c-eldoc)
-(if (executable-find "clang")
-    (setq c-eldoc-cpp-command "clang")
-  (setq c-eldoc-cpp-command "cpp"))
+;; (require-package 'c-eldoc)
+;; (if (executable-find "clang")
+;;     (setq c-eldoc-cpp-command "clang")
+;;   (setq c-eldoc-cpp-command "cpp"))
 
 (add-hook 'c-mode-common-hook (lambda ()
                                 (c-toggle-hungry-state 1)
@@ -94,14 +94,14 @@
   (define-key c-mode-base-map (kbd "C-c l")  'clang-format-buffer))
 
 ;; GNU Global
-(when (executable-find "global")
-  (if (file-exists-p (concat *site-lisp-dir* "ggtags.el"))
-      (require 'ggtags)
-    (require-package 'ggtags))
-  (add-hook 'c-mode-common-hook
-            (lambda ()
-              (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
-                (ggtags-mode 1)))))
+;; (when (executable-find "global")
+;;   (if (file-exists-p (concat *site-lisp-dir* "ggtags.el"))
+;;       (require 'ggtags)
+;;     (require-package 'ggtags))
+;;   (add-hook 'c-mode-common-hook
+;;             (lambda ()
+;;               (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
+;;                 (ggtags-mode 1)))))
 
 ;; lsp
 (when (executable-find "ccls")
