@@ -8,8 +8,7 @@
   (add-to-list 'load-path *mu4e-dir*)
   (require 'mu4e)
 
-  (setq mu4e-maildir "~/Maildir"
-        mu4e-attachment-dir  "~/Downloads"
+  (setq mu4e-attachment-dir  "~/Downloads"
         mu4e-sent-folder "/cbpark_gmail.com/[Google Mail].Sent Mail"
         mu4e-trash-folder "/cbpark_gmail.com/[Google Mail].Trash")
 
@@ -74,9 +73,7 @@
   (add-hook 'dired-mode-hook 'turn-on-gnus-dired-mode)
 
   ;; personal info
-  (setq mu4e-user-mail-address-list (list "cbpark@gmail.com"
-                                          "cbpark@ibs.re.kr")
-        mu4e-compose-signature-auto-include nil
+  (setq mu4e-compose-signature-auto-include nil
         user-full-name "Chan Beom Park"
         user-mail-address "cbpark@gmail.com")
 
