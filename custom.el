@@ -18,7 +18,6 @@
  '(column-number-mode t)
  '(compilation-ask-about-save nil)
  '(confirm-nonexistent-file-or-buffer t)
- '(current-language-environment "UTF-8")
  '(delete-old-versions t)
  '(delete-selection-mode t)
  '(dired-dwim-target t)
