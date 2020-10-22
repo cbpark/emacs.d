@@ -20,9 +20,6 @@
 (setq ido-ignore-files (quote (".DS_Store" ".localized" "Thumbs.db"
                                "desktop.ini" "*.aux")))
 
-;; icomplete
-(icomplete-mode t)
-
 (global-set-key (kbd "C-x C-m") (lambda ()
                                   (interactive)
                                   (call-interactively

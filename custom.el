@@ -39,6 +39,7 @@
  '(global-auto-revert-non-file-buffers t)
  '(hourglass-delay 2)
  '(ibuffer-expert t)
+ '(icomplete-mode t)
  '(imenu-auto-rescan t)
  '(indent-tabs-mode nil)
  '(inhibit-startup-screen t)
