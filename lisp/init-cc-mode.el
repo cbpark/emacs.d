@@ -8,17 +8,6 @@
 (setq-default c-basic-offset 4)
 (setq c-default-style "k&r")
 
-(defun cc-insert-comment ()
-  "Insert the comments for documentation."
-  (interactive)
-  (insert "/*  */")
-  (backward-char 3))
-
-(defun cc-insert-include ()
-  "Insert the #include."
-  (interactive)
-  (insert "#include "))
-
 (defun cc-lookup-man ()
   "Look up man page."
   (interactive)
@@ -36,8 +25,6 @@
   (insert "cout << "))
 
 (define-key c-mode-base-map (kbd "RET")     'c-context-line-break)
-(define-key c-mode-base-map (kbd "C-c C-a") 'cc-insert-comment)
-(define-key c-mode-base-map (kbd "C-c C-i") 'cc-insert-include)
 (define-key c-mode-base-map (kbd "C-h d")   'cc-lookup-man)
 (define-key c-mode-base-map (kbd "C-c s")   'cc-insert-std)
 (define-key c-mode-base-map (kbd "C-c c")   'cc-insert-cout)
@@ -92,16 +79,6 @@
   (require 'clang-format)
   (define-key c-mode-base-map (kbd "C-M-\\") 'clang-format-region)
   (define-key c-mode-base-map (kbd "C-c l")  'clang-format-buffer))
-
-;; GNU Global
-;; (when (executable-find "global")
-;;   (if (file-exists-p (concat *site-lisp-dir* "ggtags.el"))
-;;       (require 'ggtags)
-;;     (require-package 'ggtags))
-;;   (add-hook 'c-mode-common-hook
-;;             (lambda ()
-;;               (when (derived-mode-p 'c-mode 'c++-mode 'java-mode)
-;;                 (ggtags-mode 1)))))
 
 ;; lsp
 (when (executable-find "ccls")
