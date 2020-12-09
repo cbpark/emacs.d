@@ -1,10 +1,11 @@
-personal_ws-1.1 en 248 
+personal_ws-1.1 en 252 
 AMS
 Abelian
 BCFW
 BFGS
 BSM
 Bjorken
+CDF
 CEPC
 CERN
 CKM
@@ -62,6 +63,7 @@ Pythia
 QCD
 RG
 RGE
+RPC
 Radion
 SFDM
 SQP
@@ -70,6 +72,7 @@ Schouten
 Sturm
 Subsec
 TeV
+Tevatron
 VEV
 VEVs
 Weyl
@@ -117,6 +120,7 @@ diboson
 digluon
 dijet
 dilaton
+dileptonic
 dilogarithm
 dimensionful
 dimuon
