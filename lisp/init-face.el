@@ -4,7 +4,8 @@
 
 ;; zenburn theme
 (require-package 'zenburn-theme)
-(setq zenburn-override-colors-alist '(("zenburn-bg" . "#1f1f1f")))
+;; (setq zenburn-override-colors-alist '(("zenburn-bg" . "#1f1f1f")))
+(setq zenburn-override-colors-alist '(("zenburn-bg" . "#232629")))
 (load-theme 'zenburn t)
 (set-face-attribute 'region nil :background "#666" :foreground "#ffffff")
 ;; base16-tomorrow-night theme
@@ -23,7 +24,7 @@
 (doom-modeline-mode 1)
 
 ;; Transparent background.
-(when (and *is-darwin* window-system)
+(when window-system
   (set-frame-parameter (selected-frame) 'alpha '(96 96))
   (add-to-list 'default-frame-alist '(alpha 96 96)))
 
