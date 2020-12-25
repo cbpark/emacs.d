@@ -18,6 +18,11 @@
 (add-hook 'LaTeX-mode-hook 'TeX-PDF-mode)
 (setq LaTeX-command "latex -synctex=1 --shell-escape -interaction=nonstopmode -halt-on-error -file-line-error")
 
+;; PDF viewer
+(when *is-linux*
+  (setq TeX-view-program-selection
+        '((output-pdf "Okular") (output-pdf "Evince") (output-pdf "xdg-open"))))
+
 ;; synctex
 (add-hook 'LaTeX-mode-hook 'TeX-source-correlate-mode)
 (setq TeX-source-correlate-method 'synctex
