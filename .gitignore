@@ -53,6 +53,7 @@ ac-comphist.dat
 bookmarks
 .emacs.desktop
 .places
+session*
 tramp
 recentf
 projectile-bookmarks.eld
