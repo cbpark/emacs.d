@@ -18,10 +18,10 @@
 (add-hook 'LaTeX-mode-hook 'TeX-PDF-mode)
 (setq LaTeX-command "latex -synctex=1 --shell-escape -interaction=nonstopmode -halt-on-error -file-line-error")
 
-;; PDF viewer
-(when *is-linux*
-  (setq TeX-view-program-selection
-        '((output-pdf "Okular") (output-pdf "Evince") (output-pdf "xdg-open"))))
+;; PDF viewer (okular)
+(when (and *is-linux* (executable-find "okular"))
+  (eval-after-load "tex"
+    '(setcar (cdr (assoc 'output-pdf TeX-view-program-selection)) "Okular")))
 
 ;; synctex
 (add-hook 'LaTeX-mode-hook 'TeX-source-correlate-mode)
