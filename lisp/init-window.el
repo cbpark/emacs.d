@@ -28,6 +28,9 @@
                                          (horizontal-scroll-bars . nil)))
               (set-fringe-mode 0))))
 
+;; Make the frame appear truly maximized
+(setq frame-resize-pixelwise t)
+
 ;; Turn on winner-mode
 (when (fboundp 'winner-mode)
   (winner-mode 1)
