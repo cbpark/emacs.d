@@ -26,15 +26,17 @@
 
 ;; Display completions vertically
 (setq ido-decorations
-      (quote ("\n-> " "" "\n   " "\n   ..." "[" "]" " [No match]" " [Matched]" " [Not readable]" " [Too big]" " [Confirm]")))
+      (quote ("\n-> " "" "\n   " "\n   ..." "[" "]" " [No match]"
+              " [Matched]" " [Not readable]" " [Too big]" " [Confirm]")))
 (setq max-mini-window-height 0.2)
 (add-hook 'ido-minibuffer-setup-hook
           (lambda ()
             (set (make-local-variable 'truncate-lines) nil)))
-(defun ido-define-keys ()
-  (define-key ido-completion-map (kbd "C-n") 'ido-next-match)
-  (define-key ido-completion-map (kbd "C-p") 'ido-prev-match))
-(add-hook 'ido-setup-hook 'ido-define-keys)
+(with-eval-after-load 'ido
+  (defun ido-define-keys ()
+    (define-key ido-completion-map (kbd "C-n") 'ido-next-match)
+    (define-key ido-completion-map (kbd "C-p") 'ido-prev-match))
+  (add-hook 'ido-setup-hook 'ido-define-keys))
 
 ;; M-x mode
 (global-set-key (kbd "C-x C-m") (lambda ()
