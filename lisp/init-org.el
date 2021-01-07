@@ -38,18 +38,7 @@
 (eval-after-load 'org '(require 'ox-md nil t))
 
 ;; Set the major mode of the initial *scratch* buffer to be org-mode
-;; (setq initial-major-mode 'org-mode)
-
-;; Languages
-(org-babel-do-load-languages
- 'org-babel-load-languages '((C          . t)
-                             (emacs-lisp . t)
-                             (gnuplot    . t)
-                             (haskell    . t)
-                             (latex      . t)
-                             (lisp       . t)
-                             (python     . t)
-                             (sql        . t)))
+(setq initial-major-mode 'org-mode)
 
 ;; show inline images
 (add-hook 'org-babel-after-execute-hook 'org-display-inline-images 'append)
