@@ -1,4 +1,4 @@
-#! /usr/bin/env bash
+#! /bin/sh
 
 EMACSD=$HOME/.emacs.d
 
@@ -27,11 +27,12 @@ else
     #     done
     # fi
 
-    mkdir -p ${EMACSD}/{backup,autosave,etc}
-    pushd
-    cd $HOME/.emacs.d/lisp
+    mkdir -pv ${EMACSD}/{backup,autosave,etc}
+    mkdir -pv $HOME/Documents/org
+    pushd || exit 1
+    cd $HOME/.emacs.d/lisp || exit 1
     emacs -Q --batch --eval '(batch-byte-recompile-directory 0)'
-    popd
+    popd || exit 1
 
-    echo -e "-- Succeesfully done.\n-- Happy Hacking!"
+    echo -e "-- Succeesfully installed.\n-- Happy Hacking!"
 fi
