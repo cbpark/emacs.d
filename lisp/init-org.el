@@ -3,6 +3,10 @@
 ;;; Code:
 
 (require 'org)
+
+;; Set the major mode of the initial *scratch* buffer to be org-mode
+(setq initial-major-mode 'org-mode)
+
 ;; (add-to-list 'auto-mode-alist '("\\.txt\\'" . org-mode))
 (setq org-directory "~/Documents/org"
       org-agenda-files (directory-files-recursively
@@ -19,10 +23,16 @@
       org-html-validation-link nil)
 (setq org-src-fontify-natively t
       org-src-preserve-indentation nil
-      org-edit-src-content-indentation 0)
+      org-edit-src-content-indentation 0
+      org-startup-indented t
+      org-src-tab-acts-natively t
+      org-hide-emphasis-markers t)
 
-;; Set the major mode of the initial *scratch* buffer to be org-mode
-(setq initial-major-mode 'org-mode)
+;; turn on visual line mode
+(add-hook 'org-mode-hook 'visual-line-mode)
+
+;; turn off auto fill mode
+(add-hook 'org-mode-hook 'turn-off-auto-fill)
 
 ;; show inline images
 (add-hook 'org-babel-after-execute-hook 'org-display-inline-images 'append)
