@@ -5,7 +5,8 @@
 (require 'org)
 ;; (add-to-list 'auto-mode-alist '("\\.txt\\'" . org-mode))
 (setq org-directory "~/Documents/org"
-      org-agenda-files (file-expand-wildcards "~/Documents/org/*.org")
+      org-agenda-files (directory-files-recursively
+                        "~/Documents/org/" "\\.org$")
       org-log-done 'time)
 
 (global-set-key (kbd "C-c l") 'org-store-link)
