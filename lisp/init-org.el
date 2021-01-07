@@ -21,28 +21,40 @@
       org-src-preserve-indentation nil
       org-edit-src-content-indentation 0)
 
+;; Set the major mode of the initial *scratch* buffer to be org-mode
+(setq initial-major-mode 'org-mode)
+
+;; show inline images
+(add-hook 'org-babel-after-execute-hook 'org-display-inline-images 'append)
+
 ;; LaTeX export
 (setq org-latex-default-packages-alist
       (remove '("AUTO" "inputenc" t) org-latex-default-packages-alist))
 (setq org-latex-packages-alist '(("" "amsmath")
                                  ("" "amsfonts")
                                  ("" "amssymb")
-                                 ("small" "caption")
                                  ("margin=1in" "geometry")
                                  ("" "mathtools")))
 (setq org-highlight-latex-and-related '(latex script entities))
+(setq org-format-latex-options
+      (plist-put org-format-latex-options :scale 2.0))
+
+(setq org-latex-pdf-process
+      '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+        "bibtex %b"
+        "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+        "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
+
+;; syntax highlighted source code for LaTeX
+(setq org-latex-listings 'minted)
+(require 'ox-latex)
+(add-to-list 'org-latex-packages-alist '("" "minted"))
 
 (require-package 'cdlatex)
 (add-hook 'org-mode-hook 'turn-on-org-cdlatex)
 
 ;; markdown
 (eval-after-load 'org '(require 'ox-md nil t))
-
-;; Set the major mode of the initial *scratch* buffer to be org-mode
-(setq initial-major-mode 'org-mode)
-
-;; show inline images
-(add-hook 'org-babel-after-execute-hook 'org-display-inline-images 'append)
 
 (provide 'init-org)
 ;;; init-org.el ends here
