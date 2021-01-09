@@ -19,7 +19,7 @@
 ;; doom-modeline
 (require-package 'doom-modeline)
 (require-package 'all-the-icons)
-(setq doom-modeline-icon (display-graphic-p))
+(setq doom-modeline-icon t)
 (doom-modeline-mode 1)
 
 ;; Transparent background.
@@ -34,8 +34,14 @@
 
 ;; Font
 (add-to-list 'default-frame-alist '(font . "Source Code Pro-9"))
-(set-fontset-font t 'hangul (font-spec :name "NanumGothic"))
-(setq face-font-rescale-alist '(("NanumGothic" . 1.1)))
+(defun set-font-hangul (frame)
+  "If the FRAME created in GUI, set the font for hangul."
+  (if (display-graphic-p frame)
+      (progn
+        (set-fontset-font t 'hangul (font-spec :name "NanumGothic"))
+        (setq face-font-rescale-alist '(("NanumGothic" . 1.1))))))
+(mapc 'set-font-hangul (frame-list))
+(add-hook 'after-make-frame-functions 'set-font-hangul)
 
 (provide 'init-face)
 ;;; init-face.el ends here
