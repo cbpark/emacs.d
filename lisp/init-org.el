@@ -47,7 +47,7 @@
                                  ("" "mathtools")))
 (setq org-highlight-latex-and-related '(latex script entities))
 (setq org-format-latex-options
-      (plist-put org-format-latex-options :scale 2.0))
+      (plist-put org-format-latex-options :scale 1.5))
 
 (setq org-latex-pdf-process
       '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
