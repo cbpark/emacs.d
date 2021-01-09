@@ -34,6 +34,8 @@
 
 ;; Font
 (add-to-list 'default-frame-alist '(font . "Source Code Pro-9"))
+(set-fontset-font t 'hangul (font-spec :name "NanumGothic"))
+(setq face-font-rescale-alist '(("NanumGothic" . 1.1)))
 
 (provide 'init-face)
 ;;; init-face.el ends here
