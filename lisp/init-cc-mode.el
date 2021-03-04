@@ -44,8 +44,7 @@
 (add-hook 'c-mode-common-hook (lambda ()
                                 (c-toggle-hungry-state 1)
                                 (subword-mode 1)
-                                (when *has-aspell* (flyspell-prog-mode))
-                                (c-turn-on-eldoc-mode)))
+                                (when *has-aspell* (flyspell-prog-mode))))
 
 (defun flycheck-cpp-setup ()
   "Set clang language standard."
