@@ -1,4 +1,4 @@
-personal_ws-1.1 en 257 
+personal_ws-1.1 en 269 
 AMS
 Abelian
 BCFW
@@ -34,6 +34,8 @@ Gramian
 HCAL
 HDM
 HDMs
+HSCP
+HSCPs
 Hermitian
 Higgs
 Higgses
@@ -46,6 +48,8 @@ Karush
 LEP
 LHC
 LHCb
+LOSP
+LSP
 Leptoquark
 MAOS
 MHV
@@ -65,6 +69,7 @@ QCD
 RG
 RGE
 RPC
+RPV
 Radion
 SFDM
 SQP
@@ -94,6 +99,7 @@ axion
 axionic
 baryogenesis
 bilinear
+bino
 bispinors
 boson
 bosonic
@@ -103,6 +109,7 @@ chargino
 charginos
 charmonium
 chiral
+coannihilations
 collider
 colliders
 collinear
@@ -222,11 +229,14 @@ rescaling
 rescalings
 saxion
 sbottom
+selectron
 semileptonic
 sfermion
 sfermions
 singlino
+slepton
 sleptons
+smuon
 sparticle
 sparticles
 spinor
@@ -235,6 +245,7 @@ spurion
 squark
 squarks
 stau
+staus
 subdiagrams
 subproblem
 superfield
@@ -247,6 +258,7 @@ superpotential
 superspace
 supersymmetric
 supersymmetry
+tachyonic
 timelike
 topologies
 traceless
