@@ -1,11 +1,13 @@
-personal_ws-1.1 en 269 
+personal_ws-1.1 en 276 
 AMS
 Abelian
 BCFW
 BFGS
+BNL
 BSM
 BaBar
 Bjorken
+Brookhaven
 CDF
 CEPC
 CERN
@@ -24,6 +26,7 @@ EW
 EWPT
 EWSB
 FCNC
+Fermilab
 Fierz
 GC
 GIM
@@ -104,6 +107,7 @@ bispinors
 boson
 bosonic
 bosons
+brane
 calorimeter
 chargino
 charginos
@@ -141,6 +145,7 @@ eigenoperators
 eigenstate
 eigenstates
 electroweak
+electroweakinos
 eq
 eqs
 executables
@@ -237,6 +242,8 @@ singlino
 slepton
 sleptons
 smuon
+smuons
+sneutrino
 sparticle
 sparticles
 spinor
