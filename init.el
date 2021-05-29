@@ -50,8 +50,8 @@
 (require 'init-window)
 (require 'init-face)
 
-;; (require 'init-helm)
-(require 'init-ido)
+(require 'init-helm)
+;; (require 'init-ido)
 (defconst *helm-on* (featurep 'helm))
 
 (require 'init-lsp)

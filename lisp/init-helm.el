@@ -20,13 +20,10 @@
       '("\\.elc$" "\\.o$" "\\.hi$" "\\.pyc$" "\\.localized$" "\\.DS_Store$"
         "\\.git$" "\\.hg$" "\\.svn$"))
 (setq helm-split-window-default-side        'other
-      helm-candidate-number-limit           50
+      helm-candidate-number-limit           20
       helm-ff-file-name-history-use-recentf t
-      helm-buffers-fuzzy-matching           t
-      helm-M-x-fuzzy-match                  t
-      helm-imenu-fuzzy-match                t
-      helm-apropos-fuzzy-match              t
-      helm-semantic-fuzzy-match             t)
+      helm-completion-style                 'emacs
+      completion-styles                     '(flex))
 
 ;; Save curren position when jumping
 (add-hook 'helm-goto-line-before-hook 'helm-save-current-pos-to-mark-ring)
