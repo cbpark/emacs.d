@@ -23,7 +23,6 @@
         '(("/cbpark_gmail.com/INBOX"                   . ?i)
           ("/cbpark_gmail.com/[Google Mail].Sent Mail" . ?s)
           ("/cbpark_gmail.com/[Google Mail].Trash"     . ?t)
-          ("/cbpark_gmail.com/ArchLinux"               . ?l)
           ("/cbpark_gmail.com/arXiv-hep"               . ?a)
           ("/cbpark_gmail.com/GitHub"                  . ?g)))
 
